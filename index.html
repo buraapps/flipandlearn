@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flip & Learn — Memory Card Language Game for Kids</title>
+<meta name="description" content="Flip & Learn is the fun memory card game that teaches children new words in 9 languages. Perfect for ages 3 and up. Available on iPhone and iPad.">
+<meta property="og:title" content="Flip & Learn — Memory & Language">
+<meta property="og:description" content="Fun memory card game that teaches 9 languages for kids ages 3+">
+<meta property="og:image" content="icon.png">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-brand {
+    font-size: 17px;
+    font-weight: 600;
+    color: #3A3589;
+    text-decoration: none;
+  }
+  .nav-links a {
+    color: #3A3589;
+    text-decoration: none;
+    font-size: 15px;
+    margin-left: 28px;
+    opacity: 0.8;
+  }
+  .nav-links a:hover { opacity: 1; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #3A3589 0%, #5E5CE6 60%, #7B79F0 100%);
+    color: white;
+    text-align: center;
+    padding: 80px 20px 100px;
+  }
+  .hero-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 26px;
+    margin: 0 auto 28px;
+    display: block;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+  .hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 20px;
+    opacity: 0.88;
+    max-width: 520px;
+    margin: 0 auto 36px;
+  }
+  .badge-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .appstore-btn {
+    display: inline-block;
+    margin-top: 12px;
+    background: white;
+    color: #3A3589;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14px 36px;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: transform 0.15s, opacity 0.15s;
+  }
+  .appstore-btn:hover { opacity: 0.9; transform: scale(1.02); }
+  .coming-soon {
+    font-size: 13px;
+    opacity: 0.6;
+    margin-top: 10px;
+  }
+
+  /* SECTION */
+  section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 72px 24px;
+  }
+  section h2 {
+    font-size: 34px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 48px;
+    color: #1d1d1f;
+  }
+
+  /* FEATURES */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .feature-card {
+    background: white;
+    border-radius: 18px;
+    padding: 28px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .feature-icon {
+    font-size: 36px;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .feature-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1d1d1f;
+  }
+  .feature-card p {
+    font-size: 15px;
+    color: #6e6e73;
+    line-height: 1.5;
+  }
+
+  /* LANGUAGES */
+  .lang-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+  }
+  .lang-card {
+    background: white;
+    border-radius: 14px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .lang-flag { font-size: 32px; display: block; margin-bottom: 8px; }
+  .lang-name { font-size: 15px; font-weight: 600; color: #1d1d1f; }
+  .lang-tag { font-size: 12px; color: #6e6e73; margin-top: 2px; }
+
+  /* CATEGORIES */
+  .cat-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  .cat-chip {
+    background: white;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 20px;
+    padding: 8px 18px;
+    font-size: 15px;
+    color: #3A3589;
+    font-weight: 500;
+  }
+
+  /* LEVELS */
+  .levels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+  }
+  .level-card {
+    background: white;
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .level-emoji { font-size: 28px; display: block; margin-bottom: 8px; }
+  .level-name { font-size: 16px; font-weight: 600; color: #1d1d1f; }
+  .level-desc { font-size: 13px; color: #6e6e73; margin-top: 4px; }
+
+  /* SAFE */
+  .safe-section {
+    background: linear-gradient(135deg, #3A3589, #5E5CE6);
+    color: white;
+    border-radius: 24px;
+    padding: 48px 40px;
+    text-align: center;
+    margin: 0 24px 72px;
+  }
+  .safe-section h2 { color: white; margin-bottom: 32px; }
+  .safe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .safe-item { font-size: 15px; opacity: 0.9; }
+  .safe-item span { font-size: 24px; display: block; margin-bottom: 6px; }
+
+  /* PRICING */
+  .pricing-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  @media (max-width: 600px) { .pricing-cards { grid-template-columns: 1fr; } }
+  .price-card {
+    background: white;
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .price-card.featured {
+    background: linear-gradient(135deg, #3A3589, #5E5CE6);
+    color: white;
+  }
+  .price-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+  .price-amount { font-size: 36px; font-weight: 700; margin: 12px 0; }
+  .price-card ul { list-style: none; font-size: 14px; text-align: left; margin-top: 16px; }
+  .price-card ul li { padding: 4px 0; }
+  .price-card ul li::before { content: "✓ "; font-weight: 600; }
+  .price-card.featured ul li::before { color: #a8f0c8; }
+
+  /* SUPPORT */
+  .support-box {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .support-box h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
+  .support-box p { color: #6e6e73; margin-bottom: 20px; }
+  .email-btn {
+    display: inline-block;
+    background: #3A3589;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .email-btn:hover { background: #5E5CE6; }
+
+  /* FOOTER */
+  footer {
+    background: #1d1d1f;
+    color: #888;
+    text-align: center;
+    padding: 32px 20px;
+    font-size: 14px;
+  }
+  footer a { color: #aaa; text-decoration: none; margin: 0 12px; }
+  footer a:hover { color: white; }
+  .footer-links { margin-bottom: 12px; }
+
+  /* DIVIDER */
+  .alt-bg { background: white; }
+  .alt-bg section { padding: 72px 24px; }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 32px; }
+    nav { padding: 0 16px; }
+    .nav-links { display: none; }
+    .safe-section { margin: 0 12px 48px; padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="index.html">🃏 Flip & Learn</a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#languages">Languages</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#support">Support</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="icon.png" alt="Flip & Learn App Icon" class="hero-icon"
+       onerror="this.style.display='none'">
+  <h1>Flip &amp; Learn</h1>
+  <p>The fun memory card game that teaches children new words in 9 languages</p>
+  <div class="badge-row">
+    <span class="badge">Ages 3+</span>
+    <span class="badge">9 Languages</span>
+    <span class="badge">20 Categories</span>
+    <span class="badge">No Ads Ever</span>
+    <span class="badge">Works Offline</span>
+  </div>
+  <a href="#" class="appstore-btn">⬇ Download on the App Store</a>
+  <p class="coming-soon">Coming soon to the App Store</p>
+</div>
+
+<!-- FEATURES -->
+<div class="alt-bg" id="features">
+<section>
+  <h2>Everything kids love, everything parents trust</h2>
+  <div class="features">
+    <div class="feature-card">
+      <span class="feature-icon">🃏</span>
+      <h3>Classic Memory Game</h3>
+      <p>Flip cards to find matching pairs. Beautiful 3D flip animations make every match satisfying.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔊</span>
+      <h3>Speaks Every Word</h3>
+      <p>When a match is found, the app speaks the word out loud in the chosen language using native text-to-speech.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⭐</span>
+      <h3>Stars & Trophies</h3>
+      <p>Earn 1-3 stars per game. Collect stars to unlock 9 different card back designs including the legendary Dino at 1000 stars.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🧒</span>
+      <h3>Personal Avatar</h3>
+      <p>Children choose their own animal avatar and name. The app greets them personally and celebrates their wins.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📅</span>
+      <h3>Word of the Day</h3>
+      <p>A new featured word every day with pronunciation. A fun reason to open the app daily.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🎃</span>
+      <h3>Seasonal Themes</h3>
+      <p>The app automatically decorates itself for Easter, Halloween, Christmas and all four seasons. Kids notice and get excited!</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- LANGUAGES -->
+<section id="languages">
+  <h2>Learn 9 languages</h2>
+  <div class="lang-grid">
+    <div class="lang-card"><span class="lang-flag">🇬🇧</span><div class="lang-name">English</div><div class="lang-tag">Free</div></div>
+    <div class="lang-card"><span class="lang-flag">🇪🇸</span><div class="lang-name">Spanish</div><div class="lang-tag">Premium</div></div>
+    <div class="lang-card"><span class="lang-flag">🇫🇷</span><div class="lang-name">French</div><div class="lang-tag">Premium</div></div>
+    <div class="lang-card"><span class="lang-flag">🇩🇪</span><div class="lang-name">German</div><div class="lang-tag">Premium</div></div>
+    <div class="lang-card"><span class="lang-flag">🇭🇺</span><div class="lang-name">Hungarian</div><div class="lang-tag">Premium</div></div>
+    <div class="lang-card"><span class="lang-flag">🇷🇴</span><div class="lang-name">Romanian</div><div class="lang-tag">Premium</div></div>
+    <div class="lang-card"><span class="lang-flag">🇮🇹</span><div class="lang-name">Italian</div><div class="lang-tag">Premium</div></div>
+    <div class="lang-card"><span class="lang-flag">🇵🇹</span><div class="lang-name">Portuguese</div><div class="lang-tag">Premium</div></div>
+    <div class="lang-card"><span class="lang-flag">🇸🇦</span><div class="lang-name">Arabic</div><div class="lang-tag">Premium</div></div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<div class="alt-bg">
+<section>
+  <h2>20 word categories</h2>
+  <div class="cat-grid">
+    <div class="cat-chip">🐶 Animals</div>
+    <div class="cat-chip">🍎 Fruits</div>
+    <div class="cat-chip">🔴 Colors</div>
+    <div class="cat-chip">1️⃣ Numbers</div>
+    <div class="cat-chip">📚 Objects</div>
+    <div class="cat-chip">😀 Emotions</div>
+    <div class="cat-chip">🅰️ Letters</div>
+    <div class="cat-chip">🏳️ Flags</div>
+    <div class="cat-chip">🚗 Vehicles</div>
+    <div class="cat-chip">🍕 Food & Drinks</div>
+    <div class="cat-chip">⚽ Sports</div>
+    <div class="cat-chip">☀️ Weather</div>
+    <div class="cat-chip">💪 Body Parts</div>
+    <div class="cat-chip">🌸 Nature</div>
+    <div class="cat-chip">👨‍⚕️ Professions</div>
+    <div class="cat-chip">🚀 Space</div>
+    <div class="cat-chip">🛋️ Household</div>
+    <div class="cat-chip">👗 Clothes</div>
+    <div class="cat-chip">🎸 Music & Arts</div>
+    <div class="cat-chip">🔨 Tools</div>
+  </div>
+</section>
+</div>
+
+<!-- LEVELS -->
+<section>
+  <h2>5 difficulty levels for every age</h2>
+  <div class="levels">
+    <div class="level-card">
+      <span class="level-emoji">⭐</span>
+      <div class="level-name">Easy</div>
+      <div class="level-desc">Ages 3–5<br>4 pairs</div>
+    </div>
+    <div class="level-card">
+      <span class="level-emoji">⭐⭐</span>
+      <div class="level-name">Medium</div>
+      <div class="level-desc">Ages 5+<br>6 pairs</div>
+    </div>
+    <div class="level-card">
+      <span class="level-emoji">⭐⭐⭐</span>
+      <div class="level-name">Hard</div>
+      <div class="level-desc">Ages 7+<br>8 pairs</div>
+    </div>
+    <div class="level-card">
+      <span class="level-emoji">🔤</span>
+      <div class="level-name">Expert</div>
+      <div class="level-desc">Ages 9+<br>Picture + Word</div>
+    </div>
+    <div class="level-card">
+      <span class="level-emoji">🧠</span>
+      <div class="level-name">Master</div>
+      <div class="level-desc">Ages 12+<br>Word only</div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFE -->
+<div style="background:#f5f5f7; padding: 0 0 20px;">
+  <div class="safe-section">
+    <h2>Safe for children</h2>
+    <div class="safe-grid">
+      <div class="safe-item"><span>🚫</span>No ads — ever</div>
+      <div class="safe-item"><span>📵</span>No social features</div>
+      <div class="safe-item"><span>✈️</span>Works offline</div>
+      <div class="safe-item"><span>👨‍👩‍👧</span>Parental purchase gate</div>
+      <div class="safe-item"><span>🔒</span>No data collection</div>
+      <div class="safe-item"><span>✅</span>COPPA compliant</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="alt-bg" id="pricing">
+<section>
+  <h2>Simple, honest pricing</h2>
+  <div class="pricing-cards">
+    <div class="price-card">
+      <h3>Free</h3>
+      <div class="price-amount">$0</div>
+      <p style="color:#6e6e73;font-size:14px;">Forever free</p>
+      <ul>
+        <li>English language</li>
+        <li>Animals, Fruits, Colors</li>
+        <li>Easy & Medium levels</li>
+        <li>Classic card back</li>
+        <li>Word of the Day</li>
+        <li>Seasonal themes</li>
+      </ul>
+    </div>
+    <div class="price-card featured">
+      <h3>Full Version</h3>
+      <div class="price-amount">$2.99</div>
+      <p style="opacity:0.8;font-size:14px;">One-time · No subscription</p>
+      <ul>
+        <li>All 9 languages</li>
+        <li>All 20 categories</li>
+        <li>All 5 difficulty levels</li>
+        <li>9 card back designs</li>
+        <li>All future content free</li>
+        <li>Everything, forever</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- SUPPORT -->
+<section id="support">
+  <h2>Support</h2>
+  <div class="support-box">
+    <h3>Need help?</h3>
+    <p>We're here to help with any questions about Flip & Learn. We aim to respond within 48 hours.</p>
+    <a href="mailto:bura_laszlo@yahoo.com" class="email-btn">✉️ Contact Support</a>
+    <p style="margin-top:20px;font-size:13px;color:#aaa;">
+      Developer: Laszlo Bura<br>
+      <a href="privacy.html" style="color:#3A3589;">Privacy Policy</a>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="mailto:bura_laszlo@yahoo.com">Contact</a>
+  </div>
+  <p>&copy; 2026 Laszlo Bura. Flip &amp; Learn. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
