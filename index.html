@@ -74,6 +74,18 @@ footer a { color: #aaa; text-decoration: none; margin: 0 12px; }
 body.rtl { direction: rtl; }
 body.rtl .lang-dropdown { right: auto; left: 0; }
 @media(max-width:600px){ .hero h1{font-size:32px;} nav{padding:0 16px;} .nav-links{display:none;} .pricing-cards{grid-template-columns:1fr;} .safe-section{margin:0 12px;padding:32px 20px;} }
+
+.screenshots-section { background: linear-gradient(180deg, #1a1040 0%, #2d1f6e 100%); padding: 80px 0; overflow: hidden; }
+.screenshots-section h2 { color: white; text-align: center; font-size: 34px; font-weight: 700; margin-bottom: 12px; padding: 0 24px; }
+.screenshots-subtitle { color: rgba(255,255,255,0.6); text-align: center; font-size: 17px; margin-bottom: 48px; padding: 0 24px; }
+.screenshots-scroll { display: flex; gap: 24px; overflow-x: auto; padding: 20px 40px 40px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.screenshots-scroll::-webkit-scrollbar { display: none; }
+.screenshot-item { flex: 0 0 auto; scroll-snap-align: center; text-align: center; }
+.phone-frame { position: relative; display: inline-block; }
+.phone-frame img { width: 200px; height: 434px; object-fit: cover; object-position: top; border-radius: 36px; border: 8px solid #1a1a2e; box-shadow: 0 24px 64px rgba(0,0,0,0.5), inset 0 0 0 2px rgba(255,255,255,0.1); display: block; }
+.phone-notch { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 72px; height: 20px; background: #1a1a2e; border-radius: 0 0 12px 12px; z-index: 10; }
+.screenshot-label { color: rgba(255,255,255,0.7); font-size: 13px; margin-top: 14px; font-weight: 500; }
+.scroll-hint { text-align: center; color: rgba(255,255,255,0.3); font-size: 13px; margin-top: 4px; padding-bottom: 8px; }
 </style>
 </head>
 <body>
@@ -240,7 +252,7 @@ body.rtl .lang-dropdown { right: auto; left: 0; }
   <div class="support-box">
     <h3 data-i18n="suph">Need help?</h3>
     <p data-i18n="supp">We are here to help with any questions about Flip and Learn. We aim to respond within 48 hours.</p>
-    <a href="mailto:bura_laszlo@yahoo.com" class="email-btn" data-i18n="supb">Contact Support</a>
+    <a href="/cdn-cgi/l/email-protection#b4d6c1c6d5ebd8d5c7ced8dbf4cdd5dcdbdb9ad7dbd9" class="email-btn" data-i18n="supb">Contact Support</a>
     <p style="margin-top:20px;font-size:13px;color:#aaa;"><span data-i18n="supd">Developer: Laszlo Bura</span><br><a href="privacy.html" style="color:#3A3589;" data-i18n="nav_privacy">Privacy Policy</a></p>
   </div>
 </section>
@@ -249,12 +261,12 @@ body.rtl .lang-dropdown { right: auto; left: 0; }
   <div class="fl">
     <a href="index.html" data-i18n="nav_home">Home</a>
     <a href="privacy.html" data-i18n="nav_privacy">Privacy Policy</a>
-    <a href="mailto:bura_laszlo@yahoo.com" data-i18n="nav_contact">Contact</a>
+    <a href="/cdn-cgi/l/email-protection#96f4e3e4f7c9faf7e5ecfaf9d6eff7fef9f9b8f5f9fb" data-i18n="nav_contact">Contact</a>
   </div>
   <p>&copy; 2026 Laszlo Bura. Flip &amp; Learn. <span data-i18n="fr">All rights reserved.</span></p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const T = {
 en:{nav_features:"Features",nav_languages:"Languages",nav_pricing:"Pricing",nav_support:"Support",nav_privacy:"Privacy Policy",nav_home:"Home",nav_contact:"Contact",hero_sub:"The fun memory card game that teaches children new words in multiple languages",b1:"Ages 3+",b2:"Multiple Languages",b3:"20 Categories",b4:"No Ads Ever",b5:"Works Offline",btn:"Download on the App Store",soon:"Coming soon to the App Store",ft:"Everything kids love, everything parents trust",f1t:"Classic Memory Game",f1d:"Flip cards to find matching pairs. Beautiful 3D flip animations make every match satisfying.",f2t:"Speaks Every Word",f2d:"When a match is found, the app speaks the word out loud in the chosen language.",f3t:"Stars & Trophies",f3d:"Earn 1-3 stars per game. Collect stars to unlock 9 card back designs including the legendary Dino at 1000 stars.",f4t:"Personal Avatar",f4d:"Children choose their own animal avatar and name. The app greets them personally.",f5t:"Word of the Day",f5d:"A new featured word every day with pronunciation.",f6t:"Seasonal Themes",f6d:"The app automatically decorates for Easter, Halloween, Christmas and all four seasons.",lt:"Learn multiple languages",len:"English",les:"Spanish",lfr:"French",lde:"German",lhu:"Hungarian",lro:"Romanian",lit:"Italian",lpt:"Portuguese",lar:"Arabic",free:"Free",prem:"Premium",ct:"20 word categories",c1:"Animals",c2:"Fruits",c3:"Colors",c4:"Numbers",c5:"Objects",c6:"Emotions",c7:"Letters",c8:"Flags",c9:"Vehicles",c10:"Food & Drinks",c11:"Sports",c12:"Weather",c13:"Body Parts",c14:"Nature",c15:"Professions",c16:"Space",c17:"Household",c18:"Clothes",c19:"Music & Arts",c20:"Tools",lvt:"5 difficulty levels for every age",lv1:"Easy",lv1d:"Ages 3-5 · 4 pairs",lv2:"Medium",lv2d:"Ages 5+ · 6 pairs",lv3:"Hard",lv3d:"Ages 7+ · 8 pairs",lv4:"Expert",lv4d:"Ages 9+ · Picture+Word",lv5:"Master",lv5d:"Ages 12+ · Word only",sft:"Safe for children",s1:"No ads — ever",s2:"No social features",s3:"Works offline",s4:"Parental gate",s5:"No data collection",s6:"COPPA compliant",prt:"Simple, honest pricing",p1n:"Free",p1no:"Forever free",p1a:"English language",p1b:"Animals, Fruits, Colors",p1c:"Easy & Medium levels",p1d:"Classic card back",p1e:"Word of the Day",p1f:"Seasonal themes",p2n:"Full Version",p2no:"One-time · No subscription",p2a:"All languages",p2b:"All 20 categories",p2c:"All 5 levels",p2d:"9 card back designs",p2e:"Future content free",p2f:"Everything, forever",supt:"Support",suph:"Need help?",supp:"We are here to help with any questions about Flip and Learn. We aim to respond within 48 hours.",supb:"Contact Support",supd:"Developer: Laszlo Bura",fr:"All rights reserved."},
 es:{nav_features:"Funciones",nav_languages:"Idiomas",nav_pricing:"Precios",nav_support:"Soporte",nav_privacy:"Privacidad",nav_home:"Inicio",nav_contact:"Contacto",hero_sub:"El divertido juego de memoria que enseña palabras nuevas en varios idiomas",b1:"Desde 3 años",b2:"Varios Idiomas",b3:"20 Categorías",b4:"Sin Publicidad",b5:"Sin Internet",btn:"Descargar en App Store",soon:"Próximamente en App Store",ft:"Todo lo que los niños aman, todo lo que los padres confían",f1t:"Juego de Memoria",f1d:"Voltea cartas para encontrar parejas. Hermosas animaciones 3D hacen cada encuentro satisfactorio.",f2t:"Pronuncia Cada Palabra",f2d:"Al encontrar una pareja, la app pronuncia la palabra en voz alta en el idioma elegido.",f3t:"Estrellas y Trofeos",f3d:"Gana 1-3 estrellas por juego. Colecciona estrellas para desbloquear 9 diseños de cartas.",f4t:"Avatar Personal",f4d:"Los niños eligen su propio avatar y nombre.",f5t:"Palabra del Día",f5d:"Una nueva palabra destacada cada día con pronunciación.",f6t:"Temas de Temporada",f6d:"La app se decora para Pascua, Halloween, Navidad y las cuatro estaciones.",lt:"Aprende varios idiomas",len:"Inglés",les:"Español",lfr:"Francés",lde:"Alemán",lhu:"Húngaro",lro:"Rumano",lit:"Italiano",lpt:"Portugués",lar:"Árabe",free:"Gratis",prem:"Premium",ct:"20 categorías de palabras",c1:"Animales",c2:"Frutas",c3:"Colores",c4:"Números",c5:"Objetos",c6:"Emociones",c7:"Letras",c8:"Banderas",c9:"Vehículos",c10:"Comida",c11:"Deportes",c12:"Clima",c13:"Cuerpo",c14:"Naturaleza",c15:"Profesiones",c16:"Espacio",c17:"Hogar",c18:"Ropa",c19:"Música y Arte",c20:"Herramientas",lvt:"5 niveles para cada edad",lv1:"Fácil",lv1d:"3-5 años · 4 parejas",lv2:"Medio",lv2d:"5+ años · 6 parejas",lv3:"Difícil",lv3d:"7+ años · 8 parejas",lv4:"Experto",lv4d:"9+ años · Imagen+Palabra",lv5:"Maestro",lv5d:"12+ años · Solo palabras",sft:"Seguro para niños",s1:"Sin publicidad — nunca",s2:"Sin funciones sociales",s3:"Funciona sin conexión",s4:"Control parental",s5:"Sin recopilación de datos",s6:"Cumple COPPA",prt:"Precios simples y honestos",p1n:"Gratis",p1no:"Para siempre gratis",p1a:"Idioma inglés",p1b:"Animales, Frutas, Colores",p1c:"Niveles Fácil y Medio",p1d:"Reverso clásico",p1e:"Palabra del día",p1f:"Temas de temporada",p2n:"Versión Completa",p2no:"Pago único · Sin suscripción",p2a:"Todos los idiomas",p2b:"Las 20 categorías",p2c:"Los 5 niveles",p2d:"9 diseños de reverso",p2e:"Contenido futuro gratis",p2f:"Todo, para siempre",supt:"Soporte",suph:"¿Necesitas ayuda?",supp:"Estamos aquí para ayudarte. Respondemos en 48 horas.",supb:"Contactar Soporte",supd:"Desarrollador: Laszlo Bura",fr:"Todos los derechos reservados."},
@@ -278,9 +290,4 @@ function setLang(l){
   document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k];});
   document.querySelectorAll('.lang-option').forEach(o=>{o.classList.remove('active');if(o.getAttribute('onclick')==="setLang('"+l+"')")o.classList.add('active');});
   if(l==='ar'){document.body.classList.add('rtl');document.documentElement.lang='ar';document.documentElement.dir='rtl';}
-  else{document.body.classList.remove('rtl');document.documentElement.lang=l;document.documentElement.removeAttribute('dir');}
-  document.getElementById('langMenu').classList.remove('open');
-}
-</script>
-</body>
-</html>
+  else{document.body.cl
