@@ -4,519 +4,283 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Flip & Learn — Memory Card Language Game for Kids</title>
-<meta name="description" content="Flip & Learn is the fun memory card game that teaches children new words in 9 languages. Perfect for ages 3 and up. Available on iPhone and iPad.">
-<meta property="og:title" content="Flip & Learn — Memory & Language">
-<meta property="og:description" content="Fun memory card game that teaches 9 languages for kids ages 3+">
-<meta property="og:image" content="icon.png">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    background: #f5f5f7;
-    color: #1d1d1f;
-    line-height: 1.6;
-  }
-
-  /* NAV */
-  nav {
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid #e0e0e0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 56px;
-  }
-  .nav-brand {
-    font-size: 17px;
-    font-weight: 600;
-    color: #3A3589;
-    text-decoration: none;
-  }
-  .nav-links a {
-    color: #3A3589;
-    text-decoration: none;
-    font-size: 15px;
-    margin-left: 28px;
-    opacity: 0.8;
-  }
-  .nav-links a:hover { opacity: 1; }
-
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, #3A3589 0%, #5E5CE6 60%, #7B79F0 100%);
-    color: white;
-    text-align: center;
-    padding: 80px 20px 100px;
-  }
-  .hero-icon {
-    width: 120px;
-    height: 120px;
-    border-radius: 26px;
-    margin: 0 auto 28px;
-    display: block;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-  }
-  .hero h1 {
-    font-size: 48px;
-    font-weight: 700;
-    letter-spacing: -1px;
-    margin-bottom: 16px;
-  }
-  .hero p {
-    font-size: 20px;
-    opacity: 0.88;
-    max-width: 520px;
-    margin: 0 auto 36px;
-  }
-  .badge-row {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-  }
-  .badge {
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 20px;
-    padding: 6px 16px;
-    font-size: 14px;
-    font-weight: 500;
-  }
-  .appstore-btn {
-    display: inline-block;
-    margin-top: 12px;
-    background: white;
-    color: #3A3589;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 14px 36px;
-    border-radius: 14px;
-    text-decoration: none;
-    transition: transform 0.15s, opacity 0.15s;
-  }
-  .appstore-btn:hover { opacity: 0.9; transform: scale(1.02); }
-  .coming-soon {
-    font-size: 13px;
-    opacity: 0.6;
-    margin-top: 10px;
-  }
-
-  /* SECTION */
-  section {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 72px 24px;
-  }
-  section h2 {
-    font-size: 34px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 48px;
-    color: #1d1d1f;
-  }
-
-  /* FEATURES */
-  .features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-  }
-  .feature-card {
-    background: white;
-    border-radius: 18px;
-    padding: 28px 24px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  }
-  .feature-icon {
-    font-size: 36px;
-    margin-bottom: 14px;
-    display: block;
-  }
-  .feature-card h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #1d1d1f;
-  }
-  .feature-card p {
-    font-size: 15px;
-    color: #6e6e73;
-    line-height: 1.5;
-  }
-
-  /* LANGUAGES */
-  .lang-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 14px;
-  }
-  .lang-card {
-    background: white;
-    border-radius: 14px;
-    padding: 18px 14px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  }
-  .lang-flag { font-size: 32px; display: block; margin-bottom: 8px; }
-  .lang-name { font-size: 15px; font-weight: 600; color: #1d1d1f; }
-  .lang-tag { font-size: 12px; color: #6e6e73; margin-top: 2px; }
-
-  /* CATEGORIES */
-  .cat-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-  .cat-chip {
-    background: white;
-    border: 1.5px solid #e0e0e0;
-    border-radius: 20px;
-    padding: 8px 18px;
-    font-size: 15px;
-    color: #3A3589;
-    font-weight: 500;
-  }
-
-  /* LEVELS */
-  .levels {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 14px;
-  }
-  .level-card {
-    background: white;
-    border-radius: 14px;
-    padding: 20px 16px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  }
-  .level-emoji { font-size: 28px; display: block; margin-bottom: 8px; }
-  .level-name { font-size: 16px; font-weight: 600; color: #1d1d1f; }
-  .level-desc { font-size: 13px; color: #6e6e73; margin-top: 4px; }
-
-  /* SAFE */
-  .safe-section {
-    background: linear-gradient(135deg, #3A3589, #5E5CE6);
-    color: white;
-    border-radius: 24px;
-    padding: 48px 40px;
-    text-align: center;
-    margin: 0 24px 72px;
-  }
-  .safe-section h2 { color: white; margin-bottom: 32px; }
-  .safe-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 20px;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  .safe-item { font-size: 15px; opacity: 0.9; }
-  .safe-item span { font-size: 24px; display: block; margin-bottom: 6px; }
-
-  /* PRICING */
-  .pricing-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 640px;
-    margin: 0 auto;
-  }
-  @media (max-width: 600px) { .pricing-cards { grid-template-columns: 1fr; } }
-  .price-card {
-    background: white;
-    border-radius: 20px;
-    padding: 32px 24px;
-    text-align: center;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  }
-  .price-card.featured {
-    background: linear-gradient(135deg, #3A3589, #5E5CE6);
-    color: white;
-  }
-  .price-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-  .price-amount { font-size: 36px; font-weight: 700; margin: 12px 0; }
-  .price-card ul { list-style: none; font-size: 14px; text-align: left; margin-top: 16px; }
-  .price-card ul li { padding: 4px 0; }
-  .price-card ul li::before { content: "✓ "; font-weight: 600; }
-  .price-card.featured ul li::before { color: #a8f0c8; }
-
-  /* SUPPORT */
-  .support-box {
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    text-align: center;
-    max-width: 560px;
-    margin: 0 auto;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  }
-  .support-box h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
-  .support-box p { color: #6e6e73; margin-bottom: 20px; }
-  .email-btn {
-    display: inline-block;
-    background: #3A3589;
-    color: white;
-    padding: 12px 28px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 15px;
-  }
-  .email-btn:hover { background: #5E5CE6; }
-
-  /* FOOTER */
-  footer {
-    background: #1d1d1f;
-    color: #888;
-    text-align: center;
-    padding: 32px 20px;
-    font-size: 14px;
-  }
-  footer a { color: #aaa; text-decoration: none; margin: 0 12px; }
-  footer a:hover { color: white; }
-  .footer-links { margin-bottom: 12px; }
-
-  /* DIVIDER */
-  .alt-bg { background: white; }
-  .alt-bg section { padding: 72px 24px; }
-
-  @media (max-width: 600px) {
-    .hero h1 { font-size: 32px; }
-    nav { padding: 0 16px; }
-    .nav-links { display: none; }
-    .safe-section { margin: 0 12px 48px; padding: 32px 20px; }
-  }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; background: #f5f5f7; color: #1d1d1f; line-height: 1.6; }
+nav { background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #e0e0e0; position: sticky; top: 0; z-index: 100; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav-brand { font-size: 17px; font-weight: 600; color: #3A3589; text-decoration: none; }
+.nav-links a { color: #3A3589; text-decoration: none; font-size: 15px; opacity: 0.8; margin-left: 20px; }
+.nav-links a:hover { opacity: 1; }
+.lang-switcher { position: relative; margin-left: 16px; }
+.lang-btn { background: #f0effe; border: 1.5px solid #c8c5f5; border-radius: 10px; padding: 6px 12px; font-size: 14px; font-weight: 600; color: #3A3589; cursor: pointer; }
+.lang-btn:hover { background: #e4e0fc; }
+.lang-dropdown { display: none; position: absolute; right: 0; top: calc(100% + 8px); background: white; border: 1px solid #e0e0e0; border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); overflow: hidden; min-width: 180px; z-index: 999; }
+.lang-dropdown.open { display: block; }
+.lang-option { display: flex; align-items: center; gap: 10px; padding: 10px 16px; font-size: 14px; cursor: pointer; }
+.lang-option:hover { background: #f5f5f7; }
+.lang-option.active { background: #f0effe; color: #3A3589; font-weight: 600; }
+.hero { background: linear-gradient(135deg, #3A3589 0%, #5E5CE6 60%, #7B79F0 100%); color: white; text-align: center; padding: 80px 20px 100px; }
+.hero-icon { width: 120px; height: 120px; border-radius: 26px; margin: 0 auto 28px; display: block; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+.hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 16px; }
+.hero p { font-size: 20px; opacity: 0.88; max-width: 520px; margin: 0 auto 36px; }
+.badge-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+.badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 6px 16px; font-size: 14px; font-weight: 500; }
+.appstore-btn { display: inline-block; background: white; color: #3A3589; font-size: 16px; font-weight: 600; padding: 14px 36px; border-radius: 14px; text-decoration: none; }
+.coming-soon { font-size: 13px; opacity: 0.6; margin-top: 10px; }
+section { max-width: 960px; margin: 0 auto; padding: 72px 24px; }
+section h2 { font-size: 34px; font-weight: 700; text-align: center; margin-bottom: 48px; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.feature-card { background: white; border-radius: 18px; padding: 28px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.fi { font-size: 36px; margin-bottom: 14px; display: block; }
+.feature-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+.feature-card p { font-size: 15px; color: #6e6e73; }
+.lang-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; }
+.lang-card { background: white; border-radius: 14px; padding: 18px 14px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.lf { font-size: 32px; display: block; margin-bottom: 8px; }
+.ln { font-size: 15px; font-weight: 600; }
+.lt { font-size: 12px; color: #6e6e73; }
+.cat-grid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.cat-chip { background: white; border: 1.5px solid #e0e0e0; border-radius: 20px; padding: 8px 18px; font-size: 15px; color: #3A3589; font-weight: 500; }
+.levels { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+.level-card { background: white; border-radius: 14px; padding: 20px 16px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.le { font-size: 28px; display: block; margin-bottom: 8px; }
+.ln2 { font-size: 16px; font-weight: 600; }
+.ld { font-size: 13px; color: #6e6e73; margin-top: 4px; }
+.safe-wrap { background: #f5f5f7; padding: 0 0 20px; }
+.safe-section { background: linear-gradient(135deg, #3A3589, #5E5CE6); color: white; border-radius: 24px; padding: 48px 40px; text-align: center; margin: 0 24px; }
+.safe-section h2 { color: white; margin-bottom: 32px; }
+.safe-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; max-width: 700px; margin: 0 auto; }
+.safe-item { font-size: 15px; opacity: 0.9; }
+.safe-item span { font-size: 24px; display: block; margin-bottom: 6px; }
+.pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 640px; margin: 0 auto; }
+.price-card { background: white; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.price-card.feat { background: linear-gradient(135deg, #3A3589, #5E5CE6); color: white; }
+.price-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.pa { font-size: 36px; font-weight: 700; margin: 12px 0; }
+.pn { font-size: 14px; color: #6e6e73; }
+.feat .pn { color: rgba(255,255,255,0.7); }
+.price-card ul { list-style: none; font-size: 14px; text-align: left; margin-top: 16px; }
+.price-card ul li { padding: 4px 0; }
+.price-card ul li::before { content: "✓ "; font-weight: 600; }
+.feat ul li::before { color: #a8f0c8; }
+.support-box { background: white; border-radius: 20px; padding: 40px; text-align: center; max-width: 560px; margin: 0 auto; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.support-box h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
+.support-box p { color: #6e6e73; margin-bottom: 20px; }
+.email-btn { display: inline-block; background: #3A3589; color: white; padding: 12px 28px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 15px; }
+footer { background: #1d1d1f; color: #888; text-align: center; padding: 32px 20px; font-size: 14px; }
+footer a { color: #aaa; text-decoration: none; margin: 0 12px; }
+.fl { margin-bottom: 12px; }
+.alt { background: white; }
+body.rtl { direction: rtl; }
+body.rtl .lang-dropdown { right: auto; left: 0; }
+@media(max-width:600px){ .hero h1{font-size:32px;} nav{padding:0 16px;} .nav-links{display:none;} .pricing-cards{grid-template-columns:1fr;} .safe-section{margin:0 12px;padding:32px 20px;} }
 </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav>
-  <a class="nav-brand" href="index.html">🃏 Flip & Learn</a>
-  <div class="nav-links">
-    <a href="#features">Features</a>
-    <a href="#languages">Languages</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#support">Support</a>
-    <a href="privacy.html">Privacy</a>
+  <a class="nav-brand" href="index.html">Flip &amp; Learn</a>
+  <div style="display:flex;align-items:center;">
+    <div class="nav-links">
+      <a href="#features" data-i18n="nav_features">Features</a>
+      <a href="#languages" data-i18n="nav_languages">Languages</a>
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="#support" data-i18n="nav_support">Support</a>
+      <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-btn" onclick="toggleMenu()" id="langBtn">🌍 EN ▾</button>
+      <div class="lang-dropdown" id="langMenu">
+        <div class="lang-option active" onclick="setLang('en')"><span>🇬🇧</span> English</div>
+        <div class="lang-option" onclick="setLang('es')"><span>🇪🇸</span> Español</div>
+        <div class="lang-option" onclick="setLang('fr')"><span>🇫🇷</span> Français</div>
+        <div class="lang-option" onclick="setLang('de')"><span>🇩🇪</span> Deutsch</div>
+        <div class="lang-option" onclick="setLang('hu')"><span>🇭🇺</span> Magyar</div>
+        <div class="lang-option" onclick="setLang('ro')"><span>🇷🇴</span> Română</div>
+        <div class="lang-option" onclick="setLang('it')"><span>🇮🇹</span> Italiano</div>
+        <div class="lang-option" onclick="setLang('pt')"><span>🇵🇹</span> Português</div>
+        <div class="lang-option" onclick="setLang('ar')"><span>🇸🇦</span> العربية</div>
+      </div>
+    </div>
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
-  <img src="icon.png" alt="Flip & Learn App Icon" class="hero-icon"
-       onerror="this.style.display='none'">
+  <img src="icon.png" alt="Flip &amp; Learn" class="hero-icon" onerror="this.style.display='none'">
   <h1>Flip &amp; Learn</h1>
-  <p>The fun memory card game that teaches children new words in 9 languages</p>
+  <p data-i18n="hero_sub">The fun memory card game that teaches children new words in multiple languages</p>
   <div class="badge-row">
-    <span class="badge">Ages 3+</span>
-    <span class="badge">9 Languages</span>
-    <span class="badge">20 Categories</span>
-    <span class="badge">No Ads Ever</span>
-    <span class="badge">Works Offline</span>
+    <span class="badge" data-i18n="b1">Ages 3+</span>
+    <span class="badge" data-i18n="b2">Multiple Languages</span>
+    <span class="badge" data-i18n="b3">20 Categories</span>
+    <span class="badge" data-i18n="b4">No Ads Ever</span>
+    <span class="badge" data-i18n="b5">Works Offline</span>
   </div>
-  <a href="#" class="appstore-btn">⬇ Download on the App Store</a>
-  <p class="coming-soon">Coming soon to the App Store</p>
+  <a href="#" class="appstore-btn" data-i18n="btn">&#11015; Download on the App Store</a>
+  <p class="coming-soon" data-i18n="soon">Coming soon to the App Store</p>
 </div>
 
-<!-- FEATURES -->
-<div class="alt-bg" id="features">
+<div class="alt" id="features">
 <section>
-  <h2>Everything kids love, everything parents trust</h2>
+  <h2 data-i18n="ft">Everything kids love, everything parents trust</h2>
   <div class="features">
-    <div class="feature-card">
-      <span class="feature-icon">🃏</span>
-      <h3>Classic Memory Game</h3>
-      <p>Flip cards to find matching pairs. Beautiful 3D flip animations make every match satisfying.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-icon">🔊</span>
-      <h3>Speaks Every Word</h3>
-      <p>When a match is found, the app speaks the word out loud in the chosen language using native text-to-speech.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-icon">⭐</span>
-      <h3>Stars & Trophies</h3>
-      <p>Earn 1-3 stars per game. Collect stars to unlock 9 different card back designs including the legendary Dino at 1000 stars.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-icon">🧒</span>
-      <h3>Personal Avatar</h3>
-      <p>Children choose their own animal avatar and name. The app greets them personally and celebrates their wins.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-icon">📅</span>
-      <h3>Word of the Day</h3>
-      <p>A new featured word every day with pronunciation. A fun reason to open the app daily.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-icon">🎃</span>
-      <h3>Seasonal Themes</h3>
-      <p>The app automatically decorates itself for Easter, Halloween, Christmas and all four seasons. Kids notice and get excited!</p>
-    </div>
+    <div class="feature-card"><span class="fi">&#127183;</span><h3 data-i18n="f1t">Classic Memory Game</h3><p data-i18n="f1d">Flip cards to find matching pairs. Beautiful 3D flip animations make every match satisfying.</p></div>
+    <div class="feature-card"><span class="fi">&#128266;</span><h3 data-i18n="f2t">Speaks Every Word</h3><p data-i18n="f2d">When a match is found, the app speaks the word out loud in the chosen language.</p></div>
+    <div class="feature-card"><span class="fi">&#11088;</span><h3 data-i18n="f3t">Stars &amp; Trophies</h3><p data-i18n="f3d">Earn 1-3 stars per game. Collect stars to unlock 9 card back designs including the legendary Dino at 1000 stars.</p></div>
+    <div class="feature-card"><span class="fi">&#129490;</span><h3 data-i18n="f4t">Personal Avatar</h3><p data-i18n="f4d">Children choose their own animal avatar and name. The app greets them personally.</p></div>
+    <div class="feature-card"><span class="fi">&#128197;</span><h3 data-i18n="f5t">Word of the Day</h3><p data-i18n="f5d">A new featured word every day with pronunciation.</p></div>
+    <div class="feature-card"><span class="fi">&#127875;</span><h3 data-i18n="f6t">Seasonal Themes</h3><p data-i18n="f6d">The app automatically decorates for Easter, Halloween, Christmas and all four seasons.</p></div>
   </div>
 </section>
 </div>
 
-<!-- LANGUAGES -->
 <section id="languages">
-  <h2>Learn 9 languages</h2>
+  <h2 data-i18n="lt">Learn multiple languages</h2>
   <div class="lang-grid">
-    <div class="lang-card"><span class="lang-flag">🇬🇧</span><div class="lang-name">English</div><div class="lang-tag">Free</div></div>
-    <div class="lang-card"><span class="lang-flag">🇪🇸</span><div class="lang-name">Spanish</div><div class="lang-tag">Premium</div></div>
-    <div class="lang-card"><span class="lang-flag">🇫🇷</span><div class="lang-name">French</div><div class="lang-tag">Premium</div></div>
-    <div class="lang-card"><span class="lang-flag">🇩🇪</span><div class="lang-name">German</div><div class="lang-tag">Premium</div></div>
-    <div class="lang-card"><span class="lang-flag">🇭🇺</span><div class="lang-name">Hungarian</div><div class="lang-tag">Premium</div></div>
-    <div class="lang-card"><span class="lang-flag">🇷🇴</span><div class="lang-name">Romanian</div><div class="lang-tag">Premium</div></div>
-    <div class="lang-card"><span class="lang-flag">🇮🇹</span><div class="lang-name">Italian</div><div class="lang-tag">Premium</div></div>
-    <div class="lang-card"><span class="lang-flag">🇵🇹</span><div class="lang-name">Portuguese</div><div class="lang-tag">Premium</div></div>
-    <div class="lang-card"><span class="lang-flag">🇸🇦</span><div class="lang-name">Arabic</div><div class="lang-tag">Premium</div></div>
+    <div class="lang-card"><span class="lf">&#127468;&#127463;</span><div class="ln" data-i18n="len">English</div><div class="lt" data-i18n="free">Free</div></div>
+    <div class="lang-card"><span class="lf">&#127466;&#127480;</span><div class="ln" data-i18n="les">Spanish</div><div class="lt" data-i18n="prem">Premium</div></div>
+    <div class="lang-card"><span class="lf">&#127467;&#127479;</span><div class="ln" data-i18n="lfr">French</div><div class="lt" data-i18n="prem">Premium</div></div>
+    <div class="lang-card"><span class="lf">&#127465;&#127466;</span><div class="ln" data-i18n="lde">German</div><div class="lt" data-i18n="prem">Premium</div></div>
+    <div class="lang-card"><span class="lf">&#127469;&#127482;</span><div class="ln" data-i18n="lhu">Hungarian</div><div class="lt" data-i18n="prem">Premium</div></div>
+    <div class="lang-card"><span class="lf">&#127479;&#127476;</span><div class="ln" data-i18n="lro">Romanian</div><div class="lt" data-i18n="prem">Premium</div></div>
+    <div class="lang-card"><span class="lf">&#127470;&#127481;</span><div class="ln" data-i18n="lit">Italian</div><div class="lt" data-i18n="prem">Premium</div></div>
+    <div class="lang-card"><span class="lf">&#127477;&#127481;</span><div class="ln" data-i18n="lpt">Portuguese</div><div class="lt" data-i18n="prem">Premium</div></div>
+    <div class="lang-card"><span class="lf">&#127480;&#127462;</span><div class="ln" data-i18n="lar">Arabic</div><div class="lt" data-i18n="prem">Premium</div></div>
   </div>
 </section>
 
-<!-- CATEGORIES -->
-<div class="alt-bg">
+<div class="alt">
 <section>
-  <h2>20 word categories</h2>
+  <h2 data-i18n="ct">20 word categories</h2>
   <div class="cat-grid">
-    <div class="cat-chip">🐶 Animals</div>
-    <div class="cat-chip">🍎 Fruits</div>
-    <div class="cat-chip">🔴 Colors</div>
-    <div class="cat-chip">1️⃣ Numbers</div>
-    <div class="cat-chip">📚 Objects</div>
-    <div class="cat-chip">😀 Emotions</div>
-    <div class="cat-chip">🅰️ Letters</div>
-    <div class="cat-chip">🏳️ Flags</div>
-    <div class="cat-chip">🚗 Vehicles</div>
-    <div class="cat-chip">🍕 Food & Drinks</div>
-    <div class="cat-chip">⚽ Sports</div>
-    <div class="cat-chip">☀️ Weather</div>
-    <div class="cat-chip">💪 Body Parts</div>
-    <div class="cat-chip">🌸 Nature</div>
-    <div class="cat-chip">👨‍⚕️ Professions</div>
-    <div class="cat-chip">🚀 Space</div>
-    <div class="cat-chip">🛋️ Household</div>
-    <div class="cat-chip">👗 Clothes</div>
-    <div class="cat-chip">🎸 Music & Arts</div>
-    <div class="cat-chip">🔨 Tools</div>
+    <div class="cat-chip">&#128054; <span data-i18n="c1">Animals</span></div>
+    <div class="cat-chip">&#127822; <span data-i18n="c2">Fruits</span></div>
+    <div class="cat-chip">&#128308; <span data-i18n="c3">Colors</span></div>
+    <div class="cat-chip">1&#65039;&#8419; <span data-i18n="c4">Numbers</span></div>
+    <div class="cat-chip">&#128218; <span data-i18n="c5">Objects</span></div>
+    <div class="cat-chip">&#128512; <span data-i18n="c6">Emotions</span></div>
+    <div class="cat-chip">&#127344;&#65039; <span data-i18n="c7">Letters</span></div>
+    <div class="cat-chip">&#127987;&#65039; <span data-i18n="c8">Flags</span></div>
+    <div class="cat-chip">&#128663; <span data-i18n="c9">Vehicles</span></div>
+    <div class="cat-chip">&#127829; <span data-i18n="c10">Food &amp; Drinks</span></div>
+    <div class="cat-chip">&#9917; <span data-i18n="c11">Sports</span></div>
+    <div class="cat-chip">&#9728;&#65039; <span data-i18n="c12">Weather</span></div>
+    <div class="cat-chip">&#128170; <span data-i18n="c13">Body Parts</span></div>
+    <div class="cat-chip">&#127800; <span data-i18n="c14">Nature</span></div>
+    <div class="cat-chip">&#128104;&#8205;&#9877;&#65039; <span data-i18n="c15">Professions</span></div>
+    <div class="cat-chip">&#128640; <span data-i18n="c16">Space</span></div>
+    <div class="cat-chip">&#128716; <span data-i18n="c17">Household</span></div>
+    <div class="cat-chip">&#128483;&#65039; <span data-i18n="c18">Clothes</span></div>
+    <div class="cat-chip">&#127928; <span data-i18n="c19">Music &amp; Arts</span></div>
+    <div class="cat-chip">&#128296; <span data-i18n="c20">Tools</span></div>
   </div>
 </section>
 </div>
 
-<!-- LEVELS -->
 <section>
-  <h2>5 difficulty levels for every age</h2>
+  <h2 data-i18n="lvt">5 difficulty levels for every age</h2>
   <div class="levels">
-    <div class="level-card">
-      <span class="level-emoji">⭐</span>
-      <div class="level-name">Easy</div>
-      <div class="level-desc">Ages 3–5<br>4 pairs</div>
-    </div>
-    <div class="level-card">
-      <span class="level-emoji">⭐⭐</span>
-      <div class="level-name">Medium</div>
-      <div class="level-desc">Ages 5+<br>6 pairs</div>
-    </div>
-    <div class="level-card">
-      <span class="level-emoji">⭐⭐⭐</span>
-      <div class="level-name">Hard</div>
-      <div class="level-desc">Ages 7+<br>8 pairs</div>
-    </div>
-    <div class="level-card">
-      <span class="level-emoji">🔤</span>
-      <div class="level-name">Expert</div>
-      <div class="level-desc">Ages 9+<br>Picture + Word</div>
-    </div>
-    <div class="level-card">
-      <span class="level-emoji">🧠</span>
-      <div class="level-name">Master</div>
-      <div class="level-desc">Ages 12+<br>Word only</div>
-    </div>
+    <div class="level-card"><span class="le">&#11088;</span><div class="ln2" data-i18n="lv1">Easy</div><div class="ld" data-i18n="lv1d">Ages 3-5 · 4 pairs</div></div>
+    <div class="level-card"><span class="le">&#11088;&#11088;</span><div class="ln2" data-i18n="lv2">Medium</div><div class="ld" data-i18n="lv2d">Ages 5+ · 6 pairs</div></div>
+    <div class="level-card"><span class="le">&#11088;&#11088;&#11088;</span><div class="ln2" data-i18n="lv3">Hard</div><div class="ld" data-i18n="lv3d">Ages 7+ · 8 pairs</div></div>
+    <div class="level-card"><span class="le">&#128291;</span><div class="ln2" data-i18n="lv4">Expert</div><div class="ld" data-i18n="lv4d">Ages 9+ · Picture+Word</div></div>
+    <div class="level-card"><span class="le">&#129504;</span><div class="ln2" data-i18n="lv5">Master</div><div class="ld" data-i18n="lv5d">Ages 12+ · Word only</div></div>
   </div>
 </section>
 
-<!-- SAFE -->
-<div style="background:#f5f5f7; padding: 0 0 20px;">
-  <div class="safe-section">
-    <h2>Safe for children</h2>
-    <div class="safe-grid">
-      <div class="safe-item"><span>🚫</span>No ads — ever</div>
-      <div class="safe-item"><span>📵</span>No social features</div>
-      <div class="safe-item"><span>✈️</span>Works offline</div>
-      <div class="safe-item"><span>👨‍👩‍👧</span>Parental purchase gate</div>
-      <div class="safe-item"><span>🔒</span>No data collection</div>
-      <div class="safe-item"><span>✅</span>COPPA compliant</div>
-    </div>
+<div class="safe-wrap">
+<div class="safe-section">
+  <h2 data-i18n="sft">Safe for children</h2>
+  <div class="safe-grid">
+    <div class="safe-item"><span>&#128683;</span><span data-i18n="s1">No ads — ever</span></div>
+    <div class="safe-item"><span>&#128245;</span><span data-i18n="s2">No social features</span></div>
+    <div class="safe-item"><span>&#9992;&#65039;</span><span data-i18n="s3">Works offline</span></div>
+    <div class="safe-item"><span>&#128106;</span><span data-i18n="s4">Parental gate</span></div>
+    <div class="safe-item"><span>&#128274;</span><span data-i18n="s5">No data collection</span></div>
+    <div class="safe-item"><span>&#9989;</span><span data-i18n="s6">COPPA compliant</span></div>
   </div>
 </div>
+</div>
 
-<!-- PRICING -->
-<div class="alt-bg" id="pricing">
+<div class="alt" id="pricing">
 <section>
-  <h2>Simple, honest pricing</h2>
+  <h2 data-i18n="prt">Simple, honest pricing</h2>
   <div class="pricing-cards">
     <div class="price-card">
-      <h3>Free</h3>
-      <div class="price-amount">$0</div>
-      <p style="color:#6e6e73;font-size:14px;">Forever free</p>
+      <h3 data-i18n="p1n">Free</h3>
+      <div class="pa">$0</div>
+      <div class="pn" data-i18n="p1no">Forever free</div>
       <ul>
-        <li>English language</li>
-        <li>Animals, Fruits, Colors</li>
-        <li>Easy & Medium levels</li>
-        <li>Classic card back</li>
-        <li>Word of the Day</li>
-        <li>Seasonal themes</li>
+        <li data-i18n="p1a">English language</li>
+        <li data-i18n="p1b">Animals, Fruits, Colors</li>
+        <li data-i18n="p1c">Easy &amp; Medium levels</li>
+        <li data-i18n="p1d">Classic card back</li>
+        <li data-i18n="p1e">Word of the Day</li>
+        <li data-i18n="p1f">Seasonal themes</li>
       </ul>
     </div>
-    <div class="price-card featured">
-      <h3>Full Version</h3>
-      <div class="price-amount">$2.99</div>
-      <p style="opacity:0.8;font-size:14px;">One-time · No subscription</p>
+    <div class="price-card feat">
+      <h3 data-i18n="p2n">Full Version</h3>
+      <div class="pa">$2.99</div>
+      <div class="pn" data-i18n="p2no">One-time · No subscription</div>
       <ul>
-        <li>All 9 languages</li>
-        <li>All 20 categories</li>
-        <li>All 5 difficulty levels</li>
-        <li>9 card back designs</li>
-        <li>All future content free</li>
-        <li>Everything, forever</li>
+        <li data-i18n="p2a">All languages</li>
+        <li data-i18n="p2b">All 20 categories</li>
+        <li data-i18n="p2c">All 5 levels</li>
+        <li data-i18n="p2d">9 card back designs</li>
+        <li data-i18n="p2e">Future content free</li>
+        <li data-i18n="p2f">Everything, forever</li>
       </ul>
     </div>
   </div>
 </section>
 </div>
 
-<!-- SUPPORT -->
 <section id="support">
-  <h2>Support</h2>
+  <h2 data-i18n="supt">Support</h2>
   <div class="support-box">
-    <h3>Need help?</h3>
-    <p>We're here to help with any questions about Flip & Learn. We aim to respond within 48 hours.</p>
-    <a href="mailto:bura_laszlo@yahoo.com" class="email-btn">✉️ Contact Support</a>
-    <p style="margin-top:20px;font-size:13px;color:#aaa;">
-      Developer: Laszlo Bura<br>
-      <a href="privacy.html" style="color:#3A3589;">Privacy Policy</a>
-    </p>
+    <h3 data-i18n="suph">Need help?</h3>
+    <p data-i18n="supp">We are here to help with any questions about Flip and Learn. We aim to respond within 48 hours.</p>
+    <a href="mailto:bura_laszlo@yahoo.com" class="email-btn" data-i18n="supb">Contact Support</a>
+    <p style="margin-top:20px;font-size:13px;color:#aaa;"><span data-i18n="supd">Developer: Laszlo Bura</span><br><a href="privacy.html" style="color:#3A3589;" data-i18n="nav_privacy">Privacy Policy</a></p>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="mailto:bura_laszlo@yahoo.com">Contact</a>
+  <div class="fl">
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="privacy.html" data-i18n="nav_privacy">Privacy Policy</a>
+    <a href="mailto:bura_laszlo@yahoo.com" data-i18n="nav_contact">Contact</a>
   </div>
-  <p>&copy; 2026 Laszlo Bura. Flip &amp; Learn. All rights reserved.</p>
+  <p>&copy; 2026 Laszlo Bura. Flip &amp; Learn. <span data-i18n="fr">All rights reserved.</span></p>
 </footer>
 
+<script>
+const T = {
+en:{nav_features:"Features",nav_languages:"Languages",nav_pricing:"Pricing",nav_support:"Support",nav_privacy:"Privacy Policy",nav_home:"Home",nav_contact:"Contact",hero_sub:"The fun memory card game that teaches children new words in multiple languages",b1:"Ages 3+",b2:"Multiple Languages",b3:"20 Categories",b4:"No Ads Ever",b5:"Works Offline",btn:"Download on the App Store",soon:"Coming soon to the App Store",ft:"Everything kids love, everything parents trust",f1t:"Classic Memory Game",f1d:"Flip cards to find matching pairs. Beautiful 3D flip animations make every match satisfying.",f2t:"Speaks Every Word",f2d:"When a match is found, the app speaks the word out loud in the chosen language.",f3t:"Stars & Trophies",f3d:"Earn 1-3 stars per game. Collect stars to unlock 9 card back designs including the legendary Dino at 1000 stars.",f4t:"Personal Avatar",f4d:"Children choose their own animal avatar and name. The app greets them personally.",f5t:"Word of the Day",f5d:"A new featured word every day with pronunciation.",f6t:"Seasonal Themes",f6d:"The app automatically decorates for Easter, Halloween, Christmas and all four seasons.",lt:"Learn multiple languages",len:"English",les:"Spanish",lfr:"French",lde:"German",lhu:"Hungarian",lro:"Romanian",lit:"Italian",lpt:"Portuguese",lar:"Arabic",free:"Free",prem:"Premium",ct:"20 word categories",c1:"Animals",c2:"Fruits",c3:"Colors",c4:"Numbers",c5:"Objects",c6:"Emotions",c7:"Letters",c8:"Flags",c9:"Vehicles",c10:"Food & Drinks",c11:"Sports",c12:"Weather",c13:"Body Parts",c14:"Nature",c15:"Professions",c16:"Space",c17:"Household",c18:"Clothes",c19:"Music & Arts",c20:"Tools",lvt:"5 difficulty levels for every age",lv1:"Easy",lv1d:"Ages 3-5 · 4 pairs",lv2:"Medium",lv2d:"Ages 5+ · 6 pairs",lv3:"Hard",lv3d:"Ages 7+ · 8 pairs",lv4:"Expert",lv4d:"Ages 9+ · Picture+Word",lv5:"Master",lv5d:"Ages 12+ · Word only",sft:"Safe for children",s1:"No ads — ever",s2:"No social features",s3:"Works offline",s4:"Parental gate",s5:"No data collection",s6:"COPPA compliant",prt:"Simple, honest pricing",p1n:"Free",p1no:"Forever free",p1a:"English language",p1b:"Animals, Fruits, Colors",p1c:"Easy & Medium levels",p1d:"Classic card back",p1e:"Word of the Day",p1f:"Seasonal themes",p2n:"Full Version",p2no:"One-time · No subscription",p2a:"All languages",p2b:"All 20 categories",p2c:"All 5 levels",p2d:"9 card back designs",p2e:"Future content free",p2f:"Everything, forever",supt:"Support",suph:"Need help?",supp:"We are here to help with any questions about Flip and Learn. We aim to respond within 48 hours.",supb:"Contact Support",supd:"Developer: Laszlo Bura",fr:"All rights reserved."},
+es:{nav_features:"Funciones",nav_languages:"Idiomas",nav_pricing:"Precios",nav_support:"Soporte",nav_privacy:"Privacidad",nav_home:"Inicio",nav_contact:"Contacto",hero_sub:"El divertido juego de memoria que enseña palabras nuevas en varios idiomas",b1:"Desde 3 años",b2:"Varios Idiomas",b3:"20 Categorías",b4:"Sin Publicidad",b5:"Sin Internet",btn:"Descargar en App Store",soon:"Próximamente en App Store",ft:"Todo lo que los niños aman, todo lo que los padres confían",f1t:"Juego de Memoria",f1d:"Voltea cartas para encontrar parejas. Hermosas animaciones 3D hacen cada encuentro satisfactorio.",f2t:"Pronuncia Cada Palabra",f2d:"Al encontrar una pareja, la app pronuncia la palabra en voz alta en el idioma elegido.",f3t:"Estrellas y Trofeos",f3d:"Gana 1-3 estrellas por juego. Colecciona estrellas para desbloquear 9 diseños de cartas.",f4t:"Avatar Personal",f4d:"Los niños eligen su propio avatar y nombre.",f5t:"Palabra del Día",f5d:"Una nueva palabra destacada cada día con pronunciación.",f6t:"Temas de Temporada",f6d:"La app se decora para Pascua, Halloween, Navidad y las cuatro estaciones.",lt:"Aprende varios idiomas",len:"Inglés",les:"Español",lfr:"Francés",lde:"Alemán",lhu:"Húngaro",lro:"Rumano",lit:"Italiano",lpt:"Portugués",lar:"Árabe",free:"Gratis",prem:"Premium",ct:"20 categorías de palabras",c1:"Animales",c2:"Frutas",c3:"Colores",c4:"Números",c5:"Objetos",c6:"Emociones",c7:"Letras",c8:"Banderas",c9:"Vehículos",c10:"Comida",c11:"Deportes",c12:"Clima",c13:"Cuerpo",c14:"Naturaleza",c15:"Profesiones",c16:"Espacio",c17:"Hogar",c18:"Ropa",c19:"Música y Arte",c20:"Herramientas",lvt:"5 niveles para cada edad",lv1:"Fácil",lv1d:"3-5 años · 4 parejas",lv2:"Medio",lv2d:"5+ años · 6 parejas",lv3:"Difícil",lv3d:"7+ años · 8 parejas",lv4:"Experto",lv4d:"9+ años · Imagen+Palabra",lv5:"Maestro",lv5d:"12+ años · Solo palabras",sft:"Seguro para niños",s1:"Sin publicidad — nunca",s2:"Sin funciones sociales",s3:"Funciona sin conexión",s4:"Control parental",s5:"Sin recopilación de datos",s6:"Cumple COPPA",prt:"Precios simples y honestos",p1n:"Gratis",p1no:"Para siempre gratis",p1a:"Idioma inglés",p1b:"Animales, Frutas, Colores",p1c:"Niveles Fácil y Medio",p1d:"Reverso clásico",p1e:"Palabra del día",p1f:"Temas de temporada",p2n:"Versión Completa",p2no:"Pago único · Sin suscripción",p2a:"Todos los idiomas",p2b:"Las 20 categorías",p2c:"Los 5 niveles",p2d:"9 diseños de reverso",p2e:"Contenido futuro gratis",p2f:"Todo, para siempre",supt:"Soporte",suph:"¿Necesitas ayuda?",supp:"Estamos aquí para ayudarte. Respondemos en 48 horas.",supb:"Contactar Soporte",supd:"Desarrollador: Laszlo Bura",fr:"Todos los derechos reservados."},
+fr:{nav_features:"Fonctionnalités",nav_languages:"Langues",nav_pricing:"Tarifs",nav_support:"Support",nav_privacy:"Confidentialité",nav_home:"Accueil",nav_contact:"Contact",hero_sub:"Le jeu de mémoire amusant qui apprend aux enfants des mots dans plusieurs langues",b1:"Dès 3 ans",b2:"Plusieurs Langues",b3:"20 Catégories",b4:"Sans Publicité",b5:"Hors Ligne",btn:"Télécharger sur l'App Store",soon:"Bientôt sur l'App Store",ft:"Tout ce que les enfants aiment, tout ce que les parents apprécient",f1t:"Jeu de Mémoire Classique",f1d:"Retourne les cartes pour trouver des paires. De belles animations 3D rendent chaque découverte satisfaisante.",f2t:"Prononce Chaque Mot",f2d:"Quand une paire est trouvée, l'app prononce le mot dans la langue choisie.",f3t:"Étoiles et Trophées",f3d:"Gagne 1 à 3 étoiles par partie. Collecte des étoiles pour débloquer 9 designs de dos de cartes.",f4t:"Avatar Personnel",f4d:"Les enfants choisissent leur propre avatar et prénom.",f5t:"Mot du Jour",f5d:"Un nouveau mot mis en avant chaque jour avec sa prononciation.",f6t:"Thèmes Saisonniers",f6d:"L'app se décore pour Pâques, Halloween, Noël et les quatre saisons.",lt:"Apprends plusieurs langues",len:"Anglais",les:"Espagnol",lfr:"Français",lde:"Allemand",lhu:"Hongrois",lro:"Roumain",lit:"Italien",lpt:"Portugais",lar:"Arabe",free:"Gratuit",prem:"Premium",ct:"20 catégories de mots",c1:"Animaux",c2:"Fruits",c3:"Couleurs",c4:"Chiffres",c5:"Objets",c6:"Émotions",c7:"Lettres",c8:"Drapeaux",c9:"Véhicules",c10:"Nourriture",c11:"Sports",c12:"Météo",c13:"Corps",c14:"Nature",c15:"Métiers",c16:"Espace",c17:"Maison",c18:"Vêtements",c19:"Musique et Arts",c20:"Outils",lvt:"5 niveaux de difficulté pour chaque âge",lv1:"Facile",lv1d:"3-5 ans · 4 paires",lv2:"Moyen",lv2d:"5+ ans · 6 paires",lv3:"Difficile",lv3d:"7+ ans · 8 paires",lv4:"Expert",lv4d:"9+ ans · Image+Mot",lv5:"Maître",lv5d:"12+ ans · Mots seulement",sft:"Sûr pour les enfants",s1:"Aucune pub — jamais",s2:"Pas de réseaux sociaux",s3:"Fonctionne hors ligne",s4:"Contrôle parental",s5:"Pas de collecte de données",s6:"Conforme COPPA",prt:"Tarification simple et honnête",p1n:"Gratuit",p1no:"Gratuit pour toujours",p1a:"Langue anglaise",p1b:"Animaux, Fruits, Couleurs",p1c:"Niveaux Facile et Moyen",p1d:"Dos classique",p1e:"Mot du jour",p1f:"Thèmes saisonniers",p2n:"Version Complète",p2no:"Achat unique · Sans abonnement",p2a:"Toutes les langues",p2b:"Les 20 catégories",p2c:"Les 5 niveaux",p2d:"9 designs de dos",p2e:"Contenu futur gratuit",p2f:"Tout, pour toujours",supt:"Support",suph:"Besoin d'aide ?",supp:"Nous sommes là pour répondre à vos questions. Réponse sous 48h.",supb:"Contacter le Support",supd:"Développeur : Laszlo Bura",fr:"Tous droits réservés."},
+de:{nav_features:"Funktionen",nav_languages:"Sprachen",nav_pricing:"Preise",nav_support:"Support",nav_privacy:"Datenschutz",nav_home:"Startseite",nav_contact:"Kontakt",hero_sub:"Das lustige Memory-Spiel, das Kindern Wörter in mehreren Sprachen beibringt",b1:"Ab 3 Jahren",b2:"Mehrere Sprachen",b3:"20 Kategorien",b4:"Keine Werbung",b5:"Offline nutzbar",btn:"Im App Store laden",soon:"Bald im App Store",ft:"Alles was Kinder lieben, alles dem Eltern vertrauen",f1t:"Klassisches Memory",f1d:"Karten umdrehen und passende Paare finden. Schöne 3D-Animationen machen jeden Treffer befriedigend.",f2t:"Spricht jedes Wort",f2d:"Bei einem Treffer spricht die App das Wort laut in der gewählten Sprache.",f3t:"Sterne und Trophäen",f3d:"Verdiene 1-3 Sterne pro Spiel. Sammle Sterne um 9 Kartenrücken freizuschalten.",f4t:"Persönlicher Avatar",f4d:"Kinder wählen ihren eigenen Tier-Avatar und Namen.",f5t:"Wort des Tages",f5d:"Jeden Tag ein neues Wort mit Aussprache.",f6t:"Saisonale Themen",f6d:"Die App schmückt sich für Ostern, Halloween, Weihnachten und alle vier Jahreszeiten.",lt:"Lerne mehrere Sprachen",len:"Englisch",les:"Spanisch",lfr:"Französisch",lde:"Deutsch",lhu:"Ungarisch",lro:"Rumänisch",lit:"Italienisch",lpt:"Portugiesisch",lar:"Arabisch",free:"Kostenlos",prem:"Premium",ct:"20 Wortkategorien",c1:"Tiere",c2:"Früchte",c3:"Farben",c4:"Zahlen",c5:"Gegenstände",c6:"Gefühle",c7:"Buchstaben",c8:"Flaggen",c9:"Fahrzeuge",c10:"Essen und Trinken",c11:"Sport",c12:"Wetter",c13:"Körper",c14:"Natur",c15:"Berufe",c16:"Weltraum",c17:"Haushalt",c18:"Kleidung",c19:"Musik und Kunst",c20:"Werkzeug",lvt:"5 Schwierigkeitsstufen für jedes Alter",lv1:"Einfach",lv1d:"3-5 Jahre · 4 Paare",lv2:"Mittel",lv2d:"5+ Jahre · 6 Paare",lv3:"Schwer",lv3d:"7+ Jahre · 8 Paare",lv4:"Experte",lv4d:"9+ Jahre · Bild+Wort",lv5:"Meister",lv5d:"12+ Jahre · Nur Wörter",sft:"Sicher für Kinder",s1:"Keine Werbung — niemals",s2:"Keine sozialen Funktionen",s3:"Funktioniert offline",s4:"Elternschutz",s5:"Keine Datenspeicherung",s6:"COPPA-konform",prt:"Einfache ehrliche Preise",p1n:"Kostenlos",p1no:"Für immer kostenlos",p1a:"Englische Sprache",p1b:"Tiere, Früchte, Farben",p1c:"Einfach und Mittel",p1d:"Klassischer Kartenrücken",p1e:"Wort des Tages",p1f:"Saisonale Themen",p2n:"Vollversion",p2no:"Einmalzahlung · Kein Abo",p2a:"Alle Sprachen",p2b:"Alle 20 Kategorien",p2c:"Alle 5 Stufen",p2d:"9 Kartenrücken-Designs",p2e:"Zukünftige Inhalte gratis",p2f:"Alles, für immer",supt:"Support",suph:"Brauchst du Hilfe?",supp:"Wir helfen dir gerne. Wir antworten innerhalb von 48 Stunden.",supb:"Support kontaktieren",supd:"Entwickler: Laszlo Bura",fr:"Alle Rechte vorbehalten."},
+hu:{nav_features:"Funkciók",nav_languages:"Nyelvek",nav_pricing:"Árak",nav_support:"Támogatás",nav_privacy:"Adatvédelem",nav_home:"Főoldal",nav_contact:"Kapcsolat",hero_sub:"A szórakoztató memóriajáték amely több nyelven tanít szavakat a gyerekeknek",b1:"3 évestől",b2:"Több Nyelv",b3:"20 Kategória",b4:"Nincs Reklám",b5:"Offline Működik",btn:"Letöltés az App Store-ból",soon:"Hamarosan az App Store-ban",ft:"Minden amit a gyerekek szeretnek, minden amiben a szülők megbíznak",f1t:"Klasszikus Memóriajáték",f1d:"Fordíts fel kártyákat és találd meg az egyező párokat. Gyönyörű 3D animációk.",f2t:"Minden Szót Kimondja",f2d:"Egyezésnél az app hangosan kimondja a szót a választott nyelven.",f3t:"Csillagok és Trófeák",f3d:"Szerezz 1-3 csillagot játékonként. Gyűjts csillagokat 9 kártyahát feloldásához.",f4t:"Személyes Avatar",f4d:"A gyerekek saját állat avatart és nevet választanak.",f5t:"Napi Szó",f5d:"Minden nap egy új kiemelt szó kiejtéssel.",f6t:"Szezonális Témák",f6d:"Az app automatikusan díszíti magát Húsvétra, Halloweenre, Karácsonyra és mind a négy évszakra.",lt:"Tanulj több nyelvet",len:"Angol",les:"Spanyol",lfr:"Francia",lde:"Német",lhu:"Magyar",lro:"Román",lit:"Olasz",lpt:"Portugál",lar:"Arab",free:"Ingyenes",prem:"Prémium",ct:"20 szókategória",c1:"Állatok",c2:"Gyümölcsök",c3:"Színek",c4:"Számok",c5:"Tárgyak",c6:"Érzelmek",c7:"Betűk",c8:"Zászlók",c9:"Járművek",c10:"Étel és ital",c11:"Sport",c12:"Időjárás",c13:"Testrészek",c14:"Természet",c15:"Foglalkozások",c16:"Világűr",c17:"Háztartás",c18:"Ruházat",c19:"Zene és Művészet",c20:"Szerszámok",lvt:"5 nehézségi szint minden korosztálynak",lv1:"Könnyű",lv1d:"3-5 év · 4 pár",lv2:"Közepes",lv2d:"5+ év · 6 pár",lv3:"Nehéz",lv3d:"7+ év · 8 pár",lv4:"Szakértő",lv4d:"9+ év · Kép+Szó",lv5:"Mester",lv5d:"12+ év · Csak szavak",sft:"Biztonságos gyerekeknek",s1:"Nincs reklám — soha",s2:"Nincs közösségi funkció",s3:"Offline működik",s4:"Szülői vásárlási zár",s5:"Nincs adatgyűjtés",s6:"COPPA-kompatibilis",prt:"Egyszerű becsületes árazás",p1n:"Ingyenes",p1no:"Örökre ingyenes",p1a:"Angol nyelv",p1b:"Állatok, Gyümölcsök, Színek",p1c:"Könnyű és Közepes szintek",p1d:"Klasszikus kártyahát",p1e:"Napi szó",p1f:"Szezonális témák",p2n:"Teljes Verzió",p2no:"Egyszeri vásárlás · Nincs előfizetés",p2a:"Minden nyelv",p2b:"Mind a 20 kategória",p2c:"Mind az 5 szint",p2d:"9 kártyahát-dizájn",p2e:"Jövőbeli tartalom ingyenes",p2f:"Minden, örökre",supt:"Támogatás",suph:"Segítségre van szükséged?",supp:"Szívesen segítünk. 48 órán belül válaszolunk.",supb:"Kapcsolatfelvétel",supd:"Fejlesztő: Laszlo Bura",fr:"Minden jog fenntartva."},
+ro:{nav_features:"Funcții",nav_languages:"Limbi",nav_pricing:"Prețuri",nav_support:"Suport",nav_privacy:"Confidențialitate",nav_home:"Acasă",nav_contact:"Contact",hero_sub:"Jocul de memorie distractiv care îi învață pe copii cuvinte noi în mai multe limbi",b1:"De la 3 ani",b2:"Mai Multe Limbi",b3:"20 Categorii",b4:"Fără Reclame",b5:"Funcționează Offline",btn:"Descarcă din App Store",soon:"În curând în App Store",ft:"Tot ce iubesc copiii, tot ce au încredere părinții",f1t:"Joc de Memorie Clasic",f1d:"Întoarce cărțile pentru a găsi perechi. Animații 3D frumoase fac fiecare potrivire satisfăcătoare.",f2t:"Pronunță Fiecare Cuvânt",f2d:"Când se găsește o pereche, aplicația pronunță cuvântul în limba aleasă.",f3t:"Stele și Trofee",f3d:"Câștigă 1-3 stele per joc. Colecționează stele pentru a debloca 9 modele de verso.",f4t:"Avatar Personal",f4d:"Copiii își aleg propriul avatar animal și nume.",f5t:"Cuvântul Zilei",f5d:"Un cuvânt nou în fiecare zi cu pronunție.",f6t:"Teme Sezoniere",f6d:"Aplicația se decorează automat pentru Paște, Halloween, Crăciun și cele patru anotimpuri.",lt:"Învață mai multe limbi",len:"Engleză",les:"Spaniolă",lfr:"Franceză",lde:"Germană",lhu:"Maghiară",lro:"Română",lit:"Italiană",lpt:"Portugheză",lar:"Arabă",free:"Gratuit",prem:"Premium",ct:"20 categorii de cuvinte",c1:"Animale",c2:"Fructe",c3:"Culori",c4:"Numere",c5:"Obiecte",c6:"Emoții",c7:"Litere",c8:"Steaguri",c9:"Vehicule",c10:"Mâncare și Băuturi",c11:"Sport",c12:"Vreme",c13:"Corp",c14:"Natură",c15:"Profesii",c16:"Spațiu",c17:"Gospodărie",c18:"Haine",c19:"Muzică și Arte",c20:"Unelte",lvt:"5 niveluri de dificultate pentru fiecare vârstă",lv1:"Ușor",lv1d:"3-5 ani · 4 perechi",lv2:"Mediu",lv2d:"5+ ani · 6 perechi",lv3:"Greu",lv3d:"7+ ani · 8 perechi",lv4:"Expert",lv4d:"9+ ani · Imagine+Cuvânt",lv5:"Maestru",lv5d:"12+ ani · Doar cuvinte",sft:"Sigur pentru copii",s1:"Fără reclame — niciodată",s2:"Fără funcții sociale",s3:"Funcționează offline",s4:"Protecție parentală",s5:"Fără colectare de date",s6:"Conform COPPA",prt:"Prețuri simple și corecte",p1n:"Gratuit",p1no:"Gratuit pentru totdeauna",p1a:"Limba engleză",p1b:"Animale, Fructe, Culori",p1c:"Niveluri Ușor și Mediu",p1d:"Verso clasic",p1e:"Cuvântul zilei",p1f:"Teme sezoniere",p2n:"Versiunea Completă",p2no:"Achiziție unică · Fără abonament",p2a:"Toate limbile",p2b:"Toate 20 categoriile",p2c:"Toate 5 nivelurile",p2d:"9 modele de verso",p2e:"Conținut viitor gratuit",p2f:"Totul, pentru totdeauna",supt:"Suport",suph:"Ai nevoie de ajutor?",supp:"Suntem aici pentru orice întrebări. Răspundem în 48 de ore.",supb:"Contactează Suportul",supd:"Dezvoltator: Laszlo Bura",fr:"Toate drepturile rezervate."},
+it:{nav_features:"Funzionalità",nav_languages:"Lingue",nav_pricing:"Prezzi",nav_support:"Supporto",nav_privacy:"Privacy",nav_home:"Home",nav_contact:"Contatto",hero_sub:"Il divertente gioco di memoria che insegna ai bambini parole in più lingue",b1:"Da 3 anni",b2:"Più Lingue",b3:"20 Categorie",b4:"Senza Pubblicità",b5:"Funziona Offline",btn:"Scarica dall'App Store",soon:"Presto sull'App Store",ft:"Tutto ciò che i bambini amano, tutto ciò di cui i genitori si fidano",f1t:"Gioco di Memoria Classico",f1d:"Gira le carte per trovare coppie. Belle animazioni 3D rendono ogni abbinamento soddisfacente.",f2t:"Pronuncia Ogni Parola",f2d:"Quando si trova una coppia, l'app pronuncia la parola nella lingua scelta.",f3t:"Stelle e Trofei",f3d:"Guadagna 1-3 stelle per partita. Colleziona stelle per sbloccare 9 design di dorso.",f4t:"Avatar Personale",f4d:"I bambini scelgono il proprio avatar animale e nome.",f5t:"Parola del Giorno",f5d:"Una nuova parola ogni giorno con pronuncia.",f6t:"Temi Stagionali",f6d:"L'app si decora per Pasqua, Halloween, Natale e le quattro stagioni.",lt:"Impara più lingue",len:"Inglese",les:"Spagnolo",lfr:"Francese",lde:"Tedesco",lhu:"Ungherese",lro:"Rumeno",lit:"Italiano",lpt:"Portoghese",lar:"Arabo",free:"Gratuito",prem:"Premium",ct:"20 categorie di parole",c1:"Animali",c2:"Frutta",c3:"Colori",c4:"Numeri",c5:"Oggetti",c6:"Emozioni",c7:"Lettere",c8:"Bandiere",c9:"Veicoli",c10:"Cibo e Bevande",c11:"Sport",c12:"Meteo",c13:"Corpo",c14:"Natura",c15:"Professioni",c16:"Spazio",c17:"Casa",c18:"Vestiti",c19:"Musica e Arte",c20:"Strumenti",lvt:"5 livelli di difficoltà per ogni età",lv1:"Facile",lv1d:"3-5 anni · 4 coppie",lv2:"Medio",lv2d:"5+ anni · 6 coppie",lv3:"Difficile",lv3d:"7+ anni · 8 coppie",lv4:"Esperto",lv4d:"9+ anni · Immagine+Parola",lv5:"Maestro",lv5d:"12+ anni · Solo parole",sft:"Sicuro per i bambini",s1:"Nessuna pubblicità — mai",s2:"Nessuna funzione sociale",s3:"Funziona offline",s4:"Controllo genitori",s5:"Nessuna raccolta dati",s6:"Conforme COPPA",prt:"Prezzi semplici e onesti",p1n:"Gratuito",p1no:"Gratis per sempre",p1a:"Lingua inglese",p1b:"Animali, Frutta, Colori",p1c:"Livelli Facile e Medio",p1d:"Dorso classico",p1e:"Parola del giorno",p1f:"Temi stagionali",p2n:"Versione Completa",p2no:"Acquisto unico · Nessun abbonamento",p2a:"Tutte le lingue",p2b:"Tutte le 20 categorie",p2c:"Tutti i 5 livelli",p2d:"9 design di dorso",p2e:"Contenuti futuri gratis",p2f:"Tutto, per sempre",supt:"Supporto",suph:"Hai bisogno di aiuto?",supp:"Siamo qui per aiutarti. Rispondiamo entro 48 ore.",supb:"Contatta il Supporto",supd:"Sviluppatore: Laszlo Bura",fr:"Tutti i diritti riservati."},
+pt:{nav_features:"Funcionalidades",nav_languages:"Idiomas",nav_pricing:"Preços",nav_support:"Suporte",nav_privacy:"Privacidade",nav_home:"Início",nav_contact:"Contacto",hero_sub:"O divertido jogo de memória que ensina às crianças palavras em vários idiomas",b1:"A partir dos 3 anos",b2:"Vários Idiomas",b3:"20 Categorias",b4:"Sem Publicidade",b5:"Funciona Offline",btn:"Descarregar na App Store",soon:"Brevemente na App Store",ft:"Tudo o que as crianças adoram, tudo em que os pais confiam",f1t:"Jogo da Memória Clássico",f1d:"Vira as cartas para encontrar pares. Belas animações 3D tornam cada correspondência satisfatória.",f2t:"Pronuncia Cada Palavra",f2d:"Quando se encontra um par, o app pronuncia a palavra no idioma escolhido.",f3t:"Estrelas e Troféus",f3d:"Ganha 1-3 estrelas por jogo. Coleciona estrelas para desbloquear 9 designs de verso.",f4t:"Avatar Pessoal",f4d:"As crianças escolhem o seu próprio avatar animal e nome.",f5t:"Palavra do Dia",f5d:"Uma nova palavra em destaque todos os dias com pronúncia.",f6t:"Temas Sazonais",f6d:"O app decora-se para a Páscoa, Halloween, Natal e as quatro estações.",lt:"Aprende vários idiomas",len:"Inglês",les:"Espanhol",lfr:"Francês",lde:"Alemão",lhu:"Húngaro",lro:"Romeno",lit:"Italiano",lpt:"Português",lar:"Árabe",free:"Gratuito",prem:"Premium",ct:"20 categorias de palavras",c1:"Animais",c2:"Frutas",c3:"Cores",c4:"Números",c5:"Objetos",c6:"Emoções",c7:"Letras",c8:"Bandeiras",c9:"Veículos",c10:"Comida e Bebidas",c11:"Desporto",c12:"Tempo",c13:"Corpo",c14:"Natureza",c15:"Profissões",c16:"Espaço",c17:"Casa",c18:"Roupa",c19:"Música e Arte",c20:"Ferramentas",lvt:"5 níveis de dificuldade para todas as idades",lv1:"Fácil",lv1d:"3-5 anos · 4 pares",lv2:"Médio",lv2d:"5+ anos · 6 pares",lv3:"Difícil",lv3d:"7+ anos · 8 pares",lv4:"Especialista",lv4d:"9+ anos · Imagem+Palavra",lv5:"Mestre",lv5d:"12+ anos · Só palavras",sft:"Seguro para crianças",s1:"Sem publicidade — nunca",s2:"Sem funcionalidades sociais",s3:"Funciona offline",s4:"Controlo parental",s5:"Sem recolha de dados",s6:"Em conformidade com COPPA",prt:"Preços simples e honestos",p1n:"Gratuito",p1no:"Gratuito para sempre",p1a:"Idioma inglês",p1b:"Animais, Frutas, Cores",p1c:"Níveis Fácil e Médio",p1d:"Verso clássico",p1e:"Palavra do dia",p1f:"Temas sazonais",p2n:"Versão Completa",p2no:"Compra única · Sem subscrição",p2a:"Todos os idiomas",p2b:"Todas as 20 categorias",p2c:"Todos os 5 níveis",p2d:"9 designs de verso",p2e:"Conteúdo futuro gratuito",p2f:"Tudo, para sempre",supt:"Suporte",suph:"Precisa de ajuda?",supp:"Estamos aqui para ajudar. Respondemos em 48 horas.",supb:"Contactar Suporte",supd:"Programador: Laszlo Bura",fr:"Todos os direitos reservados."},
+ar:{nav_features:"المميزات",nav_languages:"اللغات",nav_pricing:"الأسعار",nav_support:"الدعم",nav_privacy:"الخصوصية",nav_home:"الرئيسية",nav_contact:"تواصل",hero_sub:"لعبة الذاكرة الممتعة التي تعلم الأطفال كلمات جديدة بلغات متعددة",b1:"من 3 سنوات",b2:"لغات متعددة",b3:"20 فئة",b4:"بدون إعلانات",b5:"تعمل بدون إنترنت",btn:"تحميل من App Store",soon:"قريباً في App Store",ft:"كل ما يحبه الأطفال، كل ما يثق به الآباء",f1t:"لعبة ذاكرة كلاسيكية",f1d:"اقلب البطاقات للعثور على أزواج متطابقة. رسوم متحركة ثلاثية الأبعاد رائعة.",f2t:"ينطق كل كلمة",f2d:"عند العثور على زوج، ينطق التطبيق الكلمة بصوت عالٍ باللغة المختارة.",f3t:"نجوم وكؤوس",f3d:"اكسب 1-3 نجوم لكل لعبة. اجمع النجوم لفتح 9 تصاميم لظهر البطاقة.",f4t:"شخصية شخصية",f4d:"يختار الأطفال شخصيتهم الحيوانية واسمهم الخاص.",f5t:"كلمة اليوم",f5d:"كلمة جديدة مميزة كل يوم مع النطق.",f6t:"مظاهر موسمية",f6d:"يزين التطبيق نفسه تلقائياً للفصح والهالوين والكريسماس والفصول الأربعة.",lt:"تعلم لغات متعددة",len:"الإنجليزية",les:"الإسبانية",lfr:"الفرنسية",lde:"الألمانية",lhu:"الهنغارية",lro:"الرومانية",lit:"الإيطالية",lpt:"البرتغالية",lar:"العربية",free:"مجاني",prem:"مميز",ct:"20 فئة من الكلمات",c1:"الحيوانات",c2:"الفواكه",c3:"الألوان",c4:"الأرقام",c5:"الأشياء",c6:"المشاعر",c7:"الحروف",c8:"الأعلام",c9:"المركبات",c10:"الطعام والمشروبات",c11:"الرياضة",c12:"الطقس",c13:"الجسم",c14:"الطبيعة",c15:"المهن",c16:"الفضاء",c17:"المنزل",c18:"الملابس",c19:"الموسيقى والفنون",c20:"الأدوات",lvt:"5 مستويات صعوبة لكل عمر",lv1:"سهل",lv1d:"3-5 سنوات · 4 أزواج",lv2:"متوسط",lv2d:"5+ سنوات · 6 أزواج",lv3:"صعب",lv3d:"7+ سنوات · 8 أزواج",lv4:"خبير",lv4d:"9+ سنوات · صورة+كلمة",lv5:"ماهر",lv5d:"12+ سنوات · كلمات فقط",sft:"آمن للأطفال",s1:"لا إعلانات — أبداً",s2:"لا ميزات اجتماعية",s3:"يعمل بدون إنترنت",s4:"حماية أولياء الأمور",s5:"لا جمع للبيانات",s6:"متوافق مع COPPA",prt:"أسعار بسيطة وصادقة",p1n:"مجاني",p1no:"مجاني للأبد",p1a:"اللغة الإنجليزية",p1b:"الحيوانات، الفواكه، الألوان",p1c:"المستويات السهل والمتوسط",p1d:"ظهر البطاقة الكلاسيكي",p1e:"كلمة اليوم",p1f:"مظاهر موسمية",p2n:"النسخة الكاملة",p2no:"شراء لمرة واحدة · بدون اشتراك",p2a:"جميع اللغات",p2b:"جميع 20 فئة",p2c:"جميع 5 مستويات",p2d:"9 تصاميم لظهر البطاقة",p2e:"جميع المحتوى المستقبلي مجاناً",p2f:"كل شيء، للأبد",supt:"الدعم",suph:"تحتاج مساعدة؟",supp:"نحن هنا للمساعدة في أي أسئلة. نهدف للرد خلال 48 ساعة.",supb:"تواصل مع الدعم",supd:"المطور: Laszlo Bura",fr:"جميع الحقوق محفوظة."}
+};
+
+const M={en:{f:"🇬🇧",l:"EN"},es:{f:"🇪🇸",l:"ES"},fr:{f:"🇫🇷",l:"FR"},de:{f:"🇩🇪",l:"DE"},hu:{f:"🇭🇺",l:"HU"},ro:{f:"🇷🇴",l:"RO"},it:{f:"🇮🇹",l:"IT"},pt:{f:"🇵🇹",l:"PT"},ar:{f:"🇸🇦",l:"AR"}};
+
+function toggleMenu(){document.getElementById('langMenu').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lang-switcher'))document.getElementById('langMenu').classList.remove('open');});
+
+function setLang(l){
+  const t=T[l],m=M[l];
+  document.getElementById('langBtn').textContent=m.f+' '+m.l+' ▾';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k];});
+  document.querySelectorAll('.lang-option').forEach(o=>{o.classList.remove('active');if(o.getAttribute('onclick')==="setLang('"+l+"')")o.classList.add('active');});
+  if(l==='ar'){document.body.classList.add('rtl');document.documentElement.lang='ar';document.documentElement.dir='rtl';}
+  else{document.body.classList.remove('rtl');document.documentElement.lang=l;document.documentElement.removeAttribute('dir');}
+  document.getElementById('langMenu').classList.remove('open');
+}
+</script>
 </body>
 </html>
