@@ -14,10 +14,10 @@ nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1
 .nav-links a{color:#3A3589;text-decoration:none;font-size:14px;opacity:.8}
 .nav-links a:hover{opacity:1}
 .lang-sw{position:relative}
-.lang-btn{background:#f0effe;border:1.5px solid #c5c2f5;border-radius:10px;padding:5px 10px;font-size:13px;font-weight:600;color:#3A3589;cursor:pointer}
+.lang-btn{background:#f0effe;border:1.5px solid #c5c2f5;border-radius:10px;padding:5px 10px;font-size:13px;font-weight:600;color:#3A3589;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .lang-menu{position:absolute;right:0;top:calc(100% + 6px);background:white;border:1px solid #e0e0e0;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12);min-width:160px;display:none;z-index:200;overflow:hidden}
 .lang-menu.open{display:block}
-.lang-opt{padding:9px 14px;font-size:13px;cursor:pointer;color:#1d1d1f}
+.lang-opt{padding:9px 14px;font-size:13px;cursor:pointer;color:#1d1d1f;-webkit-tap-highlight-color:transparent}
 .lang-opt:hover{background:#f5f5f7}
 .lang-opt.active{background:#f0effe;font-weight:600;color:#3A3589}
 .hero{background:linear-gradient(135deg,#3A3589 0%,#5E5CE6 60%,#7B79F0 100%);color:white;text-align:center;padding:72px 20px 90px}
@@ -502,11 +502,17 @@ ar:{
 const M={en:{f:"🇬🇧",l:"EN"},es:{f:"🇪🇸",l:"ES"},fr:{f:"🇫🇷",l:"FR"},de:{f:"🇩🇪",l:"DE"},hu:{f:"🇭🇺",l:"HU"},ro:{f:"🇷🇴",l:"RO"},it:{f:"🇮🇹",l:"IT"},pt:{f:"🇵🇹",l:"PT"},ar:{f:"🇸🇦",l:"AR"}};
 
 function toggleMenu(){document.getElementById('langMenu').classList.toggle('open');}
-document.addEventListener('click',e=>{if(!e.target.closest('.lang-sw'))document.getElementById('langMenu').classList.remove('open');});
+document.addEventListener('touchstart',function(e){if(!e.target.closest('.lang-sw'))document.getElementById('langMenu').classList.remove('open');});document.addEventListener('click',function(e){if(!e.target.closest('.lang-sw'))document.getElementById('langMenu').classList.remove('open');});
 
 function setLang(l){
   const t=T[l],m=M[l];
   document.getElementById('langBtn').textContent=m.f+' '+m.l+' ▾';
   document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k];});
   document.querySelectorAll('.lang-opt').forEach(o=>{o.classList.remove('active');if(o.getAttribute('onclick')==="setLang('"+l+"')")o.classList.add('active');});
-  if(l==='ar'){document.body.classList.add('rtl')
+  if(l==='ar'){document.body.classList.add('rtl');document.documentElement.lang='ar';document.documentElement.dir='rtl';}
+  else{document.body.classList.remove('rtl');document.documentElement.lang=l;document.documentElement.removeAttribute('dir');}
+  document.getElementById('langMenu').classList.remove('open');
+}
+</script>
+</body>
+</html>
