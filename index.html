@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flip &amp; Learn — Memory Card Language Game for Kids</title>
-<meta name="description" content="Fun memory card game teaching children words in multiple languages. Ages 3+. iPhone and iPad.">
+<title>Flip &amp; Learn — Language Card Game for Kids</title>
+<meta name="description" content="Fun language card game teaching children words in multiple languages. Ages 3+. iPhone and iPad.">
 <!-- Browser favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="icon32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="icon16.png">
@@ -63,6 +63,510 @@ section h2{font-size:32px;font-weight:700;text-align:center;margin-bottom:44px}
 .lname{font-size:14px;font-weight:600}
 .ltag{font-size:11px;color:#6e6e73;margin-top:2px}
 .ltag.free{color:#30a46c;font-weight:600}
+.cats{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}
+.chip{background:white;border:1.5px solid #e0e0e0;border-radius:18px;padding:7px 16px;font-size:14px;color:#3A3589;font-weight:500}
+.lvls{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.lcard2{background:white;border-radius:13px;padding:18px 14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.lemoji{font-size:26px;display:block;margin-bottom:7px}
+.lname2{font-size:15px;font-weight:600}
+.ldesc{font-size:12px;color:#6e6e73;margin-top:3px}
+.safe-box{background:linear-gradient(135deg,#3A3589,#5E5CE6);color:white;border-radius:22px;padding:44px 36px;text-align:center;margin:0 24px 64px}
+.safe-box h2{color:white;margin-bottom:28px}
+.safe-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;max-width:680px;margin:0 auto}
+.safe-item{font-size:14px;opacity:.9}
+.safe-item span{font-size:22px;display:block;margin-bottom:5px}
+.price-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:620px;margin:0 auto}
+.pcard{background:white;border-radius:18px;padding:28px 22px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.pcard.feat2{background:linear-gradient(135deg,#3A3589,#5E5CE6);color:white}
+.pcard h3{font-size:19px;font-weight:700;margin-bottom:7px}
+.price{font-size:34px;font-weight:700;margin:10px 0}
+.pcard ul{list-style:none;font-size:13px;text-align:left;margin-top:14px}
+.pcard ul li{padding:3px 0}
+.pcard ul li::before{content:"✓ ";font-weight:600}
+.pcard.feat2 ul li::before{color:#a8f0c8}
+.sup-box{background:white;border-radius:18px;padding:36px;text-align:center;max-width:520px;margin:0 auto;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.sup-box h3{font-size:20px;font-weight:600;margin-bottom:10px}
+.sup-box p{color:#6e6e73;margin-bottom:18px}
+.email-btn{display:inline-block;background:#3A3589;color:white;padding:11px 26px;border-radius:11px;text-decoration:none;font-weight:600;font-size:14px}
+footer{background:#1d1d1f;color:#888;text-align:center;padding:28px 20px;font-size:13px}
+footer a{color:#aaa;text-decoration:none;margin:0 10px}
+.flinks{margin-bottom:10px}
+.emoji-section{background:#f0effe}
+.emoji-section section h2{margin-bottom:20px}
+.we-body{text-align:center;max-width:640px;margin:0 auto;color:#6e6e73;font-size:16px;line-height:1.6}
+.emoji-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:28px}
+.emoji-pair{background:white;border-radius:14px;padding:13px 18px;font-size:15px;font-weight:600;color:#3A3589;box-shadow:0 2px 8px rgba(0,0,0,.07);display:flex;align-items:center;gap:9px}
+.emoji-pair .ep-em{font-size:26px}
+.fade-scroll{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.fade-scroll.visible{opacity:1;transform:none}
+body.rtl{direction:rtl}
+@media(max-width:600px){.hero h1{font-size:30px}.nav-links{display:none}.price-cards{grid-template-columns:1fr}.safe-box{margin:0 12px 44px;padding:28px 18px}nav{padding:0 16px}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="index.html">Flip &amp; Learn</a>
+  <div class="nav-links">
+    <a href="#screenshots" data-i18n="nav.ss">Screenshots</a>
+    <a href="#features" data-i18n="nav.feat">Features</a>
+    <a href="#languages" data-i18n="nav.lang">Languages</a>
+    <a href="#pricing" data-i18n="nav.price">Pricing</a>
+    <a href="#support" data-i18n="nav.sup">Support</a>
+    <a href="privacy.html" data-i18n="nav.priv">Privacy</a>
+  </div>
+  <div class="lang-sw">
+    <button class="lang-btn" id="langBtn" onclick="toggleMenu()">🇬🇧 EN ▾</button>
+    <div class="lang-menu" id="langMenu">
+      <div class="lang-opt active" onclick="setLang('en')">🇬🇧 English</div>
+      <div class="lang-opt" onclick="setLang('de')">🇩🇪 Deutsch</div>
+      <div class="lang-opt" onclick="setLang('fr')">🇫🇷 Français</div>
+      <div class="lang-opt" onclick="setLang('es')">🇪🇸 Español</div>
+      <div class="lang-opt" onclick="setLang('it')">🇮🇹 Italiano</div>
+      <div class="lang-opt" onclick="setLang('pt')">🇵🇹 Português</div>
+      <div class="lang-opt" onclick="setLang('ro')">🇷🇴 Română</div>
+      <div class="lang-opt" onclick="setLang('hu')">🇭🇺 Magyar</div>
+      <div class="lang-opt" onclick="setLang('ar')">🇸🇦 العربية</div>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <img src="icon.png" alt="Flip &amp; Learn" class="hero-icon" onerror="this.style.display='none'">
+  <h1>Flip &amp; Learn</h1>
+  <p data-i18n="hero.sub">The fun language card game that teaches children new words in multiple languages</p>
+  <div class="badges">
+    <span class="badge" data-i18n="b1">Ages 3+</span>
+    <span class="badge" data-i18n="b2">Multiple Languages</span>
+    <span class="badge" data-i18n="b3">21+ Categories</span>
+    <span class="badge" data-i18n="b4">No Ads Ever</span>
+    <span class="badge" data-i18n="b5">Works Offline</span>
+  </div>
+  <div class="dl-wrap">
+    <a href="https://apps.apple.com/app/flip-learn-memory-card-game/id6761679251" class="dl-btn" data-i18n="btn" target="_blank" rel="noopener">⬇ Download on the App Store</a>
+    <div>
+      <span class="dl-btn soon-btn" data-i18n="btn.gp">▶ Coming soon on Google Play Store</span>
+    </div>
+  </div>
+</div>
+
+<div class="ss-wrap" id="screenshots">
+  <h2 data-i18n="ss.title">See it in action</h2>
+  <p class="ss-sub" data-i18n="ss.sub">Everything your child needs to start learning</p>
+  <div class="ss-scroll">
+    <div class="ss-item"><div class="phone"><div class="notch"></div><div style="width:195px;height:423px;border-radius:34px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.5);display:block;"><iframe src="flipandlearn_promo.html" style="width:195px;height:423px;border:none;display:block;" scrolling="no" title="App Preview"></iframe></div></div><div class="ss-lbl">▶ App Preview</div></div>
+    <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen1_home.jpg" alt="Home"></div><div class="ss-lbl" data-i18n="ss.1">Home Screen</div></div>
+    <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen2_game.jpg" alt="Game"></div><div class="ss-lbl" data-i18n="ss.2">Game Board</div></div>
+    <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen3_midgame.jpg" alt="Playing"></div><div class="ss-lbl" data-i18n="ss.3">Finding Matches</div></div>
+    <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen5_win.jpg" alt="Win"></div><div class="ss-lbl" data-i18n="ss.4">Celebration!</div></div>
+    <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen4_professions.jpg" alt="Categories"></div><div class="ss-lbl" data-i18n="ss.5">21+ Categories</div></div>
+    <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen7_parentalgate.jpg" alt="Parental Gate"></div><div class="ss-lbl" data-i18n="ss.6">Parental Protection</div></div>
+    <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen8_paywall.jpg" alt="Unlock"></div><div class="ss-lbl" data-i18n="ss.7">Unlock Everything</div></div>
+  </div>
+  <p class="swipe">← Swipe to see more →</p>
+</div>
+
+<div class="alt" id="features">
+<section>
+  <h2 data-i18n="ft">Everything kids love, everything parents trust</h2>
+  <div class="feat">
+    <div class="fcard"><span class="ficon" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:52px;background:white;border-radius:6px;box-shadow:0 3px 8px rgba(0,0,0,.18),0 0 0 2px #d0cef5;font-size:26px;margin-bottom:14px;">🐉</span><h3 data-i18n="f1t">Classic Language Card Game</h3><p data-i18n="f1d">Flip cards to find matching pairs. Beautiful 3D animations make every match satisfying.</p></div>
+    <div class="fcard"><span class="ficon">🔊</span><h3 data-i18n="f2t">Speaks Every Word</h3><p data-i18n="f2d">When a match is found, the app speaks the word out loud in the chosen language.</p></div>
+    <div class="fcard"><span class="ficon">⭐</span><h3 data-i18n="f3t">Stars &amp; Trophies</h3><p data-i18n="f3d">Earn 1-3 stars per game. Collect stars to unlock new card back designs including the legendary Dino.</p></div>
+    <div class="fcard"><span class="ficon">🧒</span><h3 data-i18n="f4t">Personal Avatar</h3><p data-i18n="f4d">Children choose their own animal avatar and name. The app greets them personally.</p></div>
+    <div class="fcard"><span class="ficon">📅</span><h3 data-i18n="f5t">Word of the Day</h3><p data-i18n="f5d">A new featured word every day with pronunciation.</p></div>
+    <div class="fcard"><span class="ficon">🎃</span><h3 data-i18n="f6t">Seasonal Themes</h3><p data-i18n="f6d">Decorates itself for Easter, Halloween, Christmas and all four seasons automatically.</p></div>
+  </div>
+</section>
+</div>
+
+<div class="emoji-section">
+<section>
+  <h2 data-i18n="we.title" class="fade-scroll">Why Emojis?</h2>
+  <p class="we-body fade-scroll" data-i18n="we.body">Learn words and emojis — the universal language of the digital generation. Every word is represented by its emoji, helping children connect vocabulary with the visual language they use every day.</p>
+  <div class="emoji-row fade-scroll">
+    <div class="emoji-pair"><span class="ep-em">🐶</span><span data-i18n="we.w1">dog</span></div>
+    <div class="emoji-pair"><span class="ep-em">🍎</span><span data-i18n="we.w2">apple</span></div>
+    <div class="emoji-pair"><span class="ep-em">🚗</span><span data-i18n="we.w3">car</span></div>
+    <div class="emoji-pair"><span class="ep-em">🌟</span><span data-i18n="we.w4">star</span></div>
+    <div class="emoji-pair"><span class="ep-em">🐬</span><span data-i18n="we.w5">dolphin</span></div>
+  </div>
+</section>
+</div>
+
+<section id="languages">
+  <h2 data-i18n="lt">Learn multiple languages</h2>
+  <div class="lgrid">
+    <div class="lcard"><span class="lflag">🇬🇧</span><div class="lname">English</div><div class="ltag free" data-i18n="free">Free</div></div>
+    <div class="lcard"><span class="lflag">🇩🇪</span><div class="lname">Deutsch</div><div class="ltag" data-i18n="prem">Premium</div></div>
+    <div class="lcard"><span class="lflag">🇫🇷</span><div class="lname">Français</div><div class="ltag" data-i18n="prem">Premium</div></div>
+    <div class="lcard"><span class="lflag">🇪🇸</span><div class="lname">Español</div><div class="ltag" data-i18n="prem">Premium</div></div>
+    <div class="lcard"><span class="lflag">🇮🇹</span><div class="lname">Italiano</div><div class="ltag" data-i18n="prem">Premium</div></div>
+    <div class="lcard"><span class="lflag">🇵🇹</span><div class="lname">Português</div><div class="ltag" data-i18n="prem">Premium</div></div>
+    <div class="lcard"><span class="lflag">🇷🇴</span><div class="lname">Română</div><div class="ltag" data-i18n="prem">Premium</div></div>
+    <div class="lcard"><span class="lflag">🇭🇺</span><div class="lname">Magyar</div><div class="ltag" data-i18n="prem">Premium</div></div>
+    <div class="lcard"><span class="lflag">🇸🇦</span><div class="lname">العربية</div><div class="ltag" data-i18n="prem">Premium</div></div>
+  </div>
+</section>
+
+<div class="alt">
+<section>
+  <h2 data-i18n="ct">21+ word categories</h2>
+  <div class="cats">
+    <div class="chip">🐶 <span data-i18n="c1">Animals</span></div><div class="chip">🍎 <span data-i18n="c2">Fruits</span></div>
+    <div class="chip">🔴 <span data-i18n="c3">Colors</span></div><div class="chip">1️⃣ <span data-i18n="c4">Numbers</span></div>
+    <div class="chip">📚 <span data-i18n="c5">Objects</span></div><div class="chip">😀 <span data-i18n="c6">Emotions</span></div>
+    <div class="chip">🅰️ <span data-i18n="c7">Letters</span></div><div class="chip">🏳️ <span data-i18n="c8">Flags</span></div>
+    <div class="chip">🚗 <span data-i18n="c9">Vehicles</span></div><div class="chip">🍕 <span data-i18n="c10">Food &amp; Drinks</span></div>
+    <div class="chip">⚽ <span data-i18n="c11">Sports</span></div><div class="chip">☀️ <span data-i18n="c12">Weather</span></div>
+    <div class="chip">💪 <span data-i18n="c13">Body Parts</span></div><div class="chip">🌸 <span data-i18n="c14">Nature</span></div>
+    <div class="chip">👨‍⚕️ <span data-i18n="c15">Professions</span></div><div class="chip">🚀 <span data-i18n="c16">Space</span></div>
+    <div class="chip">🛋️ <span data-i18n="c17">Household</span></div><div class="chip">👗 <span data-i18n="c18">Clothes</span></div>
+    <div class="chip">🎸 <span data-i18n="c19">Music &amp; Arts</span></div><div class="chip">🔨 <span data-i18n="c20">Tools</span></div><div class="chip">🥦 <span data-i18n="c21">Vegetables</span></div>
+  </div>
+</section>
+</div>
+
+<section>
+  <h2 data-i18n="lvt">5 difficulty levels for every age</h2>
+  <div class="lvls">
+    <div class="lcard2"><span class="lemoji">⭐</span><div class="lname2" data-i18n="lv1">Easy</div><div class="ldesc" data-i18n="lv1d">Ages 3-5 · 4 pairs</div></div>
+    <div class="lcard2"><span class="lemoji">⭐⭐</span><div class="lname2" data-i18n="lv2">Medium</div><div class="ldesc" data-i18n="lv2d">Ages 5+ · 6 pairs</div></div>
+    <div class="lcard2"><span class="lemoji">⭐⭐⭐</span><div class="lname2" data-i18n="lv3">Hard</div><div class="ldesc" data-i18n="lv3d">Ages 7+ · 8 pairs</div></div>
+    <div class="lcard2"><span class="lemoji">🔤</span><div class="lname2" data-i18n="lv4">Expert</div><div class="ldesc" data-i18n="lv4d">Ages 9+ · Picture+Word</div></div>
+    <div class="lcard2"><span class="lemoji">🧠</span><div class="lname2" data-i18n="lv5">Master</div><div class="ldesc" data-i18n="lv5d">Ages 12+ · Word only</div></div>
+  </div>
+</section>
+
+<div style="background:#f5f5f7;padding:0 0 16px">
+<div class="safe-box">
+  <h2 data-i18n="sft">Safe for children</h2>
+  <div class="safe-grid">
+    <div class="safe-item"><span>🚫</span><span data-i18n="s1">No ads — ever</span></div>
+    <div class="safe-item"><span>📵</span><span data-i18n="s2">No social features</span></div>
+    <div class="safe-item"><span>✈️</span><span data-i18n="s3">Works offline</span></div>
+    <div class="safe-item"><span>👨‍👩‍👧</span><span data-i18n="s4">Parental purchase gate</span></div>
+    <div class="safe-item"><span>🔒</span><span data-i18n="s5">No data collection</span></div>
+    <div class="safe-item"><span>✅</span><span data-i18n="s6">COPPA compliant</span></div>
+  </div>
+</div>
+</div>
+
+<div class="alt" id="pricing">
+<section>
+  <h2 data-i18n="prt">Simple, honest pricing</h2>
+  <div class="price-cards">
+    <div class="pcard">
+      <h3 data-i18n="p1n">Free</h3>
+      <div class="price">$0</div>
+      <p style="color:#6e6e73;font-size:13px" data-i18n="p1no">Forever free</p>
+      <ul>
+        <li data-i18n="p1a">English language</li>
+        <li data-i18n="p1b">Animals, Fruits, Colors</li>
+        <li data-i18n="p1c">Easy &amp; Medium levels</li>
+        <li data-i18n="p1d">Classic card back</li>
+        <li data-i18n="p1e">Word of the Day</li>
+        <li data-i18n="p1f">Seasonal themes</li>
+      </ul>
+    </div>
+    <div class="pcard feat2">
+      <h3 data-i18n="p2n">Full Version</h3>
+      <div class="price">$2.99</div>
+      <p style="opacity:.8;font-size:13px" data-i18n="p2no">One-time · No subscription</p>
+      <ul>
+        <li data-i18n="p2a">All languages</li>
+        <li data-i18n="p2b">All 21+ categories</li>
+        <li data-i18n="p2c">All 5 difficulty levels</li>
+        <li data-i18n="p2d">9 card back designs</li>
+        <li data-i18n="p2e">All future content free</li>
+        <li data-i18n="p2f">Everything, forever</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</div>
+
+<section id="support">
+  <h2 data-i18n="supt">Support</h2>
+  <div class="sup-box">
+    <h3 data-i18n="suph">Need help?</h3>
+    <p data-i18n="supp">We are here to help with any questions about Flip and Learn. We aim to respond within 48 hours.</p>
+    <a href="mailto:flipandlearn@yahoo.com" class="email-btn" data-i18n="supb">Contact Support</a>
+    <p style="margin-top:18px;font-size:12px;color:#aaa">
+      <span data-i18n="supd">Developer: BuraApps</span><br>
+      <a href="privacy.html" style="color:#3A3589" data-i18n="nav.priv">Privacy Policy</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="flinks">
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="privacy.html" data-i18n="nav.priv">Privacy Policy</a>
+    <a href="mailto:flipandlearn@yahoo.com">flipandlearn@yahoo.com</a>
+  </div>
+  <p>&copy; 2026 BuraApps. Flip &amp; Learn. <span data-i18n="fr">All rights reserved.</span></p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const T={
+en:{
+"nav.ss":"Screenshots","nav.feat":"Features","nav.lang":"Languages","nav.price":"Pricing","nav.sup":"Support","nav.priv":"Privacy","nav.home":"Home",
+"hero.sub":"The fun language card game that teaches children new words in multiple languages",
+"b1":"Ages 3+","b2":"Multiple Languages","b3":"21+ Categories","b4":"No Ads Ever","b5":"Works Offline",
+"btn":"Download on the App Store","soon":"Coming soon to the App Store","btn.gp":"Coming soon on Google Play Store","soon.gp":"Coming soon to Google Play Store",
+"ss.title":"See it in action","ss.sub":"Everything your child needs to start learning",
+"ss.1":"Home Screen","ss.2":"Game Board","ss.3":"Finding Matches","ss.4":"Celebration!","ss.5":"21+ Categories","ss.6":"Parental Protection","ss.7":"Unlock Everything",
+"ft":"Everything kids love, everything parents trust",
+"f1t":"Classic Language Card Game","f1d":"Flip cards to find matching pairs. Beautiful 3D animations make every match satisfying.",
+"f2t":"Speaks Every Word","f2d":"When a match is found, the app speaks the word out loud in the chosen language.",
+"f3t":"Stars and Trophies","f3d":"Earn 1-3 stars per game. Collect stars to unlock new card back designs including the legendary Dino.",
+"f4t":"Personal Avatar","f4d":"Children choose their own animal avatar and name. The app greets them personally.",
+"f5t":"Word of the Day","f5d":"A new featured word every day with pronunciation.",
+"f6t":"Seasonal Themes","f6d":"Decorates itself for Easter, Halloween, Christmas and all four seasons automatically.",
+"lt":"Learn multiple languages","free":"Free","prem":"Premium",
+"ct":"21+ word categories",
+"c1":"Animals","c2":"Fruits","c3":"Colors","c4":"Numbers","c5":"Objects","c6":"Emotions","c7":"Letters","c8":"Flags","c9":"Vehicles","c10":"Food and Drinks","c11":"Sports","c12":"Weather","c13":"Body Parts","c14":"Nature","c15":"Professions","c16":"Space","c17":"Household","c18":"Clothes","c19":"Music and Arts","c20":"Tools","c21":"Vegetables",
+"lvt":"5 difficulty levels for every age",
+"lv1":"Easy","lv1d":"Ages 3-5 - 4 pairs","lv2":"Medium","lv2d":"Ages 5+ - 6 pairs","lv3":"Hard","lv3d":"Ages 7+ - 8 pairs","lv4":"Expert","lv4d":"Ages 9+ - Picture+Word","lv5":"Master","lv5d":"Ages 12+ - Word only",
+"sft":"Safe for children","s1":"No ads ever","s2":"No social features","s3":"Works offline","s4":"Parental purchase gate","s5":"No data collection","s6":"COPPA compliant",
+"prt":"Simple honest pricing",
+"p1n":"Free","p1no":"Forever free","p1a":"English language","p1b":"Animals Fruits Colors","p1c":"Easy and Medium levels","p1d":"Classic card back","p1e":"Word of the Day","p1f":"Seasonal themes",
+"p2n":"Full Version","p2no":"One-time - No subscription","p2a":"All languages","p2b":"All 21+ categories","p2c":"All 5 difficulty levels","p2d":"9 card back designs","p2e":"All future content free","p2f":"Everything forever",
+"supt":"Support","suph":"Need help?","supp":"We are here to help with any questions. We aim to respond within 48 hours.","supb":"Contact Support","supd":"Developed by BuraApps","fr":"All rights reserved.",
+"we.title":"Why Emojis?","we.body":"Learn words and emojis — the universal language of the digital generation. Every word is represented by its emoji, helping children connect vocabulary with the visual language they use every day.","we.w1":"dog","we.w2":"apple","we.w3":"car","we.w4":"star","we.w5":"dolphin"
+},
+es:{
+"nav.ss":"Capturas","nav.feat":"Funciones","nav.lang":"Idiomas","nav.price":"Precios","nav.sup":"Soporte","nav.priv":"Privacidad","nav.home":"Inicio",
+"hero.sub":"El divertido juego de cartas de idiomas que enseña palabras en múltiples idiomas",
+"b1":"Desde 3 años","b2":"Múltiples Idiomas","b3":"21+ Categorías","b4":"Sin Publicidad","b5":"Sin Conexión",
+"btn":"Descargar en el App Store","soon":"Próximamente en el App Store","btn.gp":"Próximamente en Google Play Store","soon.gp":"Próximamente en Google Play",
+"ss.title":"Míralo en acción","ss.sub":"Todo lo que tu hijo necesita para aprender",
+"ss.1":"Pantalla Principal","ss.2":"Tablero","ss.3":"Encontrando Parejas","ss.4":"Celebración","ss.5":"21+ Categorías","ss.6":"Protección Parental","ss.7":"Desbloquear Todo",
+"ft":"Todo lo que los niños aman, todo lo que los padres confían",
+"f1t":"Juego de cartas de idiomas clásico","f1d":"Voltea cartas para encontrar parejas. Las animaciones 3D hacen cada coincidencia satisfactoria.",
+"f2t":"Pronuncia cada palabra","f2d":"Al encontrar una pareja, la app pronuncia la palabra en el idioma elegido.",
+"f3t":"Estrellas y trofeos","f3d":"Gana 1-3 estrellas por partida. Colecciona estrellas para desbloquear nuevos diseños de cartas.",
+"f4t":"Avatar personal","f4d":"Los niños eligen su propio avatar animal y nombre.",
+"f5t":"Palabra del día","f5d":"Una nueva palabra destacada cada día con pronunciación.",
+"f6t":"Temas estacionales","f6d":"Se decora automáticamente para Pascua, Halloween, Navidad y las cuatro estaciones.",
+"lt":"Aprende múltiples idiomas","free":"Gratis","prem":"Premium",
+"ct":"21+ categorías de palabras",
+"c1":"Animales","c2":"Frutas","c3":"Colores","c4":"Números","c5":"Objetos","c6":"Emociones","c7":"Letras","c8":"Banderas","c9":"Vehículos","c10":"Comida y bebidas","c11":"Deportes","c12":"Tiempo","c13":"Cuerpo","c14":"Naturaleza","c15":"Profesiones","c16":"Espacio","c17":"Hogar","c18":"Ropa","c19":"Música y arte","c20":"Herramientas","c21":"Verduras",
+"lvt":"5 niveles de dificultad para cada edad",
+"lv1":"Fácil","lv1d":"3-5 años - 4 parejas","lv2":"Medio","lv2d":"5+ años - 6 parejas","lv3":"Difícil","lv3d":"7+ años - 8 parejas","lv4":"Experto","lv4d":"9+ años - Imagen+Palabra","lv5":"Maestro","lv5d":"12+ años - Solo palabras",
+"sft":"Seguro para niños","s1":"Sin publicidad nunca","s2":"Sin funciones sociales","s3":"Funciona sin conexión","s4":"Control parental","s5":"Sin recopilación de datos","s6":"Compatible con COPPA",
+"prt":"Precios simples y honestos",
+"p1n":"Gratis","p1no":"Siempre gratis","p1a":"Idioma inglés","p1b":"Animales Frutas Colores","p1c":"Niveles Fácil y Medio","p1d":"Reverso clásico","p1e":"Palabra del día","p1f":"Temas estacionales",
+"p2n":"Versión completa","p2no":"Pago único - Sin suscripción","p2a":"Todos los idiomas","p2b":"Las 21+ categorías","p2c":"Los 5 niveles","p2d":"9 diseños de reverso","p2e":"Todo el contenido futuro gratis","p2f":"Todo para siempre",
+"supt":"Soporte","suph":"¿Necesitas ayuda?","supp":"Estamos aquí para ayudarte. Respondemos en 48 horas.","supb":"Contactar soporte","supd":"Desarrollado por BuraApps","fr":"Todos los derechos reservados.",
+"we.title":"¿Por qué emojis?","we.body":"Aprende palabras y emojis — el lenguaje universal de la generación digital. Cada palabra está representada por su emoji, ayudando a los niños a conectar el vocabulario con el lenguaje visual que usan cada día.","we.w1":"perro","we.w2":"manzana","we.w3":"coche","we.w4":"estrella","we.w5":"delfín"
+},
+fr:{
+"nav.ss":"Captures","nav.feat":"Fonctionnalités","nav.lang":"Langues","nav.price":"Tarifs","nav.sup":"Support","nav.priv":"Confidentialité","nav.home":"Accueil",
+"hero.sub":"Le jeu de cartes de langues amusant qui apprend aux enfants des mots dans plusieurs langues",
+"b1":"Dès 3 ans","b2":"Plusieurs Langues","b3":"21+ Catégories","b4":"Sans Publicité","b5":"Hors Ligne",
+"btn":"Télécharger sur l'App Store","soon":"Bientôt sur l'App Store","btn.gp":"Bientôt sur Google Play Store","soon.gp":"Bientôt sur Google Play",
+"ss.title":"Voir en action","ss.sub":"Tout ce dont votre enfant a besoin",
+"ss.1":"Écran Principal","ss.2":"Plateau de Jeu","ss.3":"Trouver des Paires","ss.4":"Célébration","ss.5":"21+ Catégories","ss.6":"Protection Parentale","ss.7":"Tout Débloquer",
+"ft":"Tout ce que les enfants adorent, tout ce que les parents approuvent",
+"f1t":"Jeu de cartes de langues classique","f1d":"Retourne les cartes pour trouver des paires. De belles animations 3D.",
+"f2t":"Prononce chaque mot","f2d":"Quand une paire est trouvée, l'app prononce le mot dans la langue choisie.",
+"f3t":"Étoiles et trophées","f3d":"Gagne 1 à 3 étoiles par partie. Collecte des étoiles pour débloquer de nouveaux designs.",
+"f4t":"Avatar personnel","f4d":"Les enfants choisissent leur propre avatar animal et prénom.",
+"f5t":"Mot du jour","f5d":"Un nouveau mot mis en avant chaque jour avec sa prononciation.",
+"f6t":"Thèmes saisonniers","f6d":"Se décore automatiquement pour Pâques, Halloween, Noël et les quatre saisons.",
+"lt":"Apprenez plusieurs langues","free":"Gratuit","prem":"Premium",
+"ct":"21+ catégories de mots",
+"c1":"Animaux","c2":"Fruits","c3":"Couleurs","c4":"Chiffres","c5":"Objets","c6":"Émotions","c7":"Lettres","c8":"Drapeaux","c9":"Véhicules","c10":"Nourriture","c11":"Sports","c12":"Météo","c13":"Corps","c14":"Nature","c15":"Métiers","c16":"Espace","c17":"Maison","c18":"Vêtements","c19":"Musique et arts","c20":"Outils","c21":"Légumes",
+"lvt":"5 niveaux de difficulté pour chaque âge",
+"lv1":"Facile","lv1d":"3-5 ans - 4 paires","lv2":"Moyen","lv2d":"5+ ans - 6 paires","lv3":"Difficile","lv3d":"7+ ans - 8 paires","lv4":"Expert","lv4d":"9+ ans - Image+Mot","lv5":"Maître","lv5d":"12+ ans - Mots uniquement",
+"sft":"Sûr pour les enfants","s1":"Aucune publicité jamais","s2":"Pas de fonctions sociales","s3":"Fonctionne hors ligne","s4":"Contrôle parental","s5":"Aucune collecte de données","s6":"Conforme COPPA",
+"prt":"Des tarifs simples et honnêtes",
+"p1n":"Gratuit","p1no":"Toujours gratuit","p1a":"Langue anglaise","p1b":"Animaux Fruits Couleurs","p1c":"Niveaux Facile et Moyen","p1d":"Dos de carte classique","p1e":"Mot du jour","p1f":"Thèmes saisonniers",
+"p2n":"Version complète","p2no":"Achat unique - Sans abonnement","p2a":"Toutes les langues","p2b":"Les 21+ catégories","p2c":"Les 5 niveaux","p2d":"9 designs de dos de carte","p2e":"Tout le contenu futur gratuit","p2f":"Tout pour toujours",
+"supt":"Support","suph":"Besoin d'aide ?","supp":"Nous sommes là pour répondre à toutes vos questions. Réponse sous 48h.","supb":"Contacter le support","supd":"Développé par BuraApps","fr":"Tous droits réservés.",
+"we.title":"Pourquoi les emojis ?","we.body":"Apprenez des mots et des emojis — le langage universel de la génération numérique. Chaque mot est représenté par son emoji, aidant les enfants à associer le vocabulaire au langage visuel qu'ils utilisent chaque jour.","we.w1":"chien","we.w2":"pomme","we.w3":"voiture","we.w4":"étoile","we.w5":"dauphin"
+},
+de:{
+"nav.ss":"Screenshots","nav.feat":"Funktionen","nav.lang":"Sprachen","nav.price":"Preise","nav.sup":"Support","nav.priv":"Datenschutz","nav.home":"Startseite",
+"hero.sub":"Das lustige Sprachkarten-Spiel das Kindern Wörter in mehreren Sprachen beibringt",
+"b1":"Ab 3 Jahren","b2":"Mehrere Sprachen","b3":"21+ Kategorien","b4":"Keine Werbung","b5":"Offline nutzbar",
+"btn":"Im App Store laden","soon":"Demnächst im App Store","btn.gp":"Demnächst im Google Play Store","soon.gp":"Demnächst bei Google Play",
+"ss.title":"In Aktion sehen","ss.sub":"Alles was dein Kind braucht",
+"ss.1":"Startbildschirm","ss.2":"Spielfeld","ss.3":"Paare finden","ss.4":"Feiern","ss.5":"21+ Kategorien","ss.6":"Elternschutz","ss.7":"Alles freischalten",
+"ft":"Alles was Kinder lieben, alles was Eltern vertrauen",
+"f1t":"Klassisches Sprachkarten-Spiel","f1d":"Drehe Karten um und finde passende Paare. Schöne 3D-Animationen.",
+"f2t":"Spricht jedes Wort","f2d":"Bei einem Treffer spricht die App das Wort in der gewählten Sprache.",
+"f3t":"Sterne und Trophäen","f3d":"Verdiene 1-3 Sterne pro Spiel. Sammle Sterne um neue Kartenrücken freizuschalten.",
+"f4t":"Persönlicher Avatar","f4d":"Kinder wählen ihren eigenen Tier-Avatar und Namen.",
+"f5t":"Wort des Tages","f5d":"Jeden Tag ein neues Wort mit Aussprache.",
+"f6t":"Saisonale Themen","f6d":"Schmückt sich für Ostern, Halloween, Weihnachten und alle vier Jahreszeiten.",
+"lt":"Mehrere Sprachen lernen","free":"Kostenlos","prem":"Premium",
+"ct":"21+ Wortkategorien",
+"c1":"Tiere","c2":"Früchte","c3":"Farben","c4":"Zahlen","c5":"Gegenstände","c6":"Gefühle","c7":"Buchstaben","c8":"Flaggen","c9":"Fahrzeuge","c10":"Essen und Trinken","c11":"Sport","c12":"Wetter","c13":"Körper","c14":"Natur","c15":"Berufe","c16":"Weltraum","c17":"Haushalt","c18":"Kleidung","c19":"Musik und Kunst","c20":"Werkzeug","c21":"Gemüse",
+"lvt":"5 Schwierigkeitsstufen für jedes Alter",
+"lv1":"Einfach","lv1d":"3-5 Jahre - 4 Paare","lv2":"Mittel","lv2d":"5+ Jahre - 6 Paare","lv3":"Schwer","lv3d":"7+ Jahre - 8 Paare","lv4":"Experte","lv4d":"9+ Jahre - Bild+Wort","lv5":"Meister","lv5d":"12+ Jahre - Nur Wörter",
+"sft":"Sicher für Kinder","s1":"Keine Werbung niemals","s2":"Keine sozialen Funktionen","s3":"Funktioniert offline","s4":"Elternschutz","s5":"Keine Datenerfassung","s6":"COPPA-konform",
+"prt":"Einfache ehrliche Preise",
+"p1n":"Kostenlos","p1no":"Für immer kostenlos","p1a":"Englische Sprache","p1b":"Tiere Früchte Farben","p1c":"Einfach und Mittel","p1d":"Klassischer Kartenrücken","p1e":"Wort des Tages","p1f":"Saisonale Themen",
+"p2n":"Vollversion","p2no":"Einmaliger Kauf - Kein Abo","p2a":"Alle Sprachen","p2b":"Alle 21+ Kategorien","p2c":"Alle 5 Stufen","p2d":"9 Kartenrücken-Designs","p2e":"Zukünftige Inhalte gratis","p2f":"Alles für immer",
+"supt":"Support","suph":"Brauchen Sie Hilfe?","supp":"Wir helfen Ihnen gerne. Antwort innerhalb von 48 Stunden.","supb":"Support kontaktieren","supd":"Entwickelt von BuraApps","fr":"Alle Rechte vorbehalten.",
+"we.title":"Warum Emojis?","we.body":"Lerne Wörter und Emojis — die universelle Sprache der digitalen Generation. Jedes Wort wird durch sein Emoji dargestellt und hilft Kindern, Vokabeln mit der visuellen Sprache zu verbinden, die sie täglich nutzen.","we.w1":"Hund","we.w2":"Apfel","we.w3":"Auto","we.w4":"Stern","we.w5":"Delfin"
+},
+hu:{
+"nav.ss":"Képernyő","nav.feat":"Funkciók","nav.lang":"Nyelvek","nav.price":"Árak","nav.sup":"Támogatás","nav.priv":"Adatvédelem","nav.home":"Főoldal",
+"hero.sub":"A szórakoztató Nyelvi Kártyajáték amely több nyelven tanít szavakat a gyerekeknek",
+"b1":"3 évestől","b2":"Több Nyelv","b3":"21+ Kategória","b4":"Nincs Reklám","b5":"Offline Működik",
+"btn":"Letöltés az App Store-ból","soon":"Hamarosan az App Store-ban","btn.gp":"Hamarosan a Google Play Store-ban","soon.gp":"Hamarosan a Google Playen",
+"ss.title":"Lásd működés közben","ss.sub":"Minden amire gyermekednek szüksége van",
+"ss.1":"Főképernyő","ss.2":"Játéktábla","ss.3":"Párkeresés","ss.4":"Ünneplés","ss.5":"21+ Kategória","ss.6":"Szülői Védelem","ss.7":"Mindent Felold",
+"ft":"Minden amit a gyerekek szeretnek, minden amiben a szülők megbíznak",
+"f1t":"Klasszikus Nyelvi Kártyajáték","f1d":"Fordíts fel kártyákat és találd meg az egyező párokat.",
+"f2t":"Minden szót kimondja","f2d":"Egyezésnél az app hangosan kimondja a szót a választott nyelven.",
+"f3t":"Csillagok és trófeák","f3d":"Szerezz 1-3 csillagot játékonként. Gyűjts csillagokat új kártyahátak feloldásához.",
+"f4t":"Személyes avatar","f4d":"A gyerekek saját állat avatart és nevet választanak.",
+"f5t":"Napi szó","f5d":"Minden nap egy új kiemelt szó kiejtéssel.",
+"f6t":"Szezonális témák","f6d":"Automatikusan díszíti magát Húsvétra, Halloweenre, Karácsonyra és mind a négy évszakra.",
+"lt":"Tanulj több nyelvet","free":"Ingyenes","prem":"Prémium",
+"ct":"21+ szókategória",
+"c1":"Állatok","c2":"Gyümölcsök","c3":"Színek","c4":"Számok","c5":"Tárgyak","c6":"Érzelmek","c7":"Betűk","c8":"Zászlók","c9":"Járművek","c10":"Étel és ital","c11":"Sport","c12":"Időjárás","c13":"Testrészek","c14":"Természet","c15":"Foglalkozások","c16":"Világűr","c17":"Háztartás","c18":"Ruházat","c19":"Zene és Művészet","c20":"Szerszámok","c21":"Zöldségek",
+"lvt":"5 nehézségi szint minden korosztálynak",
+"lv1":"Könnyű","lv1d":"3-5 év - 4 pár","lv2":"Közepes","lv2d":"5+ év - 6 pár","lv3":"Nehéz","lv3d":"7+ év - 8 pár","lv4":"Szakértő","lv4d":"9+ év - Kép+Szó","lv5":"Mester","lv5d":"12+ év - Csak szavak",
+"sft":"Biztonságos gyerekeknek","s1":"Nincs reklám soha","s2":"Nincs közösségi funkció","s3":"Offline működik","s4":"Szülői vásárlási zár","s5":"Nincs adatgyűjtés","s6":"COPPA-kompatibilis",
+"prt":"Egyszerű becsületes árazás",
+"p1n":"Ingyenes","p1no":"Örökre ingyenes","p1a":"Angol nyelv","p1b":"Állatok Gyümölcsök Színek","p1c":"Könnyű és Közepes szintek","p1d":"Klasszikus kártyahát","p1e":"Napi szó","p1f":"Szezonális témák",
+"p2n":"Teljes verzió","p2no":"Egyszeri vásárlás - Nincs előfizetés","p2a":"Összes nyelv","p2b":"Mind a 21+ kategória","p2c":"Mind az 5 szint","p2d":"9 kártyahát-dizájn","p2e":"Jövőbeli tartalom ingyenes","p2f":"Minden örökre",
+"supt":"Támogatás","suph":"Segítségre van szükséged?","supp":"Szívesen segítünk. 48 órán belül válaszolunk.","supb":"Kapcsolatfelvétel","supd":"Fejlesztette: BuraApps","fr":"Minden jog fenntartva.",
+"we.title":"Miért emojik?","we.body":"Tanulj szavakat és emojikat — a digitális generáció univerzális nyelvét. Minden szót a saját emojija képvisel, segítve a gyerekeket, hogy a szókincset a mindennap használt vizuális nyelvhez kössék.","we.w1":"kutya","we.w2":"alma","we.w3":"autó","we.w4":"csillag","we.w5":"delfin"
+},
+ro:{
+"nav.ss":"Capturi","nav.feat":"Funcții","nav.lang":"Limbi","nav.price":"Prețuri","nav.sup":"Suport","nav.priv":"Confidențialitate","nav.home":"Acasă",
+"hero.sub":"Jocul de cărți de limbă distractiv care îi învață pe copii cuvinte în mai multe limbi",
+"b1":"De la 3 ani","b2":"Mai Multe Limbi","b3":"21+ Categorii","b4":"Fără Reclame","b5":"Funcționează Offline",
+"btn":"Descarcă din App Store","soon":"În curând în App Store","btn.gp":"În curând pe Google Play Store","soon.gp":"În curând pe Google Play",
+"ss.title":"Vezi în acțiune","ss.sub":"Tot ce are nevoie copilul tău",
+"ss.1":"Ecran Principal","ss.2":"Tablă de Joc","ss.3":"Găsind Perechi","ss.4":"Celebrare","ss.5":"21+ Categorii","ss.6":"Protecție Parentală","ss.7":"Deblochează Tot",
+"ft":"Tot ce iubesc copiii, tot ce au încredere părinții",
+"f1t":"Joc de cărți de limbă clasic","f1d":"Întoarce cărțile pentru a găsi perechi. Animații 3D frumoase.",
+"f2t":"Pronunță fiecare cuvânt","f2d":"Când se găsește o pereche, aplicația pronunță cuvântul în limba aleasă.",
+"f3t":"Stele și trofee","f3d":"Câștigă 1-3 stele pe joc. Colecționează stele pentru a debloca modele noi.",
+"f4t":"Avatar personal","f4d":"Copiii își aleg propriul avatar animal și nume.",
+"f5t":"Cuvântul zilei","f5d":"Un cuvânt nou în fiecare zi cu pronunție.",
+"f6t":"Teme sezoniere","f6d":"Se decorează automat pentru Paște, Halloween, Crăciun și cele patru anotimpuri.",
+"lt":"Învață mai multe limbi","free":"Gratuit","prem":"Premium",
+"ct":"21+ categorii de cuvinte",
+"c1":"Animale","c2":"Fructe","c3":"Culori","c4":"Numere","c5":"Obiecte","c6":"Emoții","c7":"Litere","c8":"Steaguri","c9":"Vehicule","c10":"Mâncare și băuturi","c11":"Sport","c12":"Vreme","c13":"Corp","c14":"Natură","c15":"Profesii","c16":"Spațiu","c17":"Gospodărie","c18":"Haine","c19":"Muzică și arte","c20":"Unelte","c21":"Legume",
+"lvt":"5 niveluri de dificultate pentru fiecare vârstă",
+"lv1":"Ușor","lv1d":"3-5 ani - 4 perechi","lv2":"Mediu","lv2d":"5+ ani - 6 perechi","lv3":"Greu","lv3d":"7+ ani - 8 perechi","lv4":"Expert","lv4d":"9+ ani - Imagine+Cuvânt","lv5":"Maestru","lv5d":"12+ ani - Doar cuvinte",
+"sft":"Sigur pentru copii","s1":"Fără reclame niciodată","s2":"Fără funcții sociale","s3":"Funcționează offline","s4":"Protecție parentală","s5":"Fără colectare de date","s6":"Conform COPPA",
+"prt":"Prețuri simple și corecte",
+"p1n":"Gratuit","p1no":"Mereu gratuit","p1a":"Limba engleză","p1b":"Animale Fructe Culori","p1c":"Niveluri Ușor și Mediu","p1d":"Verso clasic","p1e":"Cuvântul zilei","p1f":"Teme sezoniere",
+"p2n":"Versiunea completă","p2no":"Achiziție unică - Fără abonament","p2a":"Toate limbile","p2b":"Toate cele 21+ categorii","p2c":"Toate cele 5 niveluri","p2d":"9 modele de verso","p2e":"Conținut viitor gratuit","p2f":"Totul pentru totdeauna",
+"supt":"Suport","suph":"Ai nevoie de ajutor?","supp":"Suntem aici pentru orice întrebări. Răspundem în 48 de ore.","supb":"Contactează suportul","supd":"Dezvoltat de BuraApps","fr":"Toate drepturile rezervate.",
+"we.title":"De ce emoji-uri?","we.body":"Învață cuvinte și emoji-uri — limbajul universal al generației digitale. Fiecare cuvânt este reprezentat de emoji-ul său, ajutând copiii să conecteze vocabularul cu limbajul vizual pe care îl folosesc în fiecare zi.","we.w1":"câine","we.w2":"măr","we.w3":"mașină","we.w4":"stea","we.w5":"delfin"
+},
+it:{
+"nav.ss":"Screenshot","nav.feat":"Funzionalità","nav.lang":"Lingue","nav.price":"Prezzi","nav.sup":"Supporto","nav.priv":"Privacy","nav.home":"Home",
+"hero.sub":"Il divertente gioco di carte linguistiche che insegna ai bambini parole in più lingue",
+"b1":"Da 3 anni","b2":"Più Lingue","b3":"21+ Categorie","b4":"Senza Pubblicità","b5":"Funziona Offline",
+"btn":"Scarica sull'App Store","soon":"Prossimamente sull'App Store","btn.gp":"Prossimamente su Google Play Store","soon.gp":"Prossimamente su Google Play",
+"ss.title":"Vedilo in azione","ss.sub":"Tutto ciò di cui tuo figlio ha bisogno",
+"ss.1":"Schermata Principale","ss.2":"Campo di Gioco","ss.3":"Trovare Coppie","ss.4":"Celebrazione","ss.5":"21+ Categorie","ss.6":"Protezione Genitori","ss.7":"Sblocca Tutto",
+"ft":"Tutto ciò che i bambini amano, tutto ciò di cui i genitori si fidano",
+"f1t":"Gioco di carte linguistiche classico","f1d":"Gira le carte per trovare coppie. Belle animazioni 3D.",
+"f2t":"Pronuncia ogni parola","f2d":"Quando si trova una coppia, l'app pronuncia la parola nella lingua scelta.",
+"f3t":"Stelle e trofei","f3d":"Guadagna 1-3 stelle per partita. Colleziona stelle per sbloccare nuovi design di dorso.",
+"f4t":"Avatar personale","f4d":"I bambini scelgono il proprio avatar animale e nome.",
+"f5t":"Parola del giorno","f5d":"Una nuova parola in evidenza ogni giorno con pronuncia.",
+"f6t":"Temi stagionali","f6d":"Si decora per Pasqua, Halloween, Natale e le quattro stagioni.",
+"lt":"Impara più lingue","free":"Gratuito","prem":"Premium",
+"ct":"21+ categorie di parole",
+"c1":"Animali","c2":"Frutta","c3":"Colori","c4":"Numeri","c5":"Oggetti","c6":"Emozioni","c7":"Lettere","c8":"Bandiere","c9":"Veicoli","c10":"Cibo e bevande","c11":"Sport","c12":"Meteo","c13":"Corpo","c14":"Natura","c15":"Professioni","c16":"Spazio","c17":"Casa","c18":"Vestiti","c19":"Musica e arte","c20":"Strumenti","c21":"Verdure",
+"lvt":"5 livelli di difficoltà per ogni età",
+"lv1":"Facile","lv1d":"3-5 anni - 4 coppie","lv2":"Medio","lv2d":"5+ anni - 6 coppie","lv3":"Difficile","lv3d":"7+ anni - 8 coppie","lv4":"Esperto","lv4d":"9+ anni - Immagine+Parola","lv5":"Maestro","lv5d":"12+ anni - Solo parole",
+"sft":"Sicuro per i bambini","s1":"Nessuna pubblicità mai","s2":"Nessuna funzione sociale","s3":"Funziona offline","s4":"Controllo genitori","s5":"Nessuna raccolta dati","s6":"Conforme COPPA",
+"prt":"Prezzi semplici e onesti",
+"p1n":"Gratuito","p1no":"Gratis per sempre","p1a":"Lingua inglese","p1b":"Animali Frutta Colori","p1c":"Livelli Facile e Medio","p1d":"Dorso classico","p1e":"Parola del giorno","p1f":"Temi stagionali",
+"p2n":"Versione completa","p2no":"Acquisto unico - Nessun abbonamento","p2a":"Tutte le lingue","p2b":"Tutte le 21+ categorie","p2c":"Tutti i 5 livelli","p2d":"9 design di dorso","p2e":"Contenuti futuri gratis","p2f":"Tutto per sempre",
+"supt":"Supporto","suph":"Hai bisogno di aiuto?","supp":"Siamo qui per aiutarti. Rispondiamo entro 48 ore.","supb":"Contatta il supporto","supd":"Sviluppato da BuraApps","fr":"Tutti i diritti riservati.",
+"we.title":"Perché le emoji?","we.body":"Impara parole ed emoji — il linguaggio universale della generazione digitale. Ogni parola è rappresentata dalla sua emoji, aiutando i bambini a collegare il vocabolario al linguaggio visivo che usano ogni giorno.","we.w1":"cane","we.w2":"mela","we.w3":"macchina","we.w4":"stella","we.w5":"delfino"
+},
+pt:{
+"nav.ss":"Capturas","nav.feat":"Funcionalidades","nav.lang":"Idiomas","nav.price":"Preços","nav.sup":"Suporte","nav.priv":"Privacidade","nav.home":"Início",
+"hero.sub":"O divertido jogo de cartas de idiomas que ensina às crianças palavras em vários idiomas",
+"b1":"A partir dos 3 anos","b2":"Vários Idiomas","b3":"21+ Categorias","b4":"Sem Publicidade","b5":"Funciona Offline",
+"btn":"Descarregar na App Store","soon":"Em breve na App Store","btn.gp":"Em breve no Google Play Store","soon.gp":"Em breve no Google Play",
+"ss.title":"Vê em ação","ss.sub":"Tudo o que o teu filho precisa",
+"ss.1":"Ecrã Principal","ss.2":"Tabuleiro","ss.3":"Encontrar Pares","ss.4":"Celebração","ss.5":"21+ Categorias","ss.6":"Proteção Parental","ss.7":"Desbloquear Tudo",
+"ft":"Tudo o que as crianças adoram, tudo em que os pais confiam",
+"f1t":"Jogo de cartas de idiomas clássico","f1d":"Vira as cartas para encontrar pares. Belas animações 3D.",
+"f2t":"Pronuncia cada palavra","f2d":"Ao encontrar um par, o app pronuncia a palavra no idioma escolhido.",
+"f3t":"Estrelas e troféus","f3d":"Ganha 1-3 estrelas por jogo. Coleciona estrelas para desbloquear novos designs.",
+"f4t":"Avatar pessoal","f4d":"As crianças escolhem o seu próprio avatar animal e nome.",
+"f5t":"Palavra do dia","f5d":"Uma nova palavra em destaque todos os dias com pronúncia.",
+"f6t":"Temas sazonais","f6d":"Decora-se para a Páscoa, Halloween, Natal e as quatro estações.",
+"lt":"Aprende vários idiomas","free":"Grátis","prem":"Premium",
+"ct":"21+ categorias de palavras",
+"c1":"Animais","c2":"Frutas","c3":"Cores","c4":"Números","c5":"Objetos","c6":"Emoções","c7":"Letras","c8":"Bandeiras","c9":"Veículos","c10":"Comida e bebidas","c11":"Desporto","c12":"Tempo","c13":"Corpo","c14":"Natureza","c15":"Profissões","c16":"Espaço","c17":"Casa","c18":"Roupa","c19":"Música e artes","c20":"Ferramentas","c21":"Legumes",
+"lvt":"5 níveis de dificuldade para todas as idades",
+"lv1":"Fácil","lv1d":"3-5 anos - 4 pares","lv2":"Médio","lv2d":"5+ anos - 6 pares","lv3":"Difícil","lv3d":"7+ anos - 8 pares","lv4":"Especialista","lv4d":"9+ anos - Imagem+Palavra","lv5":"Mestre","lv5d":"12+ anos - Só palavras",
+"sft":"Seguro para crianças","s1":"Sem publicidade nunca","s2":"Sem funções sociais","s3":"Funciona offline","s4":"Controlo parental","s5":"Sem recolha de dados","s6":"Conforme COPPA",
+"prt":"Preços simples e honestos",
+"p1n":"Grátis","p1no":"Grátis para sempre","p1a":"Idioma inglês","p1b":"Animais Frutas Cores","p1c":"Níveis Fácil e Médio","p1d":"Verso clássico","p1e":"Palavra do dia","p1f":"Temas sazonais",
+"p2n":"Versão completa","p2no":"Compra única - Sem subscrição","p2a":"Todos os idiomas","p2b":"Todas as 21+ categorias","p2c":"Todos os 5 níveis","p2d":"9 designs de verso","p2e":"Conteúdo futuro grátis","p2f":"Tudo para sempre",
+"supt":"Suporte","suph":"Precisas de ajuda?","supp":"Estamos aqui para ajudar. Respondemos em 48 horas.","supb":"Contactar suporte","supd":"Desenvolvido por BuraApps","fr":"Todos os direitos reservados.",
+"we.title":"Por que emojis?","we.body":"Aprende palavras e emojis — a linguagem universal da geração digital. Cada palavra é representada pelo seu emoji, ajudando as crianças a associar o vocabulário à linguagem visual que usam todos os dias.","we.w1":"cão","we.w2":"maçã","we.w3":"carro","we.w4":"estrela","we.w5":"golfinho"
+},
+ar:{
+"nav.ss":"لقطات","nav.feat":"المميزات","nav.lang":"اللغات","nav.price":"الأسعار","nav.sup":"الدعم","nav.priv":"الخصوصية","nav.home":"الرئيسية",
+"hero.sub":"لعبة بطاقات اللغة الممتعة التي تعلم الأطفال كلمات بلغات متعددة",
+"b1":"من 3 سنوات","b2":"لغات متعددة","b3":"21+ فئة","b4":"بدون إعلانات","b5":"يعمل بدون إنترنت",
+"btn":"تحميل من App Store","soon":"قريباً في App Store","btn.gp":"قريباً على Google Play Store","soon.gp":"قريباً على Google Play",
+"ss.title":"شاهده في العمل","ss.sub":"كل ما يحتاجه طفلك للتعلم",
+"ss.1":"الشاشة الرئيسية","ss.2":"لوحة اللعبة","ss.3":"إيجاد الأزواج","ss.4":"احتفال","ss.5":"21+ فئة","ss.6":"حماية الوالدين","ss.7":"فتح كل شيء",
+"ft":"كل ما يحبه الأطفال، كل ما يثق به الآباء",
+"f1t":"لعبة بطاقات اللغة الكلاسيكية","f1d":"اقلب البطاقات للعثور على أزواج متطابقة.",
+"f2t":"ينطق كل كلمة","f2d":"عند العثور على زوج، ينطق التطبيق الكلمة باللغة المختارة.",
+"f3t":"نجوم وكؤوس","f3d":"اكسب 1-3 نجوم لكل لعبة. اجمع النجوم لفتح تصاميم جديدة.",
+"f4t":"شخصية شخصية","f4d":"يختار الأطفال شخصيتهم الحيوانية واسمهم.",
+"f5t":"كلمة اليوم","f5d":"كلمة جديدة مميزة كل يوم مع النطق.",
+"f6t":"مظاهر موسمية","f6d":"يزين نفسه للفصح والهالوين والكريسماس والفصول الأربعة.",
+"lt":"تعلم لغات متعددة","free":"مجاني","prem":"مميز",
+"ct":"21+ فئة من الكلمات",
+"c1":"الحيوانات","c2":"الفواكه","c3":"الألوان","c4":"الأرقام","c5":"الأشياء","c6":"المشاعر","c7":"الحروف","c8":"الأعلام","c9":"المركبات","c10":"الطعام والمشروبات","c11":"الرياضة","c12":"الطقس","c13":"الجسم","c14":"الطبيعة","c15":"المهن","c16":"الفضاء","c17":"المنزل","c18":"الملابس","c19":"الموسيقى والفنون","c20":"الأدوات","c21":"الخضروات",
+"lvt":"5 مستويات صعوبة لكل عمر",
+"lv1":"سهل","lv1d":"3-5 سنوات - 4 أزواج","lv2":"متوسط","lv2d":"5+ سنوات - 6 أزواج","lv3":"صعب","lv3d":"7+ سنوات - 8 أزواج","lv4":"خبير","lv4d":"9+ سنوات - صورة+كلمة","lv5":"ماهر","lv5d":"12+ سنوات - كلمات فقط",
+"sft":"آمن للأطفال","s1":"لا إعلانات أبداً","s2":"لا ميزات اجتماعية","s3":"يعمل بدون إنترنت","s4":"حماية أولياء الأمور","s5":"لا جمع للبيانات","s6":"متوافق مع COPPA",
+"prt":"أسعار بسيطة وصادقة",
+"p1n":"مجاني","p1no":"مجاني للأبد","p1a":"اللغة الإنجليزية","p1b":"الحيوانات الفواكه الألوان","p1c":"المستويات السهل والمتوسط","p1d":"ظهر البطاقة الكلاسيكي","p1e":"كلمة اليوم","p1f":"مظاهر موسمية",
+"p2n":"النسخة الكاملة","p2no":"شراء لمرة واحدة - بدون اشتراك","p2a":"جميع اللغات","p2b":"جميع 21+ فئة","p2c":"جميع 5 مستويات","p2d":"9 تصاميم لظهر البطاقة","p2e":"جميع المحتوى المستقبلي مجاناً","p2f":"كل شيء للأبد",
+"supt":"الدعم","suph":"تحتاج مساعدة؟","supp":"نحن هنا للمساعدة. نهدف للرد خلال 48 ساعة.","supb":"تواصل مع الدعم","supd":"من تطوير BuraApps","fr":"جميع الحقوق محفوظة.",
+"we.title":"لماذا الإيموجي؟","we.body":"تعلم الكلمات والإيموجي — اللغة العالمية لجيل الرقمي. كل كلمة ممثلة بإيموجيها، مما يساعد الأطفال على ربط المفردات باللغة البصرية التي يستخدمونها كل يوم.","we.w1":"كلب","we.w2":"تفاحة","we.w3":"سيارة","we.w4":"نجمة","we.w5":"دلفين"
+}
+};
+
+const M={en:{f:"🇬🇧",l:"EN"},de:{f:"🇩🇪",l:"DE"},fr:{f:"🇫🇷",l:"FR"},es:{f:"🇪🇸",l:"ES"},it:{f:"🇮🇹",l:"IT"},pt:{f:"🇵🇹",l:"PT"},ro:{f:"🇷🇴",l:"RO"},hu:{f:"🇭🇺",l:"HU"},ar:{f:"🇸🇦",l:"AR"}};
+
+function toggleMenu(){document.getElementById('langMenu').classList.toggle('open');}
+document.addEventListener('touchstart',function(e){if(!e.target.closest('.lang-sw'))document.getElementById('langMenu').classList.remove('open');});document.addEventListener('click',function(e){if(!e.target.closest('.lang-sw'))document.getElementById('langMenu').classList.remove('open');});
+
+function setLang(l){
+  const t=T[l],m=M[l];
+  document.getElementById('langBtn').textContent=m.f+' '+m.l+' ▾';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k];});
+  document.querySelectorAll('.lang-opt').forEach(o=>{o.classList.remove('active');if(o.getAttribute('onclick')==="setLang('"+l+"')")o.classList.add('active');});
+  if(l==='ar'){document.body.classList.add('rtl');document.documentElement.lang='ar';document.documentElement.dir='rtl';}
+  else{document.body.classList.remove('rtl');document.documentElement.lang=l;document.documentElement.removeAttribute('dir');}
+  document.getElementById('langMenu').classList.remove('open');
+}
+
+(function(){
+  const obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.15});
+  document.querySelectorAll('.fade-scroll').forEach(function(el){obs.observe(el);});
+})();
+</script>
+</body>
+</html>.ltag.free{color:#30a46c;font-weight:600}
 .cats{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}
 .chip{background:white;border:1.5px solid #e0e0e0;border-radius:18px;padding:7px 16px;font-size:14px;color:#3A3589;font-weight:500}
 .lvls{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
