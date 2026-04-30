@@ -564,11 +564,28 @@ function setLang(l){
   if(l==='ar'){document.body.classList.add('rtl');document.documentElement.lang='ar';document.documentElement.dir='rtl';}
   else{document.body.classList.remove('rtl');document.documentElement.lang=l;document.documentElement.removeAttribute('dir');}
   document.getElementById('langMenu').classList.remove('open');
+  try{localStorage.setItem('flipandlearn_lang',l);}catch(e){}
 }
 
 (function(){
   const obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.15});
   document.querySelectorAll('.fade-scroll').forEach(function(el){obs.observe(el);});
+})();
+
+// FLI-61: localize on first load
+(function(){
+  const supported=['en','de','fr','es','it','pt','ro','hu','ar'];
+  let saved=null;
+  try{saved=localStorage.getItem('flipandlearn_lang');}catch(e){}
+  let pick=saved&&supported.includes(saved)?saved:null;
+  if(!pick){
+    const langs=navigator.languages||[navigator.language||'en'];
+    for(const l of langs){
+      const code=(l||'').split('-')[0].toLowerCase();
+      if(supported.includes(code)){pick=code;break;}
+    }
+  }
+  setLang(pick||'en');
 })();
 </script>
 </body>
