@@ -39,6 +39,18 @@ nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1
 .dl-btn-img img{height:60px;width:auto;display:block}
 @media(max-width:600px){.dl-btn-img img{height:50px}}
 .dl-btn.soon-btn{background:rgba(255,255,255,.15);color:white;border:1.5px solid rgba(255,255,255,.4);cursor:default}
+.notify-form-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;max-width:340px}
+.notify-h{font-size:13px;font-weight:600;color:white;margin:0;text-align:center;opacity:.92}
+.notify-form{display:flex;gap:8px;width:100%}
+.notify-input{flex:1;min-width:0;padding:12px 14px;border-radius:10px;border:1.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.12);color:white;font-size:14px;outline:none}
+.notify-input::placeholder{color:rgba(255,255,255,.6)}
+.notify-input:focus{border-color:white;background:rgba(255,255,255,.2)}
+.notify-btn{padding:12px 18px;border-radius:10px;border:none;background:white;color:#3A3589;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+.notify-btn:hover{opacity:.92}
+.notify-btn:disabled{opacity:.5;cursor:wait}
+.notify-priv{font-size:11px;color:rgba(255,255,255,.7);margin:0;text-align:center;line-height:1.4}
+.notify-priv a{color:rgba(255,255,255,.9);text-decoration:underline}
+.notify-success{font-size:14px;font-weight:600;color:white;text-align:center;padding:14px}
 .dl-wrap{display:flex;flex-direction:column;align-items:center;gap:12px}
 .soon{font-size:12px;opacity:.6;margin-top:2px}
 .soon{font-size:12px;opacity:.6;margin-top:9px}
@@ -147,8 +159,14 @@ body.rtl{direction:rtl}
   </div>
   <div class="dl-wrap">
     <a href="https://apps.apple.com/app/id6761679251" class="dl-btn-img" target="_blank" rel="noopener"><img id="appstore-badge" src="badges/app-store-badge-en.svg" alt="Download on the App Store" width="180" height="60"></a>
-    <div>
-      <span class="dl-btn soon-btn" data-i18n="btn.gp">▶ Coming soon on Google Play Store</span>
+    <div class="notify-form-wrap">
+      <p class="notify-h" data-i18n="notify.h">Android version coming mid-May — get notified</p>
+      <form id="notify-form" class="notify-form" novalidate>
+        <input type="email" name="email" class="notify-input" required autocomplete="email" spellcheck="false" data-i18n-placeholder="notify.placeholder" placeholder="Your email address">
+        <button type="submit" class="notify-btn" data-i18n="notify.btn">Notify me</button>
+      </form>
+      <p class="notify-priv" data-i18n="notify.privacy" data-i18n-html>We'll email you once. No spam, no list-sharing. <a href="privacy.html">Privacy →</a></p>
+      <div class="notify-success" data-i18n="notify.success" hidden>Got it! We'll email you when Android is ready.</div>
     </div>
   </div>
 </div>
@@ -326,7 +344,7 @@ en:{
 "nav.ss":"Screenshots","nav.feat":"Features","nav.lang":"Languages","nav.price":"Pricing","nav.sup":"Support","nav.priv":"Privacy","nav.home":"Home",
 "hero.sub":"The fun word card game that teaches children new words in multiple languages",
 "b1":"Ages 4+","b2":"9 Languages","b3":"21+ Categories","b4":"No Ads Ever","b5":"Works Offline",
-"btn":"Download on the App Store","soon":"Coming soon to the App Store","btn.gp":"Coming soon on Google Play Store","soon.gp":"Coming soon to Google Play Store",
+"btn":"Download on the App Store","soon":"Coming soon to the App Store","btn.gp":"Coming soon on Google Play Store","soon.gp":"Coming soon to Google Play Store","notify.h":"Android version coming mid-May — get notified","notify.placeholder":"Your email address","notify.btn":"Notify me","notify.success":"Got it! We'll email you when Android is ready.","notify.privacy":"We'll email you once. No spam, no list-sharing. <a href=\"privacy.html\">Privacy →</a>",
 "ss.title":"See it in action","ss.sub":"Everything your child needs to start learning",
 "ss.1":"Home Screen","ss.2":"Game Board","ss.3":"Finding Matches","ss.4":"Celebration!","ss.5":"21+ Categories","ss.6":"Parental Protection","ss.7":"Unlock Everything",
 "ft":"Everything kids love, everything parents trust",
@@ -353,7 +371,7 @@ es:{
 "nav.ss":"Capturas","nav.feat":"Funciones","nav.lang":"Idiomas","nav.price":"Precios","nav.sup":"Soporte","nav.priv":"Privacidad","nav.home":"Inicio",
 "hero.sub":"El divertido juego de cartas de palabras que enseña palabras en múltiples idiomas",
 "b1":"Desde 4 años","b2":"9 idiomas","b3":"21+ Categorías","b4":"Sin Publicidad","b5":"Sin Conexión",
-"btn":"Descargar en el App Store","soon":"Próximamente en el App Store","btn.gp":"Próximamente en Google Play Store","soon.gp":"Próximamente en Google Play",
+"btn":"Descargar en el App Store","soon":"Próximamente en el App Store","btn.gp":"Próximamente en Google Play Store","soon.gp":"Próximamente en Google Play","notify.h":"Versión Android a mediados de mayo — recibe el aviso","notify.placeholder":"Tu correo electrónico","notify.btn":"Avísame","notify.success":"¡Listo! Te avisaremos cuando Android esté listo.","notify.privacy":"Te escribiremos solo una vez. Sin spam, sin compartir. <a href=\"privacy.html\">Privacidad →</a>",
 "ss.title":"Míralo en acción","ss.sub":"Todo lo que tu hijo necesita para aprender",
 "ss.1":"Pantalla Principal","ss.2":"Tablero","ss.3":"Encontrando Parejas","ss.4":"Celebración","ss.5":"21+ Categorías","ss.6":"Protección Parental","ss.7":"Desbloquear Todo",
 "ft":"Todo lo que los niños aman, todo lo que los padres confían",
@@ -380,7 +398,7 @@ fr:{
 "nav.ss":"Captures","nav.feat":"Fonctionnalités","nav.lang":"Langues","nav.price":"Tarifs","nav.sup":"Support","nav.priv":"Confidentialité","nav.home":"Accueil",
 "hero.sub":"Le jeu de cartes de mots amusant qui apprend aux enfants des mots dans plusieurs langues",
 "b1":"Dès 4 ans","b2":"9 langues","b3":"21+ Catégories","b4":"Sans Publicité","b5":"Hors Ligne",
-"btn":"Télécharger sur l'App Store","soon":"Bientôt sur l'App Store","btn.gp":"Bientôt sur Google Play Store","soon.gp":"Bientôt sur Google Play",
+"btn":"Télécharger sur l'App Store","soon":"Bientôt sur l'App Store","btn.gp":"Bientôt sur Google Play Store","soon.gp":"Bientôt sur Google Play","notify.h":"Version Android à la mi-mai — sois prévenu","notify.placeholder":"Ton adresse e-mail","notify.btn":"Préviens-moi","notify.success":"C'est noté ! On t'écrira dès qu'Android sera prêt.","notify.privacy":"On t'écrira une seule fois. Pas de spam, pas de partage. <a href=\"privacy.html\">Confidentialité →</a>",
 "ss.title":"Voir en action","ss.sub":"Tout ce dont votre enfant a besoin",
 "ss.1":"Écran Principal","ss.2":"Plateau de Jeu","ss.3":"Trouver des Paires","ss.4":"Célébration","ss.5":"21+ Catégories","ss.6":"Protection Parentale","ss.7":"Tout Débloquer",
 "ft":"Tout ce que les enfants adorent, tout ce que les parents approuvent",
@@ -407,7 +425,7 @@ de:{
 "nav.ss":"Screenshots","nav.feat":"Funktionen","nav.lang":"Sprachen","nav.price":"Preise","nav.sup":"Support","nav.priv":"Datenschutz","nav.home":"Startseite",
 "hero.sub":"Das lustige Wortkarten-Spiel das Kindern Wörter in mehreren Sprachen beibringt",
 "b1":"Ab 4 Jahren","b2":"9 Sprachen","b3":"21+ Kategorien","b4":"Keine Werbung","b5":"Offline nutzbar",
-"btn":"Im App Store laden","soon":"Demnächst im App Store","btn.gp":"Demnächst im Google Play Store","soon.gp":"Demnächst bei Google Play",
+"btn":"Im App Store laden","soon":"Demnächst im App Store","btn.gp":"Demnächst im Google Play Store","soon.gp":"Demnächst bei Google Play","notify.h":"Android-Version kommt Mitte Mai — lass dich benachrichtigen","notify.placeholder":"Deine E-Mail-Adresse","notify.btn":"Benachrichtigen","notify.success":"Alles klar! Wir melden uns, sobald Android fertig ist.","notify.privacy":"Wir schreiben dir nur einmal. Kein Spam, keine Weitergabe. <a href=\"privacy.html\">Datenschutz →</a>",
 "ss.title":"In Aktion sehen","ss.sub":"Alles was dein Kind braucht",
 "ss.1":"Startbildschirm","ss.2":"Spielfeld","ss.3":"Paare finden","ss.4":"Feiern","ss.5":"21+ Kategorien","ss.6":"Elternschutz","ss.7":"Alles freischalten",
 "ft":"Alles was Kinder lieben, alles was Eltern vertrauen",
@@ -434,7 +452,7 @@ hu:{
 "nav.ss":"Képernyő","nav.feat":"Funkciók","nav.lang":"Nyelvek","nav.price":"Árak","nav.sup":"Támogatás","nav.priv":"Adatvédelem","nav.home":"Főoldal",
 "hero.sub":"A szórakoztató Szókártyajáték amely több nyelven tanít szavakat a gyerekeknek",
 "b1":"4 évestől","b2":"9 nyelv","b3":"21+ Kategória","b4":"Nincs Reklám","b5":"Offline Működik",
-"btn":"Letöltés az App Store-ból","soon":"Hamarosan az App Store-ban","btn.gp":"Hamarosan a Google Play Store-ban","soon.gp":"Hamarosan a Google Playen",
+"btn":"Letöltés az App Store-ból","soon":"Hamarosan az App Store-ban","btn.gp":"Hamarosan a Google Play Store-ban","soon.gp":"Hamarosan a Google Playen","notify.h":"Az Android-verzió május közepén jön — szólunk neked","notify.placeholder":"E-mail-címed","notify.btn":"Értesíts","notify.success":"Megvan! Szólunk, amint az Android kész van.","notify.privacy":"Csak egyszer írunk. Nincs spam, nincs megosztás. <a href=\"privacy.html\">Adatvédelem →</a>",
 "ss.title":"Lásd működés közben","ss.sub":"Minden amire gyermekednek szüksége van",
 "ss.1":"Főképernyő","ss.2":"Játéktábla","ss.3":"Párkeresés","ss.4":"Ünneplés","ss.5":"21+ Kategória","ss.6":"Szülői Védelem","ss.7":"Mindent Felold",
 "ft":"Minden amit a gyerekek szeretnek, minden amiben a szülők megbíznak",
@@ -461,7 +479,7 @@ ro:{
 "nav.ss":"Capturi","nav.feat":"Funcții","nav.lang":"Limbi","nav.price":"Prețuri","nav.sup":"Suport","nav.priv":"Confidențialitate","nav.home":"Acasă",
 "hero.sub":"Jocul de cărți cu cuvinte distractiv care îi învață pe copii cuvinte în mai multe limbi",
 "b1":"De la 4 ani","b2":"9 limbi","b3":"21+ Categorii","b4":"Fără Reclame","b5":"Funcționează Offline",
-"btn":"Descarcă din App Store","soon":"În curând în App Store","btn.gp":"În curând pe Google Play Store","soon.gp":"În curând pe Google Play",
+"btn":"Descarcă din App Store","soon":"În curând în App Store","btn.gp":"În curând pe Google Play Store","soon.gp":"În curând pe Google Play","notify.h":"Versiunea Android vine la mijlocul lui mai — primește notificarea","notify.placeholder":"Adresa ta de email","notify.btn":"Anunță-mă","notify.success":"S-a notat! Te anunțăm când Android e gata.","notify.privacy":"Îți scriem o singură dată. Fără spam, fără partajare. <a href=\"privacy.html\">Confidențialitate →</a>",
 "ss.title":"Vezi în acțiune","ss.sub":"Tot ce are nevoie copilul tău",
 "ss.1":"Ecran Principal","ss.2":"Tablă de Joc","ss.3":"Găsind Perechi","ss.4":"Celebrare","ss.5":"21+ Categorii","ss.6":"Protecție Parentală","ss.7":"Deblochează Tot",
 "ft":"Tot ce iubesc copiii, tot ce au încredere părinții",
@@ -488,7 +506,7 @@ it:{
 "nav.ss":"Screenshot","nav.feat":"Funzionalità","nav.lang":"Lingue","nav.price":"Prezzi","nav.sup":"Supporto","nav.priv":"Privacy","nav.home":"Home",
 "hero.sub":"Il divertente gioco di carte di parole che insegna ai bambini parole in più lingue",
 "b1":"Da 4 anni","b2":"9 lingue","b3":"21+ Categorie","b4":"Senza Pubblicità","b5":"Funziona Offline",
-"btn":"Scarica sull'App Store","soon":"Prossimamente sull'App Store","btn.gp":"Prossimamente su Google Play Store","soon.gp":"Prossimamente su Google Play",
+"btn":"Scarica sull'App Store","soon":"Prossimamente sull'App Store","btn.gp":"Prossimamente su Google Play Store","soon.gp":"Prossimamente su Google Play","notify.h":"Versione Android a metà maggio — fatti avvisare","notify.placeholder":"La tua email","notify.btn":"Avvisami","notify.success":"Fatto! Ti scriveremo quando Android sarà pronto.","notify.privacy":"Ti scriveremo una sola volta. Niente spam, niente condivisione. <a href=\"privacy.html\">Privacy →</a>",
 "ss.title":"Vedilo in azione","ss.sub":"Tutto ciò di cui tuo figlio ha bisogno",
 "ss.1":"Schermata Principale","ss.2":"Campo di Gioco","ss.3":"Trovare Coppie","ss.4":"Celebrazione","ss.5":"21+ Categorie","ss.6":"Protezione Genitori","ss.7":"Sblocca Tutto",
 "ft":"Tutto ciò che i bambini amano, tutto ciò di cui i genitori si fidano",
@@ -515,7 +533,7 @@ pt:{
 "nav.ss":"Capturas","nav.feat":"Funcionalidades","nav.lang":"Idiomas","nav.price":"Preços","nav.sup":"Suporte","nav.priv":"Privacidade","nav.home":"Início",
 "hero.sub":"O divertido jogo de cartas de palavras que ensina às crianças palavras em vários idiomas",
 "b1":"A partir dos 4 anos","b2":"9 idiomas","b3":"21+ Categorias","b4":"Sem Publicidade","b5":"Funciona Offline",
-"btn":"Descarregar na App Store","soon":"Em breve na App Store","btn.gp":"Em breve no Google Play Store","soon.gp":"Em breve no Google Play",
+"btn":"Descarregar na App Store","soon":"Em breve na App Store","btn.gp":"Em breve no Google Play Store","soon.gp":"Em breve no Google Play","notify.h":"Versão Android em meados de maio — recebe o aviso","notify.placeholder":"O teu email","notify.btn":"Avisa-me","notify.success":"Combinado! Avisamos-te quando o Android estiver pronto.","notify.privacy":"Escrevemos-te apenas uma vez. Sem spam, sem partilha. <a href=\"privacy.html\">Privacidade →</a>",
 "ss.title":"Vê em ação","ss.sub":"Tudo o que o teu filho precisa",
 "ss.1":"Ecrã Principal","ss.2":"Tabuleiro","ss.3":"Encontrar Pares","ss.4":"Celebração","ss.5":"21+ Categorias","ss.6":"Proteção Parental","ss.7":"Desbloquear Tudo",
 "ft":"Tudo o que as crianças adoram, tudo em que os pais confiam",
@@ -542,7 +560,7 @@ ar:{
 "nav.ss":"لقطات","nav.feat":"المميزات","nav.lang":"اللغات","nav.price":"الأسعار","nav.sup":"الدعم","nav.priv":"الخصوصية","nav.home":"الرئيسية",
 "hero.sub":"لعبة بطاقات الكلمات الممتعة التي تعلم الأطفال كلمات بلغات متعددة",
 "b1":"من 4 سنوات","b2":"9 لغات","b3":"21+ فئة","b4":"بدون إعلانات","b5":"يعمل بدون إنترنت",
-"btn":"تحميل من App Store","soon":"قريباً في App Store","btn.gp":"قريباً على Google Play Store","soon.gp":"قريباً على Google Play",
+"btn":"تحميل من App Store","soon":"قريباً في App Store","btn.gp":"قريباً على Google Play Store","soon.gp":"قريباً على Google Play","notify.h":"نسخة الأندرويد قادمة في منتصف مايو — اشترك ليصلك الإشعار","notify.placeholder":"بريدك الإلكتروني","notify.btn":"أعلِمني","notify.success":"تم! سنراسلك حالما تجهز نسخة الأندرويد.","notify.privacy":"سنراسلك مرة واحدة فقط. لا رسائل مزعجة، ولا مشاركة. <a href=\"privacy.html\">الخصوصية ←</a>",
 "ss.title":"شاهده في العمل","ss.sub":"كل ما يحتاجه طفلك للتعلم",
 "ss.1":"الشاشة الرئيسية","ss.2":"لوحة اللعبة","ss.3":"إيجاد الأزواج","ss.4":"احتفال","ss.5":"21+ فئة","ss.6":"حماية الوالدين","ss.7":"فتح كل شيء",
 "ft":"كل ما يحبه الأطفال، كل ما يثق به الآباء",
@@ -575,7 +593,9 @@ document.addEventListener('touchstart',function(e){if(!e.target.closest('.lang-s
 function setLang(l){
   const t=T[l],m=M[l];
   document.getElementById('langBtn').textContent=m.f+' '+m.l+' ▾';
-  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k];});
+  document.querySelectorAll('[data-i18n]:not([data-i18n-html])').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k];});
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{const k=el.getAttribute('data-i18n-placeholder');if(t[k])el.placeholder=t[k];});
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.innerHTML=t[k];});
   const badge=document.getElementById('appstore-badge');
   if(badge){badge.src='badges/app-store-badge-'+l+'.svg';badge.alt=t['btn']||badge.alt;}
   document.querySelectorAll('.lang-opt').forEach(o=>{o.classList.remove('active');if(o.getAttribute('onclick')==="setLang('"+l+"')")o.classList.add('active');});
@@ -604,6 +624,35 @@ function setLang(l){
     }
   }
   setLang(pick||'en');
+})();
+
+// FLI-45: notify-form submit handler
+(function(){
+  const form=document.getElementById('notify-form');
+  if(!form)return;
+  const wrap=form.parentElement;
+  const success=wrap.querySelector('.notify-success');
+  const privNote=wrap.querySelector('.notify-priv');
+  const heading=wrap.querySelector('.notify-h');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    const email=(form.email.value||'').trim();
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){form.email.focus();return;}
+    const btn=form.querySelector('.notify-btn');
+    btn.disabled=true;
+    const payload={email:email,locale:document.documentElement.lang||'en',userAgent:navigator.userAgent||''};
+    fetch('https://script.google.com/macros/s/AKfycbwy68fsUkJlzmpqe7I6qmszwq-LicBIOF9jW0vdbZT-s2XSBMYQ67NEz6cyed6pynY/exec',{
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify(payload)
+    }).catch(function(){/* opaque response is fine; only catch covers total network failure */});
+    // Optimistic success: hide form/heading/priv, show success
+    form.hidden=true;
+    heading.hidden=true;
+    privNote.hidden=true;
+    success.hidden=false;
+  });
 })();
 </script>
 </body>
