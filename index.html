@@ -148,7 +148,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.6}
 nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:100;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:56px}
-.nav-brand{font-size:17px;font-weight:600;color:#3A3589;text-decoration:none}
+.nav-brand{font-size:17px;font-weight:600;color:#3A3589;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
 .nav-links{display:flex;gap:20px}
 .nav-links a{color:#3A3589;text-decoration:none;font-size:14px;opacity:.8}
 .nav-links a:hover{opacity:1}
@@ -163,6 +163,25 @@ nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1
 .hero-icon{width:110px;height:110px;border-radius:24px;margin:0 auto 24px;display:block;box-shadow:0 8px 32px rgba(0,0,0,.3)}
 .hero h1{font-size:44px;font-weight:700;letter-spacing:-1px;margin-bottom:14px}
 .hero p{font-size:19px;opacity:.88;max-width:500px;margin:0 auto 32px}
+/* FLI-70: navbar icon (nav already has position:sticky which establishes positioning context) */
+.nav-icon{width:32px;height:32px;border-radius:7px;display:block;flex-shrink:0}
+/* FLI-70: hero cards row */
+.hcard-row{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:nowrap;perspective:1200px;margin:0 auto 24px;padding:0 8px}
+.hcard{width:110px;height:154px;position:relative;transform-style:preserve-3d;transition:transform .7s cubic-bezier(0.4,0,0.2,1);flex-shrink:0}
+.hcard.flipped{transform:rotateY(180deg)}
+.hcard-face{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 4px 12px rgba(58,53,137,.18)}
+.hcard-front{background:#F0E8FF;border:1.5px solid rgba(140,89,217,.4);padding:8px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hcard-emoji{font-size:46px;line-height:1;margin-bottom:8px}
+.hcard-word{font-size:15px;font-weight:700;color:#4D1A8D;text-align:center;font-family:system-ui,-apple-system,"SF Pro Rounded",sans-serif;line-height:1.15;word-break:break-word;max-width:100%}
+.hcard-back{transform:rotateY(180deg)}
+.hcard-back[data-back="rainbow"]{background:linear-gradient(to bottom right,#FF6666,#6666FF)}
+.hcard-back[data-back="space"]{background:linear-gradient(to bottom right,#0D0D33,#331A66)}
+.hcard-back[data-back="unicorn"]{background:linear-gradient(to bottom right,#FF99CC,#CC66FF)}
+.hcard-back::before{content:"";position:absolute;inset:5px;border:1.5px solid rgba(255,255,255,.25);border-radius:9px;pointer-events:none}
+.hcard-back-emoji{font-size:36px;line-height:1;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.25);position:relative;z-index:1}
+@media (max-width:900px){.hcard{width:90px;height:126px}.hcard-front{padding:7px}.hcard-emoji{font-size:38px;margin-bottom:6px}.hcard-word{font-size:13px}.hcard-back-emoji{font-size:30px}.hcard:nth-child(n+6){display:none}}
+@media (max-width:640px){.hcard-row{gap:8px}.hcard{width:75px;height:105px}.hcard-front{padding:6px}.hcard-emoji{font-size:32px;margin-bottom:5px}.hcard-word{font-size:12px}.hcard-back-emoji{font-size:26px}.hcard:nth-child(n+4){display:none}.nav-icon{width:24px;height:24px;border-radius:5px}}
+@media (prefers-reduced-motion:reduce){.hcard{transition:none}}
 .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
 .badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:5px 14px;font-size:13px;font-weight:500}
 .dl-btn{display:inline-block;background:white;color:#3A3589;font-size:16px;font-weight:600;padding:13px 32px;border-radius:13px;text-decoration:none}
@@ -282,7 +301,7 @@ body.rtl{direction:rtl}
 </head>
 <body>
 <nav>
-  <a class="nav-brand" href="index.html">Flip &amp; Learn</a>
+  <a class="nav-brand" href="index.html"><img class="nav-icon" src="apple-touch-icon.png" alt="">Flip &amp; Learn</a>
   <div class="nav-links">
     <a href="#screenshots" data-i18n="nav.ss">Screenshots</a>
     <a href="#features" data-i18n="nav.feat">Features</a>
@@ -308,7 +327,71 @@ body.rtl{direction:rtl}
 </nav>
 
 <div class="hero">
-  <img src="icon.png" alt="Flip &amp; Learn" class="hero-icon" onerror="this.style.display='none'">
+  <div class="hcard-row" aria-hidden="true">
+    <div class="hcard" data-emoji="🍒">
+      <div class="hcard-face hcard-front">
+        <div class="hcard-emoji">🍒</div>
+        <div class="hcard-word">Cherry</div>
+      </div>
+      <div class="hcard-face hcard-back" data-back="rainbow">
+        <div class="hcard-back-emoji">🌈</div>
+      </div>
+    </div>
+    <div class="hcard" data-emoji="🦊">
+      <div class="hcard-face hcard-front">
+        <div class="hcard-emoji">🦊</div>
+        <div class="hcard-word">fox</div>
+      </div>
+      <div class="hcard-face hcard-back" data-back="space">
+        <div class="hcard-back-emoji">🚀</div>
+      </div>
+    </div>
+    <div class="hcard" data-emoji="⚽">
+      <div class="hcard-face hcard-front">
+        <div class="hcard-emoji">⚽</div>
+        <div class="hcard-word">ball</div>
+      </div>
+      <div class="hcard-face hcard-back" data-back="unicorn">
+        <div class="hcard-back-emoji">🦄</div>
+      </div>
+    </div>
+    <div class="hcard" data-emoji="👗">
+      <div class="hcard-face hcard-front">
+        <div class="hcard-emoji">👗</div>
+        <div class="hcard-word">dress</div>
+      </div>
+      <div class="hcard-face hcard-back" data-back="rainbow">
+        <div class="hcard-back-emoji">🌈</div>
+      </div>
+    </div>
+    <div class="hcard" data-emoji="🚴">
+      <div class="hcard-face hcard-front">
+        <div class="hcard-emoji">🚴</div>
+        <div class="hcard-word">cycling</div>
+      </div>
+      <div class="hcard-face hcard-back" data-back="space">
+        <div class="hcard-back-emoji">🚀</div>
+      </div>
+    </div>
+    <div class="hcard" data-emoji="🥒">
+      <div class="hcard-face hcard-front">
+        <div class="hcard-emoji">🥒</div>
+        <div class="hcard-word">Cucumber</div>
+      </div>
+      <div class="hcard-face hcard-back" data-back="unicorn">
+        <div class="hcard-back-emoji">🦄</div>
+      </div>
+    </div>
+    <div class="hcard" data-emoji="🇮🇹">
+      <div class="hcard-face hcard-front">
+        <div class="hcard-emoji">🇮🇹</div>
+        <div class="hcard-word">Italy</div>
+      </div>
+      <div class="hcard-face hcard-back" data-back="rainbow">
+        <div class="hcard-back-emoji">🌈</div>
+      </div>
+    </div>
+  </div>
   <h1>Flip &amp; Learn</h1>
   <p data-i18n="hero.sub">The fun word card game that teaches children new words in multiple languages</p>
   <div class="badges">
@@ -942,6 +1025,58 @@ function setLang(l){
     .observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 
   update();
+})();
+
+/* FLI-70: hero cards animation */
+(function(){
+  const cardWords={'🍒':{en:'Cherry',es:'Cereza',fr:'Cerise',de:'Kirsche',hu:'Cseresznye',ro:'Cireașă',it:'Ciliegia',pt:'Cereja',ar:'كرز'},'🦊':{en:'fox',es:'zorro',fr:'renard',de:'Fuchs',hu:'róka',ro:'vulpe',it:'volpe',pt:'raposa',ar:'ثعلب'},'⚽':{en:'ball',es:'pelota',fr:'ballon',de:'Ball',hu:'labda',ro:'minge',it:'palla',pt:'bola',ar:'كرة'},'👗':{en:'dress',es:'vestido',fr:'robe',de:'Kleid',hu:'ruha',ro:'rochie',it:'vestito',pt:'vestido',ar:'فستان'},'🚴':{en:'cycling',es:'ciclismo',fr:'cyclisme',de:'Radfahren',hu:'kerékpározás',ro:'ciclism',it:'ciclismo',pt:'ciclismo',ar:'ركوب الدراجة'},'🥒':{en:'Cucumber',es:'Pepino',fr:'Concombre',de:'Gurke',hu:'Uborka',ro:'Castravete',it:'Cetriolo',pt:'Pepino',ar:'خيار'},'🇮🇹':{en:'Italy',es:'Italia',fr:'Italie',de:'Italien',hu:'Olaszország',ro:'Italia',it:'Italia',pt:'Itália',ar:'إيطاليا'}};
+  const langOrder=['en','es','fr','de','hu','ro','it','pt','ar'];
+  const backOrder=['rainbow','space','unicorn'];
+  const backEmojis={rainbow:'🌈',space:'🚀',unicorn:'🦄'};
+  const reducedMotion=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const row=document.querySelector('.hcard-row');
+  if(!row||reducedMotion)return;
+  const cards=Array.from(row.querySelectorAll('.hcard'));
+  const AVG=3500,SPREAD=1800;
+  const states=cards.map(c=>({el:c,emoji:c.dataset.emoji,langIndex:0,backIndex:0,flipped:false,timer:null}));
+  function rand(){return AVG-SPREAD/2+Math.random()*SPREAD}
+  function flip(s){
+    const willBeFlipped=!s.flipped;
+    if(willBeFlipped){
+      s.backIndex=(s.backIndex+1)%backOrder.length;
+      const newBack=backOrder[s.backIndex];
+      const backFace=s.el.querySelector('.hcard-back');
+      backFace.setAttribute('data-back',newBack);
+      backFace.querySelector('.hcard-back-emoji').textContent=backEmojis[newBack];
+    }else{
+      s.langIndex=(s.langIndex+1)%langOrder.length;
+      const lang=langOrder[s.langIndex];
+      const word=cardWords[s.emoji][lang];
+      const wordEl=s.el.querySelector('.hcard-word');
+      wordEl.textContent=word;
+      wordEl.setAttribute('dir',lang==='ar'?'rtl':'ltr');
+    }
+    s.flipped=willBeFlipped;
+    s.el.classList.toggle('flipped',s.flipped);
+    s.timer=setTimeout(()=>flip(s),rand());
+  }
+  function start(){
+    states.forEach((s,i)=>{
+      if(s.timer)clearTimeout(s.timer);
+      const initialDelay=400+i*500+Math.random()*400;
+      s.timer=setTimeout(()=>flip(s),initialDelay);
+    });
+  }
+  function stop(){
+    states.forEach(s=>{if(s.timer){clearTimeout(s.timer);s.timer=null}});
+  }
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting)start();
+      else stop();
+    });
+  },{threshold:0});
+  io.observe(row);
 })();
 </script>
 </body>
