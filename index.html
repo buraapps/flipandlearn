@@ -172,7 +172,7 @@ nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1
 .hcard-face{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 4px 12px rgba(58,53,137,.18)}
 .hcard-front{background:#F0E8FF;border:1.5px solid rgba(140,89,217,.4);padding:8px;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .hcard-emoji{font-size:46px;line-height:1;margin-bottom:8px}
-.hcard-word{font-size:14px;font-weight:700;color:#4D1A8D;text-align:center;font-family:system-ui,-apple-system,"SF Pro Rounded",sans-serif;line-height:1.1;word-break:break-word;max-width:100%;letter-spacing:-0.2px}
+.hcard-word{font-size:14px;font-weight:700;color:#4D1A8D;text-align:center;font-family:system-ui,-apple-system,"SF Pro Rounded",sans-serif;line-height:1.1;word-break:break-word;max-width:100%;letter-spacing:-0.2px;hyphens:auto;overflow-wrap:break-word}
 .hcard-back{transform:rotateY(180deg)}
 .hcard-back[data-back="rainbow"]{background:linear-gradient(to bottom right,#FF6666,#6666FF)}
 .hcard-back[data-back="space"]{background:linear-gradient(to bottom right,#0D0D33,#331A66)}
@@ -180,7 +180,7 @@ nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1
 .hcard-back::before{content:"";position:absolute;inset:5px;border:1.5px solid rgba(255,255,255,.25);border-radius:9px;pointer-events:none}
 .hcard-back-emoji{font-size:36px;line-height:1;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.25);position:relative;z-index:1}
 @media (max-width:900px){.hcard{width:90px;height:126px}.hcard-front{padding:7px}.hcard-emoji{font-size:38px;margin-bottom:6px}.hcard-word{font-size:12px}.hcard-back-emoji{font-size:30px}.hcard:nth-child(n+6){display:none}}
-@media (max-width:640px){.hcard-row{gap:8px}.hcard{width:75px;height:105px}.hcard-front{padding:6px}.hcard-emoji{font-size:32px;margin-bottom:5px}.hcard-word{font-size:11px;letter-spacing:-0.3px}.hcard-back-emoji{font-size:26px}.hcard:nth-child(n+4){display:none}.nav-icon{width:24px;height:24px;border-radius:5px}}
+@media (max-width:640px){.hcard-row{gap:8px}.hcard{width:100px;height:140px}.hcard-front{padding:7px}.hcard-emoji{font-size:42px;margin-bottom:6px}.hcard-word{font-size:12px;letter-spacing:-0.3px}.hcard-back-emoji{font-size:32px}.hcard:nth-child(n+4){display:none}.nav-icon{width:24px;height:24px;border-radius:5px}}
 @media (prefers-reduced-motion:reduce){.hcard{transition:none}}
 .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
 .badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:5px 14px;font-size:13px;font-weight:500}
