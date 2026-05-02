@@ -137,7 +137,25 @@ nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1
 .phone img{width:195px;height:423px;object-fit:cover;object-position:top;border-radius:34px;box-shadow:0 12px 40px rgba(0,0,0,.5);display:block}
 .notch{display:none}
 .ss-lbl{color:rgba(255,255,255,.7);font-size:12px;margin-top:12px;font-weight:500}
-.swipe{text-align:center;color:rgba(255,255,255,.3);font-size:12px;margin-top:4px}
+.ss-hint{text-align:center;color:rgba(255,255,255,.3);font-size:12px;margin-top:4px}
+.ss-stage{position:relative}
+.ss-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer;z-index:2;transition:background .15s,opacity .15s}
+.ss-arrow:hover{background:rgba(255,255,255,.28)}
+.ss-arrow:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.ss-arrow:disabled{opacity:.3;cursor:default;pointer-events:none}
+.ss-arrow.prev{left:8px}
+.ss-arrow.next{right:8px}
+.ss-arrow svg{width:22px;height:22px;display:block}
+body.rtl .ss-arrow.prev{left:auto;right:8px}
+body.rtl .ss-arrow.next{right:auto;left:8px}
+.ss-dots{display:none;justify-content:center;gap:8px;margin-top:18px;padding:0 20px;flex-wrap:wrap}
+.ss-dot{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,.25);padding:0;cursor:pointer;transition:background .15s,width .15s}
+.ss-dot:hover{background:rgba(255,255,255,.45)}
+.ss-dot.active{background:#fff;width:22px;border-radius:4px}
+.ss-dot:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.hint-desk{display:none}
+@media (hover:hover) and (pointer:fine){.ss-arrow{display:flex}.ss-dots{display:flex}.hint-touch{display:none}.hint-desk{display:inline}}
+@media (prefers-reduced-motion:reduce){.ss-scroll{scroll-behavior:auto}}
 section{max-width:960px;margin:0 auto;padding:64px 24px}
 section h2{font-size:32px;font-weight:700;text-align:center;margin-bottom:44px}
 .alt{background:white}
@@ -247,17 +265,29 @@ body.rtl{direction:rtl}
 <div class="ss-wrap" id="screenshots">
   <h2 data-i18n="ss.title">See it in action</h2>
   <p class="ss-sub" data-i18n="ss.sub">Everything your child needs to start learning</p>
-  <div class="ss-scroll">
-    <div class="ss-item"><div class="phone"><div class="notch"></div><div style="width:195px;height:423px;border-radius:34px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.5);display:block;"><iframe src="flipandlearn_promo.html" style="width:195px;height:423px;border:none;display:block;" scrolling="no" title="App Preview"></iframe></div></div><div class="ss-lbl">▶ App Preview</div></div>
-    <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen1_home.jpg" alt="Home"></div><div class="ss-lbl" data-i18n="ss.1">Home Screen</div></div>
-    <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen2_game.jpg" alt="Game"></div><div class="ss-lbl" data-i18n="ss.2">Game Board</div></div>
-    <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen3_midgame.jpg" alt="Playing"></div><div class="ss-lbl" data-i18n="ss.3">Finding Matches</div></div>
-    <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen5_win.jpg" alt="Win"></div><div class="ss-lbl" data-i18n="ss.4">Celebration!</div></div>
-    <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen4_professions.jpg" alt="Categories"></div><div class="ss-lbl" data-i18n="ss.5">21+ Categories</div></div>
-    <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen7_parentalgate.jpg" alt="Parental Gate"></div><div class="ss-lbl" data-i18n="ss.6">Parental Protection</div></div>
-    <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen8_paywall.jpg" alt="Unlock"></div><div class="ss-lbl" data-i18n="ss.7">Unlock Everything</div></div>
+  <div class="ss-stage">
+    <button type="button" class="ss-arrow prev" aria-label="Previous screenshot" data-i18n-aria="arrow.prev">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="ss-scroll">
+      <div class="ss-item"><div class="phone"><div class="notch"></div><div style="width:195px;height:423px;border-radius:34px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.5);display:block;"><iframe src="flipandlearn_promo.html" style="width:195px;height:423px;border:none;display:block;" scrolling="no" title="App Preview"></iframe></div></div><div class="ss-lbl"><span aria-hidden="true">▶ </span><span data-i18n="ss.0">App Preview</span></div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen1_home.jpg" alt="Home"></div><div class="ss-lbl" data-i18n="ss.1">Home Screen</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen2_game.jpg" alt="Game"></div><div class="ss-lbl" data-i18n="ss.2">Game Board</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen3_midgame.jpg" alt="Playing"></div><div class="ss-lbl" data-i18n="ss.3">Finding Matches</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen5_win.jpg" alt="Win"></div><div class="ss-lbl" data-i18n="ss.4">Celebration!</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen4_professions.jpg" alt="Categories"></div><div class="ss-lbl" data-i18n="ss.5">21+ Categories</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen7_parentalgate.jpg" alt="Parental Gate"></div><div class="ss-lbl" data-i18n="ss.6">Parental Protection</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><img src="screen8_paywall.jpg" alt="Unlock"></div><div class="ss-lbl" data-i18n="ss.7">Unlock Everything</div></div>
+    </div>
+    <button type="button" class="ss-arrow next" aria-label="Next screenshot" data-i18n-aria="arrow.next">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
   </div>
-  <p class="swipe">← Swipe to see more →</p>
+  <div class="ss-dots" role="tablist" aria-label="Screenshot navigation"></div>
+  <p class="ss-hint">
+    <span class="hint-touch" data-i18n="ss.swipe">← Swipe to see more →</span>
+    <span class="hint-desk" data-i18n="ss.arrows">← Use arrows or keyboard →</span>
+  </p>
 </div>
 
 <div class="alt" id="features">
@@ -419,7 +449,7 @@ en:{
 "b1":"Ages 4+","b2":"9 Languages","b3":"21+ Categories","b4":"No Ads Ever","b5":"Works Offline",
 "btn":"Download on the App Store","soon":"Coming soon to the App Store","btn.gp":"Coming soon on Google Play Store","soon.gp":"Coming soon to Google Play Store","notify.h":"Android version coming mid-May — get notified","notify.placeholder":"Your email address","notify.btn":"Notify me","notify.success":"Got it! We'll email you when Android is ready.","notify.privacy":"We'll email you once. No spam, no list-sharing. <a href=\"privacy-website.html\">Privacy →</a>",
 "ss.title":"See it in action","ss.sub":"Everything your child needs to start learning",
-"ss.1":"Home Screen","ss.2":"Game Board","ss.3":"Finding Matches","ss.4":"Celebration!","ss.5":"21+ Categories","ss.6":"Parental Protection","ss.7":"Unlock Everything",
+"ss.1":"Home Screen","ss.2":"Game Board","ss.3":"Finding Matches","ss.4":"Celebration!","ss.5":"21+ Categories","ss.6":"Parental Protection","ss.7":"Unlock Everything","ss.0":"App Preview","ss.swipe":"← Swipe to see more →","ss.arrows":"← Use arrows or keyboard →","arrow.prev":"Previous screenshot","arrow.next":"Next screenshot","dot.label":"Screenshot",
 "ft":"Everything kids love, everything parents trust",
 "f1t":"Classic Word Card Game","f1d":"Flip cards to find matching pairs. Beautiful 3D animations make every match satisfying.",
 "f2t":"Speaks Every Word","f2d":"When a match is found, the app speaks the word out loud in the chosen language.",
@@ -446,7 +476,7 @@ es:{
 "b1":"Desde 4 años","b2":"9 idiomas","b3":"21+ Categorías","b4":"Sin Publicidad","b5":"Sin Conexión",
 "btn":"Descargar en el App Store","soon":"Próximamente en el App Store","btn.gp":"Próximamente en Google Play Store","soon.gp":"Próximamente en Google Play","notify.h":"Versión Android a mediados de mayo — recibe el aviso","notify.placeholder":"Tu correo electrónico","notify.btn":"Avísame","notify.success":"¡Listo! Te avisaremos cuando Android esté listo.","notify.privacy":"Te escribiremos solo una vez. Sin spam, sin compartir. <a href=\"privacy-website.html\">Privacidad →</a>",
 "ss.title":"Míralo en acción","ss.sub":"Todo lo que tu hijo necesita para aprender",
-"ss.1":"Pantalla Principal","ss.2":"Tablero","ss.3":"Encontrando Parejas","ss.4":"Celebración","ss.5":"21+ Categorías","ss.6":"Protección Parental","ss.7":"Desbloquear Todo",
+"ss.1":"Pantalla Principal","ss.2":"Tablero","ss.3":"Encontrando Parejas","ss.4":"Celebración","ss.5":"21+ Categorías","ss.6":"Protección Parental","ss.7":"Desbloquear Todo","ss.0":"Vista previa","ss.swipe":"← Desliza para ver más →","ss.arrows":"← Usa flechas o teclado →","arrow.prev":"Captura anterior","arrow.next":"Captura siguiente","dot.label":"Captura",
 "ft":"Todo lo que los niños aman, todo lo que los padres confían",
 "f1t":"Juego de cartas de palabras clásico","f1d":"Voltea cartas para encontrar parejas. Las animaciones 3D hacen cada coincidencia satisfactoria.",
 "f2t":"Pronuncia cada palabra","f2d":"Al encontrar una pareja, la app pronuncia la palabra en el idioma elegido.",
@@ -473,7 +503,7 @@ fr:{
 "b1":"Dès 4 ans","b2":"9 langues","b3":"21+ Catégories","b4":"Sans Publicité","b5":"Hors Ligne",
 "btn":"Télécharger sur l'App Store","soon":"Bientôt sur l'App Store","btn.gp":"Bientôt sur Google Play Store","soon.gp":"Bientôt sur Google Play","notify.h":"Version Android à la mi-mai — sois prévenu","notify.placeholder":"Ton adresse e-mail","notify.btn":"Préviens-moi","notify.success":"C'est noté ! On t'écrira dès qu'Android sera prêt.","notify.privacy":"On t'écrira une seule fois. Pas de spam, pas de partage. <a href=\"privacy-website.html\">Confidentialité →</a>",
 "ss.title":"Voir en action","ss.sub":"Tout ce dont votre enfant a besoin",
-"ss.1":"Écran Principal","ss.2":"Plateau de Jeu","ss.3":"Trouver des Paires","ss.4":"Célébration","ss.5":"21+ Catégories","ss.6":"Protection Parentale","ss.7":"Tout Débloquer",
+"ss.1":"Écran Principal","ss.2":"Plateau de Jeu","ss.3":"Trouver des Paires","ss.4":"Célébration","ss.5":"21+ Catégories","ss.6":"Protection Parentale","ss.7":"Tout Débloquer","ss.0":"Aperçu","ss.swipe":"← Glisse pour voir plus →","ss.arrows":"← Flèches ou clavier →","arrow.prev":"Capture précédente","arrow.next":"Capture suivante","dot.label":"Capture",
 "ft":"Tout ce que les enfants adorent, tout ce que les parents approuvent",
 "f1t":"Jeu de cartes de mots classique","f1d":"Retourne les cartes pour trouver des paires. De belles animations 3D.",
 "f2t":"Prononce chaque mot","f2d":"Quand une paire est trouvée, l'app prononce le mot dans la langue choisie.",
@@ -500,7 +530,7 @@ de:{
 "b1":"Ab 4 Jahren","b2":"9 Sprachen","b3":"21+ Kategorien","b4":"Keine Werbung","b5":"Offline nutzbar",
 "btn":"Im App Store laden","soon":"Demnächst im App Store","btn.gp":"Demnächst im Google Play Store","soon.gp":"Demnächst bei Google Play","notify.h":"Android-Version kommt Mitte Mai — lass dich benachrichtigen","notify.placeholder":"Deine E-Mail-Adresse","notify.btn":"Benachrichtigen","notify.success":"Alles klar! Wir melden uns, sobald Android fertig ist.","notify.privacy":"Wir schreiben dir nur einmal. Kein Spam, keine Weitergabe. <a href=\"privacy-website.html\">Datenschutz →</a>",
 "ss.title":"In Aktion sehen","ss.sub":"Alles was dein Kind braucht",
-"ss.1":"Startbildschirm","ss.2":"Spielfeld","ss.3":"Paare finden","ss.4":"Feiern","ss.5":"21+ Kategorien","ss.6":"Elternschutz","ss.7":"Alles freischalten",
+"ss.1":"Startbildschirm","ss.2":"Spielfeld","ss.3":"Paare finden","ss.4":"Feiern","ss.5":"21+ Kategorien","ss.6":"Elternschutz","ss.7":"Alles freischalten","ss.0":"App-Vorschau","ss.swipe":"← Wischen für mehr →","ss.arrows":"← Pfeile oder Tastatur →","arrow.prev":"Vorheriger Screenshot","arrow.next":"Nächster Screenshot","dot.label":"Screenshot",
 "ft":"Alles was Kinder lieben, alles was Eltern vertrauen",
 "f1t":"Klassisches Wortkarten-Spiel","f1d":"Drehe Karten um und finde passende Paare. Schöne 3D-Animationen.",
 "f2t":"Spricht jedes Wort","f2d":"Bei einem Treffer spricht die App das Wort in der gewählten Sprache.",
@@ -527,7 +557,7 @@ hu:{
 "b1":"4 évestől","b2":"9 nyelv","b3":"21+ Kategória","b4":"Nincs Reklám","b5":"Offline Működik",
 "btn":"Letöltés az App Store-ból","soon":"Hamarosan az App Store-ban","btn.gp":"Hamarosan a Google Play Store-ban","soon.gp":"Hamarosan a Google Playen","notify.h":"Az Android-verzió május közepén jön — szólunk neked","notify.placeholder":"E-mail-címed","notify.btn":"Értesíts","notify.success":"Megvan! Szólunk, amint az Android kész van.","notify.privacy":"Csak egyszer írunk. Nincs spam, nincs megosztás. <a href=\"privacy-website.html\">Adatvédelem →</a>",
 "ss.title":"Lásd működés közben","ss.sub":"Minden amire gyermekednek szüksége van",
-"ss.1":"Főképernyő","ss.2":"Játéktábla","ss.3":"Párkeresés","ss.4":"Ünneplés","ss.5":"21+ Kategória","ss.6":"Szülői Védelem","ss.7":"Mindent Felold",
+"ss.1":"Főképernyő","ss.2":"Játéktábla","ss.3":"Párkeresés","ss.4":"Ünneplés","ss.5":"21+ Kategória","ss.6":"Szülői Védelem","ss.7":"Mindent Felold","ss.0":"Előnézet","ss.swipe":"← Húzd a többihez →","ss.arrows":"← Nyilakkal vagy billentyűkkel →","arrow.prev":"Előző képernyőkép","arrow.next":"Következő képernyőkép","dot.label":"Képernyőkép",
 "ft":"Minden amit a gyerekek szeretnek, minden amiben a szülők megbíznak",
 "f1t":"Klasszikus Szókártyajáték","f1d":"Fordíts fel kártyákat és találd meg az egyező párokat.",
 "f2t":"Minden szót kimondja","f2d":"Egyezésnél az app hangosan kimondja a szót a választott nyelven.",
@@ -554,7 +584,7 @@ ro:{
 "b1":"De la 4 ani","b2":"9 limbi","b3":"21+ Categorii","b4":"Fără Reclame","b5":"Funcționează Offline",
 "btn":"Descarcă din App Store","soon":"În curând în App Store","btn.gp":"În curând pe Google Play Store","soon.gp":"În curând pe Google Play","notify.h":"Versiunea Android vine la mijlocul lui mai — primește notificarea","notify.placeholder":"Adresa ta de email","notify.btn":"Anunță-mă","notify.success":"S-a notat! Te anunțăm când Android e gata.","notify.privacy":"Îți scriem o singură dată. Fără spam, fără partajare. <a href=\"privacy-website.html\">Confidențialitate →</a>",
 "ss.title":"Vezi în acțiune","ss.sub":"Tot ce are nevoie copilul tău",
-"ss.1":"Ecran Principal","ss.2":"Tablă de Joc","ss.3":"Găsind Perechi","ss.4":"Celebrare","ss.5":"21+ Categorii","ss.6":"Protecție Parentală","ss.7":"Deblochează Tot",
+"ss.1":"Ecran Principal","ss.2":"Tablă de Joc","ss.3":"Găsind Perechi","ss.4":"Celebrare","ss.5":"21+ Categorii","ss.6":"Protecție Parentală","ss.7":"Deblochează Tot","ss.0":"Previzualizare","ss.swipe":"← Glisează pentru mai mult →","ss.arrows":"← Săgeți sau tastatură →","arrow.prev":"Imagine anterioară","arrow.next":"Imagine următoare","dot.label":"Captură",
 "ft":"Tot ce iubesc copiii, tot ce au încredere părinții",
 "f1t":"Joc de cărți cu cuvinte clasic","f1d":"Întoarce cărțile pentru a găsi perechi. Animații 3D frumoase.",
 "f2t":"Pronunță fiecare cuvânt","f2d":"Când se găsește o pereche, aplicația pronunță cuvântul în limba aleasă.",
@@ -581,7 +611,7 @@ it:{
 "b1":"Da 4 anni","b2":"9 lingue","b3":"21+ Categorie","b4":"Senza Pubblicità","b5":"Funziona Offline",
 "btn":"Scarica sull'App Store","soon":"Prossimamente sull'App Store","btn.gp":"Prossimamente su Google Play Store","soon.gp":"Prossimamente su Google Play","notify.h":"Versione Android a metà maggio — fatti avvisare","notify.placeholder":"La tua email","notify.btn":"Avvisami","notify.success":"Fatto! Ti scriveremo quando Android sarà pronto.","notify.privacy":"Ti scriveremo una sola volta. Niente spam, niente condivisione. <a href=\"privacy-website.html\">Privacy →</a>",
 "ss.title":"Vedilo in azione","ss.sub":"Tutto ciò di cui tuo figlio ha bisogno",
-"ss.1":"Schermata Principale","ss.2":"Campo di Gioco","ss.3":"Trovare Coppie","ss.4":"Celebrazione","ss.5":"21+ Categorie","ss.6":"Protezione Genitori","ss.7":"Sblocca Tutto",
+"ss.1":"Schermata Principale","ss.2":"Campo di Gioco","ss.3":"Trovare Coppie","ss.4":"Celebrazione","ss.5":"21+ Categorie","ss.6":"Protezione Genitori","ss.7":"Sblocca Tutto","ss.0":"Anteprima","ss.swipe":"← Scorri per vedere altro →","ss.arrows":"← Frecce o tastiera →","arrow.prev":"Schermata precedente","arrow.next":"Schermata successiva","dot.label":"Schermata",
 "ft":"Tutto ciò che i bambini amano, tutto ciò di cui i genitori si fidano",
 "f1t":"Gioco di carte di parole classico","f1d":"Gira le carte per trovare coppie. Belle animazioni 3D.",
 "f2t":"Pronuncia ogni parola","f2d":"Quando si trova una coppia, l'app pronuncia la parola nella lingua scelta.",
@@ -608,7 +638,7 @@ pt:{
 "b1":"A partir dos 4 anos","b2":"9 idiomas","b3":"21+ Categorias","b4":"Sem Publicidade","b5":"Funciona Offline",
 "btn":"Descarregar na App Store","soon":"Em breve na App Store","btn.gp":"Em breve no Google Play Store","soon.gp":"Em breve no Google Play","notify.h":"Versão Android em meados de maio — recebe o aviso","notify.placeholder":"O teu email","notify.btn":"Avisa-me","notify.success":"Combinado! Avisamos-te quando o Android estiver pronto.","notify.privacy":"Escrevemos-te apenas uma vez. Sem spam, sem partilha. <a href=\"privacy-website.html\">Privacidade →</a>",
 "ss.title":"Vê em ação","ss.sub":"Tudo o que o teu filho precisa",
-"ss.1":"Ecrã Principal","ss.2":"Tabuleiro","ss.3":"Encontrar Pares","ss.4":"Celebração","ss.5":"21+ Categorias","ss.6":"Proteção Parental","ss.7":"Desbloquear Tudo",
+"ss.1":"Ecrã Principal","ss.2":"Tabuleiro","ss.3":"Encontrar Pares","ss.4":"Celebração","ss.5":"21+ Categorias","ss.6":"Proteção Parental","ss.7":"Desbloquear Tudo","ss.0":"Pré-visualização","ss.swipe":"← Desliza para ver mais →","ss.arrows":"← Setas ou teclado →","arrow.prev":"Imagem anterior","arrow.next":"Próxima imagem","dot.label":"Imagem",
 "ft":"Tudo o que as crianças adoram, tudo em que os pais confiam",
 "f1t":"Jogo de cartas de palavras clássico","f1d":"Vira as cartas para encontrar pares. Belas animações 3D.",
 "f2t":"Pronuncia cada palavra","f2d":"Ao encontrar um par, o app pronuncia a palavra no idioma escolhido.",
@@ -635,7 +665,7 @@ ar:{
 "b1":"من 4 سنوات","b2":"9 لغات","b3":"21+ فئة","b4":"بدون إعلانات","b5":"يعمل بدون إنترنت",
 "btn":"تحميل من App Store","soon":"قريباً في App Store","btn.gp":"قريباً على Google Play Store","soon.gp":"قريباً على Google Play","notify.h":"نسخة الأندرويد قادمة في منتصف مايو — اشترك ليصلك الإشعار","notify.placeholder":"بريدك الإلكتروني","notify.btn":"أعلِمني","notify.success":"تم! سنراسلك حالما تجهز نسخة الأندرويد.","notify.privacy":"سنراسلك مرة واحدة فقط. لا رسائل مزعجة، ولا مشاركة. <a href=\"privacy-website.html\">الخصوصية ←</a>",
 "ss.title":"شاهده في العمل","ss.sub":"كل ما يحتاجه طفلك للتعلم",
-"ss.1":"الشاشة الرئيسية","ss.2":"لوحة اللعبة","ss.3":"إيجاد الأزواج","ss.4":"احتفال","ss.5":"21+ فئة","ss.6":"حماية الوالدين","ss.7":"فتح كل شيء",
+"ss.1":"الشاشة الرئيسية","ss.2":"لوحة اللعبة","ss.3":"إيجاد الأزواج","ss.4":"احتفال","ss.5":"21+ فئة","ss.6":"حماية الوالدين","ss.7":"فتح كل شيء","ss.0":"معاينة التطبيق","ss.swipe":"← اسحب للمزيد →","ss.arrows":"← الأسهم أو لوحة المفاتيح →","arrow.prev":"اللقطة السابقة","arrow.next":"اللقطة التالية","dot.label":"لقطة",
 "ft":"كل ما يحبه الأطفال، كل ما يثق به الآباء",
 "f1t":"لعبة بطاقات الكلمات الكلاسيكية","f1d":"اقلب البطاقات للعثور على أزواج متطابقة.",
 "f2t":"ينطق كل كلمة","f2d":"عند العثور على زوج، ينطق التطبيق الكلمة باللغة المختارة.",
@@ -669,6 +699,7 @@ function setLang(l){
   document.querySelectorAll('[data-i18n]:not([data-i18n-html])').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k];});
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{const k=el.getAttribute('data-i18n-placeholder');if(t[k])el.placeholder=t[k];});
   document.querySelectorAll('[data-i18n-html]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.innerHTML=t[k];});
+  document.querySelectorAll('[data-i18n-aria]').forEach(el=>{const k=el.getAttribute('data-i18n-aria');if(t[k])el.setAttribute('aria-label',t[k]);});
   const badge=document.getElementById('appstore-badge');
   if(badge){badge.src='badges/app-store-badge-'+l+'.svg';badge.alt=t['btn']||badge.alt;}
   document.querySelectorAll('.lang-opt').forEach(o=>{o.classList.remove('active');if(o.getAttribute('onclick')==="setLang('"+l+"')")o.classList.add('active');});
@@ -726,6 +757,82 @@ function setLang(l){
     privNote.hidden=true;
     success.hidden=false;
   });
+})();
+
+// FLI-58: screenshot carousel keyboard / arrow / dot navigation
+(function(){
+  const scroller=document.querySelector('.ss-scroll');
+  if(!scroller)return;
+  const items=Array.from(scroller.querySelectorAll('.ss-item'));
+  if(items.length<2)return;
+  const prevBtn=document.querySelector('.ss-arrow.prev');
+  const nextBtn=document.querySelector('.ss-arrow.next');
+  const dotsWrap=document.querySelector('.ss-dots');
+  const wrap=document.getElementById('screenshots');
+  const reduce=window.matchMedia('(prefers-reduced-motion:reduce)');
+  let current=0,sectionVisible=false,scrollRaf=0;
+
+  function dotLabel(i){
+    const lang=document.documentElement.lang||'en';
+    const tpl=(T[lang]&&T[lang]['dot.label'])||(T.en&&T.en['dot.label'])||'Screenshot';
+    return tpl+' '+(i+1);
+  }
+  items.forEach((_,i)=>{
+    const b=document.createElement('button');
+    b.type='button';b.className='ss-dot';b.setAttribute('role','tab');
+    b.setAttribute('aria-label',dotLabel(i));
+    b.addEventListener('click',()=>goTo(i));
+    dotsWrap.appendChild(b);
+  });
+  const dots=Array.from(dotsWrap.children);
+
+  function update(){
+    dots.forEach((d,i)=>d.classList.toggle('active',i===current));
+    if(prevBtn)prevBtn.disabled=current===0;
+    if(nextBtn)nextBtn.disabled=current===items.length-1;
+  }
+  function goTo(i){
+    current=Math.max(0,Math.min(items.length-1,i));
+    items[current].scrollIntoView({behavior:reduce.matches?'auto':'smooth',inline:'center',block:'nearest'});
+    update();
+  }
+  if(prevBtn)prevBtn.addEventListener('click',()=>goTo(current-1));
+  if(nextBtn)nextBtn.addEventListener('click',()=>goTo(current+1));
+
+  function detect(){
+    scrollRaf=0;
+    const sRect=scroller.getBoundingClientRect();
+    const mid=sRect.left+sRect.width/2;
+    let best=0,bestDist=Infinity;
+    items.forEach((it,i)=>{
+      const r=it.getBoundingClientRect();
+      const c=r.left+r.width/2;
+      const d=Math.abs(c-mid);
+      if(d<bestDist){bestDist=d;best=i;}
+    });
+    if(best!==current){current=best;update();}
+  }
+  scroller.addEventListener('scroll',()=>{
+    if(!scrollRaf)scrollRaf=requestAnimationFrame(detect);
+  },{passive:true});
+
+  const obs=new IntersectionObserver(es=>{
+    es.forEach(e=>{sectionVisible=e.isIntersecting&&e.intersectionRatio>0.5;});
+  },{threshold:[0,0.5,1]});
+  obs.observe(wrap);
+
+  document.addEventListener('keydown',e=>{
+    if(!sectionVisible)return;
+    if(e.target&&/^(INPUT|TEXTAREA|SELECT|IFRAME)$/.test(e.target.tagName))return;
+    const rtl=document.documentElement.dir==='rtl';
+    if(e.key==='ArrowLeft'){e.preventDefault();goTo(current+(rtl?1:-1));}
+    else if(e.key==='ArrowRight'){e.preventDefault();goTo(current+(rtl?-1:1));}
+  });
+
+  new MutationObserver(()=>{dots.forEach((d,i)=>d.setAttribute('aria-label',dotLabel(i)));})
+    .observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+
+  update();
 })();
 </script>
 </body>
