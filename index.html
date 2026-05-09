@@ -211,11 +211,12 @@ body.rtl .hcard-word{letter-spacing:0;word-break:normal;overflow-wrap:normal;hyp
 .ss-wrap{background:linear-gradient(180deg,#1a1040 0%,#2d1f6e 100%);padding:72px 0;overflow:hidden}
 .ss-wrap h2{color:white;text-align:center;font-size:32px;font-weight:700;margin-bottom:10px;padding:0 20px}
 .ss-sub{color:rgba(255,255,255,.6);text-align:center;font-size:16px;margin-bottom:40px;padding:0 20px}
-.ss-scroll{display:flex;gap:20px;overflow-x:auto;padding:16px 40px 32px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.ss-scroll{display:flex;align-items:flex-start;gap:20px;overflow-x:auto;padding:16px 40px 32px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .ss-scroll::-webkit-scrollbar{display:none}
 .ss-item{flex:0 0 auto;scroll-snap-align:center;text-align:center}
 .phone{position:relative;display:inline-block}
 .phone img{width:195px;height:423px;object-fit:cover;object-position:top;border-radius:34px;box-shadow:0 12px 40px rgba(0,0,0,.5);display:block}
+.phone iframe{width:195px;height:423px;border:none;border-radius:34px;box-shadow:0 12px 40px rgba(0,0,0,.5);display:block;vertical-align:top}
 .notch{display:none}
 .ss-lbl{color:rgba(255,255,255,.7);font-size:12px;margin-top:12px;font-weight:500}
 .ss-hint{text-align:center;color:rgba(255,255,255,.3);font-size:12px;margin-top:4px}
@@ -429,7 +430,7 @@ body.rtl{direction:rtl}
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="ss-scroll">
-      <div class="ss-item"><div class="phone"><div class="notch"></div><div style="width:195px;height:423px;border-radius:34px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.5);display:block;"><iframe src="flipandlearn_promo.html" style="width:195px;height:423px;border:none;display:block;" scrolling="no" title="App Preview"></iframe></div></div><div class="ss-lbl"><span aria-hidden="true">▶ </span><span data-i18n="ss.0">App Preview</span></div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><iframe src="flipandlearn_promo.html" scrolling="no" title="App Preview"></iframe></div><div class="ss-lbl"><span aria-hidden="true">▶ </span><span data-i18n="ss.0">App Preview</span></div></div>
       <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="screen1_home.webp" type="image/webp"><img src="screen1_home.jpg" alt="Home" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.1">Home Screen</div></div>
       <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="screen2_game.webp" type="image/webp"><img src="screen2_game.jpg" alt="Game" width="1198" height="2603" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.2">Game Board</div></div>
       <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="screen3_midgame.webp" type="image/webp"><img src="screen3_midgame.jpg" alt="Playing" width="919" height="2000" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.3">Finding Matches</div></div>
