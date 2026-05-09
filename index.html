@@ -182,6 +182,9 @@ nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1
 @media (max-width:900px){.hcard{width:90px;height:126px}.hcard-front{padding:7px}.hcard-emoji{font-size:38px;margin-bottom:6px}.hcard-word{font-size:12px}.hcard-back-emoji{font-size:30px}.hcard:nth-child(n+6){display:none}}
 @media (max-width:640px){.hcard-row{gap:8px}.hcard{width:100px;height:140px}.hcard-front{padding:7px}.hcard-emoji{font-size:42px;margin-bottom:6px}.hcard-word{font-size:12px;letter-spacing:-0.3px}.hcard-back-emoji{font-size:32px}.hcard:nth-child(n+4){display:none}.nav-icon{width:24px;height:24px;border-radius:5px}}
 @media (prefers-reduced-motion:reduce){.hcard{transition:none}}
+/* FLI-101: Arabic RTL fixes (from FLI-66 audit) */
+body.rtl .ss-arrow svg{transform:scaleX(-1)}
+body.rtl .hcard-word{letter-spacing:0;word-break:normal;overflow-wrap:normal;hyphens:manual}
 .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
 .badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:5px 14px;font-size:13px;font-weight:500}
 .dl-btn{display:inline-block;background:white;color:#3A3589;font-size:16px;font-weight:600;padding:13px 32px;border-radius:13px;text-decoration:none}
@@ -262,7 +265,7 @@ section h2{font-size:32px;font-weight:700;text-align:center;margin-bottom:44px}
 .pcard.feat2{background:linear-gradient(135deg,#3A3589,#5E5CE6);color:white}
 .pcard h3{font-size:19px;font-weight:700;margin-bottom:7px}
 .price{font-size:34px;font-weight:700;margin:10px 0}
-.pcard ul{list-style:none;font-size:13px;text-align:left;margin-top:14px}
+.pcard ul{list-style:none;font-size:13px;text-align:start;margin-top:14px}
 .pcard ul li{padding:3px 0}
 .pcard ul li::before{content:"✓ ";font-weight:600}
 .pcard.feat2 ul li::before{color:#a8f0c8}
