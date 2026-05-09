@@ -144,6 +144,9 @@
 }
 </script>
 
+<!-- FLI-102: Pre-paint locale/dir from localStorage to prevent RTL FOUC -->
+<script>(function(){try{var l=localStorage.getItem('flipandlearn_lang');if(l==='ar'){document.documentElement.lang='ar';document.documentElement.dir='rtl';}else if(l){document.documentElement.lang=l;}}catch(e){}})();</script>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.6}
@@ -154,7 +157,7 @@ nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1
 .nav-links a:hover{opacity:1}
 .lang-sw{position:relative}
 .lang-btn{background:#f0effe;border:1.5px solid #c5c2f5;border-radius:10px;padding:5px 10px;font-size:13px;font-weight:600;color:#3A3589;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.lang-menu{position:absolute;right:0;top:calc(100% + 6px);background:white;border:1px solid #e0e0e0;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12);min-width:160px;display:none;z-index:200;overflow:hidden}
+.lang-menu{position:absolute;inset-inline-end:0;top:calc(100% + 6px);background:white;border:1px solid #e0e0e0;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12);min-width:160px;display:none;z-index:200;overflow:hidden}
 .lang-menu.open{display:block}
 .lang-opt{padding:9px 14px;font-size:13px;cursor:pointer;color:#1d1d1f;-webkit-tap-highlight-color:transparent}
 .lang-opt:hover{background:#f5f5f7}
@@ -875,7 +878,7 @@ ar:{
 "sft":"آمن للأطفال","s1":"لا إعلانات أبداً","s2":"لا ميزات اجتماعية","s3":"يعمل بدون إنترنت","s4":"حماية أولياء الأمور","s5":"لا جمع للبيانات","s6":"متوافق مع COPPA",
 "prt":"أسعار بسيطة وصادقة",
 "p1n":"مجاني","p1no":"مجاني للأبد","p1a":"اللغة الإنجليزية","p1b":"الحيوانات الفواكه الألوان","p1c":"المستويات السهل والمتوسط","p1d":"ظهر البطاقة الكلاسيكي","p1e":"كلمة اليوم","p1f":"مظاهر موسمية",
-"p2n":"النسخة الكاملة","p2no":"شراء لمرة واحدة - بدون اشتراك","p2a":"جميع اللغات","p2b":"جميع 21+ فئة","p2c":"جميع 5 مستويات","p2d":"9 تصاميم لظهر البطاقة","p2e":"جميع المحتوى المستقبلي مجاناً","p2f":"كل شيء للأبد","price.free":"€0","price.full":"2,99 €",
+"p2n":"النسخة الكاملة","p2no":"شراء لمرة واحدة - بدون اشتراك","p2a":"جميع اللغات","p2b":"جميع 21+ فئة","p2c":"جميع 5 مستويات","p2d":"9 تصاميم لظهر البطاقة","p2e":"جميع المحتوى المستقبلي مجاناً","p2f":"كل شيء للأبد","price.free":"0 €","price.full":"2,99 €",
 "faq.title":"الأسئلة الشائعة","faq.q1":"هل يحتاج Flip & Learn إلى اتصال بالإنترنت؟","faq.a1":"لا. بعد تنزيل التطبيق، يعمل بالكامل دون اتصال — مثالي لرحلات السيارة، الطيران، أو أي مكان لا يتوفر فيه Wi-Fi.","faq.q2":"هل سيرى طفلي إعلانات؟","faq.a2":"لا. صفر إعلانات، صفر تتبع، صفر بيانات تُجمع عن طفلك. ليس لدينا فريق تسويق يبيع انتباه طفلك.","faq.q3":"هل هي حقاً عملية شراء لمرة واحدة؟","faq.a3":"نعم. 2,99 € مرة واحدة، بدون اشتراك، بدون عمليات شراء إضافية داخل التطبيق. جميع تحديثات المحتوى المستقبلية مشمولة مجاناً.","faq.q4":"هل يمكن لطفلي إجراء عمليات شراء عن طريق الخطأ؟","faq.a4":"لا. فتح المحتوى مقابل 2,99 € محمي ببوابة الوالدين — مسألة ضرب لا يستطيع حلها سوى شخص بالغ. لا يمكن للأطفال تجاوزها.","faq.q5":"ما اللغات المتوفرة؟","faq.a5":"الإنجليزية متوفرة مجاناً. الفتح بـ 2,99 € يضيف 8 لغات أخرى: الألمانية، الإسبانية، الفرنسية، الإيطالية، البرتغالية، الرومانية، المجرية، والعربية.","faq.q6":"لأي فئة عمرية صُمّم؟","faq.a6":"للأطفال من سن 4 سنوات فما فوق. خمسة مستويات صعوبة تتراوح من السهلة جداً (أزواج يسهل تذكرها) إلى التحدي الحقيقي — يمكن للأطفال البدء في سن 4 سنوات والنمو مع اللعبة حتى سن 8 تقريباً.",
 "about.h":"صنعه أب، واختبره طفل","about.p1":"أنا أبٌ أعيش في ريغنسبورغ بألمانيا. خلال الأسبوع أعمل مهندس اختبار أنظمة. في عطلات نهاية الأسبوع طوّرت Flip & Learn — لابني، وبفكرة أن الوقت أمام الشاشة يمكن أن يكون أيضاً وقتاً للتعلم. وقد تبيّن أنه أكثر المختبرين صرامةً وصدقاً معي.","about.p2":"كل فئة، كل ترجمة، كل رسم متحرك تحظى بنفس العناية التي أوليها لأي شيء أضعه في يدي طفلي: اختُبرت للكشف عن العيوب، اختُبرت مع الحالات الصعبة، اختُبرت على أجهزة حقيقية قبل أي إصدار. الجودة أولاً، الإصدار لاحقاً.","about.p3":"لا فريق تسويق. لا تتبع لطفلك. لا إعلانات. فقط أب يصنع شيئاً قد يستمتع به آباء آخرون — وأطفالهم — أيضاً.",
 "supt":"الدعم","suph":"تحتاج مساعدة؟","supp":"نحن هنا للمساعدة. نهدف للرد خلال 48 ساعة.","supb":"تواصل مع الدعم","supd":"من تطوير BuraApps","fr":"جميع الحقوق محفوظة.",
@@ -902,6 +905,8 @@ function setLang(l){
   else{document.body.classList.remove('rtl');document.documentElement.lang=l;document.documentElement.removeAttribute('dir');}
   document.getElementById('langMenu').classList.remove('open');
   try{localStorage.setItem('flipandlearn_lang',l);}catch(e){}
+  // FLI-102: sync hero cards if FLI-70 IIFE has attached the hook
+  if(typeof window.__updateHeroCardLanguage==='function')window.__updateHeroCardLanguage(l);
 }
 
 (function(){
@@ -1036,12 +1041,36 @@ function setLang(l){
   const langOrder=['en','es','fr','de','hu','ro','it','pt','ar'];
   const backOrder=['rainbow','space','unicorn'];
   const backEmojis={rainbow:'🌈',space:'🚀',unicorn:'🦄'};
+  // FLI-102: states declared early so updateHeroCardLanguage can resync langIndex once animation initializes
+  let states=null;
+  // FLI-102: language sync hook — text content only, runs regardless of reduced-motion
+  function updateHeroCardLanguage(lang){
+    const cards=document.querySelectorAll('.hcard');
+    cards.forEach(card=>{
+      const emoji=card.dataset.emoji;
+      if(cardWords[emoji]&&cardWords[emoji][lang]){
+        const wordEl=card.querySelector('.hcard-word');
+        if(wordEl){
+          wordEl.textContent=cardWords[emoji][lang];
+          wordEl.setAttribute('dir',lang==='ar'?'rtl':'ltr');
+        }
+      }
+    });
+    if(states){
+      const startIdx=langOrder.indexOf(lang);
+      if(startIdx>=0)states.forEach(s=>s.langIndex=startIdx);
+    }
+  }
+  window.__updateHeroCardLanguage=updateHeroCardLanguage;
+  // FLI-102: initial sync from html.lang (set by pre-paint script for returning users, else 'en')
+  updateHeroCardLanguage(document.documentElement.lang||'en');
   const reducedMotion=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   const row=document.querySelector('.hcard-row');
   if(!row||reducedMotion)return;
   const cards=Array.from(row.querySelectorAll('.hcard'));
   const AVG=3500,SPREAD=1800;
-  const states=cards.map(c=>({el:c,emoji:c.dataset.emoji,langIndex:0,backIndex:0,flipped:false,timer:null}));
+  states=cards.map(c=>({el:c,emoji:c.dataset.emoji,langIndex:langOrder.indexOf(document.documentElement.lang||'en'),backIndex:0,flipped:false,timer:null}));
+  if(states.length&&states[0].langIndex<0)states.forEach(s=>s.langIndex=0);
   function rand(){return AVG-SPREAD/2+Math.random()*SPREAD}
   function flip(s){
     const willBeFlipped=!s.flipped;
