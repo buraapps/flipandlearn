@@ -65,10 +65,14 @@
   "description": "Fun word card game teaching children new words in 9 languages. Ages 4+.",
   "url": "https://flipandlearn.app",
   "image": "https://flipandlearn.app/og-image.png",
-  "operatingSystem": "iOS",
+  "operatingSystem": "iOS, Android",
   "applicationCategory": "EducationalApplication",
   "applicationSubCategory": "GameApplication",
   "inLanguage": ["en", "de", "fr", "es", "it", "pt", "ro", "hu", "ar"],
+  "installUrl": [
+    "https://apps.apple.com/app/id6761679251",
+    "https://play.google.com/store/apps/details?id=com.buraapp.flipandlearn_flutter"
+  ],
   "offers": {
     "@type": "Offer",
     "price": "2.99",
@@ -207,6 +211,7 @@ body.rtl .hcard-word{letter-spacing:0;word-break:normal;overflow-wrap:normal;hyp
 .notify-priv a{color:rgba(255,255,255,.9);text-decoration:underline}
 .notify-success{font-size:14px;font-weight:600;color:white;text-align:center;padding:14px}
 .dl-wrap{display:flex;flex-direction:column;align-items:center;gap:12px}
+.dl-badges{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:16px}
 .soon{font-size:12px;opacity:.6;margin-top:9px}
 .ss-wrap{background:linear-gradient(180deg,#1a1040 0%,#2d1f6e 100%);padding:72px 0;overflow:hidden}
 .ss-wrap h2{color:white;text-align:center;font-size:32px;font-weight:700;margin-bottom:10px;padding:0 20px}
@@ -409,7 +414,10 @@ body.rtl{direction:rtl}
     <span class="badge" data-i18n="b5">Works Offline</span>
   </div>
   <div class="dl-wrap">
-    <a href="https://apps.apple.com/app/id6761679251" class="dl-btn-img" target="_blank" rel="noopener"><img id="appstore-badge" src="badges/app-store-badge-en.svg" alt="Download on the App Store" width="180" height="60"></a>
+    <div class="dl-badges">
+      <a href="https://apps.apple.com/app/id6761679251" class="dl-btn-img" target="_blank" rel="noopener"><img id="appstore-badge" src="badges/app-store-badge-en.svg" alt="Download on the App Store" width="180" height="60"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.buraapp.flipandlearn_flutter" class="dl-btn-img" target="_blank" rel="noopener"><img id="playstore-badge" src="badges/google-play-badge-en.png" alt="Get it on Google Play" width="155" height="60" decoding="async"></a>
+    </div>
     <div class="notify-form-wrap">
       <p class="notify-h" data-i18n="notify.h">Android version coming mid-May — get notified</p>
       <form id="notify-form" class="notify-form" novalidate>
@@ -901,6 +909,8 @@ function setLang(l){
   document.querySelectorAll('[data-i18n-aria]').forEach(el=>{const k=el.getAttribute('data-i18n-aria');if(t[k])el.setAttribute('aria-label',t[k]);});
   const badge=document.getElementById('appstore-badge');
   if(badge){badge.src='badges/app-store-badge-'+l+'.svg';badge.alt=t['btn']||badge.alt;}
+  const playBadge=document.getElementById('playstore-badge');
+  if(playBadge){playBadge.src='badges/google-play-badge-'+l+'.png';}
   document.querySelectorAll('.lang-opt').forEach(o=>{o.classList.remove('active');if(o.getAttribute('onclick')==="setLang('"+l+"')")o.classList.add('active');});
   if(l==='ar'){document.body.classList.add('rtl');document.documentElement.lang='ar';document.documentElement.dir='rtl';}
   else{document.body.classList.remove('rtl');document.documentElement.lang=l;document.documentElement.removeAttribute('dir');}
