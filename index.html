@@ -150,6 +150,7 @@
 
 <!-- FLI-102: Pre-paint locale/dir from localStorage to prevent RTL FOUC -->
 <script>(function(){try{var l=localStorage.getItem('flipandlearn_lang');if(l==='ar'){document.documentElement.lang='ar';document.documentElement.dir='rtl';}else if(l){document.documentElement.lang=l;}}catch(e){}})();</script>
+<script>(function(){try{var u=navigator.userAgent;var c=/iPhone|iPad|iPod/.test(u)?'platform-ios':/Android/.test(u)?'platform-android':'';if(c){document.documentElement.dataset.platform=c.replace('platform-','');}}catch(e){}})();</script>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -210,7 +211,10 @@ body.rtl .hcard-word{letter-spacing:0;word-break:normal;overflow-wrap:normal;hyp
 .notify-success{font-size:14px;font-weight:600;color:white;text-align:center;padding:14px}
 .dl-wrap{display:flex;flex-direction:column;align-items:center;gap:12px}
 .dl-badges{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:16px}
-.dl-badges img{height:60px;width:auto;display:block}
+.dl-badges img{height:60px;width:auto;display:block;transition:transform 0.3s ease}
+html[data-platform="ios"] .dl-badges a:has(#appstore-badge){order:-1}
+html[data-platform="android"] .dl-badges a:has(#playstore-badge){order:-1}
+html[data-platform="ios"] #appstore-badge,html[data-platform="android"] #playstore-badge{transform:scale(1.08)}
 .soon{font-size:12px;opacity:.6;margin-top:9px}
 .ss-wrap{background:linear-gradient(180deg,#1a1040 0%,#2d1f6e 100%);padding:72px 0;overflow:hidden}
 .ss-wrap h2{color:white;text-align:center;font-size:32px;font-weight:700;margin-bottom:10px;padding:0 20px}
