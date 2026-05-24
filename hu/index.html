@@ -34,7 +34,7 @@
 <meta property="og:title" content="Flip &amp; Learn — 9 nyelv · 4 évestől">
 <meta property="og:description" content="A szórakoztató Szókártyajáték amely több nyelven tanít szavakat a gyerekeknek">
 <meta property="og:url" content="https://flipandlearn.app/hu/">
-<meta property="og:image" content="https://flipandlearn.app/og-image.png">
+<meta property="og:image" content="https://flipandlearn.app/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Flip & Learn — word card game for kids">
@@ -51,18 +51,18 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Flip &amp; Learn — 9 nyelv · 4 évestől">
 <meta name="twitter:description" content="A szórakoztató Szókártyajáték amely több nyelven tanít szavakat a gyerekeknek">
-<meta name="twitter:image" content="https://flipandlearn.app/og-image.png">
+<meta name="twitter:image" content="https://flipandlearn.app/og-image.jpg">
 <meta name="twitter:image:alt" content="Flip & Learn — word card game for kids">
 
-<!-- schema.org SoftwareApplication (FLI-51) -->
+<!-- schema.org MobileApplication (FLI-51, FLI-155) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
+  "@type": "MobileApplication",
   "name": "Flip & Learn",
   "description": "Fun word card game teaching children new words in 9 languages. Ages 4+.",
   "url": "https://flipandlearn.app",
-  "image": "https://flipandlearn.app/og-image.png",
+  "image": "https://flipandlearn.app/og-image.jpg",
   "operatingSystem": "iOS, Android",
   "applicationCategory": "EducationalApplication",
   "applicationSubCategory": "GameApplication",
@@ -74,7 +74,10 @@
   "offers": {
     "@type": "Offer",
     "price": "2.99",
-    "priceCurrency": "EUR"
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://apps.apple.com/app/id6761679251",
+    "priceValidUntil": "2027-12-31"
   },
   "audience": {
     "@type": "PeopleAudience",
@@ -85,6 +88,31 @@
     "name": "BuraApps",
     "url": "https://flipandlearn.app"
   }
+}
+</script>
+
+<!-- schema.org Organization (FLI-155) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "BuraApps",
+  "url": "https://flipandlearn.app",
+  "logo": "https://flipandlearn.app/apple-touch-icon.png",
+  "sameAs": [
+    "https://apps.apple.com/app/id6761679251",
+    "https://play.google.com/store/apps/details?id=com.buraapp.flipandlearn_flutter"
+  ]
+}
+</script>
+
+<!-- schema.org WebSite (FLI-155) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Flip & Learn",
+  "url": "https://flipandlearn.app"
 }
 </script>
 
@@ -315,7 +343,7 @@ body.rtl{direction:rtl}
 </head>
 <body>
 <nav>
-  <a class="nav-brand" href="/"><img class="nav-icon" src="/apple-touch-icon.png" alt="">Flip &amp; Learn</a>
+  <a class="nav-brand" href="/"><img class="nav-icon" src="/apple-touch-icon.png" alt="" width="32" height="32">Flip &amp; Learn</a>
   <div class="nav-links">
     <a href="#screenshots" data-i18n="nav.ss">Képernyő</a>
     <a href="#features" data-i18n="nav.feat">Funkciók</a>
@@ -418,7 +446,7 @@ body.rtl{direction:rtl}
   <div class="dl-wrap">
     <div class="dl-badges">
       <a href="https://apps.apple.com/app/id6761679251" class="dl-btn-img" target="_blank" rel="noopener"><img id="appstore-badge" src="/badges/app-store-badge-hu.svg" alt="Letöltés az App Store-ból" width="180" height="60"></a>
-      <a href="https://play.google.com/store/apps/details?id=com.buraapp.flipandlearn_flutter" class="dl-btn-img" target="_blank" rel="noopener"><img id="playstore-badge" src="/badges/google-play-badge-hu.png" alt="Hamarosan a Google Play Store-ban" width="180" height="60" decoding="async"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.buraapp.flipandlearn_flutter" class="dl-btn-img" target="_blank" rel="noopener"><img id="playstore-badge" src="/badges/google-play-badge-hu.png" alt="Szerezd meg: Google Play" width="180" height="60" decoding="async"></a>
     </div>
   </div>
 </div>
@@ -431,7 +459,7 @@ body.rtl{direction:rtl}
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="ss-scroll">
-      <div class="ss-item"><div class="phone"><div class="notch"></div><div style="width:195px;height:423px;border-radius:34px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.5);display:block;"><iframe src="/flipandlearn_promo.html" style="width:195px;height:423px;border:none;display:block;" scrolling="no" title="App Preview"></iframe></div></div><div class="ss-lbl"><span aria-hidden="true">▶ </span><span data-i18n="ss.0">Előnézet</span></div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><div style="width:195px;height:423px;border-radius:34px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.5);display:block;"><iframe src="/flipandlearn_promo.html" style="width:195px;height:423px;border:none;display:block;" scrolling="no" loading="lazy" title="App Preview"></iframe></div></div><div class="ss-lbl"><span aria-hidden="true">▶ </span><span data-i18n="ss.0">Előnézet</span></div></div>
       <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen1_home.webp" type="image/webp"><img src="/screen1_home.jpg" alt="Home" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.1">Főképernyő</div></div>
       <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen2_game.webp" type="image/webp"><img src="/screen2_game.jpg" alt="Game" width="1198" height="2603" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.2">Játéktábla</div></div>
       <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen3_midgame.webp" type="image/webp"><img src="/screen3_midgame.jpg" alt="Playing" width="919" height="2000" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.3">Párkeresés</div></div>
@@ -639,7 +667,7 @@ en:{
 "nav.ss":"Screenshots","nav.feat":"Features","nav.lang":"Languages","nav.price":"Pricing","nav.sup":"Support","nav.priv":"Privacy","nav.home":"Home",
 "hero.sub":"The fun word card game that teaches children new words in multiple languages",
 "b1":"Ages 4+","b2":"9 Languages","b3":"21+ Categories","b4":"No Ads Ever","b5":"Works Offline",
-"btn":"Download on the App Store","soon":"Coming soon to the App Store","btn.gp":"Coming soon on Google Play Store","soon.gp":"Coming soon to Google Play Store","notify.h":"Android version coming mid-May — get notified","notify.placeholder":"Your email address","notify.btn":"Notify me","notify.success":"Got it! We'll email you when Android is ready.","notify.privacy":"We'll email you once. No spam, no list-sharing. <a href=\"privacy-website.html\">Privacy →</a>",
+"btn":"Download on the App Store","soon":"Coming soon to the App Store","btn.gp":"Download Flip & Learn on Google Play",
 "ss.title":"See it in action","ss.sub":"Everything your child needs to start learning",
 "ss.1":"Home Screen","ss.2":"Game Board","ss.3":"Finding Matches","ss.4":"Celebration!","ss.5":"21+ Categories","ss.6":"Parental Protection","ss.7":"Unlock Everything","ss.0":"App Preview","ss.swipe":"← Swipe to see more →","ss.arrows":"← Use arrows or keyboard →","arrow.prev":"Previous screenshot","arrow.next":"Next screenshot","dot.label":"Screenshot",
 "ft":"Everything kids love, everything parents trust",
@@ -667,7 +695,7 @@ es:{
 "nav.ss":"Capturas","nav.feat":"Funciones","nav.lang":"Idiomas","nav.price":"Precios","nav.sup":"Soporte","nav.priv":"Privacidad","nav.home":"Inicio",
 "hero.sub":"El divertido juego de cartas de palabras que enseña palabras en múltiples idiomas",
 "b1":"Desde 4 años","b2":"9 idiomas","b3":"21+ Categorías","b4":"Sin Publicidad","b5":"Sin Conexión",
-"btn":"Descargar en el App Store","soon":"Próximamente en el App Store","btn.gp":"Próximamente en Google Play Store","soon.gp":"Próximamente en Google Play","notify.h":"Versión Android a mediados de mayo — recibe el aviso","notify.placeholder":"Tu correo electrónico","notify.btn":"Avísame","notify.success":"¡Listo! Te avisaremos cuando Android esté listo.","notify.privacy":"Te escribiremos solo una vez. Sin spam, sin compartir. <a href=\"privacy-website.html\">Privacidad →</a>",
+"btn":"Descargar en el App Store","soon":"Próximamente en el App Store","btn.gp":"Descargar Flip & Learn en Google Play",
 "ss.title":"Míralo en acción","ss.sub":"Todo lo que tu hijo necesita para aprender",
 "ss.1":"Pantalla Principal","ss.2":"Tablero","ss.3":"Encontrando Parejas","ss.4":"Celebración","ss.5":"21+ Categorías","ss.6":"Protección Parental","ss.7":"Desbloquear Todo","ss.0":"Vista previa","ss.swipe":"← Desliza para ver más →","ss.arrows":"← Usa flechas o teclado →","arrow.prev":"Captura anterior","arrow.next":"Captura siguiente","dot.label":"Captura",
 "ft":"Todo lo que los niños aman, todo lo que los padres confían",
@@ -695,7 +723,7 @@ fr:{
 "nav.ss":"Captures","nav.feat":"Fonctionnalités","nav.lang":"Langues","nav.price":"Tarifs","nav.sup":"Support","nav.priv":"Confidentialité","nav.home":"Accueil",
 "hero.sub":"Le jeu de cartes de mots amusant qui apprend aux enfants des mots dans plusieurs langues",
 "b1":"Dès 4 ans","b2":"9 langues","b3":"21+ Catégories","b4":"Sans Publicité","b5":"Hors Ligne",
-"btn":"Télécharger sur l'App Store","soon":"Bientôt sur l'App Store","btn.gp":"Bientôt sur Google Play Store","soon.gp":"Bientôt sur Google Play","notify.h":"Version Android à la mi-mai — sois prévenu","notify.placeholder":"Ton adresse e-mail","notify.btn":"Préviens-moi","notify.success":"C'est noté ! On t'écrira dès qu'Android sera prêt.","notify.privacy":"On t'écrira une seule fois. Pas de spam, pas de partage. <a href=\"privacy-website.html\">Confidentialité →</a>",
+"btn":"Télécharger sur l'App Store","soon":"Bientôt sur l'App Store","btn.gp":"Télécharger Flip & Learn sur Google Play",
 "ss.title":"Voir en action","ss.sub":"Tout ce dont votre enfant a besoin",
 "ss.1":"Écran Principal","ss.2":"Plateau de Jeu","ss.3":"Trouver des Paires","ss.4":"Célébration","ss.5":"21+ Catégories","ss.6":"Protection Parentale","ss.7":"Tout Débloquer","ss.0":"Aperçu","ss.swipe":"← Glisse pour voir plus →","ss.arrows":"← Flèches ou clavier →","arrow.prev":"Capture précédente","arrow.next":"Capture suivante","dot.label":"Capture",
 "ft":"Tout ce que les enfants adorent, tout ce que les parents approuvent",
@@ -723,7 +751,7 @@ de:{
 "nav.ss":"Screenshots","nav.feat":"Funktionen","nav.lang":"Sprachen","nav.price":"Preise","nav.sup":"Support","nav.priv":"Datenschutz","nav.home":"Startseite",
 "hero.sub":"Das lustige Wortkarten-Spiel das Kindern Wörter in mehreren Sprachen beibringt",
 "b1":"Ab 4 Jahren","b2":"9 Sprachen","b3":"21+ Kategorien","b4":"Keine Werbung","b5":"Offline nutzbar",
-"btn":"Im App Store laden","soon":"Demnächst im App Store","btn.gp":"Demnächst im Google Play Store","soon.gp":"Demnächst bei Google Play","notify.h":"Android-Version kommt Mitte Mai — lass dich benachrichtigen","notify.placeholder":"Deine E-Mail-Adresse","notify.btn":"Benachrichtigen","notify.success":"Alles klar! Wir melden uns, sobald Android fertig ist.","notify.privacy":"Wir schreiben dir nur einmal. Kein Spam, keine Weitergabe. <a href=\"privacy-website.html\">Datenschutz →</a>",
+"btn":"Im App Store laden","soon":"Demnächst im App Store","btn.gp":"Flip & Learn bei Google Play herunterladen",
 "ss.title":"In Aktion sehen","ss.sub":"Alles was dein Kind braucht",
 "ss.1":"Startbildschirm","ss.2":"Spielfeld","ss.3":"Paare finden","ss.4":"Feiern","ss.5":"21+ Kategorien","ss.6":"Elternschutz","ss.7":"Alles freischalten","ss.0":"App-Vorschau","ss.swipe":"← Wischen für mehr →","ss.arrows":"← Pfeile oder Tastatur →","arrow.prev":"Vorheriger Screenshot","arrow.next":"Nächster Screenshot","dot.label":"Screenshot",
 "ft":"Alles was Kinder lieben, alles was Eltern vertrauen",
@@ -751,7 +779,7 @@ hu:{
 "nav.ss":"Képernyő","nav.feat":"Funkciók","nav.lang":"Nyelvek","nav.price":"Árak","nav.sup":"Támogatás","nav.priv":"Adatvédelem","nav.home":"Főoldal",
 "hero.sub":"A szórakoztató Szókártyajáték amely több nyelven tanít szavakat a gyerekeknek",
 "b1":"4 évestől","b2":"9 nyelv","b3":"21+ Kategória","b4":"Nincs Reklám","b5":"Offline Működik",
-"btn":"Letöltés az App Store-ból","soon":"Hamarosan az App Store-ban","btn.gp":"Hamarosan a Google Play Store-ban","soon.gp":"Hamarosan a Google Playen","notify.h":"Az Android-verzió május közepén jön — szólunk neked","notify.placeholder":"E-mail-címed","notify.btn":"Értesíts","notify.success":"Megvan! Szólunk, amint az Android kész van.","notify.privacy":"Csak egyszer írunk. Nincs spam, nincs megosztás. <a href=\"privacy-website.html\">Adatvédelem →</a>",
+"btn":"Letöltés az App Store-ból","soon":"Hamarosan az App Store-ban","btn.gp":"Szerezd meg: Google Play",
 "ss.title":"Lásd működés közben","ss.sub":"Minden amire gyermekednek szüksége van",
 "ss.1":"Főképernyő","ss.2":"Játéktábla","ss.3":"Párkeresés","ss.4":"Ünneplés","ss.5":"21+ Kategória","ss.6":"Szülői Védelem","ss.7":"Mindent Felold","ss.0":"Előnézet","ss.swipe":"← Húzd a többihez →","ss.arrows":"← Nyilakkal vagy billentyűkkel →","arrow.prev":"Előző képernyőkép","arrow.next":"Következő képernyőkép","dot.label":"Képernyőkép",
 "ft":"Minden amit a gyerekek szeretnek, minden amiben a szülők megbíznak",
@@ -779,7 +807,7 @@ ro:{
 "nav.ss":"Capturi","nav.feat":"Funcții","nav.lang":"Limbi","nav.price":"Prețuri","nav.sup":"Suport","nav.priv":"Confidențialitate","nav.home":"Acasă",
 "hero.sub":"Jocul de cărți cu cuvinte distractiv care îi învață pe copii cuvinte în mai multe limbi",
 "b1":"De la 4 ani","b2":"9 limbi","b3":"21+ Categorii","b4":"Fără Reclame","b5":"Funcționează Offline",
-"btn":"Descarcă din App Store","soon":"În curând în App Store","btn.gp":"În curând pe Google Play Store","soon.gp":"În curând pe Google Play","notify.h":"Versiunea Android vine la mijlocul lui mai — primește notificarea","notify.placeholder":"Adresa ta de email","notify.btn":"Anunță-mă","notify.success":"S-a notat! Te anunțăm când Android e gata.","notify.privacy":"Îți scriem o singură dată. Fără spam, fără partajare. <a href=\"privacy-website.html\">Confidențialitate →</a>",
+"btn":"Descarcă din App Store","soon":"În curând în App Store","btn.gp":"Descarcă Flip & Learn de pe Google Play",
 "ss.title":"Vezi în acțiune","ss.sub":"Tot ce are nevoie copilul tău",
 "ss.1":"Ecran Principal","ss.2":"Tablă de Joc","ss.3":"Găsind Perechi","ss.4":"Celebrare","ss.5":"21+ Categorii","ss.6":"Protecție Parentală","ss.7":"Deblochează Tot","ss.0":"Previzualizare","ss.swipe":"← Glisează pentru mai mult →","ss.arrows":"← Săgeți sau tastatură →","arrow.prev":"Imagine anterioară","arrow.next":"Imagine următoare","dot.label":"Captură",
 "ft":"Tot ce iubesc copiii, tot ce au încredere părinții",
@@ -807,7 +835,7 @@ it:{
 "nav.ss":"Screenshot","nav.feat":"Funzionalità","nav.lang":"Lingue","nav.price":"Prezzi","nav.sup":"Supporto","nav.priv":"Privacy","nav.home":"Home",
 "hero.sub":"Il divertente gioco di carte di parole che insegna ai bambini parole in più lingue",
 "b1":"Da 4 anni","b2":"9 lingue","b3":"21+ Categorie","b4":"Senza Pubblicità","b5":"Funziona Offline",
-"btn":"Scarica sull'App Store","soon":"Prossimamente sull'App Store","btn.gp":"Prossimamente su Google Play Store","soon.gp":"Prossimamente su Google Play","notify.h":"Versione Android a metà maggio — fatti avvisare","notify.placeholder":"La tua email","notify.btn":"Avvisami","notify.success":"Fatto! Ti scriveremo quando Android sarà pronto.","notify.privacy":"Ti scriveremo una sola volta. Niente spam, niente condivisione. <a href=\"privacy-website.html\">Privacy →</a>",
+"btn":"Scarica sull'App Store","soon":"Prossimamente sull'App Store","btn.gp":"Scarica Flip & Learn su Google Play",
 "ss.title":"Vedilo in azione","ss.sub":"Tutto ciò di cui tuo figlio ha bisogno",
 "ss.1":"Schermata Principale","ss.2":"Campo di Gioco","ss.3":"Trovare Coppie","ss.4":"Celebrazione","ss.5":"21+ Categorie","ss.6":"Protezione Genitori","ss.7":"Sblocca Tutto","ss.0":"Anteprima","ss.swipe":"← Scorri per vedere altro →","ss.arrows":"← Frecce o tastiera →","arrow.prev":"Schermata precedente","arrow.next":"Schermata successiva","dot.label":"Schermata",
 "ft":"Tutto ciò che i bambini amano, tutto ciò di cui i genitori si fidano",
@@ -835,7 +863,7 @@ pt:{
 "nav.ss":"Capturas","nav.feat":"Funcionalidades","nav.lang":"Idiomas","nav.price":"Preços","nav.sup":"Suporte","nav.priv":"Privacidade","nav.home":"Início",
 "hero.sub":"O divertido jogo de cartas de palavras que ensina às crianças palavras em vários idiomas",
 "b1":"A partir dos 4 anos","b2":"9 idiomas","b3":"21+ Categorias","b4":"Sem Publicidade","b5":"Funciona Offline",
-"btn":"Descarregar na App Store","soon":"Em breve na App Store","btn.gp":"Em breve no Google Play Store","soon.gp":"Em breve no Google Play","notify.h":"Versão Android em meados de maio — recebe o aviso","notify.placeholder":"O teu email","notify.btn":"Avisa-me","notify.success":"Combinado! Avisamos-te quando o Android estiver pronto.","notify.privacy":"Escrevemos-te apenas uma vez. Sem spam, sem partilha. <a href=\"privacy-website.html\">Privacidade →</a>",
+"btn":"Descarregar na App Store","soon":"Em breve na App Store","btn.gp":"Descarregar Flip & Learn no Google Play",
 "ss.title":"Vê em ação","ss.sub":"Tudo o que o teu filho precisa",
 "ss.1":"Ecrã Principal","ss.2":"Tabuleiro","ss.3":"Encontrar Pares","ss.4":"Celebração","ss.5":"21+ Categorias","ss.6":"Proteção Parental","ss.7":"Desbloquear Tudo","ss.0":"Pré-visualização","ss.swipe":"← Desliza para ver mais →","ss.arrows":"← Setas ou teclado →","arrow.prev":"Imagem anterior","arrow.next":"Próxima imagem","dot.label":"Imagem",
 "ft":"Tudo o que as crianças adoram, tudo em que os pais confiam",
@@ -863,7 +891,7 @@ ar:{
 "nav.ss":"لقطات","nav.feat":"المميزات","nav.lang":"اللغات","nav.price":"الأسعار","nav.sup":"الدعم","nav.priv":"الخصوصية","nav.home":"الرئيسية",
 "hero.sub":"لعبة بطاقات الكلمات الممتعة التي تعلم الأطفال كلمات بلغات متعددة",
 "b1":"من 4 سنوات","b2":"9 لغات","b3":"21+ فئة","b4":"بدون إعلانات","b5":"يعمل بدون إنترنت",
-"btn":"تحميل من App Store","soon":"قريباً في App Store","btn.gp":"قريباً على Google Play Store","soon.gp":"قريباً على Google Play","notify.h":"نسخة الأندرويد قادمة في منتصف مايو — اشترك ليصلك الإشعار","notify.placeholder":"بريدك الإلكتروني","notify.btn":"أعلِمني","notify.success":"تم! سنراسلك حالما تجهز نسخة الأندرويد.","notify.privacy":"سنراسلك مرة واحدة فقط. لا رسائل مزعجة، ولا مشاركة. <a href=\"privacy-website.html\">الخصوصية ←</a>",
+"btn":"تحميل من App Store","soon":"قريباً في App Store","btn.gp":"حمّل Flip & Learn من Google Play",
 "ss.title":"شاهده في العمل","ss.sub":"كل ما يحتاجه طفلك للتعلم",
 "ss.1":"الشاشة الرئيسية","ss.2":"لوحة اللعبة","ss.3":"إيجاد الأزواج","ss.4":"احتفال","ss.5":"21+ فئة","ss.6":"حماية الوالدين","ss.7":"فتح كل شيء","ss.0":"معاينة التطبيق","ss.swipe":"← اسحب للمزيد →","ss.arrows":"← الأسهم أو لوحة المفاتيح →","arrow.prev":"اللقطة السابقة","arrow.next":"اللقطة التالية","dot.label":"لقطة",
 "ft":"كل ما يحبه الأطفال، كل ما يثق به الآباء",
