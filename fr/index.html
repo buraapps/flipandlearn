@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flip &amp; Learn — 9 Languages · Ages 4+</title>
-<meta name="description" content="The fun word card game that teaches children new words in multiple languages">
+<title>Flip &amp; Learn — 9 langues · Dès 4 ans</title>
+<meta name="description" content="Le jeu de cartes de mots amusant qui apprend aux enfants des mots dans plusieurs langues">
 <!-- Browser favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="/icon32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/icon16.png">
@@ -17,7 +17,7 @@
 <meta name="theme-color" content="#3A3589">
 
 <!-- Canonical + hreflang (FLI-51) -->
-<link rel="canonical" href="https://flipandlearn.app/">
+<link rel="canonical" href="https://flipandlearn.app/fr/">
 <link rel="alternate" hreflang="en" href="https://flipandlearn.app/">
 <link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/">
 <link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/">
@@ -31,16 +31,16 @@
 <!-- Open Graph (FLI-51) -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Flip & Learn">
-<meta property="og:title" content="Flip &amp; Learn — 9 Languages · Ages 4+">
-<meta property="og:description" content="The fun word card game that teaches children new words in multiple languages">
-<meta property="og:url" content="https://flipandlearn.app/">
+<meta property="og:title" content="Flip &amp; Learn — 9 langues · Dès 4 ans">
+<meta property="og:description" content="Le jeu de cartes de mots amusant qui apprend aux enfants des mots dans plusieurs langues">
+<meta property="og:url" content="https://flipandlearn.app/fr/">
 <meta property="og:image" content="https://flipandlearn.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Flip & Learn — word card game for kids">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:locale:alternate" content="de_DE">
-<meta property="og:locale:alternate" content="fr_FR">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="it_IT">
 <meta property="og:locale:alternate" content="pt_PT">
@@ -49,8 +49,8 @@
 <meta property="og:locale:alternate" content="ar_SA">
 <!-- Twitter Card (FLI-51) -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Flip &amp; Learn — 9 Languages · Ages 4+">
-<meta name="twitter:description" content="The fun word card game that teaches children new words in multiple languages">
+<meta name="twitter:title" content="Flip &amp; Learn — 9 langues · Dès 4 ans">
+<meta name="twitter:description" content="Le jeu de cartes de mots amusant qui apprend aux enfants des mots dans plusieurs langues">
 <meta name="twitter:image" content="https://flipandlearn.app/og-image.png">
 <meta name="twitter:image:alt" content="Flip & Learn — word card game for kids">
 
@@ -146,7 +146,7 @@
 }
 </script>
 
-<script>window.__pageLocale="en";</script>
+<script>window.__pageLocale="fr";</script>
 <!-- FLI-102: Pre-paint locale/dir from localStorage to prevent RTL FOUC -->
 <script>(function(){try{var l=localStorage.getItem('flipandlearn_lang');if(l==='ar'){document.documentElement.lang='ar';document.documentElement.dir='rtl';}else if(l){document.documentElement.lang=l;}}catch(e){}})();</script>
 <script>(function(){try{var u=navigator.userAgent;var c=/iPhone|iPad|iPod/.test(u)?'platform-ios':/Android/.test(u)?'platform-android':'';if(c){document.documentElement.dataset.platform=c.replace('platform-','');}}catch(e){}})();</script>
@@ -317,19 +317,19 @@ body.rtl{direction:rtl}
 <nav>
   <a class="nav-brand" href="/"><img class="nav-icon" src="/apple-touch-icon.png" alt="">Flip &amp; Learn</a>
   <div class="nav-links">
-    <a href="#screenshots" data-i18n="nav.ss">Screenshots</a>
-    <a href="#features" data-i18n="nav.feat">Features</a>
-    <a href="#languages" data-i18n="nav.lang">Languages</a>
-    <a href="#pricing" data-i18n="nav.price">Pricing</a>
+    <a href="#screenshots" data-i18n="nav.ss">Captures</a>
+    <a href="#features" data-i18n="nav.feat">Fonctionnalités</a>
+    <a href="#languages" data-i18n="nav.lang">Langues</a>
+    <a href="#pricing" data-i18n="nav.price">Tarifs</a>
     <a href="#support" data-i18n="nav.sup">Support</a>
-    <a href="/privacy.html" data-i18n="nav.priv">Privacy</a>
+    <a href="/privacy.html" data-i18n="nav.priv">Confidentialité</a>
   </div>
   <div class="lang-sw">
-    <button class="lang-btn" id="langBtn" onclick="toggleMenu()">🇬🇧 EN ▾</button>
+    <button class="lang-btn" id="langBtn" onclick="toggleMenu()">🇫🇷 FR ▾</button>
     <div class="lang-menu" id="langMenu">
-      <a class="lang-opt active" data-lang="en" href="/" onclick="try{localStorage.setItem('flipandlearn_lang','en')}catch(e){}">🇬🇧 English</a>
+      <a class="lang-opt" data-lang="en" href="/" onclick="try{localStorage.setItem('flipandlearn_lang','en')}catch(e){}">🇬🇧 English</a>
       <a class="lang-opt" data-lang="de" href="/de/" onclick="try{localStorage.setItem('flipandlearn_lang','de')}catch(e){}">🇩🇪 Deutsch</a>
-      <a class="lang-opt" data-lang="fr" href="/fr/" onclick="try{localStorage.setItem('flipandlearn_lang','fr')}catch(e){}">🇫🇷 Français</a>
+      <a class="lang-opt active" data-lang="fr" href="/fr/" onclick="try{localStorage.setItem('flipandlearn_lang','fr')}catch(e){}">🇫🇷 Français</a>
       <a class="lang-opt" data-lang="es" href="/es/" onclick="try{localStorage.setItem('flipandlearn_lang','es')}catch(e){}">🇪🇸 Español</a>
       <a class="lang-opt" data-lang="it" href="/it/" onclick="try{localStorage.setItem('flipandlearn_lang','it')}catch(e){}">🇮🇹 Italiano</a>
       <a class="lang-opt" data-lang="pt" href="/pt/" onclick="try{localStorage.setItem('flipandlearn_lang','pt')}catch(e){}">🇵🇹 Português</a>
@@ -407,82 +407,82 @@ body.rtl{direction:rtl}
     </div>
   </div>
   <h1>Flip &amp; Learn</h1>
-  <p data-i18n="hero.sub">The fun word card game that teaches children new words in multiple languages</p>
+  <p data-i18n="hero.sub">Le jeu de cartes de mots amusant qui apprend aux enfants des mots dans plusieurs langues</p>
   <div class="badges">
-    <span class="badge" data-i18n="b1">Ages 4+</span>
-    <span class="badge" data-i18n="b2">9 Languages</span>
-    <span class="badge" data-i18n="b3">21+ Categories</span>
-    <span class="badge" data-i18n="b4">No Ads Ever</span>
-    <span class="badge" data-i18n="b5">Works Offline</span>
+    <span class="badge" data-i18n="b1">Dès 4 ans</span>
+    <span class="badge" data-i18n="b2">9 langues</span>
+    <span class="badge" data-i18n="b3">21+ Catégories</span>
+    <span class="badge" data-i18n="b4">Sans Publicité</span>
+    <span class="badge" data-i18n="b5">Hors Ligne</span>
   </div>
   <div class="dl-wrap">
     <div class="dl-badges">
-      <a href="https://apps.apple.com/app/id6761679251" class="dl-btn-img" target="_blank" rel="noopener"><img id="appstore-badge" src="/badges/app-store-badge-en.svg" alt="Download on the App Store" width="180" height="60"></a>
-      <a href="https://play.google.com/store/apps/details?id=com.buraapp.flipandlearn_flutter" class="dl-btn-img" target="_blank" rel="noopener"><img id="playstore-badge" src="/badges/google-play-badge-en.png" alt="Coming soon on Google Play Store" width="180" height="60" decoding="async"></a>
+      <a href="https://apps.apple.com/app/id6761679251" class="dl-btn-img" target="_blank" rel="noopener"><img id="appstore-badge" src="/badges/app-store-badge-fr.svg" alt="Télécharger sur l'App Store" width="180" height="60"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.buraapp.flipandlearn_flutter" class="dl-btn-img" target="_blank" rel="noopener"><img id="playstore-badge" src="/badges/google-play-badge-fr.png" alt="Bientôt sur Google Play Store" width="180" height="60" decoding="async"></a>
     </div>
   </div>
 </div>
 
 <div class="ss-wrap" id="screenshots">
-  <h2 data-i18n="ss.title">See it in action</h2>
-  <p class="ss-sub" data-i18n="ss.sub">Everything your child needs to start learning</p>
+  <h2 data-i18n="ss.title">Voir en action</h2>
+  <p class="ss-sub" data-i18n="ss.sub">Tout ce dont votre enfant a besoin</p>
   <div class="ss-stage">
-    <button type="button" class="ss-arrow prev" aria-label="Previous screenshot" data-i18n-aria="arrow.prev">
+    <button type="button" class="ss-arrow prev" aria-label="Capture précédente" data-i18n-aria="arrow.prev">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="ss-scroll">
-      <div class="ss-item"><div class="phone"><div class="notch"></div><div style="width:195px;height:423px;border-radius:34px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.5);display:block;"><iframe src="/flipandlearn_promo.html" style="width:195px;height:423px;border:none;display:block;" scrolling="no" title="App Preview"></iframe></div></div><div class="ss-lbl"><span aria-hidden="true">▶ </span><span data-i18n="ss.0">App Preview</span></div></div>
-      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen1_home.webp" type="image/webp"><img src="/screen1_home.jpg" alt="Home" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.1">Home Screen</div></div>
-      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen2_game.webp" type="image/webp"><img src="/screen2_game.jpg" alt="Game" width="1198" height="2603" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.2">Game Board</div></div>
-      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen3_midgame.webp" type="image/webp"><img src="/screen3_midgame.jpg" alt="Playing" width="919" height="2000" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.3">Finding Matches</div></div>
-      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen5_win.webp" type="image/webp"><img src="/screen5_win.jpg" alt="Win" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.4">Celebration!</div></div>
-      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen4_professions.webp" type="image/webp"><img src="/screen4_professions.jpg" alt="Categories" width="1206" height="2622" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.5">21+ Categories</div></div>
-      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen7_parentalgate.webp" type="image/webp"><img src="/screen7_parentalgate.jpg" alt="Parental Gate" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.6">Parental Protection</div></div>
-      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen8_paywall.webp" type="image/webp"><img src="/screen8_paywall.jpg" alt="Unlock" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.7">Unlock Everything</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><div style="width:195px;height:423px;border-radius:34px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.5);display:block;"><iframe src="/flipandlearn_promo.html" style="width:195px;height:423px;border:none;display:block;" scrolling="no" title="App Preview"></iframe></div></div><div class="ss-lbl"><span aria-hidden="true">▶ </span><span data-i18n="ss.0">Aperçu</span></div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen1_home.webp" type="image/webp"><img src="/screen1_home.jpg" alt="Home" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.1">Écran Principal</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen2_game.webp" type="image/webp"><img src="/screen2_game.jpg" alt="Game" width="1198" height="2603" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.2">Plateau de Jeu</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen3_midgame.webp" type="image/webp"><img src="/screen3_midgame.jpg" alt="Playing" width="919" height="2000" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.3">Trouver des Paires</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen5_win.webp" type="image/webp"><img src="/screen5_win.jpg" alt="Win" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.4">Célébration</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen4_professions.webp" type="image/webp"><img src="/screen4_professions.jpg" alt="Categories" width="1206" height="2622" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.5">21+ Catégories</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen7_parentalgate.webp" type="image/webp"><img src="/screen7_parentalgate.jpg" alt="Parental Gate" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.6">Protection Parentale</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen8_paywall.webp" type="image/webp"><img src="/screen8_paywall.jpg" alt="Unlock" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.7">Tout Débloquer</div></div>
     </div>
-    <button type="button" class="ss-arrow next" aria-label="Next screenshot" data-i18n-aria="arrow.next">
+    <button type="button" class="ss-arrow next" aria-label="Capture suivante" data-i18n-aria="arrow.next">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
   </div>
   <div class="ss-dots" role="tablist" aria-label="Screenshot navigation"></div>
   <p class="ss-hint">
-    <span class="hint-touch" data-i18n="ss.swipe">← Swipe to see more →</span>
-    <span class="hint-desk" data-i18n="ss.arrows">← Use arrows or keyboard →</span>
+    <span class="hint-touch" data-i18n="ss.swipe">← Glisse pour voir plus →</span>
+    <span class="hint-desk" data-i18n="ss.arrows">← Flèches ou clavier →</span>
   </p>
 </div>
 
 <div class="alt" id="features">
 <section>
-  <h2 data-i18n="ft">Everything kids love, everything parents trust</h2>
+  <h2 data-i18n="ft">Tout ce que les enfants adorent, tout ce que les parents approuvent</h2>
   <div class="feat">
-    <div class="fcard"><span class="ficon" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:52px;background:white;border-radius:6px;box-shadow:0 3px 8px rgba(0,0,0,.18),0 0 0 2px #d0cef5;font-size:26px;margin-bottom:14px;">🐉</span><h3 data-i18n="f1t">Classic Word Card Game</h3><p data-i18n="f1d">Flip cards to find matching pairs. Beautiful 3D animations make every match satisfying.</p></div>
-    <div class="fcard"><span class="ficon">🔊</span><h3 data-i18n="f2t">Speaks Every Word</h3><p data-i18n="f2d">When a match is found, the app speaks the word out loud in the chosen language.</p></div>
-    <div class="fcard"><span class="ficon">⭐</span><h3 data-i18n="f3t">Stars and Trophies</h3><p data-i18n="f3d">Earn 1-3 stars per game. Collect stars to unlock new card back designs including the legendary Dino.</p></div>
-    <div class="fcard"><span class="ficon">🧒</span><h3 data-i18n="f4t">Personal Avatar</h3><p data-i18n="f4d">Children choose their own animal avatar and name. The app greets them personally.</p></div>
-    <div class="fcard"><span class="ficon">📅</span><h3 data-i18n="f5t">Word of the Day</h3><p data-i18n="f5d">A new featured word every day with pronunciation.</p></div>
-    <div class="fcard"><span class="ficon">🎃</span><h3 data-i18n="f6t">Seasonal Themes</h3><p data-i18n="f6d">Decorates itself for Easter, Halloween, Christmas and all four seasons automatically.</p></div>
+    <div class="fcard"><span class="ficon" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:52px;background:white;border-radius:6px;box-shadow:0 3px 8px rgba(0,0,0,.18),0 0 0 2px #d0cef5;font-size:26px;margin-bottom:14px;">🐉</span><h3 data-i18n="f1t">Jeu de cartes de mots classique</h3><p data-i18n="f1d">Retourne les cartes pour trouver des paires. De belles animations 3D.</p></div>
+    <div class="fcard"><span class="ficon">🔊</span><h3 data-i18n="f2t">Prononce chaque mot</h3><p data-i18n="f2d">Quand une paire est trouvée, l'app prononce le mot dans la langue choisie.</p></div>
+    <div class="fcard"><span class="ficon">⭐</span><h3 data-i18n="f3t">Étoiles et trophées</h3><p data-i18n="f3d">Gagne 1 à 3 étoiles par partie. Collecte des étoiles pour débloquer de nouveaux designs.</p></div>
+    <div class="fcard"><span class="ficon">🧒</span><h3 data-i18n="f4t">Avatar personnel</h3><p data-i18n="f4d">Les enfants choisissent leur propre avatar animal et prénom.</p></div>
+    <div class="fcard"><span class="ficon">📅</span><h3 data-i18n="f5t">Mot du jour</h3><p data-i18n="f5d">Un nouveau mot mis en avant chaque jour avec sa prononciation.</p></div>
+    <div class="fcard"><span class="ficon">🎃</span><h3 data-i18n="f6t">Thèmes saisonniers</h3><p data-i18n="f6d">Se décore automatiquement pour Pâques, Halloween, Noël et les quatre saisons.</p></div>
   </div>
 </section>
 </div>
 
 <div class="emoji-section">
 <section>
-  <h2 data-i18n="we.title" class="fade-scroll">Why Emojis?</h2>
-  <p class="we-body fade-scroll" data-i18n="we.body">A photo of &quot;lunch&quot; looks Italian or Japanese. An emoji is universal. Emojis cross every culture, work the same on every device, and are already part of how kids see the world — warm, instantly readable, and familiar from the messages they watch their parents send.</p>
+  <h2 data-i18n="we.title" class="fade-scroll">Pourquoi les emojis ?</h2>
+  <p class="we-body fade-scroll" data-i18n="we.body">Une photo de « déjeuner » a l'air italienne ou japonaise. Un emoji est universel. Les emojis traversent toutes les cultures, fonctionnent de la même façon sur tous les appareils, et font déjà partie du monde des enfants — chaleureux, immédiatement lisibles, et familiers grâce aux messages qu'ils voient leurs parents écrire.</p>
   <div class="emoji-row fade-scroll">
-    <div class="emoji-pair"><span class="ep-em">🐶</span><span data-i18n="we.w1">dog</span></div>
-    <div class="emoji-pair"><span class="ep-em">🍎</span><span data-i18n="we.w2">apple</span></div>
-    <div class="emoji-pair"><span class="ep-em">🚗</span><span data-i18n="we.w3">car</span></div>
-    <div class="emoji-pair"><span class="ep-em">🌟</span><span data-i18n="we.w4">star</span></div>
-    <div class="emoji-pair"><span class="ep-em">🐬</span><span data-i18n="we.w5">dolphin</span></div>
+    <div class="emoji-pair"><span class="ep-em">🐶</span><span data-i18n="we.w1">chien</span></div>
+    <div class="emoji-pair"><span class="ep-em">🍎</span><span data-i18n="we.w2">pomme</span></div>
+    <div class="emoji-pair"><span class="ep-em">🚗</span><span data-i18n="we.w3">voiture</span></div>
+    <div class="emoji-pair"><span class="ep-em">🌟</span><span data-i18n="we.w4">étoile</span></div>
+    <div class="emoji-pair"><span class="ep-em">🐬</span><span data-i18n="we.w5">dauphin</span></div>
   </div>
 </section>
 </div>
 
 <section id="languages">
-  <h2 data-i18n="lt">Learn multiple languages</h2>
+  <h2 data-i18n="lt">Apprenez plusieurs langues</h2>
   <div class="lgrid">
-    <div class="lcard"><span class="lflag">🇬🇧</span><div class="lname">English</div><div class="ltag free" data-i18n="free">Free</div></div>
+    <div class="lcard"><span class="lflag">🇬🇧</span><div class="lname">English</div><div class="ltag free" data-i18n="free">Gratuit</div></div>
     <div class="lcard"><span class="lflag">🇩🇪</span><div class="lname">Deutsch</div><div class="ltag" data-i18n="prem">Premium</div></div>
     <div class="lcard"><span class="lflag">🇫🇷</span><div class="lname">Français</div><div class="ltag" data-i18n="prem">Premium</div></div>
     <div class="lcard"><span class="lflag">🇪🇸</span><div class="lname">Español</div><div class="ltag" data-i18n="prem">Premium</div></div>
@@ -496,75 +496,75 @@ body.rtl{direction:rtl}
 
 <div class="alt">
 <section>
-  <h2 data-i18n="ct">21+ word categories</h2>
+  <h2 data-i18n="ct">21+ catégories de mots</h2>
   <div class="cats">
-    <div class="chip">🐶 <span data-i18n="c1">Animals</span></div><div class="chip">🍎 <span data-i18n="c2">Fruits</span></div>
-    <div class="chip">🔴 <span data-i18n="c3">Colors</span></div><div class="chip">1️⃣ <span data-i18n="c4">Numbers</span></div>
-    <div class="chip">📚 <span data-i18n="c5">Objects</span></div><div class="chip">😀 <span data-i18n="c6">Emotions</span></div>
-    <div class="chip">🅰️ <span data-i18n="c7">Letters</span></div><div class="chip">🏳️ <span data-i18n="c8">Flags</span></div>
-    <div class="chip">🚗 <span data-i18n="c9">Vehicles</span></div><div class="chip">🍕 <span data-i18n="c10">Food and Drinks</span></div>
-    <div class="chip">⚽ <span data-i18n="c11">Sports</span></div><div class="chip">☀️ <span data-i18n="c12">Weather</span></div>
-    <div class="chip">💪 <span data-i18n="c13">Body Parts</span></div><div class="chip">🌸 <span data-i18n="c14">Nature</span></div>
-    <div class="chip">👨‍⚕️ <span data-i18n="c15">Professions</span></div><div class="chip">🚀 <span data-i18n="c16">Space</span></div>
-    <div class="chip">🛋️ <span data-i18n="c17">Household</span></div><div class="chip">👗 <span data-i18n="c18">Clothes</span></div>
-    <div class="chip">🎸 <span data-i18n="c19">Music and Arts</span></div><div class="chip">🔨 <span data-i18n="c20">Tools</span></div><div class="chip">🥦 <span data-i18n="c21">Vegetables</span></div>
+    <div class="chip">🐶 <span data-i18n="c1">Animaux</span></div><div class="chip">🍎 <span data-i18n="c2">Fruits</span></div>
+    <div class="chip">🔴 <span data-i18n="c3">Couleurs</span></div><div class="chip">1️⃣ <span data-i18n="c4">Chiffres</span></div>
+    <div class="chip">📚 <span data-i18n="c5">Objets</span></div><div class="chip">😀 <span data-i18n="c6">Émotions</span></div>
+    <div class="chip">🅰️ <span data-i18n="c7">Lettres</span></div><div class="chip">🏳️ <span data-i18n="c8">Drapeaux</span></div>
+    <div class="chip">🚗 <span data-i18n="c9">Véhicules</span></div><div class="chip">🍕 <span data-i18n="c10">Nourriture</span></div>
+    <div class="chip">⚽ <span data-i18n="c11">Sports</span></div><div class="chip">☀️ <span data-i18n="c12">Météo</span></div>
+    <div class="chip">💪 <span data-i18n="c13">Corps</span></div><div class="chip">🌸 <span data-i18n="c14">Nature</span></div>
+    <div class="chip">👨‍⚕️ <span data-i18n="c15">Métiers</span></div><div class="chip">🚀 <span data-i18n="c16">Espace</span></div>
+    <div class="chip">🛋️ <span data-i18n="c17">Maison</span></div><div class="chip">👗 <span data-i18n="c18">Vêtements</span></div>
+    <div class="chip">🎸 <span data-i18n="c19">Musique et arts</span></div><div class="chip">🔨 <span data-i18n="c20">Outils</span></div><div class="chip">🥦 <span data-i18n="c21">Légumes</span></div>
   </div>
 </section>
 </div>
 
 <section>
-  <h2 data-i18n="lvt">5 difficulty levels for every age</h2>
+  <h2 data-i18n="lvt">5 niveaux de difficulté pour chaque âge</h2>
   <div class="lvls">
-    <div class="lcard2"><span class="lemoji">⭐</span><div class="lname2" data-i18n="lv1">Easy</div><div class="ldesc" data-i18n="lv1d">Ages 4-5 - 4 pairs</div></div>
-    <div class="lcard2"><span class="lemoji">⭐⭐</span><div class="lname2" data-i18n="lv2">Medium</div><div class="ldesc" data-i18n="lv2d">Ages 5+ - 6 pairs</div></div>
-    <div class="lcard2"><span class="lemoji">⭐⭐⭐</span><div class="lname2" data-i18n="lv3">Hard</div><div class="ldesc" data-i18n="lv3d">Ages 7+ - 8 pairs</div></div>
-    <div class="lcard2"><span class="lemoji">🔤</span><div class="lname2" data-i18n="lv4">Expert</div><div class="ldesc" data-i18n="lv4d">Ages 9+ - Picture+Word</div></div>
-    <div class="lcard2"><span class="lemoji">🧠</span><div class="lname2" data-i18n="lv5">Master</div><div class="ldesc" data-i18n="lv5d">Ages 12+ - Word only</div></div>
+    <div class="lcard2"><span class="lemoji">⭐</span><div class="lname2" data-i18n="lv1">Facile</div><div class="ldesc" data-i18n="lv1d">4-5 ans - 4 paires</div></div>
+    <div class="lcard2"><span class="lemoji">⭐⭐</span><div class="lname2" data-i18n="lv2">Moyen</div><div class="ldesc" data-i18n="lv2d">5+ ans - 6 paires</div></div>
+    <div class="lcard2"><span class="lemoji">⭐⭐⭐</span><div class="lname2" data-i18n="lv3">Difficile</div><div class="ldesc" data-i18n="lv3d">7+ ans - 8 paires</div></div>
+    <div class="lcard2"><span class="lemoji">🔤</span><div class="lname2" data-i18n="lv4">Expert</div><div class="ldesc" data-i18n="lv4d">9+ ans - Image+Mot</div></div>
+    <div class="lcard2"><span class="lemoji">🧠</span><div class="lname2" data-i18n="lv5">Maître</div><div class="ldesc" data-i18n="lv5d">12+ ans - Mots uniquement</div></div>
   </div>
 </section>
 
 <div style="background:#f5f5f7;padding:0 0 16px">
 <div class="safe-box">
-  <h2 data-i18n="sft">Safe for children</h2>
+  <h2 data-i18n="sft">Sûr pour les enfants</h2>
   <div class="safe-grid">
-    <div class="safe-item"><span>🚫</span><span data-i18n="s1">No ads ever</span></div>
-    <div class="safe-item"><span>📵</span><span data-i18n="s2">No social features</span></div>
-    <div class="safe-item"><span>✈️</span><span data-i18n="s3">Works offline</span></div>
-    <div class="safe-item"><span>👨‍👩‍👧</span><span data-i18n="s4">Parental purchase gate</span></div>
-    <div class="safe-item"><span>🔒</span><span data-i18n="s5">No data collection</span></div>
-    <div class="safe-item"><span>✅</span><span data-i18n="s6">COPPA compliant</span></div>
+    <div class="safe-item"><span>🚫</span><span data-i18n="s1">Aucune publicité jamais</span></div>
+    <div class="safe-item"><span>📵</span><span data-i18n="s2">Pas de fonctions sociales</span></div>
+    <div class="safe-item"><span>✈️</span><span data-i18n="s3">Fonctionne hors ligne</span></div>
+    <div class="safe-item"><span>👨‍👩‍👧</span><span data-i18n="s4">Contrôle parental</span></div>
+    <div class="safe-item"><span>🔒</span><span data-i18n="s5">Aucune collecte de données</span></div>
+    <div class="safe-item"><span>✅</span><span data-i18n="s6">Conforme COPPA</span></div>
   </div>
 </div>
 </div>
 
 <div class="alt" id="pricing">
 <section>
-  <h2 data-i18n="prt">Simple honest pricing</h2>
+  <h2 data-i18n="prt">Des tarifs simples et honnêtes</h2>
   <div class="price-cards">
     <div class="pcard">
-      <h3 data-i18n="p1n">Free</h3>
-      <div class="price" data-i18n="price.free">€0</div>
-      <p style="color:#6e6e73;font-size:13px" data-i18n="p1no">Forever free</p>
+      <h3 data-i18n="p1n">Gratuit</h3>
+      <div class="price" data-i18n="price.free">0 €</div>
+      <p style="color:#6e6e73;font-size:13px" data-i18n="p1no">Toujours gratuit</p>
       <ul>
-        <li data-i18n="p1a">English language</li>
-        <li data-i18n="p1b">Animals Fruits Colors</li>
-        <li data-i18n="p1c">Easy and Medium levels</li>
-        <li data-i18n="p1d">Classic card back</li>
-        <li data-i18n="p1e">Word of the Day</li>
-        <li data-i18n="p1f">Seasonal themes</li>
+        <li data-i18n="p1a">Langue anglaise</li>
+        <li data-i18n="p1b">Animaux Fruits Couleurs</li>
+        <li data-i18n="p1c">Niveaux Facile et Moyen</li>
+        <li data-i18n="p1d">Dos de carte classique</li>
+        <li data-i18n="p1e">Mot du jour</li>
+        <li data-i18n="p1f">Thèmes saisonniers</li>
       </ul>
     </div>
     <div class="pcard feat2">
-      <h3 data-i18n="p2n">Full Version</h3>
-      <div class="price" data-i18n="price.full">€2.99</div>
-      <p style="opacity:.8;font-size:13px" data-i18n="p2no">One-time - No subscription</p>
+      <h3 data-i18n="p2n">Version complète</h3>
+      <div class="price" data-i18n="price.full">2,99 €</div>
+      <p style="opacity:.8;font-size:13px" data-i18n="p2no">Achat unique - Sans abonnement</p>
       <ul>
-        <li data-i18n="p2a">All languages</li>
-        <li data-i18n="p2b">All 21+ categories</li>
-        <li data-i18n="p2c">All 5 difficulty levels</li>
-        <li data-i18n="p2d">9 card back designs</li>
-        <li data-i18n="p2e">All future content free</li>
-        <li data-i18n="p2f">Everything forever</li>
+        <li data-i18n="p2a">Toutes les langues</li>
+        <li data-i18n="p2b">Les 21+ catégories</li>
+        <li data-i18n="p2c">Les 5 niveaux</li>
+        <li data-i18n="p2d">9 designs de dos de carte</li>
+        <li data-i18n="p2e">Tout le contenu futur gratuit</li>
+        <li data-i18n="p2f">Tout pour toujours</li>
       </ul>
     </div>
   </div>
@@ -572,64 +572,64 @@ body.rtl{direction:rtl}
 </div>
 
 <section class="faq-wrap" id="faq">
-  <h2 data-i18n="faq.title" class="fade-scroll">Frequently Asked Questions</h2>
+  <h2 data-i18n="faq.title" class="fade-scroll">Questions fréquentes</h2>
   <div class="faq-list fade-scroll">
     <details class="faq-item">
-      <summary data-i18n="faq.q1">Does Flip &amp; Learn need an internet connection?</summary>
-      <p data-i18n="faq.a1">No. Once you've downloaded the app, it works completely offline — perfect for road trips, planes, or anywhere without Wi-Fi.</p>
+      <summary data-i18n="faq.q1">Flip &amp; Learn a-t-il besoin d'une connexion internet ?</summary>
+      <p data-i18n="faq.a1">Non. Une fois l'app téléchargée, elle fonctionne entièrement hors ligne — parfait pour les voyages en voiture, en avion ou partout sans Wi-Fi.</p>
     </details>
     <details class="faq-item">
-      <summary data-i18n="faq.q2">Will my child see ads?</summary>
-      <p data-i18n="faq.a2">No. Zero ads, zero tracking, zero data collected about your child. We don't have a marketing team selling your kid's attention.</p>
+      <summary data-i18n="faq.q2">Mon enfant verra-t-il des publicités ?</summary>
+      <p data-i18n="faq.a2">Non. Zéro publicité, zéro pistage, aucune donnée collectée sur ton enfant. Nous n'avons pas d'équipe marketing qui vend l'attention de ton enfant.</p>
     </details>
     <details class="faq-item">
-      <summary data-i18n="faq.q3">Is it really a one-time purchase?</summary>
-      <p data-i18n="faq.a3">Yes. €2.99 once, no subscription, no in-app purchases beyond that. All future content updates are included for free.</p>
+      <summary data-i18n="faq.q3">Est-ce vraiment un achat unique ?</summary>
+      <p data-i18n="faq.a3">Oui. 2,99 € une seule fois, pas d'abonnement, pas d'autres achats intégrés. Toutes les futures mises à jour de contenu sont incluses gratuitement.</p>
     </details>
     <details class="faq-item">
-      <summary data-i18n="faq.q4">Can my child accidentally make purchases?</summary>
-      <p data-i18n="faq.a4">No. The €2.99 unlock is gated behind a parental gate — a multiplication problem only an adult can solve. Kids can't bypass it.</p>
+      <summary data-i18n="faq.q4">Mon enfant peut-il faire des achats par accident ?</summary>
+      <p data-i18n="faq.a4">Non. Le déblocage à 2,99 € est protégé par un contrôle parental — une multiplication que seul un adulte peut résoudre. Les enfants ne peuvent pas la contourner.</p>
     </details>
     <details class="faq-item">
-      <summary data-i18n="faq.q5">Which languages are included?</summary>
-      <p data-i18n="faq.a5">English is included free. The €2.99 unlock adds 8 more: German, Spanish, French, Italian, Portuguese, Romanian, Hungarian, and Arabic.</p>
+      <summary data-i18n="faq.q5">Quelles langues sont incluses ?</summary>
+      <p data-i18n="faq.a5">L'anglais est inclus gratuitement. Le déblocage à 2,99 € en ajoute 8 autres : allemand, espagnol, français, italien, portugais, roumain, hongrois et arabe.</p>
     </details>
     <details class="faq-item">
-      <summary data-i18n="faq.q6">What ages is it designed for?</summary>
-      <p data-i18n="faq.a6">Ages 4 and up. Five difficulty levels scale from very easy (memorable matches) to genuinely challenging — kids can start at 4 and grow with the game through age 8 or so.</p>
+      <summary data-i18n="faq.q6">Pour quels âges est-ce conçu ?</summary>
+      <p data-i18n="faq.a6">À partir de 4 ans. Cinq niveaux de difficulté vont de très facile (paires faciles à retenir) à vraiment exigeant — les enfants peuvent commencer à 4 ans et grandir avec le jeu jusqu'à environ 8 ans.</p>
     </details>
   </div>
 </section>
 
 <div class="emoji-section">
 <section>
-  <h2 data-i18n="about.h" class="fade-scroll">Made by a parent, tested by a kid</h2>
-  <p class="we-body fade-scroll" data-i18n="about.p1">I'm a parent based in Regensburg, Germany. During the week I'm a system test engineer. On weekends, I built Flip &amp; Learn — for my son, and with the idea that screen time can also be learning time. He turned out to be my most demanding and most honest tester.</p>
-  <p class="we-body fade-scroll" data-i18n="about.p2">Every category, every translation, every animation gets the same treatment I'd give to anything I hand to my own child: tested for rough edges, tested with the difficult cases, tested on real devices before any release goes out the door. Quality first, ship later.</p>
-  <p class="we-body fade-scroll" data-i18n="about.p3">No marketing team. No analytics tracking your child. No ads to chase. Just one parent making something other parents — and their kids — might enjoy too.</p>
+  <h2 data-i18n="about.h" class="fade-scroll">Fait par un parent, testé par un enfant</h2>
+  <p class="we-body fade-scroll" data-i18n="about.p1">Je suis parent et je vis à Regensburg, en Allemagne. En semaine, je travaille comme ingénieur de test système. Le week-end, j'ai développé Flip &amp; Learn — pour mon fils, et avec l'idée que le temps passé devant un écran peut aussi être un temps d'apprentissage. Il s'est révélé être mon testeur le plus exigeant et le plus honnête.</p>
+  <p class="we-body fade-scroll" data-i18n="about.p2">Chaque catégorie, chaque traduction, chaque animation reçoit le même soin que j'apporterais à tout ce que je mets entre les mains de mon propre enfant : testé pour les imperfections, testé avec les cas difficiles, testé sur de vrais appareils avant chaque sortie. La qualité d'abord, la sortie ensuite.</p>
+  <p class="we-body fade-scroll" data-i18n="about.p3">Pas d'équipe marketing. Pas d'analyses qui suivent ton enfant. Pas de publicités. Juste un parent qui crée quelque chose que d'autres parents — et leurs enfants — pourraient aussi apprécier.</p>
 </section>
 </div>
 
 <section id="support">
   <h2 data-i18n="supt">Support</h2>
   <div class="sup-box">
-    <h3 data-i18n="suph">Need help?</h3>
-    <p data-i18n="supp">We are here to help with any questions. We aim to respond within 48 hours.</p>
-    <a href="mailto:support@flipandlearn.app" class="email-btn" data-i18n="supb">Contact Support</a>
+    <h3 data-i18n="suph">Besoin d'aide ?</h3>
+    <p data-i18n="supp">Nous sommes là pour répondre à toutes vos questions. Réponse sous 48h.</p>
+    <a href="mailto:support@flipandlearn.app" class="email-btn" data-i18n="supb">Contacter le support</a>
     <p style="margin-top:18px;font-size:12px;color:#aaa">
-      <span data-i18n="supd">Developed by BuraApps</span><br>
-      <a href="/privacy.html" style="color:#3A3589" data-i18n="nav.priv">Privacy</a>
+      <span data-i18n="supd">Développé par BuraApps</span><br>
+      <a href="/privacy.html" style="color:#3A3589" data-i18n="nav.priv">Confidentialité</a>
     </p>
   </div>
 </section>
 
 <footer>
   <div class="flinks">
-    <a href="/" data-i18n="nav.home">Home</a>
-    <a href="/privacy.html" data-i18n="nav.priv">Privacy</a>
+    <a href="/" data-i18n="nav.home">Accueil</a>
+    <a href="/privacy.html" data-i18n="nav.priv">Confidentialité</a>
     <a href="mailto:support@flipandlearn.app">support@flipandlearn.app</a>
   </div>
-  <p>&copy; 2026 BuraApps. Flip &amp; Learn. <span data-i18n="fr">All rights reserved.</span></p>
+  <p>&copy; 2026 BuraApps. Flip &amp; Learn. <span data-i18n="fr">Tous droits réservés.</span></p>
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
