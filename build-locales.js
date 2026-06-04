@@ -41,6 +41,7 @@ const LOCALES = [
 
 const ROOT = __dirname;
 const SOURCE = path.join(ROOT, 'index.html');
+const COOKIES_SOURCE = path.join(ROOT, 'cookies.html');
 
 // ============================================================
 // Helpers
@@ -328,6 +329,74 @@ function buildLocale(sourceHtml, locale, T, M) {
 }
 
 // ============================================================
+// 5b) Build a single locale variant of cookies.html.
+//    Mirrors buildLocale() but only the rewrites that apply to the cookies template
+//    (no badges, no language picker, no __pageLocale marker) and computes per-locale
+//    title/description/canonical from the existing cookies.* T keys.
+// ============================================================
+function rewriteCookiesHead(html, locale, T) {
+  const t = T[locale.code];
+  const cookiesUrl = `${SITE}${locale.path}cookies.html`;
+  const titleText = `${t['cookies.h']} — Flip & Learn`;
+  // Use cookies.p1 as the meta description (first paragraph is the natural summary).
+  const descText = t['cookies.p1'];
+
+  html = html.replace(
+    /<title>[\s\S]*?<\/title>/,
+    `<title>${htmlEscape(titleText)}</title>`
+  );
+  html = html.replace(
+    /<meta name="description" content="[^"]*">/,
+    `<meta name="description" content="${attrEscape(descText)}">`
+  );
+  html = html.replace(
+    /<link rel="canonical" href="[^"]*">/,
+    `<link rel="canonical" href="${cookiesUrl}">`
+  );
+
+  // Replace the hreflang block (canonical + N alternates) with this locale's view.
+  const hreflangBlockRe = /<link rel="canonical" href="[^"]*">\s*((?:<link rel="alternate" hreflang="[^"]*" href="[^"]*">\s*)+)/;
+  const altLinks = LOCALES
+    .map(l => `<link rel="alternate" hreflang="${l.code}" href="${SITE}${l.path}cookies.html">`)
+    .join('\n');
+  const xDefault = `<link rel="alternate" hreflang="x-default" href="${SITE}/cookies.html">`;
+  html = html.replace(
+    hreflangBlockRe,
+    `<link rel="canonical" href="${cookiesUrl}">\n${altLinks}\n${xDefault}\n`
+  );
+
+  // Open Graph
+  html = html.replace(
+    /<meta property="og:url" content="[^"]*">/,
+    `<meta property="og:url" content="${cookiesUrl}">`
+  );
+  html = html.replace(
+    /<meta property="og:title" content="[^"]*">/,
+    `<meta property="og:title" content="${attrEscape(titleText)}">`
+  );
+  html = html.replace(
+    /<meta property="og:description" content="[^"]*">/,
+    `<meta property="og:description" content="${attrEscape(descText)}">`
+  );
+  html = html.replace(
+    /<meta property="og:locale" content="[^"]*">/,
+    `<meta property="og:locale" content="${locale.ogLocale}">`
+  );
+
+  return html;
+}
+
+function buildCookiesLocale(sourceHtml, locale, T) {
+  let html = sourceHtml;
+  html = rewriteHtmlTag(html, locale);
+  html = rewriteBodyTag(html, locale);
+  html = rewriteCookiesHead(html, locale, T);
+  html = applyDataI18nText(html, T, locale.code);
+  html = applyDataI18nAria(html, T, locale.code);
+  return html;
+}
+
+// ============================================================
 // 6) Sitemap
 // ============================================================
 function buildSitemap() {
@@ -344,10 +413,27 @@ function buildSitemap() {
 ${altLinks}
 ${xDefault}
   </url>`).join('\n');
+
+  // Cookies pages — one URL per locale, each with hreflang alternates pointing
+  // at the cookies.html of every other locale (mirrors the homepage pattern).
+  const cookiesAltLinks = LOCALES
+    .map(l => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${SITE}${l.path}cookies.html"/>`)
+    .join('\n');
+  const cookiesXDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/cookies.html"/>`;
+  const cookiesUrls = LOCALES.map(l => `  <url>
+    <loc>${SITE}${l.path}cookies.html</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+${cookiesAltLinks}
+${cookiesXDefault}
+  </url>`).join('\n');
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
+${cookiesUrls}
   <url>
     <loc>${SITE}/privacy.html</loc>
     <lastmod>${today}</lastmod>
@@ -369,33 +455,46 @@ ${urls}
 // ============================================================
 function main() {
   const source = fs.readFileSync(SOURCE, 'utf8');
+  const cookiesSource = fs.readFileSync(COOKIES_SOURCE, 'utf8');
   const { T, M } = extractLangData(source);
 
   // Sanity check: every locale we plan to emit must exist in T.
   for (const l of LOCALES) {
     if (!T[l.code]) throw new Error(`T has no entry for locale "${l.code}"`);
     if (!M[l.code]) throw new Error(`M has no entry for locale "${l.code}"`);
+    // Cookies page requires these keys in every locale.
+    for (const k of ['cookies.h', 'cookies.p1', 'cookies.p2', 'cookies.p3', 'cookies.p4', 'cookies.gplink', 'cookies.fullnotice']) {
+      if (typeof T[l.code][k] !== 'string') {
+        throw new Error(`Locale "${l.code}" missing required cookies key "${k}"`);
+      }
+    }
   }
 
   for (const locale of LOCALES) {
     const html = buildLocale(source, locale, T, M);
+    const cookiesHtml = buildCookiesLocale(cookiesSource, locale, T);
     let outPath;
+    let cookiesOutPath;
     if (locale.path === '/') {
       outPath = path.join(ROOT, 'index.html');
+      cookiesOutPath = path.join(ROOT, 'cookies.html');
     } else {
       const dir = path.join(ROOT, locale.path.replace(/^\/|\/$/g, ''));
       fs.mkdirSync(dir, { recursive: true });
       outPath = path.join(dir, 'index.html');
+      cookiesOutPath = path.join(dir, 'cookies.html');
     }
     fs.writeFileSync(outPath, html, 'utf8');
     console.log(`  wrote ${path.relative(ROOT, outPath)}  (${html.length.toLocaleString()} bytes)`);
+    fs.writeFileSync(cookiesOutPath, cookiesHtml, 'utf8');
+    console.log(`  wrote ${path.relative(ROOT, cookiesOutPath)}  (${cookiesHtml.length.toLocaleString()} bytes)`);
   }
 
   const sitemap = buildSitemap();
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
   console.log(`  wrote sitemap.xml (${sitemap.length.toLocaleString()} bytes)`);
 
-  console.log(`\nDone. ${LOCALES.length} locale pages + sitemap.xml regenerated.`);
+  console.log(`\nDone. ${LOCALES.length} locale pages + ${LOCALES.length} cookies pages + sitemap.xml regenerated.`);
 }
 
 main();
