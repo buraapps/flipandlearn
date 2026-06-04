@@ -107,14 +107,19 @@ body { background: #0a0a0f; width: 195px; height: 423px; overflow: hidden; font-
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18076192122"></script>
+<!-- FLI-cookie-consent: Google Ads tag is loaded ONLY after explicit opt-in elsewhere on the site (fl_consent === 'accepted'). This page is an internal promo screenshot stage and does not show a banner. -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18076192122');
+(function(){
+  try{
+    if(localStorage.getItem('fl_consent')!=='accepted')return;
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag;gtag('js',new Date());gtag('config','AW-18076192122');
+    var s=document.createElement('script');
+    s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=AW-18076192122';
+    document.head.appendChild(s);
+  }catch(e){}
+})();
 </script>
 </head>
 <body>

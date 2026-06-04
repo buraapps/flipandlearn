@@ -47,15 +47,34 @@
   .footer { text-align: center; color: #aaa; font-size: 13px; margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; }
   a { color: #5E5CE6; }
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18076192122"></script>
+<!-- FLI-cookie-consent: Google Ads tag is loaded ONLY after explicit opt-in (fl_consent === 'accepted'). -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18076192122');
+(function(){
+  window.__flLoadGtag=function(){
+    if(window.__gtagLoaded)return;window.__gtagLoaded=true;
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag;gtag('js',new Date());gtag('config','AW-18076192122');
+    var s=document.createElement('script');
+    s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=AW-18076192122';
+    document.head.appendChild(s);
+  };
+  try{if(localStorage.getItem('fl_consent')==='accepted')window.__flLoadGtag();}catch(e){}
+})();
 </script>
+<style>
+.cc-banner{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#1d1d1f;color:#f5f5f7;padding:16px 20px;box-shadow:0 -4px 24px rgba(0,0,0,.25);display:none;font-size:14px;line-height:1.55}
+.cc-banner.cc-show{display:block}
+.cc-inner{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}
+.cc-text{flex:1 1 320px;min-width:0;color:#e5e5ea}
+.cc-text a{color:#9b97f4;text-decoration:underline}
+.cc-actions{display:flex;gap:10px;flex:0 0 auto}
+.cc-btn{appearance:none;border:1.5px solid #5E5CE6;background:#5E5CE6;color:#fff;padding:9px 18px;border-radius:10px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;min-width:108px}
+.cc-btn.cc-reject{background:transparent;color:#f5f5f7;border-color:#6e6e73}
+.cc-btn:hover,.cc-btn:focus{filter:brightness(1.08)}
+.cc-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+@media(max-width:600px){.cc-inner{flex-direction:column;align-items:stretch}.cc-actions{justify-content:stretch}.cc-btn{flex:1 1 0;min-width:0}}
+</style>
 </head>
 <body>
 
@@ -137,8 +156,34 @@
 
 <div class="footer">
   <p>This privacy policy covers the Flip &amp; Learn iOS and Android apps. For the flipandlearn.app website, see our <a href="privacy-website.html">website privacy notice</a>.</p>
+  <p><a href="#" id="cookiePrefs" onclick="event.preventDefault();window.__flShowConsent&amp;&amp;window.__flShowConsent();">Cookie settings</a></p>
   <p>&copy; 2026 buraapps. All rights reserved.</p>
 </div>
 
+<!-- FLI-cookie-consent: GDPR/ePrivacy opt-in banner -->
+<div class="cc-banner" id="ccBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cc-inner">
+    <div class="cc-text">
+      We use Google Ads cookies to measure ad performance. They are only set if you accept.
+      <a href="/privacy-website.html#cookies">Learn more</a>
+    </div>
+    <div class="cc-actions">
+      <button type="button" class="cc-btn cc-reject" id="ccReject">Reject</button>
+      <button type="button" class="cc-btn cc-accept" id="ccAccept">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var banner=document.getElementById('ccBanner');if(!banner)return;
+  function read(){try{return localStorage.getItem('fl_consent');}catch(e){return null;}}
+  function write(v){try{localStorage.setItem('fl_consent',v);}catch(e){}}
+  function show(){banner.classList.add('cc-show');}function hide(){banner.classList.remove('cc-show');}
+  window.__flShowConsent=show;
+  if(!read())show();
+  document.getElementById('ccAccept').addEventListener('click',function(){write('accepted');hide();if(typeof window.__flLoadGtag==='function')window.__flLoadGtag();});
+  document.getElementById('ccReject').addEventListener('click',function(){write('rejected');hide();});
+})();
+</script>
 </body>
 </html>

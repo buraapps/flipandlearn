@@ -69,14 +69,19 @@
       background:rgba(0,0,0,.5);padding:6px 12px;border-radius:4px;
     }
   </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18076192122"></script>
+<!-- FLI-cookie-consent: Google Ads tag is loaded ONLY after explicit opt-in elsewhere on the site (fl_consent === 'accepted'). This page itself is an internal screenshot stage and does not show a banner. -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18076192122');
+(function(){
+  try{
+    if(localStorage.getItem('fl_consent')!=='accepted')return;
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag;gtag('js',new Date());gtag('config','AW-18076192122');
+    var s=document.createElement('script');
+    s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=AW-18076192122';
+    document.head.appendChild(s);
+  }catch(e){}
+})();
 </script>
 </head>
 <body>
