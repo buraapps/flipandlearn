@@ -16,7 +16,7 @@ const P = {
   en: {
     'p.title': 'Privacy Policy',
     'p.desc': 'Privacy policy for the Flip & Learn iOS and Android apps. No data collected, all data stays on your device.',
-    'p.subheader': 'Privacy Policy \u00A0·\u00A0 Last updated: May 1, 2026',
+    'p.subheader': 'Privacy Policy \u00A0·\u00A0 Last updated: June 4, 2026',
     'p.summary': '<strong>The short version:</strong> The Flip &amp; Learn iOS/Android app collects no personal data — everything stays on your device. For the flipandlearn.app website (Android-launch waiting list), see our <a href="privacy-website.html">website privacy notice</a>.',
     'p.h.intro': 'Introduction',
     'p.intro1': 'Welcome to Flip & Learn. We are committed to protecting the privacy of children and families who use our app. This Privacy Policy explains how we handle information when you use Flip & Learn on your iPhone or iPad.',
@@ -69,7 +69,7 @@ const P = {
   fr: {
     'p.title': 'Politique de confidentialité',
     'p.desc': 'Politique de confidentialité des applications Flip & Learn iOS et Android. Aucune donnée collectée, toutes les données restent sur votre appareil.',
-    'p.subheader': 'Politique de confidentialité \u00A0·\u00A0 Dernière mise à jour : 1 mai 2026',
+    'p.subheader': 'Politique de confidentialité \u00A0·\u00A0 Dernière mise à jour : 4 juin 2026',
     'p.summary': '<strong>En bref :</strong> L\'application Flip &amp; Learn iOS/Android ne collecte aucune donnée personnelle — tout reste sur votre appareil. Pour le site flipandlearn.app (liste d\'attente du lancement Android), consultez notre <a href="privacy-website.html">avis de confidentialité du site</a>.',
     'p.h.intro': 'Introduction',
     'p.intro1': 'Bienvenue chez Flip & Learn. Nous nous engageons à protéger la vie privée des enfants et des familles qui utilisent notre application. La présente Politique de confidentialité explique comment nous traitons les informations lorsque vous utilisez Flip & Learn sur votre iPhone ou iPad.',
@@ -122,7 +122,7 @@ const P = {
   es: {
     'p.title': 'Política de privacidad',
     'p.desc': 'Política de privacidad de las apps Flip & Learn para iOS y Android. No se recopilan datos; todos los datos permanecen en tu dispositivo.',
-    'p.subheader': 'Política de privacidad \u00A0·\u00A0 Última actualización: 1 de mayo de 2026',
+    'p.subheader': 'Política de privacidad \u00A0·\u00A0 Última actualización: 4 de junio de 2026',
     'p.summary': '<strong>En resumen:</strong> La app Flip &amp; Learn para iOS/Android no recopila ningún dato personal: todo permanece en tu dispositivo. Para el sitio web flipandlearn.app (lista de espera del lanzamiento de Android), consulta nuestro <a href="privacy-website.html">aviso de privacidad del sitio web</a>.',
     'p.h.intro': 'Introducción',
     'p.intro1': 'Bienvenido a Flip & Learn. Nos comprometemos a proteger la privacidad de los niños y las familias que usan nuestra app. Esta Política de privacidad explica cómo manejamos la información cuando usas Flip & Learn en tu iPhone o iPad.',
@@ -175,7 +175,7 @@ const P = {
   de: {
     'p.title': 'Datenschutzerklärung',
     'p.desc': 'Datenschutzerklärung für die Flip & Learn iOS- und Android-Apps. Es werden keine Daten erhoben, alle Daten verbleiben auf Ihrem Gerät.',
-    'p.subheader': 'Datenschutzerklärung \u00A0·\u00A0 Zuletzt aktualisiert: 1. Mai 2026',
+    'p.subheader': 'Datenschutzerklärung \u00A0·\u00A0 Zuletzt aktualisiert: 4. Juni 2026',
     'p.summary': '<strong>Die Kurzfassung:</strong> Die Flip &amp; Learn iOS-/Android-App erhebt keinerlei personenbezogene Daten — alles verbleibt auf Ihrem Gerät. Für die Website flipandlearn.app (Warteliste für den Android-Launch) sehen Sie unseren <a href="privacy-website.html">Website-Datenschutzhinweis</a>.',
     'p.h.intro': 'Einleitung',
     'p.intro1': 'Willkommen bei Flip & Learn. Wir verpflichten uns, die Privatsphäre von Kindern und Familien zu schützen, die unsere App nutzen. Diese Datenschutzerklärung erläutert, wie wir mit Informationen umgehen, wenn Sie Flip & Learn auf Ihrem iPhone oder iPad verwenden.',
@@ -228,7 +228,7 @@ const P = {
   it: {
     'p.title': 'Informativa sulla privacy',
     'p.desc': 'Informativa sulla privacy delle app Flip & Learn per iOS e Android. Nessun dato raccolto, tutti i dati restano sul tuo dispositivo.',
-    'p.subheader': 'Informativa sulla privacy \u00A0·\u00A0 Ultimo aggiornamento: 1 maggio 2026',
+    'p.subheader': 'Informativa sulla privacy \u00A0·\u00A0 Ultimo aggiornamento: 4 giugno 2026',
     'p.summary': '<strong>In breve:</strong> L\'app Flip &amp; Learn per iOS/Android non raccoglie alcun dato personale: tutto resta sul tuo dispositivo. Per il sito flipandlearn.app (lista d\'attesa per il lancio Android), consulta la nostra <a href="privacy-website.html">informativa sulla privacy del sito</a>.',
     'p.h.intro': 'Introduzione',
     'p.intro1': 'Benvenuto in Flip & Learn. Ci impegniamo a proteggere la privacy dei bambini e delle famiglie che usano la nostra app. La presente Informativa sulla privacy spiega come gestiamo le informazioni quando usi Flip & Learn sul tuo iPhone o iPad.',
@@ -281,7 +281,7 @@ const P = {
   pt: {
     'p.title': 'Política de Privacidade',
     'p.desc': 'Política de privacidade das aplicações Flip & Learn para iOS e Android. Não são recolhidos dados, todos os dados permanecem no seu dispositivo.',
-    'p.subheader': 'Política de Privacidade \u00A0·\u00A0 Última atualização: 1 de maio de 2026',
+    'p.subheader': 'Política de Privacidade \u00A0·\u00A0 Última atualização: 4 de junho de 2026',
     'p.summary': '<strong>Em resumo:</strong> A aplicação Flip &amp; Learn para iOS/Android não recolhe quaisquer dados pessoais — tudo permanece no seu dispositivo. Para o site flipandlearn.app (lista de espera do lançamento Android), consulte a nossa <a href="privacy-website.html">política de privacidade do site</a>.',
     'p.h.intro': 'Introdução',
     'p.intro1': 'Bem-vindo ao Flip & Learn. Estamos empenhados em proteger a privacidade das crianças e famílias que utilizam a nossa aplicação. Esta Política de Privacidade explica como tratamos as informações quando utiliza o Flip & Learn no seu iPhone ou iPad.',
@@ -334,7 +334,7 @@ const P = {
   ro: {
     'p.title': 'Politica de confidențialitate',
     'p.desc': 'Politica de confidențialitate pentru aplicațiile Flip & Learn iOS și Android. Nu se colectează date, toate datele rămân pe dispozitivul tău.',
-    'p.subheader': 'Politica de confidențialitate \u00A0·\u00A0 Ultima actualizare: 1 mai 2026',
+    'p.subheader': 'Politica de confidențialitate \u00A0·\u00A0 Ultima actualizare: 4 iunie 2026',
     'p.summary': '<strong>Pe scurt:</strong> Aplicația Flip &amp; Learn pentru iOS/Android nu colectează niciun fel de date personale — totul rămâne pe dispozitivul tău. Pentru site-ul flipandlearn.app (lista de așteptare pentru lansarea Android), consultă <a href="privacy-website.html">nota de confidențialitate a site-ului</a>.',
     'p.h.intro': 'Introducere',
     'p.intro1': 'Bun venit la Flip & Learn. Ne angajăm să protejăm confidențialitatea copiilor și a familiilor care folosesc aplicația noastră. Această Politică de confidențialitate explică modul în care gestionăm informațiile atunci când folosești Flip & Learn pe iPhone sau iPad.',
@@ -387,7 +387,7 @@ const P = {
   hu: {
     'p.title': 'Adatvédelmi szabályzat',
     'p.desc': 'A Flip & Learn iOS és Android alkalmazások adatvédelmi szabályzata. Nem gyűjtünk adatokat, minden adat a készülékeden marad.',
-    'p.subheader': 'Adatvédelmi szabályzat \u00A0·\u00A0 Utolsó frissítés: 2026. május 1.',
+    'p.subheader': 'Adatvédelmi szabályzat \u00A0·\u00A0 Utolsó frissítés: 2026. június 4.',
     'p.summary': '<strong>Röviden:</strong> A Flip &amp; Learn iOS/Android alkalmazás semmilyen személyes adatot nem gyűjt — minden a készülékeden marad. A flipandlearn.app weboldal (Android-indítás várólista) tekintetében lásd a <a href="privacy-website.html">weboldal adatvédelmi tájékoztatóját</a>.',
     'p.h.intro': 'Bevezetés',
     'p.intro1': 'Üdvözlünk a Flip & Learn alkalmazásban. Elkötelezettek vagyunk az alkalmazásunkat használó gyermekek és családok személyes adatainak védelme iránt. Ez az Adatvédelmi szabályzat ismerteti, hogyan kezeljük az információkat, amikor a Flip & Learn alkalmazást használod iPhone-on vagy iPaden.',
@@ -440,7 +440,7 @@ const P = {
   ar: {
     'p.title': 'سياسة الخصوصية',
     'p.desc': 'سياسة الخصوصية لتطبيقَي Flip & Learn على iOS وAndroid. لا يتم جمع أي بيانات، وتبقى جميع البيانات على جهازك.',
-    'p.subheader': 'سياسة الخصوصية \u00A0·\u00A0 آخر تحديث: 1 مايو 2026',
+    'p.subheader': 'سياسة الخصوصية \u00A0·\u00A0 آخر تحديث: 4 يونيو 2026',
     'p.summary': '<strong>باختصار:</strong> لا يجمع تطبيق Flip &amp; Learn على iOS/Android أي بيانات شخصية — يبقى كل شيء على جهازك. أمّا بخصوص موقع flipandlearn.app (قائمة انتظار إصدار Android)، فراجع <a href="privacy-website.html">إشعار خصوصية الموقع</a>.',
     'p.h.intro': 'مقدّمة',
     'p.intro1': 'مرحباً بك في Flip & Learn. نحن ملتزمون بحماية خصوصية الأطفال والعائلات الذين يستخدمون تطبيقنا. توضح سياسة الخصوصية هذه كيفية تعاملنا مع المعلومات عند استخدامك Flip & Learn على iPhone أو iPad.',
@@ -495,7 +495,7 @@ const PW = {
   en: {
     'pw.title': 'Website Privacy Notice',
     'pw.desc': 'Privacy notice for the flipandlearn.app website Android-launch waiting list. We collect only your email for one launch notification.',
-    'pw.subheader': 'Website Privacy Notice \u00A0·\u00A0 Last updated: May 1, 2026',
+    'pw.subheader': 'Website Privacy Notice \u00A0·\u00A0 Last updated: June 4, 2026',
     'pw.summary': '<strong>The short version:</strong> The flipandlearn.app website collects your email address only if you sign up for the Android-launch waiting list. We send you one email when Android is ready, then we delete the list. Nothing else.',
     'pw.h.why': 'Why this notice exists',
     'pw.why1': 'This notice covers the <strong>flipandlearn.app website</strong> — specifically, the form on the home page where you can sign up to be notified when the Android version of Flip &amp; Learn launches.',
@@ -542,7 +542,7 @@ const PW = {
   fr: {
     'pw.title': 'Avis de confidentialité du site',
     'pw.desc': 'Avis de confidentialité pour la liste d\'attente du lancement Android du site flipandlearn.app. Nous ne collectons que votre adresse e-mail pour une seule notification de lancement.',
-    'pw.subheader': 'Avis de confidentialité du site \u00A0·\u00A0 Dernière mise à jour : 1 mai 2026',
+    'pw.subheader': 'Avis de confidentialité du site \u00A0·\u00A0 Dernière mise à jour : 4 juin 2026',
     'pw.summary': '<strong>En bref :</strong> Le site flipandlearn.app ne collecte votre adresse e-mail que si vous vous inscrivez à la liste d\'attente du lancement Android. Nous vous envoyons un seul e-mail lorsque la version Android est prête, puis nous supprimons la liste. Rien d\'autre.',
     'pw.h.why': 'Pourquoi cet avis existe',
     'pw.why1': 'Le présent avis concerne le <strong>site flipandlearn.app</strong> — plus précisément, le formulaire de la page d\'accueil qui permet de s\'inscrire pour être notifié du lancement de la version Android de Flip &amp; Learn.',
@@ -589,7 +589,7 @@ const PW = {
   es: {
     'pw.title': 'Aviso de privacidad del sitio web',
     'pw.desc': 'Aviso de privacidad para la lista de espera del lanzamiento de Android del sitio flipandlearn.app. Solo recopilamos tu correo electrónico para una notificación de lanzamiento.',
-    'pw.subheader': 'Aviso de privacidad del sitio web \u00A0·\u00A0 Última actualización: 1 de mayo de 2026',
+    'pw.subheader': 'Aviso de privacidad del sitio web \u00A0·\u00A0 Última actualización: 4 de junio de 2026',
     'pw.summary': '<strong>En resumen:</strong> El sitio flipandlearn.app solo recopila tu correo electrónico si te apuntas a la lista de espera del lanzamiento de Android. Te enviamos un único correo cuando Android esté disponible y, después, eliminamos la lista. Nada más.',
     'pw.h.why': 'Por qué existe este aviso',
     'pw.why1': 'Este aviso cubre el <strong>sitio flipandlearn.app</strong> — concretamente, el formulario de la página de inicio donde puedes apuntarte para recibir un aviso cuando se lance la versión Android de Flip &amp; Learn.',
@@ -636,7 +636,7 @@ const PW = {
   de: {
     'pw.title': 'Datenschutzhinweis zur Website',
     'pw.desc': 'Datenschutzhinweis für die Warteliste zum Android-Launch der Website flipandlearn.app. Wir erheben nur Ihre E-Mail-Adresse für eine einzige Launch-Benachrichtigung.',
-    'pw.subheader': 'Datenschutzhinweis zur Website \u00A0·\u00A0 Zuletzt aktualisiert: 1. Mai 2026',
+    'pw.subheader': 'Datenschutzhinweis zur Website \u00A0·\u00A0 Zuletzt aktualisiert: 4. Juni 2026',
     'pw.summary': '<strong>Die Kurzfassung:</strong> Die Website flipandlearn.app erhebt Ihre E-Mail-Adresse nur, wenn Sie sich für die Warteliste zum Android-Launch eintragen. Wir senden Ihnen eine einzige E-Mail, sobald Android verfügbar ist, und löschen die Liste anschließend. Sonst nichts.',
     'pw.h.why': 'Warum es diesen Hinweis gibt',
     'pw.why1': 'Dieser Hinweis betrifft die <strong>Website flipandlearn.app</strong> — konkret das Formular auf der Startseite, mit dem Sie sich benachrichtigen lassen können, sobald die Android-Version von Flip &amp; Learn erscheint.',
@@ -683,7 +683,7 @@ const PW = {
   it: {
     'pw.title': 'Informativa sulla privacy del sito',
     'pw.desc': 'Informativa sulla privacy per la lista d\'attesa per il lancio Android del sito flipandlearn.app. Raccogliamo solo il tuo indirizzo e-mail per una singola notifica di lancio.',
-    'pw.subheader': 'Informativa sulla privacy del sito \u00A0·\u00A0 Ultimo aggiornamento: 1 maggio 2026',
+    'pw.subheader': 'Informativa sulla privacy del sito \u00A0·\u00A0 Ultimo aggiornamento: 4 giugno 2026',
     'pw.summary': '<strong>In breve:</strong> Il sito flipandlearn.app raccoglie il tuo indirizzo e-mail solo se ti iscrivi alla lista d\'attesa per il lancio Android. Ti inviamo una sola e-mail quando Android è pronto, poi eliminiamo la lista. Nient\'altro.',
     'pw.h.why': 'Perché esiste questa informativa',
     'pw.why1': 'Questa informativa riguarda il <strong>sito flipandlearn.app</strong> — nello specifico, il modulo nella pagina principale tramite cui puoi iscriverti per essere avvisato quando uscirà la versione Android di Flip &amp; Learn.',
@@ -730,7 +730,7 @@ const PW = {
   pt: {
     'pw.title': 'Política de privacidade do site',
     'pw.desc': 'Política de privacidade para a lista de espera do lançamento Android do site flipandlearn.app. Recolhemos apenas o seu e-mail para uma única notificação de lançamento.',
-    'pw.subheader': 'Política de privacidade do site \u00A0·\u00A0 Última atualização: 1 de maio de 2026',
+    'pw.subheader': 'Política de privacidade do site \u00A0·\u00A0 Última atualização: 4 de junho de 2026',
     'pw.summary': '<strong>Em resumo:</strong> O site flipandlearn.app recolhe o seu endereço de e-mail apenas se se inscrever na lista de espera do lançamento Android. Enviamos-lhe um único e-mail quando o Android estiver pronto, e depois eliminamos a lista. Nada mais.',
     'pw.h.why': 'Porque é que esta política existe',
     'pw.why1': 'Esta política abrange o <strong>site flipandlearn.app</strong> — concretamente, o formulário na página inicial onde se pode inscrever para ser notificado quando for lançada a versão Android do Flip &amp; Learn.',
@@ -777,7 +777,7 @@ const PW = {
   ro: {
     'pw.title': 'Nota de confidențialitate a site-ului',
     'pw.desc': 'Nota de confidențialitate pentru lista de așteptare a lansării Android a site-ului flipandlearn.app. Colectăm doar adresa ta de e-mail pentru o singură notificare de lansare.',
-    'pw.subheader': 'Nota de confidențialitate a site-ului \u00A0·\u00A0 Ultima actualizare: 1 mai 2026',
+    'pw.subheader': 'Nota de confidențialitate a site-ului \u00A0·\u00A0 Ultima actualizare: 4 iunie 2026',
     'pw.summary': '<strong>Pe scurt:</strong> Site-ul flipandlearn.app îți colectează adresa de e-mail doar dacă te înscrii pe lista de așteptare pentru lansarea Android. Îți trimitem un singur e-mail când Android este pregătit, apoi ștergem lista. Nimic altceva.',
     'pw.h.why': 'De ce există această notă',
     'pw.why1': 'Această notă acoperă <strong>site-ul flipandlearn.app</strong> — concret, formularul de pe pagina principală prin care te poți înscrie pentru a fi anunțat când se lansează versiunea Android a Flip &amp; Learn.',
@@ -824,7 +824,7 @@ const PW = {
   hu: {
     'pw.title': 'Weboldal adatvédelmi tájékoztató',
     'pw.desc': 'A flipandlearn.app weboldal Android-indítási várólistájához tartozó adatvédelmi tájékoztató. Csak az e-mail-címedet gyűjtjük egyetlen indítási értesítéshez.',
-    'pw.subheader': 'Weboldal adatvédelmi tájékoztató \u00A0·\u00A0 Utolsó frissítés: 2026. május 1.',
+    'pw.subheader': 'Weboldal adatvédelmi tájékoztató \u00A0·\u00A0 Utolsó frissítés: 2026. június 4.',
     'pw.summary': '<strong>Röviden:</strong> A flipandlearn.app weboldal csak akkor gyűjti az e-mail-címedet, ha feliratkozol az Android-indítás várólistájára. Egyetlen e-mailt küldünk neked, amint az Android elérhető, majd töröljük a listát. Semmi más.',
     'pw.h.why': 'Miért létezik ez a tájékoztató',
     'pw.why1': 'Ez a tájékoztató a <strong>flipandlearn.app weboldalra</strong> vonatkozik — pontosabban a kezdőlapon található űrlapra, amellyel feliratkozhatsz, hogy értesítsünk, amikor megjelenik a Flip &amp; Learn Android-verziója.',
@@ -871,7 +871,7 @@ const PW = {
   ar: {
     'pw.title': 'إشعار خصوصية الموقع',
     'pw.desc': 'إشعار الخصوصية الخاص بقائمة انتظار إصدار Android لموقع flipandlearn.app. نجمع فقط بريدك الإلكتروني لإرسال إشعار إصدار واحد.',
-    'pw.subheader': 'إشعار خصوصية الموقع \u00A0·\u00A0 آخر تحديث: 1 مايو 2026',
+    'pw.subheader': 'إشعار خصوصية الموقع \u00A0·\u00A0 آخر تحديث: 4 يونيو 2026',
     'pw.summary': '<strong>باختصار:</strong> يجمع موقع flipandlearn.app بريدك الإلكتروني فقط إذا قمت بالاشتراك في قائمة انتظار إصدار Android. نرسل إليك بريداً إلكترونياً واحداً عندما يصبح Android جاهزاً، ثم نحذف القائمة. لا شيء غير ذلك.',
     'pw.h.why': 'لماذا يوجد هذا الإشعار',
     'pw.why1': 'يغطي هذا الإشعار <strong>موقع flipandlearn.app</strong> — وتحديداً، النموذج في الصفحة الرئيسية الذي يمكنك من خلاله الاشتراك ليتم إعلامك عند إصدار نسخة Android من Flip &amp; Learn.',
