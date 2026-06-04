@@ -361,14 +361,6 @@ body.rtl{direction:rtl}
 .cc-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
 body.rtl .cc-inner{direction:rtl}
 @media(max-width:600px){.cc-inner{flex-direction:column;align-items:stretch}.cc-actions{justify-content:stretch}.cc-btn{flex:1 1 0;min-width:0}}
-/* FLI-cookie-consent: localized #cookies disclosure panel (target of banner "Learn more") */
-.cookies-section{background:#f5f5f7;padding:48px 20px;border-top:1px solid #e0e0e0}
-.cookies-wrap{max-width:760px;margin:0 auto;color:#3c3c43;font-size:14px;line-height:1.65}
-.cookies-wrap h2{font-size:22px;font-weight:700;color:#1d1d1f;margin-bottom:12px}
-.cookies-wrap p{margin-bottom:10px}
-.cookies-wrap a{color:#3A3589;text-decoration:underline}
-.cookies-wrap code{background:#ececf0;padding:1px 6px;border-radius:4px;font-size:12.5px;color:#3A3589}
-body.rtl .cookies-wrap{text-align:right}
 @media(max-width:600px){.hero h1{font-size:30px}.nav-links{display:none}.price-cards{grid-template-columns:1fr}.safe-box{margin:0 12px 44px;padding:28px 18px}nav{padding:0 16px}}
 </style>
 <!-- FLI-cookie-consent: Google Ads tag is loaded ONLY after explicit opt-in (fl_consent === 'accepted'). -->
@@ -697,24 +689,6 @@ body.rtl .cookies-wrap{text-align:right}
   </div>
 </section>
 
-<!-- FLI-cookie-consent: localized cookies disclosure (target of the banner "Learn more" link).
-     Full website privacy policy lives at /privacy-website.html (English-only for now; full
-     per-page localization tracked as FLI-163). -->
-<section id="cookies" class="cookies-section" aria-labelledby="cookies-h">
-  <div class="cookies-wrap">
-    <h2 id="cookies-h" data-i18n="cookies.h">ملفات تعريف الارتباط وGoogle Ads</h2>
-    <p data-i18n="cookies.p1">نستخدم تتبّع التحويلات في Google Ads (معرّف الوسم AW-18076192122) فقط لقياس أداء إعلاناتنا على Google. يكون الوسم محظوراً افتراضياً ولا يتم تحميله إلا بعد أن تنقر على &quot;أوافق&quot; في شريط ملفات تعريف الارتباط.</p>
-    <p data-i18n="cookies.p2">عند تفعيله، تضع Google ملف تعريف ارتباط من الطرف الأول (_gcl_au) على flipandlearn.app وقد تستلم: عنوان IP الخاص بك، ونوع المتصفح، والصفحة التي وصلت إليها، ومعرّف نقرة الإعلان المصدر، ومعرّف ملف تعريف ارتباط يُنشأ عشوائياً. تعمل Google كمعالج للبيانات؛ ولا تستلم اسمك أو بريدك الإلكتروني أو أي معلومات أخرى تحدد هويتك مباشرة.</p>
-    <p data-i18n="cookies.p3">إذا نقرت على &quot;أرفض&quot; أو أغلقت الصفحة دون اختيار، فلن يتم وضع أي ملفات تعريف ارتباط من Google ولن تُرسل أي بيانات إلى Google.</p>
-    <p data-i18n="cookies.p4">يمكنك تغيير اختيارك في أي وقت عبر رابط &quot;إعدادات ملفات تعريف الارتباط&quot; في تذييل الصفحة. يسري السحب فوراً عند تحميل الصفحة التالي؛ ويمكن حذف ملفات تعريف الارتباط التي وضعتها Google من إعدادات ملفات تعريف الارتباط في متصفحك.</p>
-    <p>
-      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" data-i18n="cookies.gplink">سياسة خصوصية Google</a>
-      &nbsp;·&nbsp;
-      <a href="/privacy-website.html" data-i18n="cookies.fullnotice">إشعار الخصوصية الكامل للموقع</a>
-    </p>
-  </div>
-</section>
-
 <footer>
   <div class="flinks">
     <a href="/" data-i18n="nav.home">الرئيسية</a>
@@ -741,7 +715,7 @@ body.rtl .cookies-wrap{text-align:right}
   <div class="cc-inner">
     <div class="cc-text">
       <span data-i18n="cookie.msg">نستخدم ملفات تعريف الارتباط الخاصة بـ Google Ads لقياس أداء الإعلانات. لا يتم تفعيلها إلا إذا قبلت.</span>
-      <a href="#cookies" data-i18n="cookie.learn">اعرف المزيد</a>
+      <a href="cookies.html" data-i18n="cookie.learn">اعرف المزيد</a>
     </div>
     <div class="cc-actions">
       <button type="button" class="cc-btn cc-reject" id="ccReject" data-i18n="cookie.reject">أرفض</button>

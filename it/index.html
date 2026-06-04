@@ -361,14 +361,6 @@ body.rtl{direction:rtl}
 .cc-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
 body.rtl .cc-inner{direction:rtl}
 @media(max-width:600px){.cc-inner{flex-direction:column;align-items:stretch}.cc-actions{justify-content:stretch}.cc-btn{flex:1 1 0;min-width:0}}
-/* FLI-cookie-consent: localized #cookies disclosure panel (target of banner "Learn more") */
-.cookies-section{background:#f5f5f7;padding:48px 20px;border-top:1px solid #e0e0e0}
-.cookies-wrap{max-width:760px;margin:0 auto;color:#3c3c43;font-size:14px;line-height:1.65}
-.cookies-wrap h2{font-size:22px;font-weight:700;color:#1d1d1f;margin-bottom:12px}
-.cookies-wrap p{margin-bottom:10px}
-.cookies-wrap a{color:#3A3589;text-decoration:underline}
-.cookies-wrap code{background:#ececf0;padding:1px 6px;border-radius:4px;font-size:12.5px;color:#3A3589}
-body.rtl .cookies-wrap{text-align:right}
 @media(max-width:600px){.hero h1{font-size:30px}.nav-links{display:none}.price-cards{grid-template-columns:1fr}.safe-box{margin:0 12px 44px;padding:28px 18px}nav{padding:0 16px}}
 </style>
 <!-- FLI-cookie-consent: Google Ads tag is loaded ONLY after explicit opt-in (fl_consent === 'accepted'). -->
@@ -697,24 +689,6 @@ body.rtl .cookies-wrap{text-align:right}
   </div>
 </section>
 
-<!-- FLI-cookie-consent: localized cookies disclosure (target of the banner "Learn more" link).
-     Full website privacy policy lives at /privacy-website.html (English-only for now; full
-     per-page localization tracked as FLI-163). -->
-<section id="cookies" class="cookies-section" aria-labelledby="cookies-h">
-  <div class="cookies-wrap">
-    <h2 id="cookies-h" data-i18n="cookies.h">Cookie e Google Ads</h2>
-    <p data-i18n="cookies.p1">Utilizziamo il monitoraggio delle conversioni di Google Ads (ID tag AW-18076192122) esclusivamente per misurare il rendimento dei nostri annunci su Google. Il tag è bloccato per impostazione predefinita e viene caricato solo dopo che hai cliccato su &quot;Accetta&quot; nel banner dei cookie.</p>
-    <p data-i18n="cookies.p2">Quando attivo, Google imposta un cookie di prima parte (_gcl_au) su flipandlearn.app e può ricevere: il tuo indirizzo IP, il tipo di browser, la pagina di destinazione, l'ID del clic pubblicitario di provenienza e un identificatore di cookie generato in modo casuale. Google agisce come responsabile del trattamento; non riceve il tuo nome, indirizzo e-mail o altre informazioni che ti identificano direttamente.</p>
-    <p data-i18n="cookies.p3">Se clicchi su &quot;Rifiuta&quot; o chiudi la pagina senza scegliere, non vengono impostati cookie di Google e nessun dato viene inviato a Google.</p>
-    <p data-i18n="cookies.p4">Puoi modificare la tua scelta in qualsiasi momento tramite il link &quot;Impostazioni cookie&quot; nel piè di pagina. La revoca ha effetto immediato al successivo caricamento della pagina; i cookie già impostati da Google possono essere eliminati dalle impostazioni dei cookie del tuo browser.</p>
-    <p>
-      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" data-i18n="cookies.gplink">Informativa sulla privacy di Google</a>
-      &nbsp;·&nbsp;
-      <a href="/privacy-website.html" data-i18n="cookies.fullnotice">Informativa sulla privacy completa del sito</a>
-    </p>
-  </div>
-</section>
-
 <footer>
   <div class="flinks">
     <a href="/" data-i18n="nav.home">Home</a>
@@ -741,7 +715,7 @@ body.rtl .cookies-wrap{text-align:right}
   <div class="cc-inner">
     <div class="cc-text">
       <span data-i18n="cookie.msg">Utilizziamo cookie di Google Ads per misurare le prestazioni degli annunci. Vengono attivati solo se accetti.</span>
-      <a href="#cookies" data-i18n="cookie.learn">Scopri di più</a>
+      <a href="cookies.html" data-i18n="cookie.learn">Scopri di più</a>
     </div>
     <div class="cc-actions">
       <button type="button" class="cc-btn cc-reject" id="ccReject" data-i18n="cookie.reject">Rifiuta</button>

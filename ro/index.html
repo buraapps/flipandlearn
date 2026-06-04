@@ -361,14 +361,6 @@ body.rtl{direction:rtl}
 .cc-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
 body.rtl .cc-inner{direction:rtl}
 @media(max-width:600px){.cc-inner{flex-direction:column;align-items:stretch}.cc-actions{justify-content:stretch}.cc-btn{flex:1 1 0;min-width:0}}
-/* FLI-cookie-consent: localized #cookies disclosure panel (target of banner "Learn more") */
-.cookies-section{background:#f5f5f7;padding:48px 20px;border-top:1px solid #e0e0e0}
-.cookies-wrap{max-width:760px;margin:0 auto;color:#3c3c43;font-size:14px;line-height:1.65}
-.cookies-wrap h2{font-size:22px;font-weight:700;color:#1d1d1f;margin-bottom:12px}
-.cookies-wrap p{margin-bottom:10px}
-.cookies-wrap a{color:#3A3589;text-decoration:underline}
-.cookies-wrap code{background:#ececf0;padding:1px 6px;border-radius:4px;font-size:12.5px;color:#3A3589}
-body.rtl .cookies-wrap{text-align:right}
 @media(max-width:600px){.hero h1{font-size:30px}.nav-links{display:none}.price-cards{grid-template-columns:1fr}.safe-box{margin:0 12px 44px;padding:28px 18px}nav{padding:0 16px}}
 </style>
 <!-- FLI-cookie-consent: Google Ads tag is loaded ONLY after explicit opt-in (fl_consent === 'accepted'). -->
@@ -697,24 +689,6 @@ body.rtl .cookies-wrap{text-align:right}
   </div>
 </section>
 
-<!-- FLI-cookie-consent: localized cookies disclosure (target of the banner "Learn more" link).
-     Full website privacy policy lives at /privacy-website.html (English-only for now; full
-     per-page localization tracked as FLI-163). -->
-<section id="cookies" class="cookies-section" aria-labelledby="cookies-h">
-  <div class="cookies-wrap">
-    <h2 id="cookies-h" data-i18n="cookies.h">Cookie-uri și Google Ads</h2>
-    <p data-i18n="cookies.p1">Folosim urmărirea conversiilor Google Ads (ID etichetă AW-18076192122) exclusiv pentru a măsura performanța reclamelor noastre din Google. Eticheta este blocată implicit și se încarcă doar după ce dai clic pe &quot;Accept&quot; în bannerul de cookie-uri.</p>
-    <p data-i18n="cookies.p2">Când este activă, Google plasează un cookie de primă parte (_gcl_au) pe flipandlearn.app și poate primi: adresa ta IP, tipul de browser, pagina pe care ai aterizat, ID-ul clicului de pe reclamă și un identificator de cookie generat aleatoriu. Google acționează ca persoană împuternicită; nu primește numele, adresa de e-mail sau alte informații care te identifică direct.</p>
-    <p data-i18n="cookies.p3">Dacă dai clic pe &quot;Refuz&quot; sau închizi pagina fără să alegi, nu se plasează niciun cookie Google și nu se trimit date către Google.</p>
-    <p data-i18n="cookies.p4">Îți poți schimba alegerea oricând prin linkul &quot;Setări cookie-uri&quot; din subsol. Retragerea consimțământului produce efecte imediat la următoarea încărcare a paginii; cookie-urile deja plasate de Google pot fi șterse din setările de cookie-uri ale browserului tău.</p>
-    <p>
-      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" data-i18n="cookies.gplink">Politica de confidențialitate Google</a>
-      &nbsp;·&nbsp;
-      <a href="/privacy-website.html" data-i18n="cookies.fullnotice">Politica de confidențialitate completă a site-ului</a>
-    </p>
-  </div>
-</section>
-
 <footer>
   <div class="flinks">
     <a href="/" data-i18n="nav.home">Acasă</a>
@@ -741,7 +715,7 @@ body.rtl .cookies-wrap{text-align:right}
   <div class="cc-inner">
     <div class="cc-text">
       <span data-i18n="cookie.msg">Folosim cookie-uri Google Ads pentru a măsura performanța reclamelor. Se activează doar dacă accepți.</span>
-      <a href="#cookies" data-i18n="cookie.learn">Află mai multe</a>
+      <a href="cookies.html" data-i18n="cookie.learn">Află mai multe</a>
     </div>
     <div class="cc-actions">
       <button type="button" class="cc-btn cc-reject" id="ccReject" data-i18n="cookie.reject">Refuz</button>
