@@ -361,6 +361,14 @@ body.rtl{direction:rtl}
 .cc-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
 body.rtl .cc-inner{direction:rtl}
 @media(max-width:600px){.cc-inner{flex-direction:column;align-items:stretch}.cc-actions{justify-content:stretch}.cc-btn{flex:1 1 0;min-width:0}}
+/* FLI-cookie-consent: localized #cookies disclosure panel (target of banner "Learn more") */
+.cookies-section{background:#f5f5f7;padding:48px 20px;border-top:1px solid #e0e0e0}
+.cookies-wrap{max-width:760px;margin:0 auto;color:#3c3c43;font-size:14px;line-height:1.65}
+.cookies-wrap h2{font-size:22px;font-weight:700;color:#1d1d1f;margin-bottom:12px}
+.cookies-wrap p{margin-bottom:10px}
+.cookies-wrap a{color:#3A3589;text-decoration:underline}
+.cookies-wrap code{background:#ececf0;padding:1px 6px;border-radius:4px;font-size:12.5px;color:#3A3589}
+body.rtl .cookies-wrap{text-align:right}
 @media(max-width:600px){.hero h1{font-size:30px}.nav-links{display:none}.price-cards{grid-template-columns:1fr}.safe-box{margin:0 12px 44px;padding:28px 18px}nav{padding:0 16px}}
 </style>
 <!-- FLI-cookie-consent: Google Ads tag is loaded ONLY after explicit opt-in (fl_consent === 'accepted'). -->
@@ -689,6 +697,24 @@ body.rtl .cc-inner{direction:rtl}
   </div>
 </section>
 
+<!-- FLI-cookie-consent: localized cookies disclosure (target of the banner "Learn more" link).
+     Full website privacy policy lives at /privacy-website.html (English-only for now; full
+     per-page localization tracked as FLI-163). -->
+<section id="cookies" class="cookies-section" aria-labelledby="cookies-h">
+  <div class="cookies-wrap">
+    <h2 id="cookies-h" data-i18n="cookies.h">Cookies et Google Ads</h2>
+    <p data-i18n="cookies.p1">Nous utilisons le suivi des conversions Google Ads (identifiant de balise AW-18076192122) uniquement pour mesurer les performances de nos publicités Google. La balise est bloquée par défaut et ne se charge qu'après que vous avez cliqué sur &quot;Accepter&quot; dans la bannière de cookies.</p>
+    <p data-i18n="cookies.p2">Lorsqu'elle est active, Google dépose un cookie propriétaire (_gcl_au) sur flipandlearn.app et peut recevoir : votre adresse IP, le type de navigateur, la page d'arrivée, l'identifiant du clic publicitaire d'origine et un identifiant de cookie généré aléatoirement. Google agit en tant que sous-traitant ; il ne reçoit ni votre nom, ni votre adresse e-mail, ni aucune autre information vous identifiant directement.</p>
+    <p data-i18n="cookies.p3">Si vous cliquez sur &quot;Refuser&quot; ou fermez la page sans choisir, aucun cookie Google n'est déposé et aucune donnée n'est envoyée à Google.</p>
+    <p data-i18n="cookies.p4">Vous pouvez modifier votre choix à tout moment via le lien &quot;Paramètres des cookies&quot; en bas de page. Le retrait prend effet immédiatement au prochain chargement ; les cookies déjà déposés par Google peuvent être supprimés depuis les paramètres de cookies de votre navigateur.</p>
+    <p>
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" data-i18n="cookies.gplink">Politique de confidentialité de Google</a>
+      &nbsp;·&nbsp;
+      <a href="/privacy-website.html" data-i18n="cookies.fullnotice">Avis de confidentialité complet du site</a>
+    </p>
+  </div>
+</section>
+
 <footer>
   <div class="flinks">
     <a href="/" data-i18n="nav.home">Accueil</a>
@@ -715,7 +741,7 @@ body.rtl .cc-inner{direction:rtl}
   <div class="cc-inner">
     <div class="cc-text">
       <span data-i18n="cookie.msg">Nous utilisons des cookies Google Ads pour mesurer les performances publicitaires. Ils ne sont activés qu'avec votre consentement.</span>
-      <a href="/privacy-website.html#cookies" data-i18n="cookie.learn">En savoir plus</a>
+      <a href="#cookies" data-i18n="cookie.learn">En savoir plus</a>
     </div>
     <div class="cc-actions">
       <button type="button" class="cc-btn cc-reject" id="ccReject" data-i18n="cookie.reject">Refuser</button>
@@ -754,7 +780,13 @@ en:{
 "about.h":"Made by a parent, tested by a kid","about.p1":"I'm a parent based in Regensburg, Germany. During the week I'm a system test engineer. On weekends, I built Flip & Learn — for my son, and with the idea that screen time can also be learning time. He turned out to be my most demanding and most honest tester.","about.p2":"Every category, every translation, every animation gets the same treatment I'd give to anything I hand to my own child: tested for rough edges, tested with the difficult cases, tested on real devices before any release goes out the door. Quality first, ship later.","about.p3":"No marketing team. No analytics tracking your child. No ads to chase. Just one parent making something other parents — and their kids — might enjoy too.",
 "supt":"Support","suph":"Need help?","supp":"We are here to help with any questions. We aim to respond within 48 hours.","supb":"Contact Support","supd":"Developed by BuraApps","fr":"All rights reserved.",
 "we.title":"Why Emojis?","we.body":"A photo of \"lunch\" looks Italian or Japanese. An emoji is universal. Emojis cross every culture, work the same on every device, and are already part of how kids see the world — warm, instantly readable, and familiar from the messages they watch their parents send.","we.w1":"dog","we.w2":"apple","we.w3":"car","we.w4":"star","we.w5":"dolphin",
-"cookie.msg":"We use Google Ads cookies to measure ad performance. They are only set if you accept.","cookie.accept":"Accept","cookie.reject":"Reject","cookie.settings":"Cookie settings","cookie.learn":"Learn more"
+"cookie.msg":"We use Google Ads cookies to measure ad performance. They are only set if you accept.","cookie.accept":"Accept","cookie.reject":"Reject","cookie.settings":"Cookie settings","cookie.learn":"Learn more",
+"cookies.h":"Cookies & Google Ads",
+"cookies.p1":"We use Google Ads conversion tracking (tag ID AW-18076192122) only to measure how well our ads on Google perform. The tag is blocked by default and loads only after you click \"Accept\" on the cookie banner.",
+"cookies.p2":"When active, Google sets a first-party cookie (_gcl_au) on flipandlearn.app and may receive: your IP address, browser type, the page you landed on, the referring ad click ID, and a randomly-generated cookie identifier. Google acts as the data processor; it does not receive your name, email, or any other directly identifying information.",
+"cookies.p3":"If you click \"Reject\" or close the page without choosing, no Google cookies are set and no data is sent to Google.",
+"cookies.p4":"You can change your choice at any time via the \"Cookie settings\" link in the footer. Withdrawal takes effect immediately on the next page load; cookies already set by Google can be cleared from your browser's cookie settings.",
+"cookies.gplink":"Google's privacy policy","cookies.fullnotice":"Full website privacy notice"
 },
 es:{
 "nav.ss":"Capturas","nav.feat":"Funciones","nav.lang":"Idiomas","nav.price":"Precios","nav.sup":"Soporte","nav.priv":"Privacidad","nav.home":"Inicio",
@@ -783,7 +815,13 @@ es:{
 "about.h":"Hecho por un padre, probado por un niño","about.p1":"Soy padre y vivo en Regensburg, Alemania. Entre semana trabajo como ingeniero de pruebas de sistemas. Los fines de semana, desarrollé Flip & Learn — para mi hijo, y con la idea de que el tiempo frente a la pantalla también puede ser tiempo de aprendizaje. Resultó ser mi probador más exigente y más honesto.","about.p2":"Cada categoría, cada traducción, cada animación recibe el mismo cuidado que daría a cualquier cosa que pongo en manos de mi propio hijo: probada para detectar imperfecciones, probada con los casos difíciles, probada en dispositivos reales antes de cualquier lanzamiento. Primero la calidad, después el lanzamiento.","about.p3":"Sin equipo de marketing. Sin análisis que rastreen a tu hijo. Sin anuncios. Solo un padre haciendo algo que otros padres — y sus hijos — también podrían disfrutar.",
 "supt":"Soporte","suph":"¿Necesitas ayuda?","supp":"Estamos aquí para ayudarte. Respondemos en 48 horas.","supb":"Contactar soporte","supd":"Desarrollado por BuraApps","fr":"Todos los derechos reservados.",
 "we.title":"¿Por qué emojis?","we.body":"Una foto de \"comida\" parece italiana o japonesa. Un emoji es universal. Los emojis cruzan cualquier cultura, funcionan igual en cualquier dispositivo y ya son parte del mundo que los niños conocen — cálidos, fáciles de reconocer al instante, y familiares por los mensajes que ven escribir a sus padres.","we.w1":"perro","we.w2":"manzana","we.w3":"coche","we.w4":"estrella","we.w5":"delfín",
-"cookie.msg":"Usamos cookies de Google Ads para medir el rendimiento de los anuncios. Solo se activan si las aceptas.","cookie.accept":"Aceptar","cookie.reject":"Rechazar","cookie.settings":"Configuración de cookies","cookie.learn":"Más información"
+"cookie.msg":"Usamos cookies de Google Ads para medir el rendimiento de los anuncios. Solo se activan si las aceptas.","cookie.accept":"Aceptar","cookie.reject":"Rechazar","cookie.settings":"Configuración de cookies","cookie.learn":"Más información",
+"cookies.h":"Cookies y Google Ads",
+"cookies.p1":"Utilizamos el seguimiento de conversiones de Google Ads (ID de etiqueta AW-18076192122) únicamente para medir el rendimiento de nuestros anuncios en Google. La etiqueta está bloqueada por defecto y solo se carga después de que hagas clic en \"Aceptar\" en el banner de cookies.",
+"cookies.p2":"Cuando está activa, Google establece una cookie propia (_gcl_au) en flipandlearn.app y puede recibir: tu dirección IP, tipo de navegador, la página de destino, el ID del clic del anuncio de origen y un identificador de cookie generado aleatoriamente. Google actúa como encargado del tratamiento; no recibe tu nombre, correo electrónico ni ninguna otra información que te identifique directamente.",
+"cookies.p3":"Si haces clic en \"Rechazar\" o cierras la página sin elegir, no se establecen cookies de Google ni se envían datos a Google.",
+"cookies.p4":"Puedes cambiar tu elección en cualquier momento mediante el enlace \"Configuración de cookies\" del pie de página. La retirada se aplica de inmediato en la siguiente carga de página; las cookies que Google ya haya establecido pueden eliminarse desde la configuración de cookies de tu navegador.",
+"cookies.gplink":"Política de privacidad de Google","cookies.fullnotice":"Aviso de privacidad completo del sitio web"
 },
 fr:{
 "nav.ss":"Captures","nav.feat":"Fonctionnalités","nav.lang":"Langues","nav.price":"Tarifs","nav.sup":"Support","nav.priv":"Confidentialité","nav.home":"Accueil",
@@ -812,7 +850,13 @@ fr:{
 "about.h":"Fait par un parent, testé par un enfant","about.p1":"Je suis parent et je vis à Regensburg, en Allemagne. En semaine, je travaille comme ingénieur de test système. Le week-end, j'ai développé Flip & Learn — pour mon fils, et avec l'idée que le temps passé devant un écran peut aussi être un temps d'apprentissage. Il s'est révélé être mon testeur le plus exigeant et le plus honnête.","about.p2":"Chaque catégorie, chaque traduction, chaque animation reçoit le même soin que j'apporterais à tout ce que je mets entre les mains de mon propre enfant : testé pour les imperfections, testé avec les cas difficiles, testé sur de vrais appareils avant chaque sortie. La qualité d'abord, la sortie ensuite.","about.p3":"Pas d'équipe marketing. Pas d'analyses qui suivent ton enfant. Pas de publicités. Juste un parent qui crée quelque chose que d'autres parents — et leurs enfants — pourraient aussi apprécier.",
 "supt":"Support","suph":"Besoin d'aide ?","supp":"Nous sommes là pour répondre à toutes vos questions. Réponse sous 48h.","supb":"Contacter le support","supd":"Développé par BuraApps","fr":"Tous droits réservés.",
 "we.title":"Pourquoi les emojis ?","we.body":"Une photo de « déjeuner » a l'air italienne ou japonaise. Un emoji est universel. Les emojis traversent toutes les cultures, fonctionnent de la même façon sur tous les appareils, et font déjà partie du monde des enfants — chaleureux, immédiatement lisibles, et familiers grâce aux messages qu'ils voient leurs parents écrire.","we.w1":"chien","we.w2":"pomme","we.w3":"voiture","we.w4":"étoile","we.w5":"dauphin",
-"cookie.msg":"Nous utilisons des cookies Google Ads pour mesurer les performances publicitaires. Ils ne sont activés qu'avec votre consentement.","cookie.accept":"Accepter","cookie.reject":"Refuser","cookie.settings":"Paramètres des cookies","cookie.learn":"En savoir plus"
+"cookie.msg":"Nous utilisons des cookies Google Ads pour mesurer les performances publicitaires. Ils ne sont activés qu'avec votre consentement.","cookie.accept":"Accepter","cookie.reject":"Refuser","cookie.settings":"Paramètres des cookies","cookie.learn":"En savoir plus",
+"cookies.h":"Cookies et Google Ads",
+"cookies.p1":"Nous utilisons le suivi des conversions Google Ads (identifiant de balise AW-18076192122) uniquement pour mesurer les performances de nos publicités Google. La balise est bloquée par défaut et ne se charge qu'après que vous avez cliqué sur \"Accepter\" dans la bannière de cookies.",
+"cookies.p2":"Lorsqu'elle est active, Google dépose un cookie propriétaire (_gcl_au) sur flipandlearn.app et peut recevoir : votre adresse IP, le type de navigateur, la page d'arrivée, l'identifiant du clic publicitaire d'origine et un identifiant de cookie généré aléatoirement. Google agit en tant que sous-traitant ; il ne reçoit ni votre nom, ni votre adresse e-mail, ni aucune autre information vous identifiant directement.",
+"cookies.p3":"Si vous cliquez sur \"Refuser\" ou fermez la page sans choisir, aucun cookie Google n'est déposé et aucune donnée n'est envoyée à Google.",
+"cookies.p4":"Vous pouvez modifier votre choix à tout moment via le lien \"Paramètres des cookies\" en bas de page. Le retrait prend effet immédiatement au prochain chargement ; les cookies déjà déposés par Google peuvent être supprimés depuis les paramètres de cookies de votre navigateur.",
+"cookies.gplink":"Politique de confidentialité de Google","cookies.fullnotice":"Avis de confidentialité complet du site"
 },
 de:{
 "nav.ss":"Screenshots","nav.feat":"Funktionen","nav.lang":"Sprachen","nav.price":"Preise","nav.sup":"Support","nav.priv":"Datenschutz","nav.home":"Startseite",
@@ -841,7 +885,13 @@ de:{
 "about.h":"Von einem Vater gemacht, von einem Kind getestet","about.p1":"Ich bin Vater und lebe in Regensburg, Deutschland. Unter der Woche arbeite ich als Systemtestingenieur. An den Wochenenden habe ich Flip & Learn entwickelt — für meinen Sohn, und mit der Idee, dass Zeit vor dem Bildschirm auch Lernzeit sein kann. Er hat sich als mein anspruchsvollster und ehrlichster Tester herausgestellt.","about.p2":"Jede Kategorie, jede Übersetzung, jede Animation wird so sorgfältig geprüft, wie ich es bei allem tun würde, was ich meinem eigenen Kind in die Hand gebe: getestet auf Ecken und Kanten, getestet mit den schwierigen Fällen, getestet auf echten Geräten, bevor irgendetwas veröffentlicht wird. Qualität zuerst, Release danach.","about.p3":"Kein Marketing-Team. Kein Tracking deines Kindes. Keine Werbung. Nur ein Vater, der etwas baut, das andere Eltern — und ihre Kinder — auch mögen könnten.",
 "supt":"Support","suph":"Brauchen Sie Hilfe?","supp":"Wir helfen Ihnen gerne. Antwort innerhalb von 48 Stunden.","supb":"Support kontaktieren","supd":"Entwickelt von BuraApps","fr":"Alle Rechte vorbehalten.",
 "we.title":"Warum Emojis?","we.body":"Ein Foto von „Mittagessen\" sieht italienisch oder japanisch aus. Ein Emoji ist universell. Emojis überschreiten jede Kultur, funktionieren auf jedem Gerät gleich und sind längst Teil der Welt, in der Kinder aufwachsen — warm, sofort verständlich, und vertraut aus den Nachrichten, die sie ihre Eltern schreiben sehen.","we.w1":"Hund","we.w2":"Apfel","we.w3":"Auto","we.w4":"Stern","we.w5":"Delfin",
-"cookie.msg":"Wir verwenden Google-Ads-Cookies, um die Anzeigenleistung zu messen. Sie werden nur gesetzt, wenn Sie zustimmen.","cookie.accept":"Akzeptieren","cookie.reject":"Ablehnen","cookie.settings":"Cookie-Einstellungen","cookie.learn":"Mehr erfahren"
+"cookie.msg":"Wir verwenden Google-Ads-Cookies, um die Anzeigenleistung zu messen. Sie werden nur gesetzt, wenn Sie zustimmen.","cookie.accept":"Akzeptieren","cookie.reject":"Ablehnen","cookie.settings":"Cookie-Einstellungen","cookie.learn":"Mehr erfahren",
+"cookies.h":"Cookies und Google Ads",
+"cookies.p1":"Wir verwenden Google-Ads-Conversion-Tracking (Tag-ID AW-18076192122) ausschließlich, um die Leistung unserer Google-Anzeigen zu messen. Das Tag ist standardmäßig blockiert und wird erst geladen, nachdem Sie im Cookie-Banner auf \"Akzeptieren\" geklickt haben.",
+"cookies.p2":"Wenn aktiv, setzt Google ein First-Party-Cookie (_gcl_au) auf flipandlearn.app und kann Folgendes empfangen: Ihre IP-Adresse, Browsertyp, die aufgerufene Seite, die zugehörige Ad-Click-ID und eine zufällig generierte Cookie-Kennung. Google fungiert als Auftragsverarbeiter und erhält weder Ihren Namen, Ihre E-Mail-Adresse noch andere direkt identifizierende Informationen.",
+"cookies.p3":"Wenn Sie auf \"Ablehnen\" klicken oder die Seite ohne Auswahl schließen, werden keine Google-Cookies gesetzt und keine Daten an Google gesendet.",
+"cookies.p4":"Sie können Ihre Wahl jederzeit über den Link \"Cookie-Einstellungen\" im Footer ändern. Der Widerruf wird beim nächsten Seitenaufruf wirksam; bereits von Google gesetzte Cookies können Sie in den Cookie-Einstellungen Ihres Browsers löschen.",
+"cookies.gplink":"Datenschutzerklärung von Google","cookies.fullnotice":"Vollständige Datenschutzerklärung der Website"
 },
 hu:{
 "nav.ss":"Képernyő","nav.feat":"Funkciók","nav.lang":"Nyelvek","nav.price":"Árak","nav.sup":"Támogatás","nav.priv":"Adatvédelem","nav.home":"Főoldal",
@@ -870,7 +920,13 @@ hu:{
 "about.h":"Egy szülő készítette, egy gyerek tesztelte","about.p1":"Szülő vagyok, Regensburgban élek, Németországban. Hétközben rendszerteszt-mérnökként dolgozom. Hétvégenként készítettem el a Flip & Learn-t — a fiamnak, azzal a gondolattal, hogy a képernyő előtt töltött idő egyben tanulási idő is lehet. Ő bizonyult a legigényesebb és legőszintébb tesztelőmnek.","about.p2":"Minden kategória, minden fordítás, minden animáció ugyanazt a gondosságot kapja, amit bármi másnak, amit a saját gyermekem kezébe adok: hibákra tesztelve, nehéz esetekre tesztelve, valódi eszközökön tesztelve minden kiadás előtt. Először a minőség, aztán a kiadás.","about.p3":"Nincs marketing csapat. Nincs analitika, ami a gyermekedet követné. Nincsenek hirdetések. Csak egy szülő, aki olyasmit készít, amit más szülők — és gyermekeik — is élvezhetnek.",
 "supt":"Támogatás","suph":"Segítségre van szükséged?","supp":"Szívesen segítünk. 48 órán belül válaszolunk.","supb":"Kapcsolatfelvétel","supd":"Fejlesztette: BuraApps","fr":"Minden jog fenntartva.",
 "we.title":"Miért emojik?","we.body":"Egy fotó az „ebédről\" lehet olasz vagy japán. Egy emoji univerzális. Az emojik átívelnek minden kultúrán, ugyanúgy működnek minden eszközön, és már részei a világnak, amelyben a gyerekek élnek — melegek, azonnal felismerhetőek, és ismerősek a szüleik üzeneteiből.","we.w1":"kutya","we.w2":"alma","we.w3":"autó","we.w4":"csillag","we.w5":"delfin",
-"cookie.msg":"Google Ads cookie-kat használunk a hirdetések teljesítményének méréséhez. Csak akkor aktiválódnak, ha elfogadod.","cookie.accept":"Elfogadom","cookie.reject":"Elutasítom","cookie.settings":"Cookie-beállítások","cookie.learn":"Tudj meg többet"
+"cookie.msg":"Google Ads cookie-kat használunk a hirdetések teljesítményének méréséhez. Csak akkor aktiválódnak, ha elfogadod.","cookie.accept":"Elfogadom","cookie.reject":"Elutasítom","cookie.settings":"Cookie-beállítások","cookie.learn":"Tudj meg többet",
+"cookies.h":"Cookie-k és Google Ads",
+"cookies.p1":"A Google Ads konverziókövetést (címke-azonosító: AW-18076192122) kizárólag a Google-hirdetéseink teljesítményének mérésére használjuk. A címke alapértelmezetten le van tiltva, és csak akkor töltődik be, ha a cookie-sávon az \"Elfogadom\" gombra kattintasz.",
+"cookies.p2":"Bekapcsolt állapotban a Google egy first-party cookie-t (_gcl_au) helyez el a flipandlearn.app domainen, és a következőket kaphatja meg: az IP-címedet, a böngésződ típusát, a megnyitott oldalt, a hirdetésre kattintáshoz tartozó azonosítót és egy véletlenszerűen generált cookie-azonosítót. A Google adatfeldolgozóként jár el; nem kapja meg a nevedet, e-mail-címedet vagy más közvetlenül azonosító információdat.",
+"cookies.p3":"Ha az \"Elutasítom\" gombra kattintasz, vagy választás nélkül zárod be az oldalt, nem kerül elhelyezésre Google-cookie, és nem küldünk adatot a Google felé.",
+"cookies.p4":"A választásod bármikor módosíthatod a láblécben található \"Cookie-beállítások\" hivatkozással. A visszavonás azonnal érvénybe lép a következő oldalbetöltéskor; a Google által már elhelyezett cookie-kat a böngésződ cookie-beállításaiban törölheted.",
+"cookies.gplink":"A Google adatvédelmi szabályzata","cookies.fullnotice":"Teljes adatvédelmi tájékoztató"
 },
 ro:{
 "nav.ss":"Capturi","nav.feat":"Funcții","nav.lang":"Limbi","nav.price":"Prețuri","nav.sup":"Suport","nav.priv":"Confidențialitate","nav.home":"Acasă",
@@ -899,7 +955,13 @@ ro:{
 "about.h":"Făcut de un părinte, testat de un copil","about.p1":"Sunt părinte și locuiesc în Regensburg, Germania. În timpul săptămânii lucrez ca inginer de testare de sistem. În weekenduri am dezvoltat Flip & Learn — pentru fiul meu, și cu ideea că timpul petrecut în fața ecranului poate fi și timp de învățare. S-a dovedit a fi cel mai exigent și mai sincer tester al meu.","about.p2":"Fiecare categorie, fiecare traducere, fiecare animație primește aceeași grijă pe care aș acorda-o oricărui lucru pe care îl pun în mâinile propriului meu copil: testat pentru imperfecțiuni, testat cu cazurile dificile, testat pe dispozitive reale înainte de orice lansare. Mai întâi calitatea, apoi lansarea.","about.p3":"Fără echipă de marketing. Fără analize care îți urmăresc copilul. Fără reclame. Doar un părinte care face ceva ce și alți părinți — și copiii lor — ar putea aprecia.",
 "supt":"Suport","suph":"Ai nevoie de ajutor?","supp":"Suntem aici pentru orice întrebări. Răspundem în 48 de ore.","supb":"Contactează suportul","supd":"Dezvoltat de BuraApps","fr":"Toate drepturile rezervate.",
 "we.title":"De ce emoji-uri?","we.body":"O fotografie cu „prânzul\" pare italiană sau japoneză. Un emoji este universal. Emojiurile traversează orice cultură, funcționează la fel pe orice dispozitiv și fac deja parte din lumea copiilor — calde, imediat de recunoscut și familiare din mesajele pe care îi văd pe părinți scriindu-le.","we.w1":"câine","we.w2":"măr","we.w3":"mașină","we.w4":"stea","we.w5":"delfin",
-"cookie.msg":"Folosim cookie-uri Google Ads pentru a măsura performanța reclamelor. Se activează doar dacă accepți.","cookie.accept":"Accept","cookie.reject":"Refuz","cookie.settings":"Setări cookie-uri","cookie.learn":"Află mai multe"
+"cookie.msg":"Folosim cookie-uri Google Ads pentru a măsura performanța reclamelor. Se activează doar dacă accepți.","cookie.accept":"Accept","cookie.reject":"Refuz","cookie.settings":"Setări cookie-uri","cookie.learn":"Află mai multe",
+"cookies.h":"Cookie-uri și Google Ads",
+"cookies.p1":"Folosim urmărirea conversiilor Google Ads (ID etichetă AW-18076192122) exclusiv pentru a măsura performanța reclamelor noastre din Google. Eticheta este blocată implicit și se încarcă doar după ce dai clic pe \"Accept\" în bannerul de cookie-uri.",
+"cookies.p2":"Când este activă, Google plasează un cookie de primă parte (_gcl_au) pe flipandlearn.app și poate primi: adresa ta IP, tipul de browser, pagina pe care ai aterizat, ID-ul clicului de pe reclamă și un identificator de cookie generat aleatoriu. Google acționează ca persoană împuternicită; nu primește numele, adresa de e-mail sau alte informații care te identifică direct.",
+"cookies.p3":"Dacă dai clic pe \"Refuz\" sau închizi pagina fără să alegi, nu se plasează niciun cookie Google și nu se trimit date către Google.",
+"cookies.p4":"Îți poți schimba alegerea oricând prin linkul \"Setări cookie-uri\" din subsol. Retragerea consimțământului produce efecte imediat la următoarea încărcare a paginii; cookie-urile deja plasate de Google pot fi șterse din setările de cookie-uri ale browserului tău.",
+"cookies.gplink":"Politica de confidențialitate Google","cookies.fullnotice":"Politica de confidențialitate completă a site-ului"
 },
 it:{
 "nav.ss":"Screenshot","nav.feat":"Funzionalità","nav.lang":"Lingue","nav.price":"Prezzi","nav.sup":"Supporto","nav.priv":"Privacy","nav.home":"Home",
@@ -928,7 +990,13 @@ it:{
 "about.h":"Fatto da un genitore, testato da un bambino","about.p1":"Sono un genitore e vivo a Regensburg, in Germania. Durante la settimana lavoro come ingegnere di test di sistema. Nei fine settimana, ho sviluppato Flip & Learn — per mio figlio, e con l'idea che il tempo davanti allo schermo possa essere anche tempo di apprendimento. Si è rivelato essere il mio tester più esigente e più sincero.","about.p2":"Ogni categoria, ogni traduzione, ogni animazione riceve la stessa cura che darei a qualsiasi cosa metto nelle mani di mio figlio: testata per le imperfezioni, testata con i casi difficili, testata su dispositivi reali prima di ogni rilascio. Prima la qualità, poi il rilascio.","about.p3":"Niente team di marketing. Nessuna analisi che traccia tuo figlio. Niente pubblicità. Solo un genitore che crea qualcosa che altri genitori — e i loro bambini — potrebbero apprezzare.",
 "supt":"Supporto","suph":"Hai bisogno di aiuto?","supp":"Siamo qui per aiutarti. Rispondiamo entro 48 ore.","supb":"Contatta il supporto","supd":"Sviluppato da BuraApps","fr":"Tutti i diritti riservati.",
 "we.title":"Perché le emoji?","we.body":"Una foto di \"pranzo\" sembra italiana o giapponese. Un'emoji è universale. Le emoji attraversano ogni cultura, funzionano allo stesso modo su ogni dispositivo, e fanno già parte del mondo in cui crescono i bambini — calde, immediatamente riconoscibili, e familiari dai messaggi che vedono scrivere ai genitori.","we.w1":"cane","we.w2":"mela","we.w3":"macchina","we.w4":"stella","we.w5":"delfino",
-"cookie.msg":"Utilizziamo cookie di Google Ads per misurare le prestazioni degli annunci. Vengono attivati solo se accetti.","cookie.accept":"Accetta","cookie.reject":"Rifiuta","cookie.settings":"Impostazioni cookie","cookie.learn":"Scopri di più"
+"cookie.msg":"Utilizziamo cookie di Google Ads per misurare le prestazioni degli annunci. Vengono attivati solo se accetti.","cookie.accept":"Accetta","cookie.reject":"Rifiuta","cookie.settings":"Impostazioni cookie","cookie.learn":"Scopri di più",
+"cookies.h":"Cookie e Google Ads",
+"cookies.p1":"Utilizziamo il monitoraggio delle conversioni di Google Ads (ID tag AW-18076192122) esclusivamente per misurare il rendimento dei nostri annunci su Google. Il tag è bloccato per impostazione predefinita e viene caricato solo dopo che hai cliccato su \"Accetta\" nel banner dei cookie.",
+"cookies.p2":"Quando attivo, Google imposta un cookie di prima parte (_gcl_au) su flipandlearn.app e può ricevere: il tuo indirizzo IP, il tipo di browser, la pagina di destinazione, l'ID del clic pubblicitario di provenienza e un identificatore di cookie generato in modo casuale. Google agisce come responsabile del trattamento; non riceve il tuo nome, indirizzo e-mail o altre informazioni che ti identificano direttamente.",
+"cookies.p3":"Se clicchi su \"Rifiuta\" o chiudi la pagina senza scegliere, non vengono impostati cookie di Google e nessun dato viene inviato a Google.",
+"cookies.p4":"Puoi modificare la tua scelta in qualsiasi momento tramite il link \"Impostazioni cookie\" nel piè di pagina. La revoca ha effetto immediato al successivo caricamento della pagina; i cookie già impostati da Google possono essere eliminati dalle impostazioni dei cookie del tuo browser.",
+"cookies.gplink":"Informativa sulla privacy di Google","cookies.fullnotice":"Informativa sulla privacy completa del sito"
 },
 pt:{
 "nav.ss":"Capturas","nav.feat":"Funcionalidades","nav.lang":"Idiomas","nav.price":"Preços","nav.sup":"Suporte","nav.priv":"Privacidade","nav.home":"Início",
@@ -957,7 +1025,13 @@ pt:{
 "about.h":"Feito por um pai, testado por uma criança","about.p1":"Sou pai e vivo em Regensburg, na Alemanha. Durante a semana trabalho como engenheiro de teste de sistemas. Aos fins de semana, desenvolvi o Flip & Learn — para o meu filho, e com a ideia de que o tempo em frente ao ecrã também pode ser tempo de aprendizagem. Revelou-se o meu testador mais exigente e mais honesto.","about.p2":"Cada categoria, cada tradução, cada animação recebe o mesmo cuidado que daria a qualquer coisa que ponho nas mãos do meu próprio filho: testada para detetar imperfeições, testada com os casos difíceis, testada em dispositivos reais antes de qualquer lançamento. Primeiro a qualidade, depois o lançamento.","about.p3":"Sem equipa de marketing. Sem análises que sigam o teu filho. Sem anúncios. Apenas um pai a criar algo que outros pais — e os seus filhos — também possam apreciar.",
 "supt":"Suporte","suph":"Precisas de ajuda?","supp":"Estamos aqui para ajudar. Respondemos em 48 horas.","supb":"Contactar suporte","supd":"Desenvolvido por BuraApps","fr":"Todos os direitos reservados.",
 "we.title":"Por que emojis?","we.body":"Uma foto de \"almoço\" parece italiana ou japonesa. Um emoji é universal. Os emojis atravessam todas as culturas, funcionam da mesma forma em todos os dispositivos, e já fazem parte do mundo das crianças — calorosos, imediatamente legíveis, e familiares das mensagens que veem os pais a escrever.","we.w1":"cão","we.w2":"maçã","we.w3":"carro","we.w4":"estrela","we.w5":"golfinho",
-"cookie.msg":"Utilizamos cookies do Google Ads para medir o desempenho dos anúncios. Só são ativados se aceitar.","cookie.accept":"Aceitar","cookie.reject":"Recusar","cookie.settings":"Definições de cookies","cookie.learn":"Saber mais"
+"cookie.msg":"Utilizamos cookies do Google Ads para medir o desempenho dos anúncios. Só são ativados se aceitar.","cookie.accept":"Aceitar","cookie.reject":"Recusar","cookie.settings":"Definições de cookies","cookie.learn":"Saber mais",
+"cookies.h":"Cookies e Google Ads",
+"cookies.p1":"Utilizamos o acompanhamento de conversões do Google Ads (ID da etiqueta AW-18076192122) apenas para medir o desempenho dos nossos anúncios no Google. A etiqueta está bloqueada por predefinição e só é carregada depois de clicar em \"Aceitar\" no banner de cookies.",
+"cookies.p2":"Quando ativa, a Google coloca um cookie próprio (_gcl_au) em flipandlearn.app e pode receber: o seu endereço IP, tipo de navegador, a página onde aterrou, o ID do clique do anúncio de origem e um identificador de cookie gerado aleatoriamente. A Google atua como subcontratante; não recebe o seu nome, endereço de e-mail nem qualquer outra informação que o identifique diretamente.",
+"cookies.p3":"Se clicar em \"Recusar\" ou fechar a página sem escolher, não são colocados cookies da Google e nenhum dado é enviado para a Google.",
+"cookies.p4":"Pode alterar a sua escolha a qualquer momento através da ligação \"Definições de cookies\" no rodapé. A retirada produz efeitos imediatos no carregamento seguinte da página; os cookies já colocados pela Google podem ser eliminados nas definições de cookies do seu navegador.",
+"cookies.gplink":"Política de privacidade da Google","cookies.fullnotice":"Aviso de privacidade completo do site"
 },
 ar:{
 "nav.ss":"لقطات","nav.feat":"المميزات","nav.lang":"اللغات","nav.price":"الأسعار","nav.sup":"الدعم","nav.priv":"الخصوصية","nav.home":"الرئيسية",
@@ -986,7 +1060,13 @@ ar:{
 "about.h":"صنعه أب، واختبره طفل","about.p1":"أنا أبٌ أعيش في ريغنسبورغ بألمانيا. خلال الأسبوع أعمل مهندس اختبار أنظمة. في عطلات نهاية الأسبوع طوّرت Flip & Learn — لابني، وبفكرة أن الوقت أمام الشاشة يمكن أن يكون أيضاً وقتاً للتعلم. وقد تبيّن أنه أكثر المختبرين صرامةً وصدقاً معي.","about.p2":"كل فئة، كل ترجمة، كل رسم متحرك تحظى بنفس العناية التي أوليها لأي شيء أضعه في يدي طفلي: اختُبرت للكشف عن العيوب، اختُبرت مع الحالات الصعبة، اختُبرت على أجهزة حقيقية قبل أي إصدار. الجودة أولاً، الإصدار لاحقاً.","about.p3":"لا فريق تسويق. لا تتبع لطفلك. لا إعلانات. فقط أب يصنع شيئاً قد يستمتع به آباء آخرون — وأطفالهم — أيضاً.",
 "supt":"الدعم","suph":"تحتاج مساعدة؟","supp":"نحن هنا للمساعدة. نهدف للرد خلال 48 ساعة.","supb":"تواصل مع الدعم","supd":"من تطوير BuraApps","fr":"جميع الحقوق محفوظة.",
 "we.title":"لماذا الإيموجي؟","we.body":"صورة لـ\"وجبة الغداء\" تبدو إيطالية أو يابانية. الإيموجي عالمي. الإيموجي يتجاوز كل الثقافات، يعمل بنفس الطريقة على كل الأجهزة، وهو بالفعل جزء من العالم الذي يكبر فيه الأطفال — دافئ، مفهوم فوراً، ومألوف من الرسائل التي يرونها على هواتف أهلهم.","we.w1":"كلب","we.w2":"تفاحة","we.w3":"سيارة","we.w4":"نجمة","we.w5":"دلفين",
-"cookie.msg":"نستخدم ملفات تعريف الارتباط الخاصة بـ Google Ads لقياس أداء الإعلانات. لا يتم تفعيلها إلا إذا قبلت.","cookie.accept":"أوافق","cookie.reject":"أرفض","cookie.settings":"إعدادات ملفات تعريف الارتباط","cookie.learn":"اعرف المزيد"
+"cookie.msg":"نستخدم ملفات تعريف الارتباط الخاصة بـ Google Ads لقياس أداء الإعلانات. لا يتم تفعيلها إلا إذا قبلت.","cookie.accept":"أوافق","cookie.reject":"أرفض","cookie.settings":"إعدادات ملفات تعريف الارتباط","cookie.learn":"اعرف المزيد",
+"cookies.h":"ملفات تعريف الارتباط وGoogle Ads",
+"cookies.p1":"نستخدم تتبّع التحويلات في Google Ads (معرّف الوسم AW-18076192122) فقط لقياس أداء إعلاناتنا على Google. يكون الوسم محظوراً افتراضياً ولا يتم تحميله إلا بعد أن تنقر على \"أوافق\" في شريط ملفات تعريف الارتباط.",
+"cookies.p2":"عند تفعيله، تضع Google ملف تعريف ارتباط من الطرف الأول (_gcl_au) على flipandlearn.app وقد تستلم: عنوان IP الخاص بك، ونوع المتصفح، والصفحة التي وصلت إليها، ومعرّف نقرة الإعلان المصدر، ومعرّف ملف تعريف ارتباط يُنشأ عشوائياً. تعمل Google كمعالج للبيانات؛ ولا تستلم اسمك أو بريدك الإلكتروني أو أي معلومات أخرى تحدد هويتك مباشرة.",
+"cookies.p3":"إذا نقرت على \"أرفض\" أو أغلقت الصفحة دون اختيار، فلن يتم وضع أي ملفات تعريف ارتباط من Google ولن تُرسل أي بيانات إلى Google.",
+"cookies.p4":"يمكنك تغيير اختيارك في أي وقت عبر رابط \"إعدادات ملفات تعريف الارتباط\" في تذييل الصفحة. يسري السحب فوراً عند تحميل الصفحة التالي؛ ويمكن حذف ملفات تعريف الارتباط التي وضعتها Google من إعدادات ملفات تعريف الارتباط في متصفحك.",
+"cookies.gplink":"سياسة خصوصية Google","cookies.fullnotice":"إشعار الخصوصية الكامل للموقع"
 }
 };
 
