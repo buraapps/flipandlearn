@@ -21,6 +21,7 @@
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+const { P, PW } = require('./privacy-strings.js');
 
 // ============================================================
 // Per-locale configuration
@@ -42,6 +43,8 @@ const LOCALES = [
 const ROOT = __dirname;
 const SOURCE = path.join(ROOT, 'index.html');
 const COOKIES_SOURCE = path.join(ROOT, 'cookies.html');
+const PRIVACY_SOURCE = path.join(ROOT, 'privacy.html');
+const PRIVACY_WEBSITE_SOURCE = path.join(ROOT, 'privacy-website.html');
 
 // ============================================================
 // Helpers
@@ -130,6 +133,18 @@ function applyDataI18nText(html, T, code) {
     const v = t[key];
     if (typeof v !== 'string') return match; // unknown key — leave as default
     return `<${tagName}${attrs}>${htmlEscape(v)}</${tagName}>`;
+  });
+}
+
+// Raw-HTML substitution for data-i18n-html elements (legal text with inline
+// <a>/<strong>/<em>/<code>). Mirrors applyDataI18nText but WITHOUT htmlEscape
+// so the inline tags pass through.
+function applyDataI18nHtml(html, dict) {
+  const re = /<([a-zA-Z][a-zA-Z0-9]*)\b([^>]*?\bdata-i18n-html="([^"]+)"[^>]*)>([\s\S]*?)<\/\1>/g;
+  return html.replace(re, (match, tagName, attrs, key, _inner) => {
+    const v = dict[key];
+    if (typeof v !== 'string') return match;
+    return `<${tagName}${attrs}>${v}</${tagName}>`;
   });
 }
 
@@ -397,6 +412,145 @@ function buildCookiesLocale(sourceHtml, locale, T) {
 }
 
 // ============================================================
+// 5c) Per-locale build for privacy.html and privacy-website.html.
+//    Both templates carry data-i18n (text) and data-i18n-html (raw inline HTML)
+//    attributes. We merge T[code] (for shared cookie.* banner keys) with the
+//    privacy-specific dict (P or PW) and run both substitution passes.
+// ============================================================
+function rewritePrivacyHead(html, locale, mergedDict) {
+  const t = mergedDict;
+  const url = `${SITE}${locale.path}privacy.html`;
+  const titleText = `${t['p.title']} — Flip & Learn`;
+  const descText = t['p.desc'];
+
+  html = html.replace(
+    /<title>[\s\S]*?<\/title>/,
+    `<title>${htmlEscape(titleText)}</title>`
+  );
+  html = html.replace(
+    /<meta name="description" content="[^"]*">/,
+    `<meta name="description" content="${attrEscape(descText)}">`
+  );
+  html = html.replace(
+    /<link rel="canonical" href="[^"]*">/,
+    `<link rel="canonical" href="${url}">`
+  );
+
+  // Replace the hreflang block (canonical + N alternates) with this locale's view.
+  const hreflangBlockRe = /<link rel="canonical" href="[^"]*">\s*((?:<link rel="alternate" hreflang="[^"]*" href="[^"]*">\s*)+)/;
+  const altLinks = LOCALES
+    .map(l => `<link rel="alternate" hreflang="${l.code}" href="${SITE}${l.path}privacy.html">`)
+    .join('\n');
+  const xDefault = `<link rel="alternate" hreflang="x-default" href="${SITE}/privacy.html">`;
+  html = html.replace(
+    hreflangBlockRe,
+    `<link rel="canonical" href="${url}">\n${altLinks}\n${xDefault}\n`
+  );
+
+  // Open Graph
+  html = html.replace(
+    /<meta property="og:url" content="[^"]*">/,
+    `<meta property="og:url" content="${url}">`
+  );
+  html = html.replace(
+    /<meta property="og:title" content="[^"]*">/,
+    `<meta property="og:title" content="${attrEscape(titleText)}">`
+  );
+  html = html.replace(
+    /<meta property="og:description" content="[^"]*">/,
+    `<meta property="og:description" content="${attrEscape(descText)}">`
+  );
+  html = html.replace(
+    /<meta property="og:locale" content="[^"]*">/,
+    `<meta property="og:locale" content="${locale.ogLocale}">`
+  );
+
+  return html;
+}
+
+function rewritePrivacyWebsiteHead(html, locale, mergedDict) {
+  const t = mergedDict;
+  const url = `${SITE}${locale.path}privacy-website.html`;
+  const titleText = `${t['pw.title']} — Flip & Learn`;
+  const descText = t['pw.desc'];
+
+  html = html.replace(
+    /<title>[\s\S]*?<\/title>/,
+    `<title>${htmlEscape(titleText)}</title>`
+  );
+  html = html.replace(
+    /<meta name="description" content="[^"]*">/,
+    `<meta name="description" content="${attrEscape(descText)}">`
+  );
+  html = html.replace(
+    /<link rel="canonical" href="[^"]*">/,
+    `<link rel="canonical" href="${url}">`
+  );
+
+  const hreflangBlockRe = /<link rel="canonical" href="[^"]*">\s*((?:<link rel="alternate" hreflang="[^"]*" href="[^"]*">\s*)+)/;
+  const altLinks = LOCALES
+    .map(l => `<link rel="alternate" hreflang="${l.code}" href="${SITE}${l.path}privacy-website.html">`)
+    .join('\n');
+  const xDefault = `<link rel="alternate" hreflang="x-default" href="${SITE}/privacy-website.html">`;
+  html = html.replace(
+    hreflangBlockRe,
+    `<link rel="canonical" href="${url}">\n${altLinks}\n${xDefault}\n`
+  );
+
+  html = html.replace(
+    /<meta property="og:url" content="[^"]*">/,
+    `<meta property="og:url" content="${url}">`
+  );
+  html = html.replace(
+    /<meta property="og:title" content="[^"]*">/,
+    `<meta property="og:title" content="${attrEscape(titleText)}">`
+  );
+  html = html.replace(
+    /<meta property="og:description" content="[^"]*">/,
+    `<meta property="og:description" content="${attrEscape(descText)}">`
+  );
+  html = html.replace(
+    /<meta property="og:locale" content="[^"]*">/,
+    `<meta property="og:locale" content="${locale.ogLocale}">`
+  );
+
+  return html;
+}
+
+// Merge the cookie.* banner keys (from T) with the privacy-specific dict (P or PW)
+// so both passes can resolve their keys from a single per-locale dictionary.
+function mergePrivacyDict(T, extra, code) {
+  return Object.assign({}, T[code] || {}, extra[code] || {});
+}
+
+function buildPrivacyLocale(sourceHtml, locale, T, P) {
+  const merged = mergePrivacyDict(T, P, locale.code);
+  // applyDataI18nText / applyDataI18nAria expect a {code: dict} map keyed by locale.
+  const wrap = { [locale.code]: merged };
+  let html = sourceHtml;
+  html = rewriteHtmlTag(html, locale);
+  html = rewriteBodyTag(html, locale);
+  html = rewritePrivacyHead(html, locale, merged);
+  html = applyDataI18nText(html, wrap, locale.code);
+  html = applyDataI18nHtml(html, merged);
+  html = applyDataI18nAria(html, wrap, locale.code);
+  return html;
+}
+
+function buildPrivacyWebsiteLocale(sourceHtml, locale, T, PW) {
+  const merged = mergePrivacyDict(T, PW, locale.code);
+  const wrap = { [locale.code]: merged };
+  let html = sourceHtml;
+  html = rewriteHtmlTag(html, locale);
+  html = rewriteBodyTag(html, locale);
+  html = rewritePrivacyWebsiteHead(html, locale, merged);
+  html = applyDataI18nText(html, wrap, locale.code);
+  html = applyDataI18nHtml(html, merged);
+  html = applyDataI18nAria(html, wrap, locale.code);
+  return html;
+}
+
+// ============================================================
 // 6) Sitemap
 // ============================================================
 function buildSitemap() {
@@ -429,23 +583,40 @@ ${cookiesAltLinks}
 ${cookiesXDefault}
   </url>`).join('\n');
 
+  // Privacy pages — one URL per locale with reciprocal hreflang alternates.
+  const privacyAltLinks = LOCALES
+    .map(l => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${SITE}${l.path}privacy.html"/>`)
+    .join('\n');
+  const privacyXDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/privacy.html"/>`;
+  const privacyUrls = LOCALES.map(l => `  <url>
+    <loc>${SITE}${l.path}privacy.html</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+${privacyAltLinks}
+${privacyXDefault}
+  </url>`).join('\n');
+
+  const privacyWebsiteAltLinks = LOCALES
+    .map(l => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${SITE}${l.path}privacy-website.html"/>`)
+    .join('\n');
+  const privacyWebsiteXDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/privacy-website.html"/>`;
+  const privacyWebsiteUrls = LOCALES.map(l => `  <url>
+    <loc>${SITE}${l.path}privacy-website.html</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+${privacyWebsiteAltLinks}
+${privacyWebsiteXDefault}
+  </url>`).join('\n');
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
 ${cookiesUrls}
-  <url>
-    <loc>${SITE}/privacy.html</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>${SITE}/privacy-website.html</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
+${privacyUrls}
+${privacyWebsiteUrls}
 </urlset>
 `;
 }
@@ -456,6 +627,8 @@ ${cookiesUrls}
 function main() {
   const source = fs.readFileSync(SOURCE, 'utf8');
   const cookiesSource = fs.readFileSync(COOKIES_SOURCE, 'utf8');
+  const privacySource = fs.readFileSync(PRIVACY_SOURCE, 'utf8');
+  const privacyWebsiteSource = fs.readFileSync(PRIVACY_WEBSITE_SOURCE, 'utf8');
   const { T, M } = extractLangData(source);
 
   // Sanity check: every locale we plan to emit must exist in T.
@@ -468,33 +641,55 @@ function main() {
         throw new Error(`Locale "${l.code}" missing required cookies key "${k}"`);
       }
     }
+    // Privacy pages require these keys in every locale.
+    if (!P[l.code]) throw new Error(`P has no entry for locale "${l.code}"`);
+    if (!PW[l.code]) throw new Error(`PW has no entry for locale "${l.code}"`);
+    for (const k of ['p.title', 'p.desc']) {
+      if (typeof P[l.code][k] !== 'string') {
+        throw new Error(`Locale "${l.code}" missing required privacy key "${k}"`);
+      }
+    }
+    for (const k of ['pw.title', 'pw.desc']) {
+      if (typeof PW[l.code][k] !== 'string') {
+        throw new Error(`Locale "${l.code}" missing required privacy-website key "${k}"`);
+      }
+    }
   }
 
   for (const locale of LOCALES) {
     const html = buildLocale(source, locale, T, M);
     const cookiesHtml = buildCookiesLocale(cookiesSource, locale, T);
-    let outPath;
-    let cookiesOutPath;
+    const privacyHtml = buildPrivacyLocale(privacySource, locale, T, P);
+    const privacyWebsiteHtml = buildPrivacyWebsiteLocale(privacyWebsiteSource, locale, T, PW);
+    let outPath, cookiesOutPath, privacyOutPath, privacyWebsiteOutPath;
     if (locale.path === '/') {
       outPath = path.join(ROOT, 'index.html');
       cookiesOutPath = path.join(ROOT, 'cookies.html');
+      privacyOutPath = path.join(ROOT, 'privacy.html');
+      privacyWebsiteOutPath = path.join(ROOT, 'privacy-website.html');
     } else {
       const dir = path.join(ROOT, locale.path.replace(/^\/|\/$/g, ''));
       fs.mkdirSync(dir, { recursive: true });
       outPath = path.join(dir, 'index.html');
       cookiesOutPath = path.join(dir, 'cookies.html');
+      privacyOutPath = path.join(dir, 'privacy.html');
+      privacyWebsiteOutPath = path.join(dir, 'privacy-website.html');
     }
     fs.writeFileSync(outPath, html, 'utf8');
     console.log(`  wrote ${path.relative(ROOT, outPath)}  (${html.length.toLocaleString()} bytes)`);
     fs.writeFileSync(cookiesOutPath, cookiesHtml, 'utf8');
     console.log(`  wrote ${path.relative(ROOT, cookiesOutPath)}  (${cookiesHtml.length.toLocaleString()} bytes)`);
+    fs.writeFileSync(privacyOutPath, privacyHtml, 'utf8');
+    console.log(`  wrote ${path.relative(ROOT, privacyOutPath)}  (${privacyHtml.length.toLocaleString()} bytes)`);
+    fs.writeFileSync(privacyWebsiteOutPath, privacyWebsiteHtml, 'utf8');
+    console.log(`  wrote ${path.relative(ROOT, privacyWebsiteOutPath)}  (${privacyWebsiteHtml.length.toLocaleString()} bytes)`);
   }
 
   const sitemap = buildSitemap();
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
   console.log(`  wrote sitemap.xml (${sitemap.length.toLocaleString()} bytes)`);
 
-  console.log(`\nDone. ${LOCALES.length} locale pages + ${LOCALES.length} cookies pages + sitemap.xml regenerated.`);
+  console.log(`\nDone. ${LOCALES.length} index + ${LOCALES.length} cookies + ${LOCALES.length} privacy + ${LOCALES.length} privacy-website + sitemap.xml regenerated.`);
 }
 
 main();
