@@ -610,9 +610,10 @@ ${privacyWebsiteAltLinks}
 ${privacyWebsiteXDefault}
   </url>`).join('\n');
 
-  // Standalone English-only blog posts (not part of the per-locale build).
+  // Standalone single-locale blog posts (not part of the per-locale build).
   const blogUrls = [
     'en/blog/best-free-matching-games-kids/',
+    'ro/blog/aplicatii-gratuite-copii/',
   ].map(slug => `  <url>
     <loc>${SITE}/${slug}</loc>
     <lastmod>${today}</lastmod>
