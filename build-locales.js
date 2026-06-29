@@ -615,6 +615,7 @@ ${privacyWebsiteXDefault}
     'en/blog/best-free-matching-games-kids/',
     'ro/blog/aplicatii-gratuite-copii/',
     'de/blog/kostenlose-kinderspiele/',
+    'hu/blog/ingyenes-gyerekjatekok/',
   ].map(slug => `  <url>
     <loc>${SITE}/${slug}</loc>
     <lastmod>${today}</lastmod>
