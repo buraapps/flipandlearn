@@ -614,6 +614,7 @@ ${privacyWebsiteXDefault}
   const blogUrls = [
     'en/blog/best-free-matching-games-kids/',
     'ro/blog/aplicatii-gratuite-copii/',
+    'de/blog/kostenlose-kinderspiele/',
   ].map(slug => `  <url>
     <loc>${SITE}/${slug}</loc>
     <lastmod>${today}</lastmod>
