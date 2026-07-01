@@ -623,6 +623,16 @@ ${privacyWebsiteXDefault}
     <priority>0.7</priority>
   </url>`).join('\n');
 
+  // Standalone single-locale SEO landing pages (not part of the per-locale build).
+  const landingUrls = [
+    'en/learn-english/',
+  ].map(slug => `  <url>
+    <loc>${SITE}/${slug}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`).join('\n');
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -631,6 +641,7 @@ ${cookiesUrls}
 ${privacyUrls}
 ${privacyWebsiteUrls}
 ${blogUrls}
+${landingUrls}
 </urlset>
 `;
 }

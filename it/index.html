@@ -1058,9 +1058,9 @@ function setLang(l){
   document.querySelectorAll('[data-i18n-html]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.innerHTML=t[k];});
   document.querySelectorAll('[data-i18n-aria]').forEach(el=>{const k=el.getAttribute('data-i18n-aria');if(t[k])el.setAttribute('aria-label',t[k]);});
   const badge=document.getElementById('appstore-badge');
-  if(badge){badge.src='/badges/app-store-badge-'+l+'.svg';badge.alt=t['btn']||badge.alt;}
+  if(badge){badge.src='/badges/app-store-badge-{lang}.svg'.replace('{lang}',l);badge.alt=t['btn']||badge.alt;}
   const playBadge=document.getElementById('playstore-badge');
-  if(playBadge){playBadge.src='/badges/google-play-badge-'+l+'.png';playBadge.alt=t['btn.gp']||playBadge.alt;}
+  if(playBadge){playBadge.src='/badges/google-play-badge-{lang}.png'.replace('{lang}',l);playBadge.alt=t['btn.gp']||playBadge.alt;}
   document.querySelectorAll('.lang-opt').forEach(o=>{o.classList.toggle('active',o.getAttribute('data-lang')===l);});
   if(l==='ar'){document.body.classList.add('rtl');document.documentElement.lang='ar';document.documentElement.dir='rtl';}
   else{document.body.classList.remove('rtl');document.documentElement.lang=l;document.documentElement.removeAttribute('dir');}
