@@ -216,8 +216,8 @@ footer a{color:#aaa;text-decoration:none;margin:0 10px}
     <p>It was built by a parent, for parents who wanted screen time that actually teaches something — without the guilt of handing over a device full of ads.</p>
 
     <div class="cta-row">
-      <a href="https://apps.apple.com/app/flip-learn-word-card-game/id6761679251" rel="noopener">Download free on iOS</a>
-      <a href="https://play.google.com/store/apps/details?id=com.buraapp.flipandlearn_flutter" rel="noopener">Download free on Android</a>
+      <a href="https://apps.apple.com/app/flip-learn-word-card-game/id6761679251?pt=128736959&amp;ct=web-blog-matching&amp;mt=8" rel="noopener">Download free on iOS</a>
+      <a href="https://play.google.com/store/apps/details?id=com.buraapp.flipandlearn_flutter&amp;referrer=utm_source%3Dflipandlearn.app%26utm_medium%3Dweb%26utm_campaign%3Dweb-blog-matching" rel="noopener">Download free on Android</a>
     </div>
 
     <h2>2. Khan Academy Kids — Best All-Around Free Educational App</h2>
@@ -300,8 +300,8 @@ footer a{color:#aaa;text-decoration:none;margin:0 10px}
     <div class="callout">
       <p><strong>Flip &amp; Learn is made by a dad, for parents who want screen time that actually teaches something.</strong></p>
       <div class="cta-row">
-        <a href="https://apps.apple.com/app/flip-learn-word-card-game/id6761679251" rel="noopener">Get it on the App Store</a>
-        <a href="https://play.google.com/store/apps/details?id=com.buraapp.flipandlearn_flutter" rel="noopener">Get it on Google Play</a>
+        <a href="https://apps.apple.com/app/flip-learn-word-card-game/id6761679251?pt=128736959&amp;ct=web-blog-matching&amp;mt=8" rel="noopener">Get it on the App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.buraapp.flipandlearn_flutter&amp;referrer=utm_source%3Dflipandlearn.app%26utm_medium%3Dweb%26utm_campaign%3Dweb-blog-matching" rel="noopener">Get it on Google Play</a>
       </div>
     </div>
   </article>
@@ -339,6 +339,26 @@ footer a{color:#aaa;text-decoration:none;margin:0 10px}
   if(!read())show();
   document.getElementById('ccAccept').addEventListener('click',function(){write('accepted');hide();if(typeof window.__flLoadGtag==='function')window.__flLoadGtag();});
   document.getElementById('ccReject').addEventListener('click',function(){write('rejected');hide();});
+})();
+// SEO-002: store-click attribution. Same fl_consent gate that loads the Ads tag —
+// gtag() only exists after opt-in, and we re-check the stored choice before firing.
+// Never blocks or delays navigation; beacon transport survives the page unload.
+(function(){
+  document.addEventListener('click',function(e){
+    try{
+      var a=e.target&&e.target.closest?e.target.closest('a[href]'):null;
+      if(!a)return;
+      var u;try{u=new URL(a.href);}catch(err){return;}
+      var store=u.hostname==='apps.apple.com'?'app_store':u.hostname==='play.google.com'?'google_play':null;
+      if(!store)return;
+      var consent=null;try{consent=localStorage.getItem('fl_consent');}catch(err){}
+      if(consent!=='accepted'||typeof window.gtag!=='function')return;
+      var campaign=store==='app_store'
+        ?(u.searchParams.get('ct')||'unknown')
+        :(new URLSearchParams(u.searchParams.get('referrer')||'').get('utm_campaign')||'unknown');
+      window.gtag('event','store_click',{store:store,campaign:campaign,page:location.pathname,transport_type:'beacon'});
+    }catch(err){}
+  },{capture:true,passive:true});
 })();
 </script>
 
