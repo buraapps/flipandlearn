@@ -616,6 +616,7 @@ ${privacyWebsiteXDefault}
     'en/blog/matching-card-games-for-kids/',
     'ro/blog/aplicatii-gratuite-copii/',
     'de/blog/kostenlose-kinderspiele/',
+    'de/blog/englisch-lernen-kinder/',
     'hu/blog/ingyenes-gyerekjatekok/',
   ].map(slug => `  <url>
     <loc>${SITE}/${slug}</loc>
