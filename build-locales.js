@@ -613,6 +613,7 @@ ${privacyWebsiteXDefault}
   // Standalone single-locale blog posts (not part of the per-locale build).
   const blogUrls = [
     'en/blog/best-free-matching-games-kids/',
+    'en/blog/matching-card-games-for-kids/',
     'ro/blog/aplicatii-gratuite-copii/',
     'de/blog/kostenlose-kinderspiele/',
     'hu/blog/ingyenes-gyerekjatekok/',
