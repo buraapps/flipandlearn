@@ -57,6 +57,8 @@ const LOCALES = [
   { code: 'et', path: '/et/', ogLocale: 'et_EE', dir: 'ltr', isDefault: false },
   { code: 'sq', path: '/sq/', ogLocale: 'sq_AL', dir: 'ltr', isDefault: false },
   { code: 'sr', path: '/sr/', ogLocale: 'sr_RS', dir: 'ltr', isDefault: false }, // Cyrillic script (CLDR default for sr)
+  { code: 'ja', path: '/ja/', ogLocale: 'ja_JP', dir: 'ltr', isDefault: false },
+  { code: 'ko', path: '/ko/', ogLocale: 'ko_KR', dir: 'ltr', isDefault: false },
   { code: 'ar', path: '/ar/', ogLocale: 'ar_SA', dir: 'rtl', isDefault: false },
 ];
 
