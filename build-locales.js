@@ -52,6 +52,9 @@ const LOCALES = [
   { code: 'da', path: '/da/', ogLocale: 'da_DK', dir: 'ltr', isDefault: false },
   { code: 'no', path: '/no/', ogLocale: 'nb_NO', dir: 'ltr', isDefault: false }, // Bokmål; ogLocale nb_NO (Facebook has no no_NO)
   { code: 'fi', path: '/fi/', ogLocale: 'fi_FI', dir: 'ltr', isDefault: false },
+  { code: 'lt', path: '/lt/', ogLocale: 'lt_LT', dir: 'ltr', isDefault: false },
+  { code: 'lv', path: '/lv/', ogLocale: 'lv_LV', dir: 'ltr', isDefault: false },
+  { code: 'et', path: '/et/', ogLocale: 'et_EE', dir: 'ltr', isDefault: false },
   { code: 'ar', path: '/ar/', ogLocale: 'ar_SA', dir: 'rtl', isDefault: false },
 ];
 
