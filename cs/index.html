@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="cs">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flip &amp; Learn — 9 Sprachen · Ab 4 Jahren</title>
-<meta name="description" content="Das lustige Wortkarten-Spiel das Kindern Wörter in mehreren Sprachen beibringt">
+<title>Flip &amp; Learn — 9 jazyků · 3–7 let</title>
+<meta name="description" content="Zábavná karetní hra se slovíčky, která učí děti nová slova v mnoha jazycích">
 <!-- Browser favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="/icon32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/icon16.png">
@@ -17,7 +17,7 @@
 <meta name="theme-color" content="#3A3589">
 
 <!-- Canonical + hreflang (FLI-51) -->
-<link rel="canonical" href="https://flipandlearn.app/de/">
+<link rel="canonical" href="https://flipandlearn.app/cs/">
 <link rel="alternate" hreflang="en" href="https://flipandlearn.app/">
 <link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/">
 <link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/">
@@ -39,15 +39,16 @@
 <!-- Open Graph (FLI-51) -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Flip & Learn">
-<meta property="og:title" content="Flip &amp; Learn — 9 Sprachen · Ab 4 Jahren">
-<meta property="og:description" content="Das lustige Wortkarten-Spiel das Kindern Wörter in mehreren Sprachen beibringt">
-<meta property="og:url" content="https://flipandlearn.app/de/">
+<meta property="og:title" content="Flip &amp; Learn — 9 jazyků · 3–7 let">
+<meta property="og:description" content="Zábavná karetní hra se slovíčky, která učí děti nová slova v mnoha jazycích">
+<meta property="og:url" content="https://flipandlearn.app/cs/">
 <meta property="og:image" content="https://flipandlearn.app/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Flip & Learn — word card game for kids">
-<meta property="og:locale" content="de_DE">
+<meta property="og:locale" content="cs_CZ">
 <meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="fr_FR">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="it_IT">
@@ -60,13 +61,12 @@
 <meta property="og:locale:alternate" content="uk_UA">
 <meta property="og:locale:alternate" content="bg_BG">
 <meta property="og:locale:alternate" content="tr_TR">
-<meta property="og:locale:alternate" content="cs_CZ">
 <meta property="og:locale:alternate" content="sk_SK">
 <meta property="og:locale:alternate" content="ar_SA">
 <!-- Twitter Card (FLI-51) -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Flip &amp; Learn — 9 Sprachen · Ab 4 Jahren">
-<meta name="twitter:description" content="Das lustige Wortkarten-Spiel das Kindern Wörter in mehreren Sprachen beibringt">
+<meta name="twitter:title" content="Flip &amp; Learn — 9 jazyků · 3–7 let">
+<meta name="twitter:description" content="Zábavná karetní hra se slovíčky, která učí děti nová slova v mnoha jazycích">
 <meta name="twitter:image" content="https://flipandlearn.app/og-image.jpg">
 <meta name="twitter:image:alt" content="Flip & Learn — word card game for kids">
 
@@ -194,7 +194,7 @@
 }
 </script>
 
-<script>window.__pageLocale="de";</script>
+<script>window.__pageLocale="cs";</script>
 <!-- FLI-102: Pre-paint locale/dir from localStorage to prevent RTL FOUC -->
 <script>(function(){try{var l=localStorage.getItem('flipandlearn_lang');if(l==='ar'){document.documentElement.lang='ar';document.documentElement.dir='rtl';}else if(l){document.documentElement.lang=l;}}catch(e){}})();</script>
 <script>(function(){try{var u=navigator.userAgent;var c=/iPhone|iPad|iPod/.test(u)?'platform-ios':/Android/.test(u)?'platform-android':'';if(c){document.documentElement.dataset.platform=c.replace('platform-','');}}catch(e){}})();</script>
@@ -400,18 +400,18 @@ body.rtl .cc-inner{direction:rtl}
 <nav>
   <a class="nav-brand" href="/"><img class="nav-icon" src="/apple-touch-icon.png" alt="" width="32" height="32">Flip &amp; Learn</a>
   <div class="nav-links">
-    <a href="#screenshots" data-i18n="nav.ss">Screenshots</a>
-    <a href="#features" data-i18n="nav.feat">Funktionen</a>
-    <a href="#languages" data-i18n="nav.lang">Sprachen</a>
-    <a href="#pricing" data-i18n="nav.price">Preise</a>
-    <a href="#support" data-i18n="nav.sup">Support</a>
-    <a href="privacy.html" data-i18n="nav.priv">Datenschutz</a>
+    <a href="#screenshots" data-i18n="nav.ss">Snímky obrazovky</a>
+    <a href="#features" data-i18n="nav.feat">Funkce</a>
+    <a href="#languages" data-i18n="nav.lang">Jazyky</a>
+    <a href="#pricing" data-i18n="nav.price">Ceník</a>
+    <a href="#support" data-i18n="nav.sup">Podpora</a>
+    <a href="privacy.html" data-i18n="nav.priv">Soukromí</a>
   </div>
   <div class="lang-sw">
-    <button class="lang-btn" id="langBtn" onclick="toggleMenu()">🇩🇪 DE ▾</button>
+    <button class="lang-btn" id="langBtn" onclick="toggleMenu()">🇨🇿 CS ▾</button>
     <div class="lang-menu" id="langMenu">
       <a class="lang-opt" data-lang="en" href="/" onclick="try{localStorage.setItem('flipandlearn_lang','en')}catch(e){}">🇬🇧 English</a>
-      <a class="lang-opt active" data-lang="de" href="/de/" onclick="try{localStorage.setItem('flipandlearn_lang','de')}catch(e){}">🇩🇪 Deutsch</a>
+      <a class="lang-opt" data-lang="de" href="/de/" onclick="try{localStorage.setItem('flipandlearn_lang','de')}catch(e){}">🇩🇪 Deutsch</a>
       <a class="lang-opt" data-lang="fr" href="/fr/" onclick="try{localStorage.setItem('flipandlearn_lang','fr')}catch(e){}">🇫🇷 Français</a>
       <a class="lang-opt" data-lang="es" href="/es/" onclick="try{localStorage.setItem('flipandlearn_lang','es')}catch(e){}">🇪🇸 Español</a>
       <a class="lang-opt" data-lang="it" href="/it/" onclick="try{localStorage.setItem('flipandlearn_lang','it')}catch(e){}">🇮🇹 Italiano</a>
@@ -424,7 +424,7 @@ body.rtl .cc-inner{direction:rtl}
       <a class="lang-opt" data-lang="uk" href="/uk/" onclick="try{localStorage.setItem('flipandlearn_lang','uk')}catch(e){}">🇺🇦 Українська</a>
       <a class="lang-opt" data-lang="bg" href="/bg/" onclick="try{localStorage.setItem('flipandlearn_lang','bg')}catch(e){}">🇧🇬 Български</a>
       <a class="lang-opt" data-lang="tr" href="/tr/" onclick="try{localStorage.setItem('flipandlearn_lang','tr')}catch(e){}">🇹🇷 Türkçe</a>
-      <a class="lang-opt" data-lang="cs" href="/cs/" onclick="try{localStorage.setItem('flipandlearn_lang','cs')}catch(e){}">🇨🇿 Čeština</a>
+      <a class="lang-opt active" data-lang="cs" href="/cs/" onclick="try{localStorage.setItem('flipandlearn_lang','cs')}catch(e){}">🇨🇿 Čeština</a>
       <a class="lang-opt" data-lang="sk" href="/sk/" onclick="try{localStorage.setItem('flipandlearn_lang','sk')}catch(e){}">🇸🇰 Slovenčina</a>
       <a class="lang-opt" data-lang="ar" href="/ar/" onclick="try{localStorage.setItem('flipandlearn_lang','ar')}catch(e){}">🇸🇦 العربية</a>
     </div>
@@ -498,82 +498,82 @@ body.rtl .cc-inner{direction:rtl}
     </div>
   </div>
   <h1>Flip &amp; Learn</h1>
-  <p data-i18n="hero.sub">Das lustige Wortkarten-Spiel das Kindern Wörter in mehreren Sprachen beibringt</p>
+  <p data-i18n="hero.sub">Zábavná karetní hra se slovíčky, která učí děti nová slova v mnoha jazycích</p>
   <div class="badges">
-    <span class="badge" data-i18n="b1">Ab 4 Jahren</span>
-    <span class="badge" data-i18n="b2">9 Sprachen</span>
-    <span class="badge" data-i18n="b3">21+ Kategorien</span>
-    <span class="badge" data-i18n="b4">Keine Werbung</span>
-    <span class="badge" data-i18n="b5">Offline nutzbar</span>
+    <span class="badge" data-i18n="b1">3–7 let</span>
+    <span class="badge" data-i18n="b2">9 jazyků</span>
+    <span class="badge" data-i18n="b3">Přes 21 kategorií</span>
+    <span class="badge" data-i18n="b4">Žádné reklamy</span>
+    <span class="badge" data-i18n="b5">Funguje offline</span>
   </div>
   <div class="dl-wrap">
     <div class="dl-badges">
-      <a href="https://apps.apple.com/app/id6761679251?pt=128736959&amp;ct=web-home&amp;mt=8" class="dl-btn-img" target="_blank" rel="noopener"><img id="appstore-badge" src="/badges/app-store-badge-de.svg" alt="Im App Store laden" width="180" height="60"></a>
-      <a href="https://play.google.com/store/apps/details?id=com.buraapp.flipandlearn_flutter&amp;referrer=utm_source%3Dflipandlearn.app%26utm_medium%3Dweb%26utm_campaign%3Dweb-home" class="dl-btn-img" target="_blank" rel="noopener"><img id="playstore-badge" src="/badges/google-play-badge-de.png" alt="Flip &amp; Learn bei Google Play herunterladen" width="180" height="60" decoding="async"></a>
+      <a href="https://apps.apple.com/app/id6761679251?pt=128736959&amp;ct=web-home&amp;mt=8" class="dl-btn-img" target="_blank" rel="noopener"><img id="appstore-badge" src="/badges/app-store-badge-cs.svg" alt="Stáhnout v App Store" width="180" height="60"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.buraapp.flipandlearn_flutter&amp;referrer=utm_source%3Dflipandlearn.app%26utm_medium%3Dweb%26utm_campaign%3Dweb-home" class="dl-btn-img" target="_blank" rel="noopener"><img id="playstore-badge" src="/badges/google-play-badge-cs.png" alt="Stáhnout Flip &amp; Learn na Google Play" width="180" height="60" decoding="async"></a>
     </div>
   </div>
 </div>
 
 <div class="ss-wrap" id="screenshots">
-  <h2 data-i18n="ss.title">In Aktion sehen</h2>
-  <p class="ss-sub" data-i18n="ss.sub">Alles was dein Kind braucht</p>
+  <h2 data-i18n="ss.title">Podívejte se, jak to funguje</h2>
+  <p class="ss-sub" data-i18n="ss.sub">Vše, co vaše dítě potřebuje, aby se začalo učit</p>
   <div class="ss-stage">
-    <button type="button" class="ss-arrow prev" aria-label="Vorheriger Screenshot" data-i18n-aria="arrow.prev">
+    <button type="button" class="ss-arrow prev" aria-label="Předchozí snímek" data-i18n-aria="arrow.prev">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="ss-scroll">
-      <div class="ss-item"><div class="phone"><div class="notch"></div><div style="width:195px;height:423px;border-radius:34px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.5);display:block;"><iframe src="/flipandlearn_promo.html" style="width:195px;height:423px;border:none;display:block;" scrolling="no" loading="lazy" title="App Preview"></iframe></div></div><div class="ss-lbl"><span aria-hidden="true">▶ </span><span data-i18n="ss.0">App-Vorschau</span></div></div>
-      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen1_home.webp" type="image/webp"><img src="/screen1_home.jpg" alt="Home" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.1">Startbildschirm</div></div>
-      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen2_game.webp" type="image/webp"><img src="/screen2_game.jpg" alt="Game" width="1198" height="2603" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.2">Spielfeld</div></div>
-      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen3_midgame.webp" type="image/webp"><img src="/screen3_midgame.jpg" alt="Playing" width="919" height="2000" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.3">Paare finden</div></div>
-      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen5_win.webp" type="image/webp"><img src="/screen5_win.jpg" alt="Win" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.4">Feiern</div></div>
-      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen4_professions.webp" type="image/webp"><img src="/screen4_professions.jpg" alt="Categories" width="1206" height="2622" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.5">21+ Kategorien</div></div>
-      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen7_parentalgate.webp" type="image/webp"><img src="/screen7_parentalgate.jpg" alt="Parental Gate" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.6">Elternschutz</div></div>
-      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen8_paywall.webp" type="image/webp"><img src="/screen8_paywall.jpg" alt="Unlock" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.7">Alles freischalten</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><div style="width:195px;height:423px;border-radius:34px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.5);display:block;"><iframe src="/flipandlearn_promo.html" style="width:195px;height:423px;border:none;display:block;" scrolling="no" loading="lazy" title="App Preview"></iframe></div></div><div class="ss-lbl"><span aria-hidden="true">▶ </span><span data-i18n="ss.0">Náhled aplikace</span></div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen1_home.webp" type="image/webp"><img src="/screen1_home.jpg" alt="Home" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.1">Domovská obrazovka</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen2_game.webp" type="image/webp"><img src="/screen2_game.jpg" alt="Game" width="1198" height="2603" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.2">Herní deska</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen3_midgame.webp" type="image/webp"><img src="/screen3_midgame.jpg" alt="Playing" width="919" height="2000" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.3">Hledání dvojic</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen5_win.webp" type="image/webp"><img src="/screen5_win.jpg" alt="Win" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.4">Oslava!</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen4_professions.webp" type="image/webp"><img src="/screen4_professions.jpg" alt="Categories" width="1206" height="2622" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.5">Přes 21 kategorií</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen7_parentalgate.webp" type="image/webp"><img src="/screen7_parentalgate.jpg" alt="Parental Gate" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.6">Rodičovská ochrana</div></div>
+      <div class="ss-item"><div class="phone"><div class="notch"></div><picture><source srcset="/screen8_paywall.webp" type="image/webp"><img src="/screen8_paywall.jpg" alt="Unlock" width="390" height="847" loading="lazy" decoding="async"></picture></div><div class="ss-lbl" data-i18n="ss.7">Odemknout vše</div></div>
     </div>
-    <button type="button" class="ss-arrow next" aria-label="Nächster Screenshot" data-i18n-aria="arrow.next">
+    <button type="button" class="ss-arrow next" aria-label="Další snímek" data-i18n-aria="arrow.next">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
   </div>
   <div class="ss-dots" role="tablist" aria-label="Screenshot navigation"></div>
   <p class="ss-hint">
-    <span class="hint-touch" data-i18n="ss.swipe">← Wischen für mehr →</span>
-    <span class="hint-desk" data-i18n="ss.arrows">← Pfeile oder Tastatur →</span>
+    <span class="hint-touch" data-i18n="ss.swipe">← Přejeďte pro další →</span>
+    <span class="hint-desk" data-i18n="ss.arrows">← Použijte šipky nebo klávesnici →</span>
   </p>
 </div>
 
 <div class="alt" id="features">
 <section>
-  <h2 data-i18n="ft">Alles was Kinder lieben, alles was Eltern vertrauen</h2>
+  <h2 data-i18n="ft">Vše, co děti milují, vše, čemu rodiče důvěřují</h2>
   <div class="feat">
-    <div class="fcard"><span class="ficon" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:52px;background:white;border-radius:6px;box-shadow:0 3px 8px rgba(0,0,0,.18),0 0 0 2px #d0cef5;font-size:26px;margin-bottom:14px;">🐉</span><h3 data-i18n="f1t">Klassisches Wortkarten-Spiel</h3><p data-i18n="f1d">Drehe Karten um und finde passende Paare. Schöne 3D-Animationen.</p></div>
-    <div class="fcard"><span class="ficon">🔊</span><h3 data-i18n="f2t">Spricht jedes Wort</h3><p data-i18n="f2d">Bei einem Treffer spricht die App das Wort in der gewählten Sprache.</p></div>
-    <div class="fcard"><span class="ficon">⭐</span><h3 data-i18n="f3t">Sterne und Trophäen</h3><p data-i18n="f3d">Verdiene 1-3 Sterne pro Spiel. Sammle Sterne um neue Kartenrücken freizuschalten.</p></div>
-    <div class="fcard"><span class="ficon">🧒</span><h3 data-i18n="f4t">Persönlicher Avatar</h3><p data-i18n="f4d">Kinder wählen ihren eigenen Tier-Avatar und Namen.</p></div>
-    <div class="fcard"><span class="ficon">📅</span><h3 data-i18n="f5t">Wort des Tages</h3><p data-i18n="f5d">Jeden Tag ein neues Wort mit Aussprache.</p></div>
-    <div class="fcard"><span class="ficon">🎃</span><h3 data-i18n="f6t">Saisonale Themen</h3><p data-i18n="f6d">Schmückt sich für Ostern, Halloween, Weihnachten und alle vier Jahreszeiten.</p></div>
+    <div class="fcard"><span class="ficon" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:52px;background:white;border-radius:6px;box-shadow:0 3px 8px rgba(0,0,0,.18),0 0 0 2px #d0cef5;font-size:26px;margin-bottom:14px;">🐉</span><h3 data-i18n="f1t">Klasická karetní hra se slovíčky</h3><p data-i18n="f1d">Otáčejte karty a hledejte odpovídající dvojice. Krásné 3D animace udělají z každé shody radost.</p></div>
+    <div class="fcard"><span class="ficon">🔊</span><h3 data-i18n="f2t">Vyslovuje každé slovo</h3><p data-i18n="f2d">Když najdete dvojici, aplikace slovo nahlas vysloví ve zvoleném jazyce.</p></div>
+    <div class="fcard"><span class="ficon">⭐</span><h3 data-i18n="f3t">Hvězdy a trofeje</h3><p data-i18n="f3d">Získejte 1-3 hvězdy za hru. Sbírejte hvězdy a odemykejte nové rubové strany karet včetně legendárního Dina.</p></div>
+    <div class="fcard"><span class="ficon">🧒</span><h3 data-i18n="f4t">Vlastní avatar</h3><p data-i18n="f4d">Děti si vyberou zvířecího avatara a jméno. Aplikace je osobně pozdraví.</p></div>
+    <div class="fcard"><span class="ficon">📅</span><h3 data-i18n="f5t">Slovo dne</h3><p data-i18n="f5d">Každý den nové slovo s výslovností.</p></div>
+    <div class="fcard"><span class="ficon">🎃</span><h3 data-i18n="f6t">Sezónní motivy</h3><p data-i18n="f6d">Aplikace se sama vyzdobí na Velikonoce, Halloween, Vánoce i všechna čtyři roční období.</p></div>
   </div>
 </section>
 </div>
 
 <div class="emoji-section">
 <section>
-  <h2 data-i18n="we.title" class="fade-scroll">Warum Emojis?</h2>
-  <p class="we-body fade-scroll" data-i18n="we.body">Ein Foto von „Mittagessen&quot; sieht italienisch oder japanisch aus. Ein Emoji ist universell. Emojis überschreiten jede Kultur, funktionieren auf jedem Gerät gleich und sind längst Teil der Welt, in der Kinder aufwachsen — warm, sofort verständlich, und vertraut aus den Nachrichten, die sie ihre Eltern schreiben sehen.</p>
+  <h2 data-i18n="we.title" class="fade-scroll">Proč emoji?</h2>
+  <p class="we-body fade-scroll" data-i18n="we.body">Fotka „oběda“ vypadá italsky nebo japonsky. Emoji je univerzální. Emoji překračují všechny kultury, vypadají stejně na každém zařízení a už teď patří do světa dětí — jsou vřelá, okamžitě čitelná a známá ze zpráv, které před nimi píšou rodiče.</p>
   <div class="emoji-row fade-scroll">
-    <div class="emoji-pair"><span class="ep-em">🐶</span><span data-i18n="we.w1">Hund</span></div>
-    <div class="emoji-pair"><span class="ep-em">🍎</span><span data-i18n="we.w2">Apfel</span></div>
-    <div class="emoji-pair"><span class="ep-em">🚗</span><span data-i18n="we.w3">Auto</span></div>
-    <div class="emoji-pair"><span class="ep-em">🌟</span><span data-i18n="we.w4">Stern</span></div>
-    <div class="emoji-pair"><span class="ep-em">🐬</span><span data-i18n="we.w5">Delfin</span></div>
+    <div class="emoji-pair"><span class="ep-em">🐶</span><span data-i18n="we.w1">pes</span></div>
+    <div class="emoji-pair"><span class="ep-em">🍎</span><span data-i18n="we.w2">jablko</span></div>
+    <div class="emoji-pair"><span class="ep-em">🚗</span><span data-i18n="we.w3">auto</span></div>
+    <div class="emoji-pair"><span class="ep-em">🌟</span><span data-i18n="we.w4">hvězda</span></div>
+    <div class="emoji-pair"><span class="ep-em">🐬</span><span data-i18n="we.w5">delfín</span></div>
   </div>
 </section>
 </div>
 
 <section id="languages">
-  <h2 data-i18n="lt">Mehrere Sprachen lernen</h2>
+  <h2 data-i18n="lt">Učte se více jazyků</h2>
   <div class="lgrid">
-    <div class="lcard"><span class="lflag">🇬🇧</span><div class="lname">English</div><div class="ltag free" data-i18n="free">Kostenlos</div></div>
+    <div class="lcard"><span class="lflag">🇬🇧</span><div class="lname">English</div><div class="ltag free" data-i18n="free">Zdarma</div></div>
     <div class="lcard"><span class="lflag">🇩🇪</span><div class="lname">Deutsch</div><div class="ltag" data-i18n="prem">Premium</div></div>
     <div class="lcard"><span class="lflag">🇫🇷</span><div class="lname">Français</div><div class="ltag" data-i18n="prem">Premium</div></div>
     <div class="lcard"><span class="lflag">🇪🇸</span><div class="lname">Español</div><div class="ltag" data-i18n="prem">Premium</div></div>
@@ -587,75 +587,75 @@ body.rtl .cc-inner{direction:rtl}
 
 <div class="alt">
 <section>
-  <h2 data-i18n="ct">21+ Wortkategorien</h2>
+  <h2 data-i18n="ct">Přes 21 kategorií slov</h2>
   <div class="cats">
-    <div class="chip">🐶 <span data-i18n="c1">Tiere</span></div><div class="chip">🍎 <span data-i18n="c2">Früchte</span></div>
-    <div class="chip">🔴 <span data-i18n="c3">Farben</span></div><div class="chip">1️⃣ <span data-i18n="c4">Zahlen</span></div>
-    <div class="chip">📚 <span data-i18n="c5">Gegenstände</span></div><div class="chip">😀 <span data-i18n="c6">Gefühle</span></div>
-    <div class="chip">🅰️ <span data-i18n="c7">Buchstaben</span></div><div class="chip">🏳️ <span data-i18n="c8">Flaggen</span></div>
-    <div class="chip">🚗 <span data-i18n="c9">Fahrzeuge</span></div><div class="chip">🍕 <span data-i18n="c10">Essen und Trinken</span></div>
-    <div class="chip">⚽ <span data-i18n="c11">Sport</span></div><div class="chip">☀️ <span data-i18n="c12">Wetter</span></div>
-    <div class="chip">💪 <span data-i18n="c13">Körper</span></div><div class="chip">🌸 <span data-i18n="c14">Natur</span></div>
-    <div class="chip">👨‍⚕️ <span data-i18n="c15">Berufe</span></div><div class="chip">🚀 <span data-i18n="c16">Weltraum</span></div>
-    <div class="chip">🛋️ <span data-i18n="c17">Haushalt</span></div><div class="chip">👗 <span data-i18n="c18">Kleidung</span></div>
-    <div class="chip">🎸 <span data-i18n="c19">Musik und Kunst</span></div><div class="chip">🔨 <span data-i18n="c20">Werkzeug</span></div><div class="chip">🥦 <span data-i18n="c21">Gemüse</span></div>
+    <div class="chip">🐶 <span data-i18n="c1">Zvířata</span></div><div class="chip">🍎 <span data-i18n="c2">Ovoce</span></div>
+    <div class="chip">🔴 <span data-i18n="c3">Barvy</span></div><div class="chip">1️⃣ <span data-i18n="c4">Čísla</span></div>
+    <div class="chip">📚 <span data-i18n="c5">Předměty</span></div><div class="chip">😀 <span data-i18n="c6">Emoce</span></div>
+    <div class="chip">🅰️ <span data-i18n="c7">Písmena</span></div><div class="chip">🏳️ <span data-i18n="c8">Vlajky</span></div>
+    <div class="chip">🚗 <span data-i18n="c9">Dopravní prostředky</span></div><div class="chip">🍕 <span data-i18n="c10">Jídlo a pití</span></div>
+    <div class="chip">⚽ <span data-i18n="c11">Sport</span></div><div class="chip">☀️ <span data-i18n="c12">Počasí</span></div>
+    <div class="chip">💪 <span data-i18n="c13">Části těla</span></div><div class="chip">🌸 <span data-i18n="c14">Příroda</span></div>
+    <div class="chip">👨‍⚕️ <span data-i18n="c15">Povolání</span></div><div class="chip">🚀 <span data-i18n="c16">Vesmír</span></div>
+    <div class="chip">🛋️ <span data-i18n="c17">Domácnost</span></div><div class="chip">👗 <span data-i18n="c18">Oblečení</span></div>
+    <div class="chip">🎸 <span data-i18n="c19">Hudba a umění</span></div><div class="chip">🔨 <span data-i18n="c20">Nářadí</span></div><div class="chip">🥦 <span data-i18n="c21">Zelenina</span></div>
   </div>
 </section>
 </div>
 
 <section>
-  <h2 data-i18n="lvt">5 Schwierigkeitsstufen für jedes Alter</h2>
+  <h2 data-i18n="lvt">5 úrovní obtížnosti pro každý věk</h2>
   <div class="lvls">
-    <div class="lcard2"><span class="lemoji">⭐</span><div class="lname2" data-i18n="lv1">Einfach</div><div class="ldesc" data-i18n="lv1d">4-5 Jahre - 4 Paare</div></div>
-    <div class="lcard2"><span class="lemoji">⭐⭐</span><div class="lname2" data-i18n="lv2">Mittel</div><div class="ldesc" data-i18n="lv2d">5+ Jahre - 6 Paare</div></div>
-    <div class="lcard2"><span class="lemoji">⭐⭐⭐</span><div class="lname2" data-i18n="lv3">Schwer</div><div class="ldesc" data-i18n="lv3d">7+ Jahre - 8 Paare</div></div>
-    <div class="lcard2"><span class="lemoji">🔤</span><div class="lname2" data-i18n="lv4">Experte</div><div class="ldesc" data-i18n="lv4d">9+ Jahre - Bild+Wort</div></div>
-    <div class="lcard2"><span class="lemoji">🧠</span><div class="lname2" data-i18n="lv5">Meister</div><div class="ldesc" data-i18n="lv5d">12+ Jahre - Nur Wörter</div></div>
+    <div class="lcard2"><span class="lemoji">⭐</span><div class="lname2" data-i18n="lv1">Lehká</div><div class="ldesc" data-i18n="lv1d">4-5 let - 4 dvojice</div></div>
+    <div class="lcard2"><span class="lemoji">⭐⭐</span><div class="lname2" data-i18n="lv2">Střední</div><div class="ldesc" data-i18n="lv2d">5+ let - 6 dvojic</div></div>
+    <div class="lcard2"><span class="lemoji">⭐⭐⭐</span><div class="lname2" data-i18n="lv3">Těžká</div><div class="ldesc" data-i18n="lv3d">7+ let - 8 dvojic</div></div>
+    <div class="lcard2"><span class="lemoji">🔤</span><div class="lname2" data-i18n="lv4">Expert</div><div class="ldesc" data-i18n="lv4d">9+ let - Obrázek+Slovo</div></div>
+    <div class="lcard2"><span class="lemoji">🧠</span><div class="lname2" data-i18n="lv5">Mistr</div><div class="ldesc" data-i18n="lv5d">12+ let - Jen slova</div></div>
   </div>
 </section>
 
 <div style="background:#f5f5f7;padding:0 0 16px">
 <div class="safe-box">
-  <h2 data-i18n="sft">Sicher für Kinder</h2>
+  <h2 data-i18n="sft">Bezpečné pro děti</h2>
   <div class="safe-grid">
-    <div class="safe-item"><span>🚫</span><span data-i18n="s1">Keine Werbung niemals</span></div>
-    <div class="safe-item"><span>📵</span><span data-i18n="s2">Keine sozialen Funktionen</span></div>
-    <div class="safe-item"><span>✈️</span><span data-i18n="s3">Funktioniert offline</span></div>
-    <div class="safe-item"><span>👨‍👩‍👧</span><span data-i18n="s4">Elternschutz</span></div>
-    <div class="safe-item"><span>🔒</span><span data-i18n="s5">Keine Datenerfassung</span></div>
-    <div class="safe-item"><span>✅</span><span data-i18n="s6">COPPA-konform</span></div>
+    <div class="safe-item"><span>🚫</span><span data-i18n="s1">Nikdy žádné reklamy</span></div>
+    <div class="safe-item"><span>📵</span><span data-i18n="s2">Žádné sociální funkce</span></div>
+    <div class="safe-item"><span>✈️</span><span data-i18n="s3">Funguje offline</span></div>
+    <div class="safe-item"><span>👨‍👩‍👧</span><span data-i18n="s4">Rodičovský zámek nákupů</span></div>
+    <div class="safe-item"><span>🔒</span><span data-i18n="s5">Žádný sběr dat</span></div>
+    <div class="safe-item"><span>✅</span><span data-i18n="s6">V souladu s COPPA</span></div>
   </div>
 </div>
 </div>
 
 <div class="alt" id="pricing">
 <section>
-  <h2 data-i18n="prt">Einfache ehrliche Preise</h2>
+  <h2 data-i18n="prt">Jednoduché a férové ceny</h2>
   <div class="price-cards">
     <div class="pcard">
-      <h3 data-i18n="p1n">Kostenlos</h3>
+      <h3 data-i18n="p1n">Zdarma</h3>
       <div class="price" data-i18n="price.free">0 €</div>
-      <p style="color:#6e6e73;font-size:13px" data-i18n="p1no">Für immer kostenlos</p>
+      <p style="color:#6e6e73;font-size:13px" data-i18n="p1no">Navždy zdarma</p>
       <ul>
-        <li data-i18n="p1a">Englische Sprache</li>
-        <li data-i18n="p1b">Tiere Früchte Farben</li>
-        <li data-i18n="p1c">Einfach und Mittel</li>
-        <li data-i18n="p1d">Klassischer Kartenrücken</li>
-        <li data-i18n="p1e">Wort des Tages</li>
-        <li data-i18n="p1f">Saisonale Themen</li>
+        <li data-i18n="p1a">Anglický jazyk</li>
+        <li data-i18n="p1b">Zvířata Ovoce Barvy</li>
+        <li data-i18n="p1c">Úrovně Lehká a Střední</li>
+        <li data-i18n="p1d">Klasický rub karet</li>
+        <li data-i18n="p1e">Slovo dne</li>
+        <li data-i18n="p1f">Sezónní motivy</li>
       </ul>
     </div>
     <div class="pcard feat2">
-      <h3 data-i18n="p2n">Vollversion</h3>
+      <h3 data-i18n="p2n">Plná verze</h3>
       <div class="price" data-i18n="price.full">2,99 €</div>
-      <p style="opacity:.8;font-size:13px" data-i18n="p2no">Einmaliger Kauf - Kein Abo</p>
+      <p style="opacity:.8;font-size:13px" data-i18n="p2no">Jednorázově - žádné předplatné</p>
       <ul>
-        <li data-i18n="p2a">Alle Sprachen</li>
-        <li data-i18n="p2b">Alle 21+ Kategorien</li>
-        <li data-i18n="p2c">Alle 5 Stufen</li>
-        <li data-i18n="p2d">9 Kartenrücken-Designs</li>
-        <li data-i18n="p2e">Zukünftige Inhalte gratis</li>
-        <li data-i18n="p2f">Alles für immer</li>
+        <li data-i18n="p2a">Všechny jazyky</li>
+        <li data-i18n="p2b">Všechny kategorie (21+)</li>
+        <li data-i18n="p2c">Všech 5 úrovní</li>
+        <li data-i18n="p2d">9 rubů karet</li>
+        <li data-i18n="p2e">Veškerý budoucí obsah zdarma</li>
+        <li data-i18n="p2f">Vše navždy</li>
       </ul>
     </div>
   </div>
@@ -663,62 +663,62 @@ body.rtl .cc-inner{direction:rtl}
 </div>
 
 <section class="faq-wrap" id="faq">
-  <h2 data-i18n="faq.title" class="fade-scroll">Häufig gestellte Fragen</h2>
+  <h2 data-i18n="faq.title" class="fade-scroll">Časté dotazy</h2>
   <div class="faq-list fade-scroll">
     <details class="faq-item">
-      <summary data-i18n="faq.q1">Braucht Flip &amp; Learn eine Internetverbindung?</summary>
-      <p data-i18n="faq.a1">Nein. Sobald die App heruntergeladen ist, funktioniert sie komplett offline — perfekt für Autofahrten, Flüge oder überall ohne WLAN.</p>
+      <summary data-i18n="faq.q1">Potřebuje Flip &amp; Learn internet?</summary>
+      <p data-i18n="faq.a1">Ne. Po stažení funguje aplikace zcela offline — ideální na cesty autem, do letadla i kamkoli bez Wi-Fi.</p>
     </details>
     <details class="faq-item">
-      <summary data-i18n="faq.q2">Sieht mein Kind Werbung?</summary>
-      <p data-i18n="faq.a2">Nein. Keine Werbung, kein Tracking, keine Datensammlung über dein Kind. Wir haben kein Marketing-Team, das die Aufmerksamkeit deines Kindes verkauft.</p>
+      <summary data-i18n="faq.q2">Uvidí moje dítě reklamy?</summary>
+      <p data-i18n="faq.a2">Ne. Nula reklam, nula sledování, nula sbíraných dat o vašem dítěti. Nemáme marketingové oddělení, které by prodávalo pozornost vašeho dítěte.</p>
     </details>
     <details class="faq-item">
-      <summary data-i18n="faq.q3">Ist es wirklich ein einmaliger Kauf?</summary>
-      <p data-i18n="faq.a3">Ja. 2,99 € einmalig, kein Abo, keine weiteren In-App-Käufe. Alle zukünftigen Inhalts-Updates sind kostenlos enthalten.</p>
+      <summary data-i18n="faq.q3">Je to opravdu jednorázový nákup?</summary>
+      <p data-i18n="faq.a3">Ano. 2,99 € jednou, žádné předplatné, žádné další nákupy v aplikaci. Všechny budoucí aktualizace obsahu jsou zdarma.</p>
     </details>
     <details class="faq-item">
-      <summary data-i18n="faq.q4">Kann mein Kind aus Versehen etwas kaufen?</summary>
-      <p data-i18n="faq.a4">Nein. Die 2,99-€-Freischaltung ist hinter einer Eltern-Sperre — eine Multiplikationsaufgabe, die nur ein Erwachsener lösen kann. Kinder können sie nicht umgehen.</p>
+      <summary data-i18n="faq.q4">Může dítě omylem něco koupit?</summary>
+      <p data-i18n="faq.a4">Ne. Odemčení za 2,99 € chrání rodičovský zámek — příklad na násobení, který vyřeší jen dospělý. Děti ho neobejdou.</p>
     </details>
     <details class="faq-item">
-      <summary data-i18n="faq.q5">Welche Sprachen sind enthalten?</summary>
-      <p data-i18n="faq.a5">Englisch ist kostenlos enthalten. Die 2,99-€-Freischaltung fügt 8 weitere hinzu: Deutsch, Spanisch, Französisch, Italienisch, Portugiesisch, Rumänisch, Ungarisch und Arabisch.</p>
+      <summary data-i18n="faq.q5">Které jazyky jsou v ceně?</summary>
+      <p data-i18n="faq.a5">Angličtina je zdarma. Odemčení za 2,99 € přidá dalších 8: němčinu, španělštinu, francouzštinu, italštinu, portugalštinu, rumunštinu, maďarštinu a arabštinu.</p>
     </details>
     <details class="faq-item">
-      <summary data-i18n="faq.q6">Für welches Alter ist es gedacht?</summary>
-      <p data-i18n="faq.a6">Ab 4 Jahren. Fünf Schwierigkeitsstufen reichen von sehr einfach (gut merkbare Paare) bis richtig herausfordernd — Kinder können mit 4 starten und bis etwa 8 Jahre mit dem Spiel mitwachsen.</p>
+      <summary data-i18n="faq.q6">Pro jaký věk je určena?</summary>
+      <p data-i18n="faq.a6">Zhruba pro děti od 3 do 7 let. Pět úrovní obtížnosti — od velmi lehké po opravdu náročnou — umožňuje začít brzy a růst spolu se hrou.</p>
     </details>
   </div>
 </section>
 
 <div class="emoji-section">
 <section>
-  <h2 data-i18n="about.h" class="fade-scroll">Von einem Vater gemacht, von einem Kind getestet</h2>
-  <p class="we-body fade-scroll" data-i18n="about.p1">Ich bin Vater und lebe in Regensburg, Deutschland. Unter der Woche arbeite ich als Systemtestingenieur. An den Wochenenden habe ich Flip &amp; Learn entwickelt — für meinen Sohn, und mit der Idee, dass Zeit vor dem Bildschirm auch Lernzeit sein kann. Er hat sich als mein anspruchsvollster und ehrlichster Tester herausgestellt.</p>
-  <p class="we-body fade-scroll" data-i18n="about.p2">Jede Kategorie, jede Übersetzung, jede Animation wird so sorgfältig geprüft, wie ich es bei allem tun würde, was ich meinem eigenen Kind in die Hand gebe: getestet auf Ecken und Kanten, getestet mit den schwierigen Fällen, getestet auf echten Geräten, bevor irgendetwas veröffentlicht wird. Qualität zuerst, Release danach.</p>
-  <p class="we-body fade-scroll" data-i18n="about.p3">Kein Marketing-Team. Kein Tracking deines Kindes. Keine Werbung. Nur ein Vater, der etwas baut, das andere Eltern — und ihre Kinder — auch mögen könnten.</p>
+  <h2 data-i18n="about.h" class="fade-scroll">Vytvořil rodič, otestovalo dítě</h2>
+  <p class="we-body fade-scroll" data-i18n="about.p1">Jsem rodič a žiju v německém Řezně. Přes týden pracuji jako inženýr systémového testování. O víkendech jsem vytvořil Flip &amp; Learn — pro svého syna a s myšlenkou, že čas u obrazovky může být i časem učení. Ukázal se jako můj nejnáročnější a nejupřímnější tester.</p>
+  <p class="we-body fade-scroll" data-i18n="about.p2">Každá kategorie, každý překlad a každá animace prochází stejnými testy jako vše, co dávám vlastnímu dítěti: hledání nedodělků, prověření záludných případů a testy na skutečných zařízeních před každým vydáním. Nejdřív kvalita, potom vydání.</p>
+  <p class="we-body fade-scroll" data-i18n="about.p3">Žádné marketingové oddělení. Žádná analytika sledující vaše dítě. Žádné reklamy. Jen jeden rodič, který tvoří něco, co se může líbit i dalším rodičům — a jejich dětem.</p>
 </section>
 </div>
 
 <section id="support">
-  <h2 data-i18n="supt">Support</h2>
+  <h2 data-i18n="supt">Podpora</h2>
   <div class="sup-box">
-    <h3 data-i18n="suph">Brauchen Sie Hilfe?</h3>
-    <p data-i18n="supp">Wir helfen Ihnen gerne. Antwort innerhalb von 48 Stunden.</p>
-    <a href="mailto:support@flipandlearn.app" class="email-btn" data-i18n="supb">Support kontaktieren</a>
+    <h3 data-i18n="suph">Potřebujete pomoc?</h3>
+    <p data-i18n="supp">Rádi odpovíme na každý dotaz. Snažíme se odpovídat do 48 hodin.</p>
+    <a href="mailto:support@flipandlearn.app" class="email-btn" data-i18n="supb">Kontaktovat podporu</a>
     <p style="margin-top:18px;font-size:12px;color:#aaa">
-      <span data-i18n="supd">Entwickelt von BuraApps</span><br>
-      <a href="privacy.html" style="color:#3A3589" data-i18n="nav.priv">Datenschutz</a>
+      <span data-i18n="supd">Vyvinuto BuraApps</span><br>
+      <a href="privacy.html" style="color:#3A3589" data-i18n="nav.priv">Soukromí</a>
     </p>
   </div>
 </section>
 
 <footer>
   <div class="flinks">
-    <a href="/" data-i18n="nav.home">Startseite</a>
-    <a href="privacy.html" data-i18n="nav.priv">Datenschutz</a>
-    <a href="#" id="cookiePrefs" data-i18n="cookie.settings" onclick="event.preventDefault();window.__flShowConsent&amp;&amp;window.__flShowConsent();">Cookie-Einstellungen</a>
+    <a href="/" data-i18n="nav.home">Domů</a>
+    <a href="privacy.html" data-i18n="nav.priv">Soukromí</a>
+    <a href="#" id="cookiePrefs" data-i18n="cookie.settings" onclick="event.preventDefault();window.__flShowConsent&amp;&amp;window.__flShowConsent();">Nastavení cookies</a>
     <a href="mailto:support@flipandlearn.app">support@flipandlearn.app</a>
   </div>
   <div class="fsocial">
@@ -735,19 +735,19 @@ body.rtl .cc-inner{direction:rtl}
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
     </a>
   </div>
-  <p>&copy; 2026 BuraApps. Flip &amp; Learn. <span data-i18n="fr">Alle Rechte vorbehalten.</span></p>
+  <p>&copy; 2026 BuraApps. Flip &amp; Learn. <span data-i18n="fr">Všechna práva vyhrazena.</span></p>
 </footer>
 
 <!-- FLI-cookie-consent: GDPR/ePrivacy opt-in banner. Hidden until JS decides to show it. -->
 <div class="cc-banner" id="ccBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
   <div class="cc-inner">
     <div class="cc-text">
-      <span data-i18n="cookie.msg">Wir verwenden Google-Ads-Cookies, um die Anzeigenleistung zu messen. Sie werden nur gesetzt, wenn Sie zustimmen.</span>
-      <a href="cookies.html" data-i18n="cookie.learn">Mehr erfahren</a>
+      <span data-i18n="cookie.msg">Používáme soubory cookie Google Ads k měření výkonu reklam. Nastaví se, jen pokud je přijmete.</span>
+      <a href="cookies.html" data-i18n="cookie.learn">Zjistit více</a>
     </div>
     <div class="cc-actions">
-      <button type="button" class="cc-btn cc-reject" id="ccReject" data-i18n="cookie.reject">Ablehnen</button>
-      <button type="button" class="cc-btn cc-accept" id="ccAccept" data-i18n="cookie.accept">Akzeptieren</button>
+      <button type="button" class="cc-btn cc-reject" id="ccReject" data-i18n="cookie.reject">Odmítnout</button>
+      <button type="button" class="cc-btn cc-accept" id="ccAccept" data-i18n="cookie.accept">Přijmout</button>
     </div>
   </div>
 </div>
