@@ -55,6 +55,8 @@ const LOCALES = [
   { code: 'lt', path: '/lt/', ogLocale: 'lt_LT', dir: 'ltr', isDefault: false },
   { code: 'lv', path: '/lv/', ogLocale: 'lv_LV', dir: 'ltr', isDefault: false },
   { code: 'et', path: '/et/', ogLocale: 'et_EE', dir: 'ltr', isDefault: false },
+  { code: 'sq', path: '/sq/', ogLocale: 'sq_AL', dir: 'ltr', isDefault: false },
+  { code: 'sr', path: '/sr/', ogLocale: 'sr_RS', dir: 'ltr', isDefault: false }, // Cyrillic script (CLDR default for sr)
   { code: 'ar', path: '/ar/', ogLocale: 'ar_SA', dir: 'rtl', isDefault: false },
 ];
 
