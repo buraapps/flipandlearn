@@ -47,6 +47,8 @@ const LOCALES = [
   { code: 'sk', path: '/sk/', ogLocale: 'sk_SK', dir: 'ltr', isDefault: false },
   { code: 'hr', path: '/hr/', ogLocale: 'hr_HR', dir: 'ltr', isDefault: false },
   { code: 'sl', path: '/sl/', ogLocale: 'sl_SI', dir: 'ltr', isDefault: false },
+  { code: 'el', path: '/el/', ogLocale: 'el_GR', dir: 'ltr', isDefault: false },
+  { code: 'sv', path: '/sv/', ogLocale: 'sv_SE', dir: 'ltr', isDefault: false },
   { code: 'ar', path: '/ar/', ogLocale: 'ar_SA', dir: 'rtl', isDefault: false },
 ];
 
