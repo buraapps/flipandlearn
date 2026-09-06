@@ -39,6 +39,8 @@ const LOCALES = [
   { code: 'hu', path: '/hu/', ogLocale: 'hu_HU', dir: 'ltr', isDefault: false },
   { code: 'pl', path: '/pl/', ogLocale: 'pl_PL', dir: 'ltr', isDefault: false },
   { code: 'nl', path: '/nl/', ogLocale: 'nl_NL', dir: 'ltr', isDefault: false },
+  { code: 'ru', path: '/ru/', ogLocale: 'ru_RU', dir: 'ltr', isDefault: false },
+  { code: 'uk', path: '/uk/', ogLocale: 'uk_UA', dir: 'ltr', isDefault: false },
   { code: 'ar', path: '/ar/', ogLocale: 'ar_SA', dir: 'rtl', isDefault: false },
 ];
 
