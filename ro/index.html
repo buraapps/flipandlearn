@@ -26,6 +26,8 @@
 <link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/">
 <link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/">
 <link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/">
+<link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/">
+<link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/">
 <link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/">
 <link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/">
 <!-- Open Graph (FLI-51) -->
@@ -46,6 +48,8 @@
 <meta property="og:locale:alternate" content="it_IT">
 <meta property="og:locale:alternate" content="pt_PT">
 <meta property="og:locale:alternate" content="hu_HU">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="nl_NL">
 <meta property="og:locale:alternate" content="ar_SA">
 <!-- Twitter Card (FLI-51) -->
 <meta name="twitter:card" content="summary_large_image">
@@ -193,7 +197,7 @@ nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1
 .nav-links a:hover{opacity:1}
 .lang-sw{position:relative}
 .lang-btn{background:#f0effe;border:1.5px solid #c5c2f5;border-radius:10px;padding:5px 10px;font-size:13px;font-weight:600;color:#3A3589;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.lang-menu{position:absolute;inset-inline-end:0;top:calc(100% + 6px);background:white;border:1px solid #e0e0e0;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12);min-width:160px;display:none;z-index:200;overflow:hidden}
+.lang-menu{position:absolute;inset-inline-end:0;top:calc(100% + 6px);background:white;border:1px solid #e0e0e0;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12);min-width:160px;display:none;z-index:200;overflow-x:hidden;overflow-y:auto;max-height:min(60vh,420px)}
 .lang-menu.open{display:block}
 .lang-opt{padding:9px 14px;font-size:13px;cursor:pointer;color:#1d1d1f;-webkit-tap-highlight-color:transparent;text-decoration:none;display:block}
 .lang-opt:hover{background:#f5f5f7}
@@ -402,6 +406,8 @@ body.rtl .cc-inner{direction:rtl}
       <a class="lang-opt" data-lang="pt" href="/pt/" onclick="try{localStorage.setItem('flipandlearn_lang','pt')}catch(e){}">🇵🇹 Português</a>
       <a class="lang-opt active" data-lang="ro" href="/ro/" onclick="try{localStorage.setItem('flipandlearn_lang','ro')}catch(e){}">🇷🇴 Română</a>
       <a class="lang-opt" data-lang="hu" href="/hu/" onclick="try{localStorage.setItem('flipandlearn_lang','hu')}catch(e){}">🇭🇺 Magyar</a>
+      <a class="lang-opt" data-lang="pl" href="/pl/" onclick="try{localStorage.setItem('flipandlearn_lang','pl')}catch(e){}">🇵🇱 Polski</a>
+      <a class="lang-opt" data-lang="nl" href="/nl/" onclick="try{localStorage.setItem('flipandlearn_lang','nl')}catch(e){}">🇳🇱 Nederlands</a>
       <a class="lang-opt" data-lang="ar" href="/ar/" onclick="try{localStorage.setItem('flipandlearn_lang','ar')}catch(e){}">🇸🇦 العربية</a>
     </div>
   </div>
@@ -1045,10 +1051,80 @@ ar:{
 "cookies.p3":"إذا نقرت على \"أرفض\" أو أغلقت الصفحة دون اختيار، فلن يتم وضع أي ملفات تعريف ارتباط من Google ولن تُرسل أي بيانات إلى Google.",
 "cookies.p4":"يمكنك تغيير اختيارك في أي وقت عبر رابط \"إعدادات ملفات تعريف الارتباط\" في تذييل الصفحة. يسري السحب فوراً عند تحميل الصفحة التالي؛ ويمكن حذف ملفات تعريف الارتباط التي وضعتها Google من إعدادات ملفات تعريف الارتباط في متصفحك.",
 "cookies.gplink":"سياسة خصوصية Google","cookies.fullnotice":"إشعار الخصوصية الكامل للموقع"
+},
+pl:{
+"nav.ss":"Zrzuty ekranu","nav.feat":"Funkcje","nav.lang":"Języki","nav.price":"Cennik","nav.sup":"Pomoc","nav.priv":"Prywatność","nav.home":"Start",
+"hero.sub":"Wesoła gra karciana ze słowami, która uczy dzieci nowych słów w wielu językach",
+"b1":"3–7 lat","b2":"9 języków","b3":"Ponad 21 kategorii","b4":"Zero reklam","b5":"Działa offline",
+"btn":"Pobierz w App Store","soon":"Wkrótce w App Store","btn.gp":"Pobierz Flip & Learn z Google Play",
+"ss.title":"Zobacz, jak to działa","ss.sub":"Wszystko, czego potrzebuje Twoje dziecko, by zacząć naukę",
+"ss.1":"Ekran główny","ss.2":"Plansza gry","ss.3":"Szukanie par","ss.4":"Świętowanie!","ss.5":"Ponad 21 kategorii","ss.6":"Ochrona rodzicielska","ss.7":"Odblokuj wszystko","ss.0":"Podgląd aplikacji","ss.swipe":"← Przesuń, aby zobaczyć więcej →","ss.arrows":"← Użyj strzałek lub klawiatury →","arrow.prev":"Poprzedni zrzut ekranu","arrow.next":"Następny zrzut ekranu","dot.label":"Zrzut ekranu",
+"ft":"Wszystko, co kochają dzieci, wszystko, czemu ufają rodzice",
+"f1t":"Klasyczna gra w karty ze słowami","f1d":"Odkrywaj karty i znajduj pasujące pary. Piękne animacje 3D sprawiają, że każde trafienie cieszy.",
+"f2t":"Wymawia każde słowo","f2d":"Po znalezieniu pary aplikacja wymawia słowo na głos w wybranym języku.",
+"f3t":"Gwiazdki i trofea","f3d":"Zdobywaj 1-3 gwiazdki za grę. Zbieraj gwiazdki, aby odblokować nowe wzory kart, w tym legendarnego Dino.",
+"f4t":"Własny awatar","f4d":"Dzieci wybierają swojego zwierzęcego awatara i imię. Aplikacja wita je osobiście.",
+"f5t":"Słowo dnia","f5d":"Codziennie nowe słowo z wymową.",
+"f6t":"Motywy sezonowe","f6d":"Aplikacja sama dekoruje się na Wielkanoc, Halloween, Boże Narodzenie i wszystkie cztery pory roku.",
+"lt":"Ucz się wielu języków","free":"Za darmo","prem":"Premium",
+"ct":"Ponad 21 kategorii słów",
+"c1":"Zwierzęta","c2":"Owoce","c3":"Kolory","c4":"Liczby","c5":"Przedmioty","c6":"Emocje","c7":"Litery","c8":"Flagi","c9":"Pojazdy","c10":"Jedzenie i napoje","c11":"Sport","c12":"Pogoda","c13":"Części ciała","c14":"Przyroda","c15":"Zawody","c16":"Kosmos","c17":"Dom","c18":"Ubrania","c19":"Muzyka i sztuka","c20":"Narzędzia","c21":"Warzywa",
+"lvt":"5 poziomów trudności dla każdego wieku",
+"lv1":"Łatwy","lv1d":"4-5 lat - 4 pary","lv2":"Średni","lv2d":"5+ lat - 6 par","lv3":"Trudny","lv3d":"7+ lat - 8 par","lv4":"Ekspert","lv4d":"9+ lat - Obrazek+Słowo","lv5":"Mistrz","lv5d":"12+ lat - Tylko słowa",
+"sft":"Bezpieczna dla dzieci","s1":"Zero reklam","s2":"Bez funkcji społecznościowych","s3":"Działa offline","s4":"Rodzicielska blokada zakupów","s5":"Brak zbierania danych","s6":"Zgodna z COPPA",
+"prt":"Prosty, uczciwy cennik",
+"p1n":"Za darmo","p1no":"Bezpłatnie na zawsze","p1a":"Język angielski","p1b":"Zwierzęta Owoce Kolory","p1c":"Poziomy Łatwy i Średni","p1d":"Klasyczny wzór kart","p1e":"Słowo dnia","p1f":"Motywy sezonowe",
+"p2n":"Pełna wersja","p2no":"Jednorazowo - bez subskrypcji","p2a":"Wszystkie języki","p2b":"Wszystkie kategorie (21+)","p2c":"Wszystkie 5 poziomów","p2d":"9 wzorów kart","p2e":"Wszystkie przyszłe treści gratis","p2f":"Wszystko na zawsze","price.free":"0 €","price.full":"2,99 €",
+"faq.title":"Najczęściej zadawane pytania","faq.q1":"Czy Flip & Learn wymaga połączenia z internetem?","faq.a1":"Nie. Po pobraniu aplikacja działa całkowicie offline — idealna na podróże samochodem, do samolotu i wszędzie tam, gdzie nie ma Wi-Fi.","faq.q2":"Czy moje dziecko zobaczy reklamy?","faq.a2":"Nie. Zero reklam, zero śledzenia, zero danych zbieranych o Twoim dziecku. Nie mamy działu marketingu handlującego uwagą Twojego dziecka.","faq.q3":"Czy to naprawdę jednorazowy zakup?","faq.a3":"Tak. 2,99 € raz, bez subskrypcji i bez dalszych zakupów w aplikacji. Wszystkie przyszłe aktualizacje treści są w cenie.","faq.q4":"Czy dziecko może przypadkiem coś kupić?","faq.a4":"Nie. Odblokowanie za 2,99 € chroni bramka rodzicielska — zadanie z mnożenia, które rozwiąże tylko dorosły. Dzieci jej nie obejdą.","faq.q5":"Jakie języki są dostępne?","faq.a5":"Angielski jest bezpłatny. Odblokowanie za 2,99 € dodaje 8 kolejnych: niemiecki, hiszpański, francuski, włoski, portugalski, rumuński, węgierski i arabski.","faq.q6":"Dla jakiego wieku jest przeznaczona?","faq.a6":"Mniej więcej dla dzieci w wieku 3–7 lat. Pięć poziomów trudności — od bardzo łatwego po naprawdę wymagający — pozwala maluchom zacząć wcześnie i rosnąć razem z grą.",
+"about.h":"Stworzona przez rodzica, przetestowana przez dziecko","about.p1":"Jestem rodzicem, mieszkam w Ratyzbonie w Niemczech. W tygodniu pracuję jako inżynier testów systemowych. W weekendy zbudowałem Flip & Learn — dla mojego syna i z myślą, że czas przed ekranem może być też czasem nauki. Okazał się moim najbardziej wymagającym i najszczerszym testerem.","about.p2":"Każda kategoria, każde tłumaczenie i każda animacja przechodzi takie testy, jakim poddałbym wszystko, co trafia do rąk mojego dziecka: szukanie niedociągnięć, sprawdzanie trudnych przypadków i testy na prawdziwych urządzeniach przed każdym wydaniem. Najpierw jakość, potem premiera.","about.p3":"Bez zespołu marketingowego. Bez analityki śledzącej Twoje dziecko. Bez reklam. Po prostu rodzic, który tworzy coś, co może spodobać się także innym rodzicom — i ich dzieciom.",
+"supt":"Pomoc","suph":"Potrzebujesz pomocy?","supp":"Chętnie odpowiemy na każde pytanie. Staramy się odpowiadać w ciągu 48 godzin.","supb":"Skontaktuj się z pomocą","supd":"Stworzone przez BuraApps","fr":"Wszelkie prawa zastrzeżone.",
+"we.title":"Dlaczego emoji?","we.body":"Zdjęcie „obiadu” wygląda włosko albo japońsko. Emoji jest uniwersalne. Emoji przekraczają granice kultur, wyglądają tak samo na każdym urządzeniu i są już częścią świata dzieci — ciepłe, natychmiast zrozumiałe i znane z wiadomości, które na ich oczach piszą rodzice.","we.w1":"pies","we.w2":"jabłko","we.w3":"auto","we.w4":"gwiazda","we.w5":"delfin",
+"cookie.msg":"Używamy plików cookie Google Ads, aby mierzyć skuteczność reklam. Zostaną ustawione tylko wtedy, gdy wyrazisz zgodę.","cookie.accept":"Akceptuję","cookie.reject":"Odrzucam","cookie.settings":"Ustawienia plików cookie","cookie.learn":"Dowiedz się więcej",
+"cookies.h":"Pliki cookie i Google Ads",
+"cookies.p1":"Używamy śledzenia konwersji Google Ads (identyfikator tagu AW-18076192122) wyłącznie do mierzenia skuteczności naszych reklam w Google. Tag jest domyślnie zablokowany i ładuje się dopiero po kliknięciu „Akceptuję” na banerze cookie.",
+"cookies.p2":"Gdy tag jest aktywny, Google ustawia własny plik cookie (_gcl_au) w domenie flipandlearn.app i może otrzymać: Twój adres IP, typ przeglądarki, stronę, na którą trafiłeś, identyfikator kliknięcia reklamy oraz losowo wygenerowany identyfikator cookie. Google działa jako podmiot przetwarzający dane; nie otrzymuje Twojego imienia, adresu e-mail ani innych danych bezpośrednio identyfikujących.",
+"cookies.p3":"Jeśli klikniesz „Odrzucam” lub zamkniesz stronę bez dokonania wyboru, żadne pliki cookie Google nie zostaną ustawione i żadne dane nie trafią do Google.",
+"cookies.p4":"Możesz zmienić swój wybór w dowolnym momencie przez link „Ustawienia plików cookie” w stopce. Wycofanie zgody działa od następnego załadowania strony; pliki cookie już ustawione przez Google możesz usunąć w ustawieniach przeglądarki.",
+"cookies.gplink":"Polityka prywatności Google","cookies.fullnotice":"Pełna informacja o prywatności witryny"
+},
+nl:{
+"nav.ss":"Screenshots","nav.feat":"Functies","nav.lang":"Talen","nav.price":"Prijzen","nav.sup":"Support","nav.priv":"Privacy","nav.home":"Home",
+"hero.sub":"Het leuke woordkaartspel dat kinderen nieuwe woorden leert in meerdere talen",
+"b1":"3–7 jaar","b2":"9 talen","b3":"21+ categorieën","b4":"Nooit reclame","b5":"Werkt offline",
+"btn":"Download in de App Store","soon":"Binnenkort in de App Store","btn.gp":"Download Flip & Learn op Google Play",
+"ss.title":"Bekijk het in actie","ss.sub":"Alles wat je kind nodig heeft om te beginnen met leren",
+"ss.1":"Startscherm","ss.2":"Speelbord","ss.3":"Paren zoeken","ss.4":"Feest!","ss.5":"21+ categorieën","ss.6":"Ouderlijke bescherming","ss.7":"Alles ontgrendelen","ss.0":"App-voorbeeld","ss.swipe":"← Veeg om meer te zien →","ss.arrows":"← Gebruik pijltjes of toetsenbord →","arrow.prev":"Vorige screenshot","arrow.next":"Volgende screenshot","dot.label":"Screenshot",
+"ft":"Alles waar kinderen van houden, alles wat ouders vertrouwen",
+"f1t":"Klassiek woordkaartspel","f1d":"Draai kaarten om en vind bij elkaar horende paren. Prachtige 3D-animaties maken elke match bevredigend.",
+"f2t":"Spreekt elk woord uit","f2d":"Bij een match spreekt de app het woord hardop uit in de gekozen taal.",
+"f3t":"Sterren en trofeeën","f3d":"Verdien 1-3 sterren per spel. Spaar sterren om nieuwe kaartontwerpen te ontgrendelen, waaronder de legendarische Dino.",
+"f4t":"Eigen avatar","f4d":"Kinderen kiezen hun eigen dierenavatar en naam. De app begroet ze persoonlijk.",
+"f5t":"Woord van de dag","f5d":"Elke dag een nieuw woord met uitspraak.",
+"f6t":"Seizoensthema's","f6d":"Versiert zichzelf automatisch voor Pasen, Halloween, Kerst en alle vier de seizoenen.",
+"lt":"Leer meerdere talen","free":"Gratis","prem":"Premium",
+"ct":"21+ woordcategorieën",
+"c1":"Dieren","c2":"Fruit","c3":"Kleuren","c4":"Cijfers","c5":"Voorwerpen","c6":"Emoties","c7":"Letters","c8":"Vlaggen","c9":"Voertuigen","c10":"Eten en drinken","c11":"Sport","c12":"Weer","c13":"Lichaamsdelen","c14":"Natuur","c15":"Beroepen","c16":"Ruimte","c17":"Huishouden","c18":"Kleding","c19":"Muziek en kunst","c20":"Gereedschap","c21":"Groenten",
+"lvt":"5 moeilijkheidsniveaus voor elke leeftijd",
+"lv1":"Makkelijk","lv1d":"4-5 jaar - 4 paren","lv2":"Gemiddeld","lv2d":"5+ jaar - 6 paren","lv3":"Moeilijk","lv3d":"7+ jaar - 8 paren","lv4":"Expert","lv4d":"9+ jaar - Beeld+Woord","lv5":"Meester","lv5d":"12+ jaar - Alleen woorden",
+"sft":"Veilig voor kinderen","s1":"Nooit reclame","s2":"Geen sociale functies","s3":"Werkt offline","s4":"Ouderlijk aankoopslot","s5":"Geen dataverzameling","s6":"COPPA-conform",
+"prt":"Simpele, eerlijke prijzen",
+"p1n":"Gratis","p1no":"Voor altijd gratis","p1a":"Engelse taal","p1b":"Dieren Fruit Kleuren","p1c":"Niveaus Makkelijk en Gemiddeld","p1d":"Klassiek kaartontwerp","p1e":"Woord van de dag","p1f":"Seizoensthema's",
+"p2n":"Volledige versie","p2no":"Eenmalig - geen abonnement","p2a":"Alle talen","p2b":"Alle 21+ categorieën","p2c":"Alle 5 niveaus","p2d":"9 kaartontwerpen","p2e":"Alle toekomstige content gratis","p2f":"Alles voor altijd","price.free":"0 €","price.full":"2,99 €",
+"faq.title":"Veelgestelde vragen","faq.q1":"Heeft Flip & Learn internet nodig?","faq.a1":"Nee. Na het downloaden werkt de app volledig offline — perfect voor autoritten, het vliegtuig of overal waar geen wifi is.","faq.q2":"Ziet mijn kind reclame?","faq.a2":"Nee. Nul advertenties, nul tracking, nul verzamelde gegevens over je kind. Wij hebben geen marketingteam dat de aandacht van je kind verkoopt.","faq.q3":"Is het echt een eenmalige aankoop?","faq.a3":"Ja. Eenmalig 2,99 €, geen abonnement, geen verdere aankopen in de app. Alle toekomstige content-updates zijn gratis inbegrepen.","faq.q4":"Kan mijn kind per ongeluk aankopen doen?","faq.a4":"Nee. De ontgrendeling van 2,99 € zit achter een ouderslot — een vermenigvuldigingssom die alleen een volwassene kan oplossen. Kinderen komen er niet langs.","faq.q5":"Welke talen zitten erin?","faq.a5":"Engels is gratis inbegrepen. De ontgrendeling van 2,99 € voegt er 8 toe: Duits, Spaans, Frans, Italiaans, Portugees, Roemeens, Hongaars en Arabisch.","faq.q6":"Voor welke leeftijd is het bedoeld?","faq.a6":"Voor kinderen van ongeveer 3 tot 7 jaar. Vijf moeilijkheidsniveaus lopen op van heel makkelijk tot echt uitdagend — jonge kinderen kunnen vroeg beginnen en met het spel meegroeien.",
+"about.h":"Gemaakt door een ouder, getest door een kind","about.p1":"Ik ben een ouder uit Regensburg, Duitsland. Doordeweeks ben ik systeemtestingenieur. In het weekend bouwde ik Flip & Learn — voor mijn zoon, met het idee dat schermtijd ook leertijd kan zijn. Hij bleek mijn meest veeleisende en eerlijkste tester.","about.p2":"Elke categorie, elke vertaling en elke animatie krijgt dezelfde behandeling als alles wat ik mijn eigen kind in handen geef: getest op ruwe randjes, getest met de lastige gevallen, getest op echte apparaten voordat een release de deur uitgaat. Eerst kwaliteit, dan pas uitbrengen.","about.p3":"Geen marketingteam. Geen analytics die je kind volgt. Geen advertenties. Gewoon één ouder die iets maakt waar andere ouders — en hun kinderen — misschien ook plezier aan beleven.",
+"supt":"Support","suph":"Hulp nodig?","supp":"We helpen graag bij elke vraag. We streven ernaar binnen 48 uur te reageren.","supb":"Contact opnemen","supd":"Ontwikkeld door BuraApps","fr":"Alle rechten voorbehouden.",
+"we.title":"Waarom emoji's?","we.body":"Een foto van “lunch” ziet er Italiaans of Japans uit. Een emoji is universeel. Emoji's overstijgen elke cultuur, werken hetzelfde op elk apparaat en horen al bij de wereld van kinderen — warm, direct leesbaar en vertrouwd uit de berichten die ze hun ouders zien sturen.","we.w1":"hond","we.w2":"appel","we.w3":"auto","we.w4":"ster","we.w5":"dolfijn",
+"cookie.msg":"We gebruiken Google Ads-cookies om advertentieprestaties te meten. Ze worden alleen geplaatst als je accepteert.","cookie.accept":"Accepteren","cookie.reject":"Weigeren","cookie.settings":"Cookie-instellingen","cookie.learn":"Meer informatie",
+"cookies.h":"Cookies & Google Ads",
+"cookies.p1":"We gebruiken Google Ads-conversiemeting (tag-ID AW-18076192122) alleen om te meten hoe goed onze advertenties op Google presteren. De tag is standaard geblokkeerd en laadt pas nadat je op “Accepteren” klikt in de cookiebanner.",
+"cookies.p2":"Wanneer actief plaatst Google een first-party cookie (_gcl_au) op flipandlearn.app en kan het ontvangen: je IP-adres, browsertype, de pagina waarop je binnenkwam, het klik-ID van de verwijzende advertentie en een willekeurig gegenereerd cookie-ID. Google treedt op als gegevensverwerker; het ontvangt niet je naam, e-mailadres of andere direct identificerende informatie.",
+"cookies.p3":"Klik je op “Weigeren” of sluit je de pagina zonder keuze, dan worden er geen Google-cookies geplaatst en gaan er geen gegevens naar Google.",
+"cookies.p4":"Je kunt je keuze op elk moment wijzigen via de link “Cookie-instellingen” in de voettekst. Intrekking gaat in bij de volgende keer dat de pagina laadt; cookies die Google al heeft geplaatst kun je wissen via de cookie-instellingen van je browser.",
+"cookies.gplink":"Privacybeleid van Google","cookies.fullnotice":"Volledige privacyverklaring van de website"
 }
 };
 
-const M={en:{f:"🇬🇧",l:"EN"},de:{f:"🇩🇪",l:"DE"},fr:{f:"🇫🇷",l:"FR"},es:{f:"🇪🇸",l:"ES"},it:{f:"🇮🇹",l:"IT"},pt:{f:"🇵🇹",l:"PT"},ro:{f:"🇷🇴",l:"RO"},hu:{f:"🇭🇺",l:"HU"},ar:{f:"🇸🇦",l:"AR"}};
+const M={en:{f:"🇬🇧",l:"EN"},de:{f:"🇩🇪",l:"DE"},fr:{f:"🇫🇷",l:"FR"},es:{f:"🇪🇸",l:"ES"},it:{f:"🇮🇹",l:"IT"},pt:{f:"🇵🇹",l:"PT"},ro:{f:"🇷🇴",l:"RO"},hu:{f:"🇭🇺",l:"HU"},pl:{f:"🇵🇱",l:"PL"},nl:{f:"🇳🇱",l:"NL"},ar:{f:"🇸🇦",l:"AR"}};
 /* __LANG_DATA_END__ */
 
 function toggleMenu(){document.getElementById('langMenu').classList.toggle('open');}
@@ -1120,7 +1196,7 @@ function setLang(l){
 
 // FLI-61: localize on first load (page-locale aware after pre-render rollout)
 (function(){
-  const supported=['en','de','fr','es','it','pt','ro','hu','ar'];
+  const supported=['en','de','fr','es','it','pt','ro','hu','pl','nl','ar'];
   const pageLocale=window.__pageLocale||'en';
   let saved=null;
   try{saved=localStorage.getItem('flipandlearn_lang');}catch(e){}
