@@ -62,6 +62,11 @@ const LOCALES = [
   { code: 'ar', path: '/ar/', ogLocale: 'ar_SA', dir: 'rtl', isDefault: false },
 ];
 
+// Locales that have a blog index at /{code}/blog/. Every other locale must NOT
+// render the footer blog link — it would point at a 404. Keep this in sync with
+// the blogIndexUrls array in buildSitemap().
+const BLOG_INDEX_LOCALES = new Set(['en', 'de', 'ro', 'hu']);
+
 const ROOT = __dirname;
 const SOURCE = path.join(ROOT, 'index.html');
 const COOKIES_SOURCE = path.join(ROOT, 'cookies.html');
@@ -349,6 +354,21 @@ function rewritePickerActive(html, locale) {
   return html;
 }
 
+// Footer blog link. Locales in BLOG_INDEX_LOCALES get an href pointing at their
+// own index (/en/blog/, /de/blog/, ...); note the EN index lives at /en/blog/,
+// not at the locale root path '/'. Every other locale has the anchor removed
+// entirely so no page links to a blog index that does not exist.
+function rewriteBlogLink(html, locale) {
+  const anchorRe = /\s*<a href="[^"]*" id="blogLink" data-i18n="nav\.blog">[^<]*<\/a>/;
+  if (!BLOG_INDEX_LOCALES.has(locale.code)) {
+    return html.replace(anchorRe, '');
+  }
+  return html.replace(
+    anchorRe,
+    `\n    <a href="/${locale.code}/blog/" id="blogLink" data-i18n="nav.blog">Blog</a>`
+  );
+}
+
 // ============================================================
 // 5) Build a single locale variant
 // ============================================================
@@ -360,6 +380,7 @@ function buildLocale(sourceHtml, locale, T, M) {
   html = rewriteBadges(html, locale, T);
   html = rewriteLangButton(html, locale, M);
   html = rewritePickerActive(html, locale);
+  html = rewriteBlogLink(html, locale);
   html = applyDataI18nText(html, T, locale.code);
   html = applyDataI18nAria(html, T, locale.code);
   return html;
@@ -647,6 +668,21 @@ ${privacyWebsiteXDefault}
     <priority>0.7</priority>
   </url>`).join('\n');
 
+  // Per-locale blog index hubs (not part of the per-locale build). Hubs sit below
+  // the posts they link to: posts 0.7, landing 0.8, hub 0.6. Keep in sync with
+  // BLOG_INDEX_LOCALES.
+  const blogIndexUrls = [
+    'en/blog/',
+    'de/blog/',
+    'ro/blog/',
+    'hu/blog/',
+  ].map(slug => `  <url>
+    <loc>${SITE}/${slug}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>`).join('\n');
+
   // Standalone single-locale SEO landing pages (not part of the per-locale build).
   const landingUrls = [
     'en/learn-english/',
@@ -666,6 +702,7 @@ ${cookiesUrls}
 ${privacyUrls}
 ${privacyWebsiteUrls}
 ${blogUrls}
+${blogIndexUrls}
 ${landingUrls}
 </urlset>
 `;

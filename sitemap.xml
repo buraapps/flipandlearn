@@ -4750,6 +4750,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://flipandlearn.app/en/blog/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/de/blog/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/ro/blog/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/hu/blog/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://flipandlearn.app/en/learn-english/</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
