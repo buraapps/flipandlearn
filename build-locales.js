@@ -650,6 +650,7 @@ ${privacyWebsiteXDefault}
   // Standalone single-locale SEO landing pages (not part of the per-locale build).
   const landingUrls = [
     'en/learn-english/',
+    'de/englisch-lernen-app/',
   ].map(slug => `  <url>
     <loc>${SITE}/${slug}</loc>
     <lastmod>${today}</lastmod>
