@@ -354,6 +354,10 @@ function rewritePickerActive(html, locale) {
   return html;
 }
 
+// Footer credits link (FLI-366) needs no rewrite: it is a static absolute
+// `/credits.html` anchor on every locale, and only its label is localized through the
+// "nav.credits" T key like any other data-i18n text.
+//
 // Footer blog link. Locales in BLOG_INDEX_LOCALES get an href pointing at their
 // own index (/en/blog/, /de/blog/, ...); note the EN index lives at /en/blog/,
 // not at the locale root path '/'. Every other locale has the anchor removed
@@ -694,6 +698,19 @@ ${privacyWebsiteXDefault}
     <priority>0.8</priority>
   </url>`).join('\n');
 
+  // Single-locale utility pages (FLI-366). credits.html is one English page linked from
+  // every locale's footer (the "nav.credits" label is localized, the page is not), so it
+  // takes no hreflang alternates. Lowest priority: it exists to satisfy licence
+  // attribution (CC BY 4.0 Twemoji, CC BY-SA 4.0 OpenMoji, OFL fonts), not to rank.
+  const legalUrls = [
+    'credits.html',
+  ].map(slug => `  <url>
+    <loc>${SITE}/${slug}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>`).join('\n');
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -704,6 +721,7 @@ ${privacyWebsiteUrls}
 ${blogUrls}
 ${blogIndexUrls}
 ${landingUrls}
+${legalUrls}
 </urlset>
 `;
 }
