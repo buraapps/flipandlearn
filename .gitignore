@@ -1,1 +1,4 @@
 audits/
+
+# Printables: PNG intermediates from pdftoppm (WebP is committed, PNG is not)
+printables/thumbs/*.png
