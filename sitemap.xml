@@ -4786,6 +4786,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://flipandlearn.app/en/printables/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/en/printables/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/ausmalbilder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/en/printables/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/de/ausmalbilder/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/en/printables/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/ausmalbilder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/en/printables/"/>
+  </url>
+  <url>
     <loc>https://flipandlearn.app/credits.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>yearly</changefreq>
