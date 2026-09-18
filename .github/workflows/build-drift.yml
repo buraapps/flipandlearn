@@ -1,0 +1,91 @@
+# Build drift check
+#
+# index.html is the build source. build-locales.js generates 124 files from it
+# (31 locale homepages plus cookies.html, privacy.html and privacy-website.html
+# for each locale). Those generated files are committed and served directly by
+# GitHub Pages, so if someone edits index.html without re-running the build, the
+# committed output silently goes stale. That has happened: a nav.blog dictionary
+# key sat unbuilt across 29 locales for several commits, and a German hero.sub
+# fix reached de/index.html but none of the others.
+#
+# This job re-runs the build and fails if the result differs from what is
+# committed.
+#
+# Why sitemap.xml is excluded — this is deliberate, not an oversight:
+# build-locales.js also regenerates sitemap.xml and stamps today's date into
+# <lastmod> on all 139 URLs. The committed sitemap deliberately carries
+# hand-edited per-page dates (more accurate than one flat date), so the build's
+# version is always discarded with `git checkout -- sitemap.xml`. Without that
+# restore this job would fail on every run purely because the date changed, and
+# would be switched off within a week. Comparing everything except sitemap.xml
+# is the point of the check, not a gap in it.
+
+name: Build drift
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Committed output matches build-locales.js
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      # build-locales.js uses only Node built-ins (fs, path, vm) plus the local
+      # privacy-strings.js. There is no package.json and no install step.
+      # Pinned to 24 to match the version used locally, so CI cannot diverge from
+      # a local build. Nothing else in the repo pins a Node version.
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Run the build
+        run: node build-locales.js
+
+      # Discard the regenerated sitemap: its <lastmod> values are hand-maintained.
+      # See the header comment above.
+      - name: Restore the hand-maintained sitemap
+        run: git checkout -- sitemap.xml
+
+      - name: Compare committed output against the build
+        run: |
+          if git diff --quiet; then
+            echo "No drift: every generated file matches build-locales.js."
+            exit 0
+          fi
+
+          echo "::error::Build drift detected. Committed files do not match build-locales.js output."
+          echo ""
+          echo "=============================================================="
+          echo " BUILD DRIFT DETECTED"
+          echo "=============================================================="
+          echo ""
+          echo "index.html (the build source) has been edited without re-running"
+          echo "the build, so the committed locale files are stale."
+          echo ""
+          echo "Files that differ:"
+          echo "--------------------------------------------------------------"
+          git diff --stat
+          echo ""
+          echo "To fix, run these two commands and commit the result:"
+          echo "--------------------------------------------------------------"
+          echo "  node build-locales.js"
+          echo "  git checkout -- sitemap.xml"
+          echo ""
+          echo "The second command is required: the build restamps every"
+          echo "<lastmod> in sitemap.xml, and those dates are maintained by hand."
+          echo ""
+          echo "Full diff:"
+          echo "--------------------------------------------------------------"
+          git diff
+          exit 1
