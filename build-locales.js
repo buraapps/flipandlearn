@@ -67,13 +67,13 @@ const LOCALES = [
 // the blogIndexUrls array in buildSitemap().
 const BLOG_INDEX_LOCALES = new Set(['en', 'de', 'ro', 'hu']);
 
-// Locales that have a printables hub. Unlike the blog, the two hubs do NOT share a
-// uniform slug (/en/printables/ vs /de/ausmalbilder/), so the path cannot be derived
+// Locales that have a printables hub. Unlike the blog, the hubs do NOT share a
+// uniform slug (/en/printables/, /de/ausmalbilder/, /ro/fise-de-colorat/), so the path cannot be derived
 // from locale.code and is mapped explicitly below. Every other locale must NOT render
 // the footer printables link. Keep this in sync with the printablesUrls array in
 // buildSitemap().
-const PRINTABLES_LOCALES = new Set(['en', 'de']);
-const PRINTABLES_PATHS = { en: '/en/printables/', de: '/de/ausmalbilder/' };
+const PRINTABLES_LOCALES = new Set(['en', 'de', 'ro']);
+const PRINTABLES_PATHS = { en: '/en/printables/', de: '/de/ausmalbilder/', ro: '/ro/fise-de-colorat/' };
 
 const ROOT = __dirname;
 const SOURCE = path.join(ROOT, 'index.html');
@@ -383,7 +383,7 @@ function rewriteBlogLink(html, locale) {
 
 // Footer printables link. Mirrors rewriteBlogLink, except the href comes from the
 // explicit PRINTABLES_PATHS map rather than being built from locale.code, because the
-// German hub lives at /de/ausmalbilder/ rather than /de/printables/.
+// German hub lives at /de/ausmalbilder/ and the Romanian one at /ro/fise-de-colorat/.
 function rewritePrintablesLink(html, locale) {
   const anchorRe = /\s*<a href="[^"]*" id="printablesLink" data-i18n="nav\.printables">[^<]*<\/a>/;
   if (!PRINTABLES_LOCALES.has(locale.code)) {
@@ -721,17 +721,19 @@ ${privacyWebsiteXDefault}
     <priority>0.8</priority>
   </url>`).join('\n');
 
-  // Standalone en+de printables hubs (not part of the per-locale build). Same priority
+  // Standalone en+de+ro printables hubs (not part of the per-locale build). Same priority
   // and changefreq as landingUrls since these are landing pages, not blog content. The
-  // slugs are not uniform, so the pair is listed explicitly. Unlike landingUrls these
-  // carry xhtml:link alternates matching the hreflang the two pages declare on-page.
+  // slugs are not uniform, so they are listed explicitly. Unlike landingUrls these
+  // carry xhtml:link alternates matching the hreflang the three pages declare on-page.
   // Keep in sync with PRINTABLES_LOCALES.
   const printablesAltLinks = `    <xhtml:link rel="alternate" hreflang="en" href="${SITE}/en/printables/"/>
     <xhtml:link rel="alternate" hreflang="de" href="${SITE}/de/ausmalbilder/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="${SITE}/ro/fise-de-colorat/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/en/printables/"/>`;
   const printablesUrls = [
     'en/printables/',
     'de/ausmalbilder/',
+    'ro/fise-de-colorat/',
   ].map(slug => `  <url>
     <loc>${SITE}/${slug}</loc>
     <lastmod>${today}</lastmod>
