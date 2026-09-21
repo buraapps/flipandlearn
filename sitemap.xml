@@ -4793,6 +4793,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/en/printables/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/ausmalbilder/"/>
     <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/fise-de-colorat/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/fichas-para-colorear/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/en/printables/"/>
   </url>
   <url>
@@ -4803,6 +4804,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/en/printables/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/ausmalbilder/"/>
     <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/fise-de-colorat/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/fichas-para-colorear/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/en/printables/"/>
   </url>
   <url>
@@ -4813,6 +4815,18 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/en/printables/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/ausmalbilder/"/>
     <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/fise-de-colorat/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/fichas-para-colorear/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/en/printables/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/es/fichas-para-colorear/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/en/printables/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/ausmalbilder/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/fise-de-colorat/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/fichas-para-colorear/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/en/printables/"/>
   </url>
   <url>
