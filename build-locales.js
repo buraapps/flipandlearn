@@ -624,7 +624,61 @@ function buildPrivacyWebsiteLocale(sourceHtml, locale, T, PW) {
 // ============================================================
 // 6) Sitemap
 // ============================================================
-function buildSitemap() {
+//
+// lastmod is PRESERVED across builds. The committed sitemap.xml is read before it is
+// regenerated, and each URL keeps the <lastmod> it already has there:
+//   - a URL already in sitemap.xml keeps its date unchanged;
+//   - a URL that is new (not in sitemap.xml yet) gets today's date (YYYY-MM-DD);
+//   - a URL in sitemap.xml that is no longer generated is dropped, and the build
+//     prints it, so a removal is never silent.
+// Order, priority and changefreq come from the templates below, as before.
+//
+// When a page's content really changes, bump its date explicitly:
+//   node build-locales.js --touch=/de/,/en/blog/
+// --touch takes a comma-separated list of site paths (or full URLs). Each listed URL
+// gets today's date in this build only; the next plain build keeps that date. A path
+// that is not a generated sitemap URL stops the build.
+//
+// An existing sitemap.xml that cannot be parsed stops the build: the dates are never
+// silently restamped. With no sitemap.xml at all, every URL is new.
+
+// Parse sitemap.xml into a Map of loc → lastmod. Throws on anything unexpected.
+function parseSitemapLastmod(xml) {
+  const blocks = xml.match(/<url>[\s\S]*?<\/url>/g) || [];
+  const opens = (xml.match(/<url>/g) || []).length;
+  if (blocks.length === 0 || blocks.length !== opens) {
+    throw new Error(`sitemap.xml: cannot parse (${opens} <url> tags, ${blocks.length} complete blocks)`);
+  }
+  const map = new Map();
+  for (const block of blocks) {
+    const loc = /<loc>([^<]+)<\/loc>/.exec(block);
+    if (!loc) throw new Error('sitemap.xml: a <url> block has no <loc>');
+    const mod = /<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/.exec(block);
+    if (!mod) throw new Error(`sitemap.xml: no YYYY-MM-DD <lastmod> for ${loc[1]}`);
+    if (map.has(loc[1])) throw new Error(`sitemap.xml: duplicate <loc> ${loc[1]}`);
+    map.set(loc[1], mod[1]);
+  }
+  return map;
+}
+
+// Read --touch=<path,...> from the command line into a Set of full URLs.
+function parseTouchArg(argv) {
+  const touch = new Set();
+  for (const arg of argv) {
+    if (!arg.startsWith('--touch=')) throw new Error(`Unknown argument "${arg}" (only --touch=<path,...> is supported)`);
+    for (const raw of arg.slice('--touch='.length).split(',')) {
+      const p = raw.trim();
+      if (!p) continue;
+      touch.add(p.startsWith(SITE) ? p : `${SITE}${p.startsWith('/') ? '' : '/'}${p}`);
+    }
+  }
+  return touch;
+}
+
+// existing: Map loc → lastmod from the current sitemap.xml, or null when there is none.
+// touch:    Set of full URLs whose lastmod is bumped to today.
+// Returns { xml, added, touched, removed } (the last three are arrays of URLs).
+function buildSitemap(existing, touch) {
   const today = isoToday();
   const altLinks = LOCALES
     .map(l => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${SITE}${l.path}"/>`)
@@ -758,7 +812,7 @@ ${printablesAltLinks}
     <priority>0.3</priority>
   </url>`).join('\n');
 
-  return `<?xml version="1.0" encoding="UTF-8"?>
+  const stamped = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
@@ -772,12 +826,62 @@ ${printablesUrls}
 ${legalUrls}
 </urlset>
 `;
+
+  // Every template above stamps today's date; put each URL's preserved date back.
+  const generated = new Set();
+  const added = [];
+  const touched = [];
+  const xml = stamped.replace(
+    /(<loc>([^<]+)<\/loc>\s*<lastmod>)[^<]*(<\/lastmod>)/g,
+    (m, pre, loc, post) => {
+      generated.add(loc);
+      const kept = existing ? existing.get(loc) : undefined;
+      if (touch.has(loc)) {
+        touched.push(loc);
+        return `${pre}${today}${post}`;
+      }
+      if (kept === undefined) {
+        added.push(loc);
+        return `${pre}${today}${post}`;
+      }
+      return `${pre}${kept}${post}`;
+    }
+  );
+  // Guard: every <url> block must have had its lastmod handled above. A template whose
+  // <loc> is not directly followed by <lastmod> would otherwise keep today's date.
+  const lastmodRe = /<loc>[^<]+<\/loc>\s*<lastmod>[^<]*<\/lastmod>/;
+  const urlBlocks = stamped.match(/<url>[\s\S]*?<\/url>/g) || [];
+  if (urlBlocks.length !== generated.size) {
+    const unmatched = urlBlocks
+      .filter(block => !lastmodRe.test(block))
+      .map(block => (/<loc>([^<]*)<\/loc>/.exec(block) || [, '(no <loc>)'])[1]);
+    throw new Error(
+      `sitemap: ${urlBlocks.length} <url> blocks but ${generated.size} distinct URLs with a preserved lastmod. ` +
+      (unmatched.length
+        ? `<loc> not directly followed by <lastmod>: ${unmatched.join(', ')}`
+        : 'A <loc> is generated more than once.')
+    );
+  }
+  for (const loc of touch) {
+    if (!generated.has(loc)) throw new Error(`--touch: ${loc} is not a generated sitemap URL`);
+  }
+  const removed = existing ? [...existing.keys()].filter(loc => !generated.has(loc)) : [];
+  return { xml, added, touched, removed };
 }
 
 // ============================================================
 // 7) Main
 // ============================================================
 function main() {
+  // Sitemap inputs are read first, so an unknown argument or an unparseable
+  // sitemap.xml stops the build before any file is written. (A --touch path that is
+  // not a generated URL is caught in buildSitemap(), before sitemap.xml is written.)
+  const touch = parseTouchArg(process.argv.slice(2));
+  const sitemapPath = path.join(ROOT, 'sitemap.xml');
+  const existingLastmod = fs.existsSync(sitemapPath)
+    ? parseSitemapLastmod(fs.readFileSync(sitemapPath, 'utf8'))
+    : null;
+
   const source = fs.readFileSync(SOURCE, 'utf8');
   const cookiesSource = fs.readFileSync(COOKIES_SOURCE, 'utf8');
   const privacySource = fs.readFileSync(PRIVACY_SOURCE, 'utf8');
@@ -838,9 +942,13 @@ function main() {
     console.log(`  wrote ${path.relative(ROOT, privacyWebsiteOutPath)}  (${privacyWebsiteHtml.length.toLocaleString()} bytes)`);
   }
 
-  const sitemap = buildSitemap();
-  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
+  const { xml: sitemap, added, touched, removed } = buildSitemap(existingLastmod, touch);
+  fs.writeFileSync(sitemapPath, sitemap, 'utf8');
   console.log(`  wrote sitemap.xml (${sitemap.length.toLocaleString()} bytes)`);
+  console.log(`  sitemap: ${added.length} new, ${touched.length} touched, ${removed.length} removed, lastmod kept on the rest`);
+  for (const loc of added) console.log(`    new (lastmod today): ${loc}`);
+  for (const loc of touched) console.log(`    touched (lastmod today): ${loc}`);
+  for (const loc of removed) console.log(`    REMOVED (no longer generated): ${loc}`);
 
   console.log(`\nDone. ${LOCALES.length} index + ${LOCALES.length} cookies + ${LOCALES.length} privacy + ${LOCALES.length} privacy-website + sitemap.xml regenerated.`);
 }
