@@ -94,7 +94,16 @@ const ABC_LAUNCHED = false;
 // A locale may be added once abc-strings.js has its full string table. The hreflang
 // block and the sitemap list exactly these locales; in the page's language switcher a
 // locale in this set links to its ABC page, every other locale to its homepage.
-const ABC_LOCALES = new Set(['en', 'hu', 'ro', 'de', 'fr', 'es', 'it', 'pt', 'nl', 'pl', 'tr', 'cs', 'sk']);
+const ABC_LOCALES = new Set(['en', 'hu', 'ro', 'de', 'fr', 'es', 'it', 'pt', 'nl', 'pl', 'tr', 'cs', 'sk',
+  'hr', 'sl', 'sv', 'da', 'no', 'fi', 'lt', 'lv', 'et', 'sq']);
+
+// The 18 menu languages of the ABC app (ABC repo, lib/l10n/app_<code>.arb). A page in
+// one of these shows its own two Home screenshots (abc/shots/home{1,2}-<code>.webp).
+// Any other page reuses the English screenshots, because that is what the app shows
+// on a device set to that language; its alt text says the menus are in English.
+const ABC_MENU_LOCALES = new Set(['en', 'de', 'es', 'fr', 'it', 'pt', 'ro', 'hu', 'tr', 'sl', 'nl', 'bg', 'uk', 'ru',
+  'pl', 'cs', 'sk', 'hr']);
+const abcShotLocale = code => (ABC_MENU_LOCALES.has(code) ? code : 'en');
 
 // ABC's numeric App Store ID (the digits after "id" in the App Store URL). null until
 // the app has one. With ABC_LAUNCHED true and no ID the build stops: the badges are
@@ -841,7 +850,7 @@ function buildAbcLocale(sourceHtml, locale, T, M, chrome) {
   html = fillAbcMarker(html, 'CONSENT_BODY', `${banner}\n<script>\n${chrome.script}\n</script>\n\n${chrome.beacon}`);
   html = rewriteAbcLinks(html, locale);
   // Hero phone: this locale's screenshots of the app's two Home pages.
-  html = html.replace(/\/abc\/shots\/home([12])-en\.webp/g, `/abc/shots/home$1-${locale.code}.webp`);
+  html = html.replace(/\/abc\/shots\/home([12])-en\.webp/g, `/abc/shots/home$1-${abcShotLocale(locale.code)}.webp`);
   html = applyDataI18nText(html, wrap, locale.code);
   html = applyDataI18nHtml(html, merged);
   html = applyDataI18nAria(html, wrap, locale.code);
@@ -1147,8 +1156,8 @@ function main() {
     if (!LOCALES.some(l => l.code === code)) throw new Error(`ABC_LOCALES: unknown locale "${code}"`);
     if (!A[code]) throw new Error(`abc-strings.js has no entry for locale "${code}"`);
     for (const n of [1, 2]) {
-      const shot = path.join(ROOT, 'abc', 'shots', `home${n}-${code}.webp`);
-      if (!fs.existsSync(shot)) throw new Error(`ABC page "${code}": screenshot abc/shots/home${n}-${code}.webp is missing`);
+      const shot = path.join(ROOT, 'abc', 'shots', `home${n}-${abcShotLocale(code)}.webp`);
+      if (!fs.existsSync(shot)) throw new Error(`ABC page "${code}": screenshot abc/shots/home${n}-${abcShotLocale(code)}.webp is missing`);
     }
     for (const k of Object.keys(A.en)) {
       if (typeof A[code][k] !== 'string') throw new Error(`abc-strings.js: locale "${code}" is missing "${k}"`);
