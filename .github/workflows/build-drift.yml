@@ -1,24 +1,19 @@
 # Build drift check
 #
-# index.html is the build source. build-locales.js generates 124 files from it
-# (31 locale homepages plus cookies.html, privacy.html and privacy-website.html
-# for each locale). Those generated files are committed and served directly by
-# GitHub Pages, so if someone edits index.html without re-running the build, the
-# committed output silently goes stale. That has happened: a nav.blog dictionary
-# key sat unbuilt across 29 locales for several commits, and a German hero.sub
-# fix reached de/index.html but none of the others.
+# index.html is the build source. build-locales.js generates the committed site from
+# it: 31 locale homepages plus cookies.html, privacy.html and privacy-website.html for
+# each locale (124 files), the Flip & Learn ABC page for every locale in ABC_LOCALES,
+# and sitemap.xml. Those generated files are committed and served directly by GitHub
+# Pages, so if someone edits a source without re-running the build, the committed
+# output silently goes stale. That has happened: a nav.blog dictionary key sat unbuilt
+# across 29 locales for several commits, and a German hero.sub fix reached
+# de/index.html but none of the others.
 #
-# This job re-runs the build and fails if the result differs from what is
-# committed.
+# This job re-runs the build and fails if the result differs from what is committed.
 #
-# Why sitemap.xml is excluded — this is deliberate, not an oversight:
-# build-locales.js also regenerates sitemap.xml and stamps today's date into
-# <lastmod> on all 139 URLs. The committed sitemap deliberately carries
-# hand-edited per-page dates (more accurate than one flat date), so the build's
-# version is always discarded with `git checkout -- sitemap.xml`. Without that
-# restore this job would fail on every run purely because the date changed, and
-# would be switched off within a week. Comparing everything except sitemap.xml
-# is the point of the check, not a gap in it.
+# sitemap.xml is part of the check. The build keeps every URL's existing <lastmod>
+# and stamps today's date only on a URL that is new (or named with --touch), so a
+# plain build of an up-to-date tree reproduces the committed sitemap byte for byte.
 
 name: Build drift
 
@@ -52,11 +47,6 @@ jobs:
       - name: Run the build
         run: node build-locales.js
 
-      # Discard the regenerated sitemap: its <lastmod> values are hand-maintained.
-      # See the header comment above.
-      - name: Restore the hand-maintained sitemap
-        run: git checkout -- sitemap.xml
-
       - name: Compare committed output against the build
         run: |
           if git diff --quiet; then
@@ -70,20 +60,16 @@ jobs:
           echo " BUILD DRIFT DETECTED"
           echo "=============================================================="
           echo ""
-          echo "index.html (the build source) has been edited without re-running"
-          echo "the build, so the committed locale files are stale."
+          echo "A build source has been edited without re-running the build, so"
+          echo "the committed generated files are stale."
           echo ""
           echo "Files that differ:"
           echo "--------------------------------------------------------------"
           git diff --stat
           echo ""
-          echo "To fix, run these two commands and commit the result:"
+          echo "To fix, run this command and commit the result:"
           echo "--------------------------------------------------------------"
           echo "  node build-locales.js"
-          echo "  git checkout -- sitemap.xml"
-          echo ""
-          echo "The second command is required: the build restamps every"
-          echo "<lastmod> in sitemap.xml, and those dates are maintained by hand."
           echo ""
           echo "Full diff:"
           echo "--------------------------------------------------------------"
