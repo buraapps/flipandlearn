@@ -25,11 +25,15 @@
 <link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/">
 <link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/">
 <link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/">
+<link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/">
+<link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/">
+<link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/">
 <link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/">
 <link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/">
 <link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/">
 <link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/">
 <link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/">
+<link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/">
 <link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/">
 <link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/">
 <link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/">
@@ -38,6 +42,10 @@
 <link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/">
 <link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/">
 <link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/">
+<link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/">
+<link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/">
+<link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/">
+<link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/">
 <link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/">
 <!-- /ABC:HREFLANG -->
 
@@ -91,6 +99,17 @@ a{color:inherit}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
 .wrap{max-inline-size:1200px;margin-inline:auto;padding-inline:24px}
 .eyebrow{font-size:14px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+/* Scripts Nunito does not cover (el, ja, ko, ar): Latin keeps Nunito through its
+   unicode-range, the rest falls to good system fonts. No external font requests. */
+html[lang="el"] body{font-family:"Nunito",system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",Arial,sans-serif}
+html[lang="ja"] body{font-family:"Nunito","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;line-break:strict}
+html[lang="ja"] :is(h1,h2,h3,.eyebrow){word-break:auto-phrase;text-wrap:balance}
+html[lang="ko"] body{font-family:"Nunito","Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;word-break:keep-all}
+html[lang="ko"] :is(h1,h2,h3){text-wrap:balance}
+html[lang="ar"] body{font-family:"Nunito","SF Arabic","Geeza Pro","Noto Sans Arabic",system-ui,sans-serif}
+/* Arabic is a joined script: no tracking on Arabic text (letter-spacing breaks the joins). */
+html[lang="ar"] :is(h1,h2,h3,p,li,a,button,span,small,summary){letter-spacing:0}
+html[lang="ar"] :is(.plank,.brand-fl){letter-spacing:.12em}
 h2{font-size:clamp(30px,3.6vw,46px);line-height:1.1;font-weight:900}
 .lead{font-size:19px;line-height:1.55;color:var(--text2)}
 .sec-head{display:flex;flex-direction:column;gap:12px;max-inline-size:760px;margin-block-end:40px}
@@ -168,6 +187,7 @@ h1{font-size:clamp(36px,5vw,62px);line-height:1.05;font-weight:900;letter-spacin
 .shot-nav[hidden]{display:none}
 .shot-arrow{display:flex;align-items:center;justify-content:center;inline-size:44px;block-size:44px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.22);color:var(--white);cursor:pointer}
 .shot-arrow svg{inline-size:18px;block-size:18px}
+[dir="rtl"] .shot-arrow svg{transform:scaleX(-1)}
 .shot-arrow:disabled{opacity:.4;cursor:default}
 .shot-dot{display:flex;align-items:center;justify-content:center;inline-size:28px;block-size:44px;padding:0;border:0;background:none;cursor:pointer}
 .shot-dot::before{content:"";inline-size:12px;block-size:12px;border-radius:50%;border:2px solid var(--white)}
@@ -356,15 +376,15 @@ body.rtl .cc-inner{direction:rtl}
           <a class="lang-opt" data-lang="hu" lang="hu" hreflang="hu" href="/hu/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','hu')}catch(e){}">Magyar</a>
           <a class="lang-opt" data-lang="pl" lang="pl" hreflang="pl" href="/pl/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','pl')}catch(e){}">Polski</a>
           <a class="lang-opt" data-lang="nl" lang="nl" hreflang="nl" href="/nl/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','nl')}catch(e){}">Nederlands</a>
-          <a class="lang-opt" data-lang="ru" lang="ru" hreflang="ru" href="/ru/" onclick="try{localStorage.setItem('flipandlearn_lang','ru')}catch(e){}">Русский</a>
-          <a class="lang-opt" data-lang="uk" lang="uk" hreflang="uk" href="/uk/" onclick="try{localStorage.setItem('flipandlearn_lang','uk')}catch(e){}">Українська</a>
-          <a class="lang-opt" data-lang="bg" lang="bg" hreflang="bg" href="/bg/" onclick="try{localStorage.setItem('flipandlearn_lang','bg')}catch(e){}">Български</a>
+          <a class="lang-opt" data-lang="ru" lang="ru" hreflang="ru" href="/ru/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','ru')}catch(e){}">Русский</a>
+          <a class="lang-opt" data-lang="uk" lang="uk" hreflang="uk" href="/uk/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','uk')}catch(e){}">Українська</a>
+          <a class="lang-opt" data-lang="bg" lang="bg" hreflang="bg" href="/bg/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','bg')}catch(e){}">Български</a>
           <a class="lang-opt" data-lang="tr" lang="tr" hreflang="tr" href="/tr/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','tr')}catch(e){}">Türkçe</a>
           <a class="lang-opt" data-lang="cs" lang="cs" hreflang="cs" href="/cs/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','cs')}catch(e){}">Čeština</a>
           <a class="lang-opt" data-lang="sk" lang="sk" hreflang="sk" href="/sk/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','sk')}catch(e){}">Slovenčina</a>
           <a class="lang-opt" data-lang="hr" lang="hr" hreflang="hr" href="/hr/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','hr')}catch(e){}">Hrvatski</a>
           <a class="lang-opt" data-lang="sl" lang="sl" hreflang="sl" href="/sl/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','sl')}catch(e){}">Slovenščina</a>
-          <a class="lang-opt" data-lang="el" lang="el" hreflang="el" href="/el/" onclick="try{localStorage.setItem('flipandlearn_lang','el')}catch(e){}">Ελληνικά</a>
+          <a class="lang-opt" data-lang="el" lang="el" hreflang="el" href="/el/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','el')}catch(e){}">Ελληνικά</a>
           <a class="lang-opt" data-lang="sv" lang="sv" hreflang="sv" href="/sv/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','sv')}catch(e){}">Svenska</a>
           <a class="lang-opt" data-lang="da" lang="da" hreflang="da" href="/da/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','da')}catch(e){}">Dansk</a>
           <a class="lang-opt" data-lang="no" lang="no" hreflang="no" href="/no/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','no')}catch(e){}">Norsk</a>
@@ -373,10 +393,10 @@ body.rtl .cc-inner{direction:rtl}
           <a class="lang-opt" data-lang="lv" lang="lv" hreflang="lv" href="/lv/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','lv')}catch(e){}">Latviešu</a>
           <a class="lang-opt" data-lang="et" lang="et" hreflang="et" href="/et/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','et')}catch(e){}">Eesti</a>
           <a class="lang-opt" data-lang="sq" lang="sq" hreflang="sq" href="/sq/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','sq')}catch(e){}">Shqip</a>
-          <a class="lang-opt" data-lang="sr" lang="sr" hreflang="sr" href="/sr/" onclick="try{localStorage.setItem('flipandlearn_lang','sr')}catch(e){}">Српски</a>
-          <a class="lang-opt" data-lang="ja" lang="ja" hreflang="ja" href="/ja/" onclick="try{localStorage.setItem('flipandlearn_lang','ja')}catch(e){}">日本語</a>
-          <a class="lang-opt" data-lang="ko" lang="ko" hreflang="ko" href="/ko/" onclick="try{localStorage.setItem('flipandlearn_lang','ko')}catch(e){}">한국어</a>
-          <a class="lang-opt" data-lang="ar" lang="ar" hreflang="ar" href="/ar/" onclick="try{localStorage.setItem('flipandlearn_lang','ar')}catch(e){}">العربية</a>
+          <a class="lang-opt" data-lang="sr" lang="sr" hreflang="sr" href="/sr/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','sr')}catch(e){}">Српски</a>
+          <a class="lang-opt" data-lang="ja" lang="ja" hreflang="ja" href="/ja/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','ja')}catch(e){}">日本語</a>
+          <a class="lang-opt" data-lang="ko" lang="ko" hreflang="ko" href="/ko/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','ko')}catch(e){}">한국어</a>
+          <a class="lang-opt" data-lang="ar" lang="ar" hreflang="ar" href="/ar/abc/" onclick="try{localStorage.setItem('flipandlearn_lang','ar')}catch(e){}">العربية</a>
         </div>
       </details>
 <!-- /ABC:LANG -->
@@ -418,7 +438,7 @@ body.rtl .cc-inner{direction:rtl}
       <span class="float float-4" aria-hidden="true" dir="ltr">Ñ</span>
       <div class="phone-wrap">
         <div class="phone">
-          <div class="shots" id="abcShots" tabindex="0" role="group" aria-label="Capturi de ecran din aplicație" data-i18n-aria="abc.shot.aria" dir="ltr">
+          <div class="shots" id="abcShots" tabindex="0" role="group" aria-label="Capturi de ecran din aplicație" data-i18n-aria="abc.shot.aria">
             <img class="shot" src="/abc/shots/home1-ro.webp" alt="Ecranul principal Flip &amp; Learn ABC, pagina 1: Litere, Literă mare și mică, Cuvinte, Trasează literele" data-i18n-alt="abc.shot.p1.alt" width="532" height="1182" decoding="async">
             <img class="shot" src="/abc/shots/home2-ro.webp" alt="Ecranul principal Flip &amp; Learn ABC, pagina 2: Sparge baloanele, Mo cel flămând, Unește punctele, Pescuit de litere, Coșuri de sortat" data-i18n-alt="abc.shot.p2.alt" width="532" height="1182" decoding="async">
           </div>
@@ -551,12 +571,13 @@ body.rtl .cc-inner{direction:rtl}
   if(!s||!n)return;
   var dots=n.querySelectorAll('.shot-dot'),arrows=n.querySelectorAll('.shot-arrow'),imgs=s.querySelectorAll('img'),last=imgs.length-1;
   var rm=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)'):null;
-  function cur(){return Math.max(0,Math.min(last,Math.round(s.scrollLeft/s.clientWidth)||0));}
+  var rtl=getComputedStyle(s).direction==='rtl';
+  function cur(){return Math.max(0,Math.min(last,Math.round(Math.abs(s.scrollLeft)/s.clientWidth)||0));}
   function sync(){var c=cur();for(var i=0;i<dots.length;i++){if(i===c)dots[i].setAttribute('aria-current','true');else dots[i].removeAttribute('aria-current');}arrows[0].disabled=c===0;arrows[1].disabled=c===last;}
-  function go(i){i=Math.max(0,Math.min(last,i));s.scrollTo({left:i*s.clientWidth,behavior:rm&&rm.matches?'auto':'smooth'});}
+  function go(i){i=Math.max(0,Math.min(last,i));s.scrollTo({left:(rtl?-i:i)*s.clientWidth,behavior:rm&&rm.matches?'auto':'smooth'});}
   n.addEventListener('click',function(e){var b=e.target.closest?e.target.closest('button'):null;if(!b)return;if(b.hasAttribute('data-go'))go(+b.getAttribute('data-go'));else go(cur()+(+b.getAttribute('data-step')));});
   s.addEventListener('scroll',sync,{passive:true});
-  s.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(cur()+1);}else if(e.key==='ArrowLeft'){e.preventDefault();go(cur()-1);}});
+  s.addEventListener('keydown',function(e){var f=rtl?'ArrowLeft':'ArrowRight',b=rtl?'ArrowRight':'ArrowLeft';if(e.key===f){e.preventDefault();go(cur()+1);}else if(e.key===b){e.preventDefault();go(cur()-1);}});
   for(var i=0;i<imgs.length;i++){if(imgs[i].decode)imgs[i].decode().catch(function(){});}
   n.hidden=false;sync();
 })();

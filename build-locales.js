@@ -95,7 +95,7 @@ const ABC_LAUNCHED = false;
 // block and the sitemap list exactly these locales; in the page's language switcher a
 // locale in this set links to its ABC page, every other locale to its homepage.
 const ABC_LOCALES = new Set(['en', 'hu', 'ro', 'de', 'fr', 'es', 'it', 'pt', 'nl', 'pl', 'tr', 'cs', 'sk',
-  'hr', 'sl', 'sv', 'da', 'no', 'fi', 'lt', 'lv', 'et', 'sq']);
+  'hr', 'sl', 'sv', 'da', 'no', 'fi', 'lt', 'lv', 'et', 'sq', 'ru', 'uk', 'bg', 'sr', 'el', 'ja', 'ko', 'ar']);
 
 // The 18 menu languages of the ABC app (ABC repo, lib/l10n/app_<code>.arb). A page in
 // one of these shows its own two Home screenshots (abc/shots/home{1,2}-<code>.webp).

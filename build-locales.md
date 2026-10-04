@@ -103,7 +103,7 @@ Four constants at the top of `build-locales.js` control it:
 | Constant | Now | Meaning |
 |---|---|---|
 | `ABC_LAUNCHED` | `false` | The launch switch. `false`: `noindex`, "Coming soon to the App Store and Google Play" with no store links, no `apple-itunes-app` meta, no sitemap entry, and nothing on the site may link to `/abc/`. `true`: `index,follow` (also on `abc/privacy.html`), store badges with `ct=web-abc` / `utm_campaign=web-abc`, the `apple-itunes-app` meta, and the sitemap entries (ABC pages plus `/abc/privacy.html`). |
-| `ABC_LOCALES` | `['en','hu','ro','de','fr','es','it','pt','nl','pl','tr','cs','sk','hr','sl','sv','da','no','fi','lt','lv','et','sq']` | Locales whose ABC page is emitted. `hreflang` and the sitemap list exactly these. In the page's language switcher a locale in the set links to its ABC page, any other locale to its homepage. |
+| `ABC_LOCALES` | `['en','hu','ro','de','fr','es','it','pt','nl','pl','tr','cs','sk','hr','sl','sv','da','no','fi','lt','lv','et','sq','ru','uk','bg','sr','el','ja','ko','ar']` (all 31) | Locales whose ABC page is emitted. `hreflang` and the sitemap list exactly these. In the page's language switcher a locale in the set links to its ABC page, any other locale to its homepage. |
 | `ABC_APP_STORE_ID` | `null` | ABC's numeric App Store ID. With `ABC_LAUNCHED` true and no ID the build stops. |
 | `ABC_PLAY_PACKAGE` | `com.buraapps.flipandlearnabc` | ABC's Google Play package. |
 
@@ -126,6 +126,18 @@ its own `abc/shots/home1-<code>.webp` and `home2-<code>.webp`, taken on the
 `ABC_Pixel_Screenshots` emulator from a committed ABC build. Any other locale reuses the
 English pair (that is what the app shows on such a device), and its `abc.shot.p*.alt`
 text says the menus are in English. The build stops if a needed file is missing.
+
+Scripts: Nunito (self-hosted) covers Latin and Cyrillic. For el, ja, ko and ar the
+template sets a per-locale system font stack (`html[lang="…"] body`), with Nunito
+first so Latin words keep it; no external font is loaded. ja uses `line-break:strict` and
+phrase-aware heading breaks (`word-break:auto-phrase`, Chrome; other browsers fall back to
+normal breaking), ko `word-break:keep-all` with balanced headings. Greek eyebrows are written in capitals without accents in
+`abc-strings.js`, so nothing depends on how a browser uppercases Greek. Arabic text has
+no letter-spacing (it would break the joins).
+
+Arabic is RTL: `<html dir="rtl">`, the layout mirrors through logical properties, and
+the screenshot strip follows the page direction (page 1 at the right, the "next" arrow
+points left, ArrowLeft = next). The screenshots themselves are not mirrored.
 
 Release day: set `ABC_APP_STORE_ID`, set `ABC_LAUNCHED = true`, build, commit.
 
