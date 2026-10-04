@@ -128,6 +128,28 @@ its robots meta (`noindex` before launch, `index,follow` after) and registers
 `/abc/privacy.html` in the sitemap's legal group once launched; every other byte of
 that page is left alone.
 
+### Hero tile check (run after every ABC template change and every locale batch)
+
+The four floating letter tiles in the hero (Ș, ß, Gy, Ñ) sit on the outer corners of
+the phone. `tools/check-abc-hero.mjs` proves, for every locale in `ABC_LOCALES` at 13
+widths (320, 360, 375, 390, 393, 412, 414, 428, 430, 768, 1024, 1280, 1440) and with
+the float animation frozen at its start, middle and peak, that each tile
+
+- overlaps no text, chip, button, link or the status line in the hero (0 px²),
+- is not clipped by any ancestor (overflow, clip-path, contain) or by the viewport,
+- does not lie on the phone screenshot (0 px²).
+
+```bash
+node build-locales.js
+PLAYWRIGHT_DIR=/path/to/node_modules node tools/check-abc-hero.mjs
+```
+
+It serves the built pages itself, prints one line per width (with the smallest gap
+between a tile and any hero element) and exits 1 on any failure. Playwright is not a
+dependency of this repo; point `PLAYWRIGHT_DIR` at a `node_modules` folder that has
+it. Options: `--locales=en,hu`, `--widths=390,1280`, and
+`--crops=en:390,1280 --out=audits/abc-en-hero --tag=after` to save hero crops.
+
 ## How to add a new site locale
 
 1. **Translate.** Add a complete locale entry to the `T` dictionary inside

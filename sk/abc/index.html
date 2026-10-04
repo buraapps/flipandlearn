@@ -132,12 +132,18 @@ h1{font-size:clamp(36px,5vw,62px);line-height:1.05;font-weight:900;letter-spacin
 .dl-badges img{display:block;inline-size:180px;height:auto}
 .chips{display:flex;flex-wrap:wrap;gap:10px;font-size:15px;font-weight:800}
 .chips li{background:var(--white);color:var(--navy);border-radius:999px;padding-block:8px;padding-inline:14px}
-.hero-art{position:relative;flex:1 1 340px;min-inline-size:0;display:flex;justify-content:center}
+/* The four letter tiles sit on the OUTER corners of the phone, in space reserved for
+   them: the top pair in the padding above the frame, the bottom pair beside the
+   carousel buttons. They never lie on the screenshot, on hero text or on a button, and
+   they stay inside the hero's clipping box at every width — tools/check-abc-hero.mjs
+   checks this (FLI-411). --tile-x pulls a tile outward where the column has room and
+   keeps it at the column edge on narrow phones. */
+.hero-art{--tile-x:max(-8px,calc(50% - 181px));position:relative;flex:1 1 340px;min-inline-size:0;display:flex;justify-content:center;padding-block-start:84px}
 .float{--r:0deg;position:absolute;z-index:1;display:flex;align-items:center;justify-content:center;inline-size:66px;block-size:66px;border-radius:18px;font-weight:900;font-size:38px;line-height:1;transform:rotate(var(--r))}
-.float-1{--r:-12deg;inset-block-start:-40px;inset-inline-start:4%;background:var(--lt);box-shadow:0 6px 0 var(--lt-edge);color:var(--white)}
-.float-2{--r:9deg;inset-block-end:120px;inset-inline-start:0;background:var(--sb);box-shadow:0 6px 0 var(--sb-edge);color:var(--navy)}
-.float-3{--r:10deg;inset-block-start:120px;inset-inline-end:0;background:var(--bp);box-shadow:0 6px 0 var(--bp-edge);color:var(--white);font-size:32px}
-.float-4{--r:-8deg;inset-block-end:-6px;inset-inline-end:4%;background:var(--mo);box-shadow:0 6px 0 var(--mo-edge);color:var(--navy)}
+.float-1{--r:-12deg;inset-block-start:8px;inset-inline-start:var(--tile-x);background:var(--lt);box-shadow:0 6px 0 var(--lt-edge);color:var(--white)}
+.float-2{--r:9deg;inset-block-end:-30px;inset-inline-start:var(--tile-x);background:var(--sb);box-shadow:0 6px 0 var(--sb-edge);color:var(--navy)}
+.float-3{--r:10deg;inset-block-start:8px;inset-inline-end:var(--tile-x);background:var(--bp);box-shadow:0 6px 0 var(--bp-edge);color:var(--white);font-size:32px}
+.float-4{--r:-8deg;inset-block-end:-30px;inset-inline-end:var(--tile-x);background:var(--mo);box-shadow:0 6px 0 var(--mo-edge);color:var(--navy)}
 
 
 /* Phone: real screenshots of the app's two Home pages (Android emulator, Pixel 8), in a
@@ -275,10 +281,7 @@ h1{font-size:clamp(36px,5vw,62px);line-height:1.05;font-weight:900;letter-spacin
 .tiles{gap:12px}
 .float{inline-size:54px;block-size:54px;font-size:30px}
 .float-3{font-size:25px}
-.float-1{inset-block-start:-50px}
-.float-2{inset-block-end:-18px;inset-inline-start:6%}
-.float-3{inset-block-start:-50px;inset-inline-end:4%}
-.float-4{inset-block-end:-18px;inset-inline-end:6%}
+.hero-art{padding-block-start:72px}
 .btn{inline-size:100%;justify-content:center}
 }
 </style>
