@@ -22,6 +22,7 @@ const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
 const { P, PW } = require('./privacy-strings.js');
+const { A } = require('./abc-strings.js');
 
 // ============================================================
 // Per-locale configuration
@@ -75,7 +76,40 @@ const BLOG_INDEX_LOCALES = new Set(['en', 'de', 'ro', 'hu']);
 const PRINTABLES_LOCALES = new Set(['en', 'de', 'ro', 'es']);
 const PRINTABLES_PATHS = { en: '/en/printables/', de: '/de/ausmalbilder/', ro: '/ro/fise-de-colorat/', es: '/es/fichas-para-colorear/' };
 
+// ------------------------------------------------------------
+// Flip & Learn ABC landing page (/abc/ and /<loc>/abc/) — FLI-394
+// ------------------------------------------------------------
+
+// The one launch switch. While false (the app is not in the stores yet) every ABC
+// page — the landing pages and the standalone abc/privacy.html — carries `noindex`, shows "Coming soon…" instead of store badges, has no
+// apple-itunes-app meta and is NOT in sitemap.xml (the build fails if an /abc/ URL
+// gets in). Nothing on the site may link to /abc/ while it is false. Setting it to
+// true switches all of that in one build: index,follow (abc/privacy.html included),
+// store badges with the web-abc campaign tags, the apple-itunes-app meta and the
+// sitemap entries (the ABC pages plus /abc/privacy.html). Any homepage, nav
+// or footer link to the ABC page must be gated on this constant too.
+const ABC_LAUNCHED = false;
+
+// Locales whose ABC page is emitted. 'en' is the template itself and must stay in.
+// A locale may be added once abc-strings.js has its full string table. The hreflang
+// block and the sitemap list exactly these locales; in the page's language switcher a
+// locale in this set links to its ABC page, every other locale to its homepage.
+const ABC_LOCALES = new Set(['en']);
+
+// ABC's numeric App Store ID (the digits after "id" in the App Store URL). null until
+// the app has one. With ABC_LAUNCHED true and no ID the build stops: the badges are
+// never rendered with a missing or made-up ID.
+const ABC_APP_STORE_ID = null;
+
+// ABC's Google Play package (ABC repo android/app/build.gradle.kts applicationId).
+const ABC_PLAY_PACKAGE = 'com.buraapps.flipandlearnabc';
+
+// Apple provider token: the same account-level pt= value the Words store links carry.
+const APPLE_PROVIDER_TOKEN = '128736959';
+
 const ROOT = __dirname;
+const ABC_SOURCE = path.join(ROOT, 'abc', 'index.html');
+const ABC_PRIVACY = path.join(ROOT, 'abc', 'privacy.html');
 const SOURCE = path.join(ROOT, 'index.html');
 const COOKIES_SOURCE = path.join(ROOT, 'cookies.html');
 const PRIVACY_SOURCE = path.join(ROOT, 'privacy.html');
@@ -622,6 +656,198 @@ function buildPrivacyWebsiteLocale(sourceHtml, locale, T, PW) {
 }
 
 // ============================================================
+// 5d) Flip & Learn ABC landing page (FLI-394).
+//    Template: abc/index.html (also the EN output, like index.html). Strings: A in
+//    abc-strings.js, merged over T[code] for the shared cookie.* / nav.* keys.
+//    The template keeps permanent <!-- ABC:NAME --> … <!-- /ABC:NAME --> marker pairs;
+//    the build replaces what is between them, so a block that is empty in one state
+//    (no badges before launch) is never lost from the source.
+// ============================================================
+function abcPath(locale) {
+  return `${locale.path}abc/`;
+}
+
+function fillAbcMarker(html, name, content) {
+  const re = new RegExp(`<!-- ABC:${name} -->[\\s\\S]*?<!-- /ABC:${name} -->`);
+  if (!re.test(html)) throw new Error(`abc/index.html: marker ABC:${name} not found`);
+  return html.replace(re, () => `<!-- ABC:${name} -->\n${content}${content ? '\n' : ''}<!-- /ABC:${name} -->`);
+}
+
+// The shared chrome of the Words homepage, taken from index.html so the ABC page
+// inherits it unchanged: the consent-gated Google Ads loader, the cookie banner (CSS,
+// markup, controller), the store_click handler, the Cloudflare Web Analytics beacon
+// (cookieless; same snippet, same place at the end of <body>) and the language names
+// of the picker.
+// Each piece must be found, or the build stops.
+function extractSharedChrome(source) {
+  const need = (m, what) => {
+    if (!m) throw new Error(`index.html: shared chrome not found (${what})`);
+    return m;
+  };
+  const loader = need(
+    /<!-- FLI-cookie-consent: Google Ads tag[^>]*-->\s*<script>[\s\S]*?<\/script>/.exec(source),
+    'consent-gated gtag loader')[0];
+  const cssLines = source.match(/^(?:\.cc-|body\.rtl \.cc-|@media\(max-width:600px\)\{\.cc-).*$/gm) || [];
+  if (cssLines.length < 10 || !cssLines.some(l => l.startsWith('.cc-banner.cc-show'))) {
+    throw new Error('index.html: shared chrome not found (cookie banner CSS)');
+  }
+  const banner = need(
+    /<div class="cc-banner" id="ccBanner"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/.exec(source),
+    'cookie banner markup')[0];
+  const script = need(
+    /\/\/ FLI-cookie-consent: banner controller[\s\S]*?(?=\/\/ FLI-61:)/.exec(source),
+    'banner controller + store_click handler')[0].trim();
+  if (!script.includes("'store_click'")) {
+    throw new Error('index.html: shared chrome not found (store_click handler)');
+  }
+  const beacon = need(
+    /<!-- Cloudflare Web Analytics -->[\s\S]*?<!-- End Cloudflare Web Analytics -->/.exec(source),
+    'Cloudflare Web Analytics beacon')[0];
+  // Picker entries are "<flag> <name>"; the ABC page shows the name only (no emoji).
+  const names = {};
+  const optRe = /<a class="lang-opt[^"]*" data-lang="([a-z]+)"[^>]*>([^<]+)<\/a>/g;
+  let m;
+  while ((m = optRe.exec(source))) names[m[1]] = m[2].trim().replace(/^\S+\s+/, '');
+  for (const l of LOCALES) {
+    if (!names[l.code]) throw new Error(`index.html: no language-picker entry for "${l.code}"`);
+  }
+  return { loader, css: cssLines.join('\n'), banner, script, beacon, names };
+}
+
+function abcLangMenu(locale, M, names) {
+  const items = LOCALES.map(l => {
+    const href = ABC_LOCALES.has(l.code) ? abcPath(l) : l.path;
+    const active = l.code === locale.code;
+    return `          <a class="lang-opt${active ? ' active' : ''}" data-lang="${l.code}" lang="${l.code}" hreflang="${l.code}" href="${href}"${active ? ' aria-current="page"' : ''} onclick="try{localStorage.setItem('flipandlearn_lang','${l.code}')}catch(e){}">${htmlEscape(names[l.code])}</a>`;
+  }).join('\n');
+  return `      <details class="lang">
+        <summary aria-label="Change page language" data-i18n-aria="abc.lang.aria">${M[locale.code].l}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="lang-menu">
+${items}
+        </div>
+      </details>`;
+}
+
+// Hero call to action. Before launch: a plain status line (clock icon + "Coming
+// soon…"), not a link or button and not styled like one; no store links.
+// After launch: the store badges with the web-abc campaign tags, which the shared
+// store_click handler reads (ct= on Apple, utm_campaign= on Play).
+function abcCta(locale) {
+  if (!ABC_LAUNCHED) {
+    return '      <p class="soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="abc.hero.soon">Coming soon to the App Store and Google Play</span></p>';
+  }
+  const apple = `https://apps.apple.com/app/id${ABC_APP_STORE_ID}?pt=${APPLE_PROVIDER_TOKEN}&amp;ct=web-abc&amp;mt=8`;
+  const play = `https://play.google.com/store/apps/details?id=${ABC_PLAY_PACKAGE}&amp;referrer=utm_source%3Dflipandlearn.app%26utm_medium%3Dweb%26utm_campaign%3Dweb-abc`;
+  return `      <div class="dl-badges">
+        <a href="${apple}" target="_blank" rel="noopener"><img src="/badges/app-store-badge-${locale.code}.svg" alt="Download Flip &amp; Learn ABC on the App Store" data-i18n-alt="abc.badge.apple" width="180" height="60"></a>
+        <a href="${play}" target="_blank" rel="noopener"><img src="/badges/google-play-badge-${locale.code}.png" alt="Get Flip &amp; Learn ABC on Google Play" data-i18n-alt="abc.badge.play" width="180" height="60" decoding="async"></a>
+      </div>`;
+}
+
+function rewriteAbcHead(html, locale, dict) {
+  const url = `${SITE}${abcPath(locale)}`;
+  const titleText = dict['abc.meta.title'];
+  const descText = dict['abc.meta.desc'];
+
+  html = html.replace(/<title>[\s\S]*?<\/title>/, () => `<title>${htmlEscape(titleText)}</title>`);
+  html = html.replace(/<meta name="description" content="[^"]*">/,
+    () => `<meta name="description" content="${attrEscape(descText)}">`);
+  html = html.replace(/<meta name="robots" content="[^"]*">/,
+    `<meta name="robots" content="${ABC_LAUNCHED ? 'index,follow' : 'noindex'}">`);
+  html = fillAbcMarker(html, 'STORE_META',
+    ABC_LAUNCHED ? `<meta name="apple-itunes-app" content="app-id=${ABC_APP_STORE_ID}">` : '');
+
+  // Canonical + hreflang: only the locales that have an ABC page, x-default → EN.
+  const en = LOCALES.find(l => l.code === 'en');
+  const alternates = LOCALES.filter(l => ABC_LOCALES.has(l.code))
+    .map(l => `<link rel="alternate" hreflang="${l.code}" href="${SITE}${abcPath(l)}">`)
+    .join('\n');
+  html = fillAbcMarker(html, 'HREFLANG',
+    `<link rel="canonical" href="${url}">\n${alternates}\n<link rel="alternate" hreflang="x-default" href="${SITE}${abcPath(en)}">`);
+
+  html = html.replace(/<meta property="og:title" content="[^"]*">/,
+    () => `<meta property="og:title" content="${attrEscape(titleText)}">`);
+  html = html.replace(/<meta property="og:description" content="[^"]*">/,
+    () => `<meta property="og:description" content="${attrEscape(descText)}">`);
+  html = html.replace(/<meta property="og:url" content="[^"]*">/,
+    `<meta property="og:url" content="${url}">`);
+  html = html.replace(/<meta property="og:image:alt" content="[^"]*">/,
+    () => `<meta property="og:image:alt" content="${attrEscape(dict['abc.meta.ogalt'])}">`);
+  html = html.replace(/<meta property="og:locale" content="[^"]*">/,
+    `<meta property="og:locale" content="${locale.ogLocale}">`);
+  html = html.replace(/<meta name="twitter:title" content="[^"]*">/,
+    () => `<meta name="twitter:title" content="${attrEscape(titleText)}">`);
+  html = html.replace(/<meta name="twitter:description" content="[^"]*">/,
+    () => `<meta name="twitter:description" content="${attrEscape(descText)}">`);
+  return html;
+}
+
+// Links from the ABC page to the rest of the site, per locale. EN always keeps every
+// link, so the template (the EN output) never loses one.
+function rewriteAbcLinks(html, locale) {
+  const setHref = (id, href) => {
+    const re = new RegExp(`(<a\\b[^>]*\\bid="${id}"[^>]*\\bhref=")[^"]*(")|(<a\\b[^>]*\\bhref=")[^"]*("[^>]*\\bid="${id}")`);
+    if (!re.test(html)) throw new Error(`abc/index.html: link #${id} not found`);
+    html = html.replace(re, (m, a, b, c, d) => (a ? `${a}${href}${b}` : `${c}${href}${d}`));
+  };
+  const dropLink = id => {
+    html = html.replace(new RegExp(`\\s*<a\\b[^>]*\\bid="${id}"[^>]*>[^<]*<\\/a>`), '');
+  };
+  setHref('abcWordsCta', locale.path);
+  setHref('abcFootWords', locale.path);
+  if (BLOG_INDEX_LOCALES.has(locale.code)) setHref('abcFootBlog', `/${locale.code}/blog/`);
+  else dropLink('abcFootBlog');
+  if (PRINTABLES_LOCALES.has(locale.code)) {
+    setHref('abcFootPrint', PRINTABLES_PATHS[locale.code]);
+    setHref('abcPrintCta', PRINTABLES_PATHS[locale.code]);
+  } else {
+    dropLink('abcFootPrint');
+    html = html.replace(/<!-- ABC:PRINTABLES_BEGIN -->[\s\S]*?<!-- ABC:PRINTABLES_END -->\s*/, '');
+  }
+  return html;
+}
+
+// abc/privacy.html is a standalone, hand-written page. The build changes exactly one
+// thing in it: the robots meta follows ABC_LAUNCHED (noindex before launch,
+// index,follow after). Every other byte stays as it is.
+function rewriteAbcPrivacyRobots(html) {
+  const re = /<meta name="robots" content="[^"]*">/;
+  if (!re.test(html)) throw new Error('abc/privacy.html: robots meta not found');
+  return html.replace(re, `<meta name="robots" content="${ABC_LAUNCHED ? 'index,follow' : 'noindex'}">`);
+}
+
+// alt="" from a data-i18n-alt key (the store badges).
+function applyDataI18nAlt(html, dict) {
+  return html.replace(/<img\b([^>]*?\bdata-i18n-alt="([^"]+)"[^>]*)>/g, (match, attrs, key) => {
+    const v = dict[key];
+    if (typeof v !== 'string') return match;
+    return `<img${attrs.replace(/\balt="[^"]*"/, () => `alt="${attrEscape(v)}"`)}>`;
+  });
+}
+
+function buildAbcLocale(sourceHtml, locale, T, M, chrome) {
+  const merged = Object.assign({}, T[locale.code] || {}, A[locale.code] || {});
+  const wrap = { [locale.code]: merged };
+  let html = sourceHtml;
+  html = rewriteHtmlTag(html, locale);
+  html = rewriteBodyTag(html, locale);
+  html = rewriteAbcHead(html, locale, merged);
+  html = fillAbcMarker(html, 'CONSENT_HEAD', `${chrome.loader}\n<style>\n${chrome.css}\n</style>`);
+  html = fillAbcMarker(html, 'LANG', abcLangMenu(locale, M, chrome.names));
+  html = fillAbcMarker(html, 'CTA', abcCta(locale));
+  // The banner's "Learn more" link is relative on the homepage; from /abc/ it has to
+  // point at this locale's cookies page explicitly.
+  const banner = chrome.banner.replace('href="cookies.html"', `href="${locale.path}cookies.html"`);
+  html = fillAbcMarker(html, 'CONSENT_BODY', `${banner}\n<script>\n${chrome.script}\n</script>\n\n${chrome.beacon}`);
+  html = rewriteAbcLinks(html, locale);
+  html = applyDataI18nText(html, wrap, locale.code);
+  html = applyDataI18nHtml(html, merged);
+  html = applyDataI18nAria(html, wrap, locale.code);
+  html = applyDataI18nAlt(html, merged);
+  return html;
+}
+
+// ============================================================
 // 6) Sitemap
 // ============================================================
 //
@@ -776,6 +1002,22 @@ ${privacyWebsiteXDefault}
     <priority>0.8</priority>
   </url>`).join('\n');
 
+  // Flip & Learn ABC landing pages (FLI-394): one URL per locale in ABC_LOCALES, with
+  // alternates for exactly those locales. Registered ONLY once ABC_LAUNCHED is true;
+  // before launch the pages are noindex and must not be in the sitemap (checked below).
+  const abcLocales = LOCALES.filter(l => ABC_LOCALES.has(l.code));
+  const abcAltLinks = abcLocales
+    .map(l => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${SITE}${abcPath(l)}"/>`)
+    .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/abc/"/>`)
+    .join('\n');
+  const abcUrls = !ABC_LAUNCHED ? '' : abcLocales.map(l => `  <url>
+    <loc>${SITE}${abcPath(l)}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+${abcAltLinks}
+  </url>`).join('\n') + '\n';
+
   // Standalone en+de+ro+es printables hubs (not part of the per-locale build). Same priority
   // and changefreq as landingUrls since these are landing pages, not blog content. The
   // slugs are not uniform, so they are listed explicitly. Unlike landingUrls these
@@ -803,8 +1045,11 @@ ${printablesAltLinks}
   // every locale's footer (the "nav.credits" label is localized, the page is not), so it
   // takes no hreflang alternates. Lowest priority: it exists to satisfy licence
   // attribution (CC BY 4.0 Twemoji, CC BY-SA 4.0 OpenMoji, OFL fonts), not to rank.
+  // abc/privacy.html joins this group once ABC_LAUNCHED is true (FLI-394); before
+  // launch it is noindex and must not be listed.
   const legalUrls = [
     'credits.html',
+    ...(ABC_LAUNCHED ? ['abc/privacy.html'] : []),
   ].map(slug => `  <url>
     <loc>${SITE}/${slug}</loc>
     <lastmod>${today}</lastmod>
@@ -822,10 +1067,15 @@ ${privacyWebsiteUrls}
 ${blogUrls}
 ${blogIndexUrls}
 ${landingUrls}
-${printablesUrls}
+${abcUrls}${printablesUrls}
 ${legalUrls}
 </urlset>
 `;
+
+  // Before launch no ABC URL may be in the sitemap (the pages are noindex and unlinked).
+  if (!ABC_LAUNCHED && stamped.includes('/abc/')) {
+    throw new Error('sitemap: an /abc/ URL is registered while ABC_LAUNCHED is false');
+  }
 
   // Every template above stamps today's date; put each URL's preserved date back.
   const generated = new Set();
@@ -886,7 +1136,25 @@ function main() {
   const cookiesSource = fs.readFileSync(COOKIES_SOURCE, 'utf8');
   const privacySource = fs.readFileSync(PRIVACY_SOURCE, 'utf8');
   const privacyWebsiteSource = fs.readFileSync(PRIVACY_WEBSITE_SOURCE, 'utf8');
+  const abcSource = fs.readFileSync(ABC_SOURCE, 'utf8');
   const { T, M } = extractLangData(source);
+
+  // ABC page: check the configuration before anything is written.
+  if (!ABC_LOCALES.has('en')) throw new Error('ABC_LOCALES must contain "en" (abc/index.html is the EN page)');
+  for (const code of ABC_LOCALES) {
+    if (!LOCALES.some(l => l.code === code)) throw new Error(`ABC_LOCALES: unknown locale "${code}"`);
+    if (!A[code]) throw new Error(`abc-strings.js has no entry for locale "${code}"`);
+    for (const k of Object.keys(A.en)) {
+      if (typeof A[code][k] !== 'string') throw new Error(`abc-strings.js: locale "${code}" is missing "${k}"`);
+    }
+  }
+  if (ABC_LAUNCHED && !/^\d+$/.test(String(ABC_APP_STORE_ID || ''))) {
+    throw new Error('ABC_LAUNCHED is true but ABC_APP_STORE_ID is not set: the store badges and the apple-itunes-app meta need the numeric App Store ID');
+  }
+  if (ABC_LAUNCHED && !ABC_PLAY_PACKAGE) {
+    throw new Error('ABC_LAUNCHED is true but ABC_PLAY_PACKAGE is not set');
+  }
+  const chrome = extractSharedChrome(source);
 
   // Sanity check: every locale we plan to emit must exist in T.
   for (const l of LOCALES) {
@@ -940,7 +1208,22 @@ function main() {
     console.log(`  wrote ${path.relative(ROOT, privacyOutPath)}  (${privacyHtml.length.toLocaleString()} bytes)`);
     fs.writeFileSync(privacyWebsiteOutPath, privacyWebsiteHtml, 'utf8');
     console.log(`  wrote ${path.relative(ROOT, privacyWebsiteOutPath)}  (${privacyWebsiteHtml.length.toLocaleString()} bytes)`);
+
+    if (ABC_LOCALES.has(locale.code)) {
+      const abcHtml = buildAbcLocale(abcSource, locale, T, M, chrome);
+      const abcDir = path.join(ROOT, abcPath(locale).replace(/^\/|\/$/g, ''));
+      fs.mkdirSync(abcDir, { recursive: true });
+      const abcOutPath = path.join(abcDir, 'index.html');
+      fs.writeFileSync(abcOutPath, abcHtml, 'utf8');
+      console.log(`  wrote ${path.relative(ROOT, abcOutPath)}  (${abcHtml.length.toLocaleString()} bytes)`);
+    }
   }
+
+  // ABC privacy page: only its robots meta follows the launch switch.
+  const abcPrivacy = fs.readFileSync(ABC_PRIVACY, 'utf8');
+  const abcPrivacyOut = rewriteAbcPrivacyRobots(abcPrivacy);
+  if (abcPrivacyOut !== abcPrivacy) fs.writeFileSync(ABC_PRIVACY, abcPrivacyOut, 'utf8');
+  console.log(`  ${abcPrivacyOut !== abcPrivacy ? 'wrote' : 'kept '} abc/privacy.html  (robots: ${ABC_LAUNCHED ? 'index,follow' : 'noindex'})`);
 
   const { xml: sitemap, added, touched, removed } = buildSitemap(existingLastmod, touch);
   fs.writeFileSync(sitemapPath, sitemap, 'utf8');
@@ -950,7 +1233,9 @@ function main() {
   for (const loc of touched) console.log(`    touched (lastmod today): ${loc}`);
   for (const loc of removed) console.log(`    REMOVED (no longer generated): ${loc}`);
 
-  console.log(`\nDone. ${LOCALES.length} index + ${LOCALES.length} cookies + ${LOCALES.length} privacy + ${LOCALES.length} privacy-website + sitemap.xml regenerated.`);
+  console.log(`  abc: ${ABC_LOCALES.size} page(s), ${ABC_LAUNCHED ? 'LAUNCHED (indexable, store badges, in sitemap)' : 'not launched (noindex, coming soon, not in sitemap)'}`);
+
+  console.log(`\nDone. ${LOCALES.length} index + ${LOCALES.length} cookies + ${LOCALES.length} privacy + ${LOCALES.length} privacy-website + ${ABC_LOCALES.size} abc + sitemap.xml regenerated.`);
 }
 
 main();
