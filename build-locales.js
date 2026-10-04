@@ -23,6 +23,7 @@ const path = require('path');
 const vm = require('vm');
 const { P, PW } = require('./privacy-strings.js');
 const { A } = require('./abc-strings.js');
+const { F } = require('./family-strings.js');
 
 // ============================================================
 // Per-locale configuration
@@ -442,8 +443,98 @@ function rewritePrintablesLink(html, locale) {
 // ============================================================
 // 5) Build a single locale variant
 // ============================================================
+// ============================================================
+// 5a) Flip & Learn ABC entry points on the Words homepages (FLI-394 step 5).
+//    A "More from Flip & Learn" card (after "Made by a parent", before Support), a
+//    header nav link and a footer link, plus their CSS. Rendered ONLY when
+//    ABC_LAUNCHED is true; strings from family-strings.js.
+//
+//    Every piece is wrapped in a marker pair, <!-- FAMILY:NAME --> … <!-- /FAMILY:NAME -->,
+//    and stripFamily() removes all of them from index.html before anything else reads
+//    it. Because index.html is also the EN output, that is what makes the switch
+//    reversible: launched, the blocks are added; flag back to false, the next build
+//    removes them and every homepage is byte-identical to the unlaunched state again.
+// ============================================================
+const FAMILY_ANCHORS = {
+  // all three must occur exactly once in index.html, or the build stops
+  nav: '\n    <a href="/credits.html" data-i18n="nav.credits">Credits</a>',
+  card: '\n<section id="support">',
+  foot: '\n    <a href="#" id="cookiePrefs"',
+  css: '\n</head>',
+};
+
+function stripFamily(html) {
+  return html.replace(/\n[ \t]*<!-- FAMILY:([A-Z]+) -->[\s\S]*?<!-- \/FAMILY:\1 -->/g, '');
+}
+
+function familyCss() {
+  return `<style>
+/* Flip & Learn ABC family card (FLI-394 step 5). Words-site styling with an ABC accent:
+   sky-blue edge and the A·B·C tiles in miniature. Logical properties only (RTL on /ar/). */
+.fam-wrap{background:#fff}
+.fam-wrap section{padding-block:56px;padding-inline:24px}
+.fam-card{display:flex;align-items:center;gap:22px;max-width:760px;margin:0 auto;background:#fff;border:1px solid #e3e2f5;border-inline-start:6px solid #2A78C8;border-radius:18px;padding:26px 28px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.fam-icon{flex:none;width:72px;height:auto;border-radius:22.5%;box-shadow:0 4px 0 #1B2A6B}
+.fam-body{flex:1 1 auto;min-width:0}
+.fam-eyebrow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 6px;font-size:13px;font-weight:600;color:#2A78C8}
+.fam-new{display:inline-block;background:#2A78C8;color:#fff;font-size:11px;font-weight:700;line-height:1;padding:4px 8px;border-radius:999px}
+.fam-card .fam-title{margin:0 0 6px;font-size:22px;font-weight:700;text-align:start;color:#1d1d1f}
+.fam-text{margin:0 0 4px;font-size:15px;line-height:1.5;color:#3a3a3c}
+.fam-facts{margin:0;font-size:13px;color:#6e6e73}
+.fam-tiles{display:inline-flex;gap:4px;margin-inline-start:4px;vertical-align:middle}
+.fam-tiles span{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;color:#fff;font-size:12px;font-weight:800;line-height:1}
+.fam-tiles span:nth-child(1){background:#CA4B25}.fam-tiles span:nth-child(2){background:#F5B82E;color:#1B2A6B}.fam-tiles span:nth-child(3){background:#1A855A}
+.fam-btn{flex:none;display:inline-block;background:#3A3589;color:#fff;padding:12px 22px;border-radius:11px;text-decoration:none;font-weight:600;font-size:14px;text-align:center}
+.fam-btn:hover{background:#2e2a70}
+.fam-btn:focus-visible,.fam-navlink:focus-visible{outline:3px solid #2A78C8;outline-offset:2px}
+/* Header nav link: desktop only. With it, the nav no longer fits one row below 1200px in
+   the longest locales (ru wraps at 1024px); the footer link is shown at every width. */
+.nav-links .fam-navlink{display:none}
+@media (min-width:1200px){.nav-links .fam-navlink{display:inline}}
+@media (max-width:640px){.fam-card{flex-wrap:wrap;gap:16px;padding:22px 20px}.fam-icon{width:60px}.fam-body{flex-basis:calc(100% - 76px)}.fam-btn{flex:1 1 100%}}
+</style>`;
+}
+
+function familyBlock(name, inner, indent = '') {
+  return `\n${indent}<!-- FAMILY:${name} -->${inner}<!-- /FAMILY:${name} -->`;
+}
+
+function applyFamily(html, locale) {
+  if (!ABC_LAUNCHED) return html;
+  const f = F[locale.code];
+  const e = htmlEscape;
+  const href = abcPath(locale);
+  for (const [name, anchor] of Object.entries(FAMILY_ANCHORS)) {
+    const n = html.split(anchor).length - 1;
+    if (n !== 1) throw new Error(`family card: anchor "${name}" occurs ${n} times in index.html (expected exactly 1)`);
+  }
+  const card = `
+<div class="fam-wrap">
+<section aria-labelledby="famTitle">
+  <div class="fam-card">
+    <img class="fam-icon" src="/abc/app-icon-144.webp" srcset="/abc/app-icon-96.webp 1.3x, /abc/app-icon-144.webp 2x" alt="" width="72" height="72" loading="lazy" decoding="async">
+    <div class="fam-body">
+      <p class="fam-eyebrow"><span>${e(f['family.eyebrow'])}</span><span class="fam-new">${e(f['family.new'])}</span></p>
+      <h2 class="fam-title" id="famTitle">Flip &amp; Learn ABC<span class="fam-tiles" aria-hidden="true" dir="ltr"><span>A</span><span>B</span><span>C</span></span></h2>
+      <p class="fam-text">${e(f['family.text'])}</p>
+      <p class="fam-facts">${e(f['family.facts'])}</p>
+    </div>
+    <a class="fam-btn" href="${href}">${e(f['family.cta'])}</a>
+  </div>
+</section>
+</div>
+`;
+  html = html.replace(FAMILY_ANCHORS.css, familyBlock('CSS', familyCss()) + FAMILY_ANCHORS.css);
+  html = html.replace(FAMILY_ANCHORS.nav, FAMILY_ANCHORS.nav + familyBlock('NAV', `<a class="fam-navlink" href="${href}">${e(f['family.nav'])}</a>`, '    '));
+  html = html.replace(FAMILY_ANCHORS.card, familyBlock('CARD', card) + FAMILY_ANCHORS.card);
+  html = html.replace(FAMILY_ANCHORS.foot, familyBlock('FOOT', `<a href="${href}">${e(f['family.foot'])}</a>`, '    ') + FAMILY_ANCHORS.foot);
+  return html;
+}
+
 function buildLocale(sourceHtml, locale, T, M) {
-  let html = sourceHtml;
+  // First, while the anchors are still the English template text; the family
+  // markup has no data-i18n, so the steps below leave it alone.
+  let html = applyFamily(sourceHtml, locale);
   html = rewriteHtmlTag(html, locale);
   html = rewriteBodyTag(html, locale);
   html = rewriteHead(html, locale, T, M);
@@ -1143,7 +1234,9 @@ function main() {
     ? parseSitemapLastmod(fs.readFileSync(sitemapPath, 'utf8'))
     : null;
 
-  const source = fs.readFileSync(SOURCE, 'utf8');
+  // stripFamily: index.html is also the EN output, so drop any family blocks a launched
+  // build left in it before anything reads it (see applyFamily).
+  const source = stripFamily(fs.readFileSync(SOURCE, 'utf8'));
   const cookiesSource = fs.readFileSync(COOKIES_SOURCE, 'utf8');
   const privacySource = fs.readFileSync(PRIVACY_SOURCE, 'utf8');
   const privacyWebsiteSource = fs.readFileSync(PRIVACY_WEBSITE_SOURCE, 'utf8');
@@ -1172,6 +1265,17 @@ function main() {
       throw new Error(`abc-strings.js: locale "${code}" does not match the "en" key set` +
         (missing.length ? ` — missing: ${missing.join(', ')}` : '') +
         (extra.length ? ` — extra: ${extra.join(', ')}` : ''));
+    }
+  }
+  // Key parity for family-strings.js: exactly the LOCALES, each with exactly the keys of "en".
+  for (const l of LOCALES) if (!F[l.code]) throw new Error(`family-strings.js has no entry for locale "${l.code}"`);
+  for (const code of Object.keys(F)) {
+    if (!LOCALES.some(l => l.code === code)) throw new Error(`family-strings.js: unknown locale "${code}"`);
+    const missing = Object.keys(F.en).filter(k => typeof F[code][k] !== 'string');
+    const extra = Object.keys(F[code]).filter(k => !(k in F.en));
+    if (missing.length || extra.length) {
+      throw new Error(`family-strings.js: locale "${code}" does not match the "en" key set` +
+        (missing.length ? ` — missing: ${missing.join(', ')}` : '') + (extra.length ? ` — extra: ${extra.join(', ')}` : ''));
     }
   }
   if (ABC_LAUNCHED && !/^\d+$/.test(String(ABC_APP_STORE_ID || ''))) {

@@ -22,6 +22,7 @@ enhancement.
 | `privacy.html` | `P` in `privacy-strings.js` | `/privacy.html`, `/<loc>/privacy.html` (31) |
 | `privacy-website.html` | `PW` in `privacy-strings.js` | `/privacy-website.html`, `/<loc>/privacy-website.html` (31) |
 | `abc/index.html` | `A` in `abc-strings.js` | `/abc/index.html`, `/<loc>/abc/index.html` (only the locales in `ABC_LOCALES`) |
+| (inserted into every homepage, only when `ABC_LAUNCHED`) | `F` in `family-strings.js` | the Flip & Learn ABC card, header nav link and footer link on `/index.html`, `/<loc>/index.html` |
 | — | — | `/sitemap.xml` |
 
 Every source template is also its own English output: the build rewrites it in place.
@@ -139,12 +140,36 @@ Arabic is RTL: `<html dir="rtl">`, the layout mirrors through logical properties
 the screenshot strip follows the page direction (page 1 at the right, the "next" arrow
 points left, ArrowLeft = next). The screenshots themselves are not mirrored.
 
-Release day: set `ABC_APP_STORE_ID`, set `ABC_LAUNCHED = true`, build, commit.
+Release day: follow "Release day: ABC launch" below.
 
 The standalone `abc/privacy.html` follows the same switch. The build rewrites only
 its robots meta (`noindex` before launch, `index,follow` after) and registers
 `/abc/privacy.html` in the sitemap's legal group once launched; every other byte of
 that page is left alone.
+
+### Flip & Learn ABC on the Words homepages (family card)
+
+With `ABC_LAUNCHED = true`, every homepage (`/index.html`, `/<loc>/index.html`, 31) also gets:
+
+- a "More from Flip & Learn" card after the "Made by a parent" section and before Support
+  (inserted before `<section id="support">`): the ABC app icon (`abc/app-icon-96/144.webp`),
+  "Flip & Learn ABC" with the A·B·C tiles in miniature, the ABC page's tagline, three facts
+  (free · no ads · no in-app purchases) and a button to that locale's ABC page;
+- a header nav link "Flip & Learn ABC" after Credits, shown from 1200px up only (below that
+  the longest locales no longer fit the nav on one row; ru wraps at 1024px);
+- a footer link "Flip & Learn ABC" before "Cookie settings", at every width.
+
+Strings: `F` in `family-strings.js` (7 keys × 31 locales; the build checks key parity on
+every run, launched or not). The markup has no `data-i18n`, so the homepage's runtime
+`setLang()` leaves it in the page's own language.
+
+Gating: `applyFamily()` adds the pieces (CSS included) only when `ABC_LAUNCHED` is true,
+each wrapped in `<!-- FAMILY:NAME --> … <!-- /FAMILY:NAME -->` (CSS, NAV, CARD, FOOT).
+Because `index.html` is also the EN output, the build first strips every FAMILY block from
+it (`stripFamily()`), so with the flag false the homepages are byte-identical to the
+unlaunched state: no markup, no CSS, no strings. The anchors (the Credits nav link,
+`<section id="support">`, the Cookie settings footer link, `</head>`) must each occur
+exactly once in `index.html`, or a launched build stops.
 
 ### Images made from the app icon (re-export if the app icon changes)
 
@@ -179,6 +204,68 @@ between a tile and any hero element) and exits 1 on any failure. Playwright is n
 dependency of this repo; point `PLAYWRIGHT_DIR` at a `node_modules` folder that has
 it. Options: `--locales=en,hu`, `--widths=390,1280`, and
 `--crops=en:390,1280 --out=audits/abc-en-hero --tag=after` to save hero crops.
+
+## Release day: ABC launch
+
+Do this only once Flip & Learn ABC is live in **both** stores. All commands run in
+`/Volumes/Data/BuraApps/web`; start from a clean tree (`git status` shows no change to any
+generated page).
+
+1. **Before.** `node build-locales.js` must print `sitemap: 0 new, 0 touched, 0 removed`
+   and `git status` must stay clean apart from your own files. If not, stop and fix first.
+2. **Flip the switch.** In `build-locales.js` set
+   - `ABC_APP_STORE_ID = <the digits after "id" in the App Store URL>` (number, no quotes);
+   - `ABC_LAUNCHED = true`.
+   Check `ABC_PLAY_PACKAGE` is `com.buraapps.flipandlearnabc`.
+3. **Build.** `node build-locales.js`. Expect:
+   - `sitemap: 32 new, 0 touched, 0 removed` (31 ABC pages + `/abc/privacy.html`);
+   - `abc: 31 page(s), LAUNCHED (indexable, store badges, in sitemap)`.
+   What the build changed:
+   - the 31 ABC pages: `noindex` → `index,follow`, the "Coming soon" line replaced by the
+     App Store and Google Play badges (`ct=web-abc` on Apple, `utm_campaign=web-abc` on
+     Play), the `apple-itunes-app` meta added;
+   - `abc/privacy.html`: robots `index,follow` (nothing else in that file changes);
+   - `sitemap.xml`: the 31 ABC URLs (with hreflang alternates) and `/abc/privacy.html`;
+   - the 31 Words homepages: the family card, the header nav link (≥1200px) and the
+     footer link.
+4. **Verify locally.**
+   ```bash
+   node --check build-locales.js
+   node build-locales.js | grep sitemap:          # second build: 0 new, 0 touched, 0 removed
+   git diff --stat | tail -1                       # 65 files: 31 homepages, 31 ABC pages,
+                                                   #   abc/privacy.html, sitemap.xml, build-locales.js
+   git diff sitemap.xml | grep -c '^+    <loc>'    # 32
+   git diff sitemap.xml | grep '^-' | grep -vc '^---'   # 0 (nothing removed)
+   grep -l 'content="noindex' abc/index.html */abc/index.html | wc -l      # 0
+   grep -l 'ct=web-abc' abc/index.html */abc/index.html | wc -l            # 31
+   grep -l 'utm_campaign%3Dweb-abc' abc/index.html */abc/index.html | wc -l  # 31
+   grep -o 'name="robots" content="[^"]*"' abc/privacy.html               # index,follow
+   grep -l 'FAMILY:CARD' index.html */index.html | wc -l                  # 31
+   PLAYWRIGHT_DIR=/path/to/node_modules node tools/check-abc-hero.mjs     # exit 0
+   ```
+   Open `/abc/` and `/` locally: the badges link to the real store pages, the homepage
+   card's button opens `/abc/`.
+5. **Commit and push** (sources and every generated file together), e.g.
+   `FLI-394 step 6: Flip & Learn ABC launch`.
+6. **Verify live** (after GitHub Pages has deployed; purge the Cloudflare cache if the
+   old pages still show):
+   ```bash
+   curl -sI https://flipandlearn.app/abc/ | head -1                         # HTTP/2 200
+   curl -s https://flipandlearn.app/abc/ | grep -c 'content="noindex'       # 0
+   curl -s https://flipandlearn.app/de/abc/ | grep -c 'ct=web-abc'          # 1
+   curl -s https://flipandlearn.app/abc/privacy.html | grep -o 'name="robots" content="[^"]*"'   # index,follow
+   curl -s https://flipandlearn.app/sitemap.xml | grep -c '<loc>[^<]*/abc/'  # 32
+   curl -s https://flipandlearn.app/ | grep -c 'FAMILY:CARD'                # 1
+   curl -s https://flipandlearn.app/ar/ | grep -c 'href="/ar/abc/"'         # 3 (card, nav, footer)
+   curl -sI "https://apps.apple.com/app/id<ABC_APP_STORE_ID>" | head -1     # 200
+   curl -sI "https://play.google.com/store/apps/details?id=com.buraapps.flipandlearnabc" | head -1   # 200
+   ```
+   Then submit `https://flipandlearn.app/sitemap.xml` again in Google Search Console.
+7. **Rollback** (if anything is wrong): set `ABC_LAUNCHED = false` (leave or reset
+   `ABC_APP_STORE_ID`), run `node build-locales.js` (expect `0 new, 0 touched, 32 removed`
+   and the 32 `REMOVED` lines), run it again (expect `0/0/0`), then commit and push. All
+   homepages, ABC pages, `abc/privacy.html` and `sitemap.xml` return byte for byte to the
+   unlaunched state (proved in the step 5 dry run).
 
 ## How to add a new site locale
 
