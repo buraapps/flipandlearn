@@ -103,12 +103,23 @@ Four constants at the top of `build-locales.js` control it:
 | Constant | Now | Meaning |
 |---|---|---|
 | `ABC_LAUNCHED` | `false` | The launch switch. `false`: `noindex`, "Coming soon to the App Store and Google Play" with no store links, no `apple-itunes-app` meta, no sitemap entry, and nothing on the site may link to `/abc/`. `true`: `index,follow` (also on `abc/privacy.html`), store badges with `ct=web-abc` / `utm_campaign=web-abc`, the `apple-itunes-app` meta, and the sitemap entries (ABC pages plus `/abc/privacy.html`). |
-| `ABC_LOCALES` | `['en']` | Locales whose ABC page is emitted. `hreflang` and the sitemap list exactly these. In the page's language switcher a locale in the set links to its ABC page, any other locale to its homepage. |
+| `ABC_LOCALES` | `['en','hu','ro']` | Locales whose ABC page is emitted. `hreflang` and the sitemap list exactly these. In the page's language switcher a locale in the set links to its ABC page, any other locale to its homepage. |
 | `ABC_APP_STORE_ID` | `null` | ABC's numeric App Store ID. With `ABC_LAUNCHED` true and no ID the build stops. |
 | `ABC_PLAY_PACKAGE` | `com.buraapps.flipandlearnabc` | ABC's Google Play package. |
 
-To add a locale to the ABC page: add its full string table to `abc-strings.js` (same
-keys as `en`; the build stops on a missing key), add the code to `ABC_LOCALES`, build.
+To add a locale to the ABC page: add its full string table to `abc-strings.js`, add
+the code to `ABC_LOCALES`, build. The build runs a key-parity check on every table in
+`abc-strings.js` (also one that is not in `ABC_LOCALES` yet): each must have exactly
+the keys of `en`. A missing key or an extra key stops the build and is named in the
+error.
+
+Naming rule for the Words app on the ABC pages: always its Google Play title in the
+page's language, verbatim, from the Flutter repo
+(`flipandlearn_flutter/android/fastlane/metadata/android/<locale>/title.txt`), for
+example en "Flip & Learn: Word Card Game", hu "Flip & Learn: Szókártyajáték", ro
+"Flip & Learn: Joc de cuvinte". Where Play has no localized title, use the English
+title. The name is never inflected, shortened or translated; the sentence is built
+around it. "Flip & Learn", "Flip & Learn ABC", "ABC" and "Mo" stay untranslated.
 
 Release day: set `ABC_APP_STORE_ID`, set `ABC_LAUNCHED = true`, build, commit.
 

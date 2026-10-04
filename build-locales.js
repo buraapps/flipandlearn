@@ -94,7 +94,7 @@ const ABC_LAUNCHED = false;
 // A locale may be added once abc-strings.js has its full string table. The hreflang
 // block and the sitemap list exactly these locales; in the page's language switcher a
 // locale in this set links to its ABC page, every other locale to its homepage.
-const ABC_LOCALES = new Set(['en']);
+const ABC_LOCALES = new Set(['en', 'hu', 'ro']);
 
 // ABC's numeric App Store ID (the digits after "id" in the App Store URL). null until
 // the app has one. With ABC_LAUNCHED true and no ID the build stops: the badges are
@@ -840,6 +840,8 @@ function buildAbcLocale(sourceHtml, locale, T, M, chrome) {
   const banner = chrome.banner.replace('href="cookies.html"', `href="${locale.path}cookies.html"`);
   html = fillAbcMarker(html, 'CONSENT_BODY', `${banner}\n<script>\n${chrome.script}\n</script>\n\n${chrome.beacon}`);
   html = rewriteAbcLinks(html, locale);
+  // Hero phone: this locale's screenshots of the app's two Home pages.
+  html = html.replace(/\/abc\/shots\/home([12])-en\.webp/g, `/abc/shots/home$1-${locale.code}.webp`);
   html = applyDataI18nText(html, wrap, locale.code);
   html = applyDataI18nHtml(html, merged);
   html = applyDataI18nAria(html, wrap, locale.code);
@@ -1144,8 +1146,23 @@ function main() {
   for (const code of ABC_LOCALES) {
     if (!LOCALES.some(l => l.code === code)) throw new Error(`ABC_LOCALES: unknown locale "${code}"`);
     if (!A[code]) throw new Error(`abc-strings.js has no entry for locale "${code}"`);
+    for (const n of [1, 2]) {
+      const shot = path.join(ROOT, 'abc', 'shots', `home${n}-${code}.webp`);
+      if (!fs.existsSync(shot)) throw new Error(`ABC page "${code}": screenshot abc/shots/home${n}-${code}.webp is missing`);
+    }
     for (const k of Object.keys(A.en)) {
       if (typeof A[code][k] !== 'string') throw new Error(`abc-strings.js: locale "${code}" is missing "${k}"`);
+    }
+  }
+  // Key parity for EVERY table in abc-strings.js (also one not in ABC_LOCALES yet):
+  // exactly the keys of "en" — none missing, none extra.
+  for (const code of Object.keys(A)) {
+    const missing = Object.keys(A.en).filter(k => typeof A[code][k] !== 'string');
+    const extra = Object.keys(A[code]).filter(k => !(k in A.en));
+    if (missing.length || extra.length) {
+      throw new Error(`abc-strings.js: locale "${code}" does not match the "en" key set` +
+        (missing.length ? ` — missing: ${missing.join(', ')}` : '') +
+        (extra.length ? ` — extra: ${extra.join(', ')}` : ''));
     }
   }
   if (ABC_LAUNCHED && !/^\d+$/.test(String(ABC_APP_STORE_ID || ''))) {
