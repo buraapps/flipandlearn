@@ -94,7 +94,7 @@ const ABC_LAUNCHED = false;
 // A locale may be added once abc-strings.js has its full string table. The hreflang
 // block and the sitemap list exactly these locales; in the page's language switcher a
 // locale in this set links to its ABC page, every other locale to its homepage.
-const ABC_LOCALES = new Set(['en', 'hu', 'ro']);
+const ABC_LOCALES = new Set(['en', 'hu', 'ro', 'de', 'fr', 'es', 'it', 'pt', 'nl', 'pl', 'tr', 'cs', 'sk']);
 
 // ABC's numeric App Store ID (the digits after "id" in the App Store URL). null until
 // the app has one. With ABC_LAUNCHED true and no ID the build stops: the badges are
