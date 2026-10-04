@@ -89,10 +89,10 @@ h2{font-size:clamp(30px,3.6vw,46px);line-height:1.1;font-weight:900}
 /* Header */
 .top-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--white)}
-.brand-tile{display:flex;align-items:center;justify-content:center;gap:1px;inline-size:48px;block-size:48px;border-radius:14px;background:var(--white);box-shadow:0 4px 0 var(--navy);font-weight:900;font-size:18px}
-.brand-tile .la{color:var(--lm)}
-.brand-tile .lb{color:var(--cm)}
-.brand-tile .lc{color:var(--lf)}
+/* The real app icon (ABC repo assets/icon/app_icon.png). 22.5% radius approximates the
+   app icon's continuous-corner shape; the navy edge is the family's 3D edge, as on the
+   language button next to it. */
+.brand-icon{display:block;flex:none;inline-size:48px;height:auto;border-radius:22.5%;box-shadow:0 4px 0 var(--navy)}
 .brand-txt{display:flex;flex-direction:column;line-height:1.05}
 .brand-fl{font-size:12px;font-weight:800;letter-spacing:.12em}
 .brand-abc{font-size:22px;font-weight:900}
@@ -322,7 +322,7 @@ body.rtl .cc-inner{direction:rtl}
 <header class="top">
   <div class="wrap top-in">
     <a class="brand" href="#top" aria-label="Flip &amp; Learn ABC">
-      <span class="brand-tile" aria-hidden="true"><span class="la">A</span><span class="lb">B</span><span class="lc">C</span></span>
+      <img class="brand-icon" src="/abc/app-icon-96.webp" srcset="/abc/app-icon-96.webp 2x, /abc/app-icon-144.webp 3x" alt="" width="48" height="48" decoding="async">
       <span class="brand-txt" aria-hidden="true"><span class="brand-fl">FLIP &amp; LEARN</span><span class="brand-abc">ABC</span></span>
     </a>
     <div class="top-end">

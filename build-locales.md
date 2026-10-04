@@ -128,6 +128,18 @@ its robots meta (`noindex` before launch, `index,follow` after) and registers
 `/abc/privacy.html` in the sitemap's legal group once launched; every other byte of
 that page is left alone.
 
+### Images made from the app icon (re-export if the app icon changes)
+
+All of these are exported from the ABC app's icon master, `assets/icon/app_icon.png`
+in the ABC repo (read with `git show <commit>:assets/icon/app_icon.png`, so only a
+committed icon is ever used). If the app icon changes, re-export every one:
+
+| File | Used for | Size |
+|---|---|---|
+| `abc/app-icon-96.webp`, `abc/app-icon-144.webp` | header logo on every ABC page (2× and 3× of 48 px) | 96×96, 144×144 |
+| `abc/icon-32.png`, `abc/icon-180.png` | favicon and Apple touch icon of the ABC pages | 32×32, 180×180 |
+| `abc/og-image.png` | share image of the ABC pages (icon on the sky, name in Nunito) | 1200×630 |
+
 ### Hero tile check (run after every ABC template change and every locale batch)
 
 The four floating letter tiles in the hero (Ș, ß, Gy, Ñ) sit on the outer corners of
