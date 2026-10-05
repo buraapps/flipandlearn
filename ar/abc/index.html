@@ -183,13 +183,24 @@ h1{font-size:clamp(36px,5vw,62px);line-height:1.05;font-weight:900;letter-spacin
 .shots::-webkit-scrollbar{display:none}
 .shots:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:38px}
 .shot{display:block;flex:0 0 100%;inline-size:100%;height:auto;scroll-snap-align:start;scroll-snap-stop:always}
-.shot-nav{display:flex;align-items:center;justify-content:center;gap:6px;margin-block-start:8px}
+.shot-nav{display:flex;align-items:center;justify-content:center;gap:2px;margin-block-start:8px}
 .shot-nav[hidden]{display:none}
 .shot-arrow{display:flex;align-items:center;justify-content:center;inline-size:44px;block-size:44px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.22);color:var(--white);cursor:pointer}
 .shot-arrow svg{inline-size:18px;block-size:18px}
 [dir="rtl"] .shot-arrow svg{transform:scaleX(-1)}
+/* Page 3: the app's opening animation, tap to play (never autoplays; the video file is
+   requested only on the tap). Without JS the page stays hidden. */
+.shot[hidden]{display:none}
+.shot-intro{position:relative;overflow:hidden}
+.intro-poster{display:block;inline-size:100%;height:auto}
+.intro-video{position:absolute;inset:0;inline-size:100%;block-size:100%;object-fit:cover;display:none;background:var(--sky)}
+.shot-intro.is-playing .intro-video{display:block}
+.intro-play{position:absolute;inset-inline:0;inset-block-end:6%;margin-inline:auto;inline-size:max-content;max-inline-size:94%;display:flex;align-items:center;justify-content:center;gap:6px;min-block-size:52px;padding-block:10px;padding-inline:14px 18px;border:0;border-radius:999px;background:var(--white);color:var(--navy);font:inherit;font-size:16px;font-weight:900;line-height:1.15;cursor:pointer;box-shadow:0 5px 0 var(--navy)}
+.intro-play svg{flex:none;inline-size:22px;block-size:22px}
+.intro-play:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.shot-intro.is-playing .intro-play{display:none}
 .shot-arrow:disabled{opacity:.4;cursor:default}
-.shot-dot{display:flex;align-items:center;justify-content:center;inline-size:28px;block-size:44px;padding:0;border:0;background:none;cursor:pointer}
+.shot-dot{display:flex;align-items:center;justify-content:center;inline-size:24px;block-size:44px;padding:0;border:0;background:none;cursor:pointer}
 .shot-dot::before{content:"";inline-size:12px;block-size:12px;border-radius:50%;border:2px solid var(--white)}
 .shot-dot[aria-current]::before{background:var(--white)}
 
@@ -441,12 +452,17 @@ body.rtl .cc-inner{direction:rtl}
           <div class="shots" id="abcShots" tabindex="0" role="group" aria-label="لقطات شاشة من التطبيق" data-i18n-aria="abc.shot.aria">
             <img class="shot" src="/abc/shots/home1-en.webp" alt="الشاشة الرئيسية في Flip &amp; Learn ABC (القوائم بالإنجليزية)، الصفحة 1: Letter Match, Case Match, Word Match, Letter Trace" data-i18n-alt="abc.shot.p1.alt" width="532" height="1182" decoding="async">
             <img class="shot" src="/abc/shots/home2-en.webp" alt="الشاشة الرئيسية في Flip &amp; Learn ABC (القوائم بالإنجليزية)، الصفحة 2: Balloon Pop, Hungry Mo, Connect the Dots, Letter Fishing, Sorting Baskets" data-i18n-alt="abc.shot.p2.alt" width="532" height="1182" decoding="async">
+            <div class="shot shot-intro" id="abcIntro" hidden>
+              <img class="intro-poster" src="/abc/media/abc-intro-poster.webp" alt="الرسوم المتحركة الافتتاحية لتطبيق Flip &amp; Learn ABC" data-i18n-alt="abc.intro.alt" width="532" height="1182" loading="lazy" decoding="async">
+              <button type="button" class="intro-play" id="abcIntroPlay"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span data-i18n="abc.intro.play">شاهد المقدمة</span><span data-i18n="abc.intro.replay" hidden>إعادة التشغيل</span></button>
+            </div>
           </div>
         </div>
         <div class="shot-nav" id="abcShotNav" hidden>
           <button type="button" class="shot-arrow" data-step="-1" aria-label="الشاشة السابقة" data-i18n-aria="abc.shot.prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
           <button type="button" class="shot-dot" data-go="0" aria-label="عرض الصفحة 1" data-i18n-aria="abc.shot.dot1" aria-current="true"></button>
           <button type="button" class="shot-dot" data-go="1" aria-label="عرض الصفحة 2" data-i18n-aria="abc.shot.dot2"></button>
+          <button type="button" class="shot-dot" data-go="2" aria-label="عرض الصفحة 3" data-i18n-aria="abc.shot.dot3"></button>
           <button type="button" class="shot-arrow" data-step="1" aria-label="الشاشة التالية" data-i18n-aria="abc.shot.next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
         </div>
       </div>
@@ -553,16 +569,37 @@ body.rtl .cc-inner{direction:rtl}
 (function(){
   var s=document.getElementById('abcShots'),n=document.getElementById('abcShotNav');
   if(!s||!n)return;
-  var dots=n.querySelectorAll('.shot-dot'),arrows=n.querySelectorAll('.shot-arrow'),imgs=s.querySelectorAll('img'),last=imgs.length-1;
+  var intro=document.getElementById('abcIntro');
+  if(intro)intro.hidden=false;
+  var dots=n.querySelectorAll('.shot-dot'),arrows=n.querySelectorAll('.shot-arrow'),pages=s.querySelectorAll('.shot'),last=pages.length-1;
   var rm=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)'):null;
   var rtl=getComputedStyle(s).direction==='rtl';
   function cur(){return Math.max(0,Math.min(last,Math.round(Math.abs(s.scrollLeft)/s.clientWidth)||0));}
-  function sync(){var c=cur();for(var i=0;i<dots.length;i++){if(i===c)dots[i].setAttribute('aria-current','true');else dots[i].removeAttribute('aria-current');}arrows[0].disabled=c===0;arrows[1].disabled=c===last;}
+  function sync(){var c=cur();if(intro&&c!==last)stopIntro();for(var i=0;i<dots.length;i++){if(i===c)dots[i].setAttribute('aria-current','true');else dots[i].removeAttribute('aria-current');}arrows[0].disabled=c===0;arrows[1].disabled=c===last;}
   function go(i){i=Math.max(0,Math.min(last,i));s.scrollTo({left:(rtl?-i:i)*s.clientWidth,behavior:rm&&rm.matches?'auto':'smooth'});}
   n.addEventListener('click',function(e){var b=e.target.closest?e.target.closest('button'):null;if(!b)return;if(b.hasAttribute('data-go'))go(+b.getAttribute('data-go'));else go(cur()+(+b.getAttribute('data-step')));});
   s.addEventListener('scroll',sync,{passive:true});
   s.addEventListener('keydown',function(e){var f=rtl?'ArrowLeft':'ArrowRight',b=rtl?'ArrowRight':'ArrowLeft';if(e.key===f){e.preventDefault();go(cur()+1);}else if(e.key===b){e.preventDefault();go(cur()-1);}});
+  var imgs=s.querySelectorAll('img.shot');
   for(var i=0;i<imgs.length;i++){if(imgs[i].decode)imgs[i].decode().catch(function(){});}
+  // Page 3: the <video> is created on the first tap, so nothing is requested or played before.
+  var play=document.getElementById('abcIntroPlay'),vid=null;
+  function label(replay){var l=play.querySelectorAll('span');l[0].hidden=replay;l[1].hidden=!replay;}
+  function stopIntro(){if(vid&&intro.classList.contains('is-playing')){vid.pause();intro.classList.remove('is-playing');label(false);}}
+  if(play)play.addEventListener('click',function(){
+    if(!vid){
+      vid=document.createElement('video');vid.className='intro-video';
+      vid.muted=true;vid.defaultMuted=true;vid.setAttribute('muted','');vid.playsInline=true;vid.setAttribute('playsinline','');vid.preload='none';
+      vid.setAttribute('aria-label',intro.querySelector('img').alt);
+      [['/abc/media/abc-intro.webm','video/webm; codecs="vp9"'],['/abc/media/abc-intro.mp4','video/mp4']].forEach(function(f){var o=document.createElement('source');o.src=f[0];o.type=f[1];vid.appendChild(o);});
+      vid.addEventListener('ended',function(){intro.classList.remove('is-playing');label(true);play.focus({preventScroll:true});});
+      vid.addEventListener('click',function(){if(vid.paused)vid.play();else vid.pause();});
+      intro.appendChild(vid);
+      vid.load(); // WebKit: with preload=none and script-added sources, play() alone never starts loading
+    }else{vid.currentTime=0;}
+    intro.classList.add('is-playing');
+    var p=vid.play();if(p&&p.catch)p.catch(function(){intro.classList.remove('is-playing');});
+  });
   n.hidden=false;sync();
 })();
 </script>

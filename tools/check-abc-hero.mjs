@@ -14,6 +14,8 @@
  *                    inside the viewport width;
  *   3. 0 px² between each tile and the phone screenshot.
  * It also reports the smallest gap between a tile and any of those hero elements.
+ * Every page of the screenshot carousel is measured (page 3 is the intro clip with its
+ * play button); elements inside the carousel count only with their visible part.
  *
  * Usage (from the repo root; the built pages are served by a small built-in server):
  *   PLAYWRIGHT_DIR=/path/to/node_modules node tools/check-abc-hero.mjs
@@ -82,13 +84,22 @@ const measure = phase => {
     const el = n.parentElement;
     if (el.closest('.float') || el.closest('.decor')) continue;
     const range = document.createRange(); range.selectNodeContents(n);
-    for (const r of range.getClientRects()) if (r.width > 0 && r.height > 0) obstacles.push({ r, what: 'text "' + n.nodeValue.trim().slice(0, 24) + '"' });
+    for (const r of range.getClientRects()) if (r.width > 0 && r.height > 0) obstacles.push({ r, what: 'text "' + n.nodeValue.trim().slice(0, 24) + '"', el });
   }
   for (const el of hero.querySelectorAll('.chips li, button, a, .soon')) {
     const r = el.getBoundingClientRect();
-    if (r.width > 0 && r.height > 0) obstacles.push({ r, what: el.tagName.toLowerCase() + (el.className ? '.' + String(el.className).split(' ')[0] : '') });
+    if (r.width > 0 && r.height > 0) obstacles.push({ r, what: el.tagName.toLowerCase() + (el.className ? '.' + String(el.className).split(' ')[0] : ''), el });
   }
   const shots = document.getElementById('abcShots').getBoundingClientRect();
+  // Inside the carousel only the part scrolled into view counts (off-screen pages are clipped).
+  const strip = document.getElementById('abcShots');
+  for (let i = obstacles.length - 1; i >= 0; i--) {
+    const o = obstacles[i], node = o.el || null;
+    const inStrip = node ? strip.contains(node) : false;
+    if (!inStrip) continue;
+    const v = { left: Math.max(o.r.left, shots.left), right: Math.min(o.r.right, shots.right), top: Math.max(o.r.top, shots.top), bottom: Math.min(o.r.bottom, shots.bottom) };
+    if (v.right <= v.left || v.bottom <= v.top) obstacles.splice(i, 1); else o.r = v;
+  }
   const out = [];
   for (const t of tiles) {
     const r = t.getBoundingClientRect(), area = r.width * r.height;
@@ -122,12 +133,19 @@ for (const loc of locales) {
     await page.goto(base + pagePath(loc), { waitUntil: 'load' });
     await page.evaluate(() => document.fonts.ready);
     const agg = perWidth.get(w);
-    for (const [name, phase] of PHASES) {
+    const [pageCount, dotCount] = await page.evaluate(() => [document.querySelectorAll('#abcShots > .shot:not([hidden])').length, document.querySelectorAll('#abcShotNav .shot-dot').length]);
+    for (let pg = 0; pg < pageCount; pg++) {
+    await page.evaluate(i => { const s = document.getElementById('abcShots'); s.style.scrollBehavior = 'auto'; s.style.scrollSnapType = 'none';
+      s.scrollLeft = (getComputedStyle(s).direction === 'rtl' ? -i : i) * s.clientWidth; }, pg);
+    for (const [phaseName, phase] of PHASES) {
+      const name = `p${pg + 1} ${phaseName}`;
       for (const t of await page.evaluate(measure, phase)) {
         agg.overlap = Math.max(agg.overlap, t.overlap); agg.shot = Math.max(agg.shot, t.shot); agg.clipped = Math.max(agg.clipped, t.clipped); agg.minGap = Math.min(agg.minGap, t.minGap);
         if (t.overlap || t.shot || t.clipped) agg.fails.push(`${loc} ${name} ${t.tile}:` + (t.overlap ? ` ${t.overlap}px² on ${t.worst}` : '') + (t.shot ? ` ${t.shot}px² on the screenshot` : '') + (t.clipped ? ` ${t.clipped}px² clipped by ${t.clipBy}` : ''));
       }
     }
+    }
+    if (pageCount !== dotCount) agg.fails.push(`${loc}: carousel shows ${pageCount} page(s) but has ${dotCount} dot(s)`);
     if (crops && crops.loc === loc && crops.widths.includes(w)) {
       await page.locator('.hero').screenshot({ path: path.resolve(ROOT, `${arg('out') || 'audits/abc-hero'}-${w}-${arg('tag') || 'crop'}.png`) });
     }
@@ -136,7 +154,7 @@ for (const loc of locales) {
 }
 await browser.close(); server.close();
 
-console.log(`ABC hero tiles: ${locales.length} page(s) [${locales.join(' ')}], 3 animation phases each`);
+console.log(`ABC hero tiles: ${locales.length} page(s) [${locales.join(' ')}], 3 animation phases × every carousel page`);
 console.log('width | text/chip/button overlap px² | min gap px | clipped px² | on screenshot px² | result');
 let failed = 0;
 for (const w of widths) {

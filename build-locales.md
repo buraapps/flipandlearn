@@ -183,6 +183,28 @@ committed icon is ever used). If the app icon changes, re-export every one:
 | `abc/icon-32.png`, `abc/icon-180.png` | favicon and Apple touch icon of the ABC pages | 32×32, 180×180 |
 | `abc/og-image.png` | share image of the ABC pages (icon on the sky, name in Nunito) | 1200×630 |
 
+### Intro clip (carousel page 3)
+
+The hero carousel's third page is the app's opening animation, tap to play. Files, shared
+by all 31 pages (the splash has no language-dependent text; the clip ends on the splash's
+final pose, before the hand-off to Home, whose menus are in the device language):
+
+| File | What | Size |
+|---|---|---|
+| `abc/media/abc-intro.webm` | VP9, 532×1182, 60 fps, no audio (listed first) | 506,197 B |
+| `abc/media/abc-intro.mp4` | H.264 Main, 532×1182, 60 fps, faststart, no audio (fallback) | 552,328 B |
+| `abc/media/abc-intro-poster.webp` | the clip's last frame (complete logo) | 36,324 B |
+
+Made from the trimmed master in `/Volumes/Data/BuraApps/media/abc/`
+(`abc-splash-master-<abc-commit>-1080x2400.mp4`; also the raw take and a 1080×1920 reel
+version). Re-record and re-encode if the app's splash changes.
+
+Behaviour: nothing autoplays and the video file is not requested before the tap — the
+`<video>` (muted, playsinline, preload="none") is created by the tap. It ends on the
+poster with a "Replay" button; leaving page 3 pauses it. Without JS, page 3 stays hidden
+and the carousel is the two screenshots. Strings: `abc.intro.play`, `abc.intro.replay`,
+`abc.intro.alt`, `abc.shot.dot3`.
+
 ### Hero tile check (run after every ABC template change and every locale batch)
 
 The four floating letter tiles in the hero (Ș, ß, Gy, Ñ) sit on the outer corners of
@@ -193,6 +215,10 @@ the float animation frozen at its start, middle and peak, that each tile
 - overlaps no text, chip, button, link or the status line in the hero (0 px²),
 - is not clipped by any ancestor (overflow, clip-path, contain) or by the viewport,
 - does not lie on the phone screenshot (0 px²).
+
+Every page of the screenshot carousel is measured (page 3 is the intro clip with its play
+button), elements inside the carousel count only with their visible part, and a page
+whose visible carousel pages don't match its dots fails.
 
 ```bash
 node build-locales.js
