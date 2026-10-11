@@ -76,6 +76,11 @@ const BLOG_INDEX_LOCALES = new Set(['en', 'de', 'ro', 'hu']);
 // buildSitemap().
 const PRINTABLES_LOCALES = new Set(['en', 'de', 'ro', 'es']);
 const PRINTABLES_PATHS = { en: '/en/printables/', de: '/de/ausmalbilder/', ro: '/ro/fise-de-colorat/', es: '/es/fichas-para-colorear/' };
+// Locales that render the Teacher Approved stamp in the hero. The badge wording is a
+// Google UI string with an official translation per language, so each locale added here
+// also needs its own ta.main and ta.sub keys in the T dictionary. English only for now;
+// the remaining 30 follow once the wording is reviewed.
+const TEACHER_BADGE_LOCALES = new Set(['en']);
 
 // ------------------------------------------------------------
 // Flip & Learn ABC landing page (/abc/ and /<loc>/abc/) — FLI-394
@@ -440,6 +445,15 @@ function rewritePrintablesLink(html, locale) {
   );
 }
 
+// Hero Teacher Approved stamp. Mirrors rewriteBlogLink/rewritePrintablesLink, except the
+// block is multi-line, so it is delimited by HTML comments in the source rather than matched
+// by a unique id. Locales outside TEACHER_BADGE_LOCALES get the whole block removed, leading
+// whitespace included, so no page claims a badge in a language whose wording is not reviewed.
+function rewriteTeacherBadge(html, locale) {
+  if (TEACHER_BADGE_LOCALES.has(locale.code)) return html;
+  return html.replace(/\n[ \t]*<!-- TA-START -->[\s\S]*?<!-- TA-END -->/, '');
+}
+
 // ============================================================
 // 5) Build a single locale variant
 // ============================================================
@@ -543,6 +557,7 @@ function buildLocale(sourceHtml, locale, T, M) {
   html = rewritePickerActive(html, locale);
   html = rewriteBlogLink(html, locale);
   html = rewritePrintablesLink(html, locale);
+  html = rewriteTeacherBadge(html, locale);
   html = applyDataI18nText(html, T, locale.code);
   html = applyDataI18nAria(html, T, locale.code);
   return html;
