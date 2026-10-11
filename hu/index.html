@@ -303,9 +303,10 @@ body.rtl .hcard-word{letter-spacing:0;word-break:normal;overflow-wrap:normal;hyp
 /* FLI: Teacher Approved stamp */
 .ta-stamp{display:flex;align-items:center;gap:10px;min-height:60px;box-sizing:border-box;background:#fdfcff;border-radius:12px;padding:9px 13px;transform:rotate(-2deg);box-shadow:0 3px 12px rgba(0,0,0,.22);animation:ta-press .55s cubic-bezier(.2,.9,.3,1) both}
 .ta-seal{width:38px;height:auto;flex:0 0 auto;display:block}
-.ta-text{display:flex;flex-direction:column;min-width:0;width:104px;text-align:start}
+.ta-text{display:flex;flex-direction:column;min-width:0;width:118px;text-align:start}
 .ta-main{font-size:13px;font-weight:800;line-height:1.12;letter-spacing:-.1px;color:#3A3589}
 .ta-sub{font-size:10.5px;font-weight:700;line-height:1.2;color:#3A3589;opacity:.72;margin-top:2px}
+body.rtl .ta-main{letter-spacing:normal}
 @keyframes ta-press{0%{opacity:0;transform:rotate(-9deg) scale(1.6)}50%{opacity:1;transform:rotate(0deg) scale(.95)}75%{transform:rotate(-3deg) scale(1.02)}100%{opacity:1;transform:rotate(-2deg) scale(1)}}
 @media(prefers-reduced-motion:reduce){.ta-stamp{animation:none}}
 html[data-platform="ios"] .dl-badges a:has(#appstore-badge){order:-1}
@@ -574,6 +575,21 @@ body.rtl .cc-inner{direction:rtl}
     <div class="dl-badges">
       <a href="https://apps.apple.com/app/id6761679251?pt=128736959&amp;ct=web-home&amp;mt=8" class="dl-btn-img" target="_blank" rel="noopener"><img id="appstore-badge" src="/badges/app-store-badge-hu.svg" alt="Letöltés az App Store-ból" width="180" height="60"></a>
       <a href="https://play.google.com/store/apps/details?id=com.buraapp.flipandlearn_flutter&amp;referrer=utm_source%3Dflipandlearn.app%26utm_medium%3Dweb%26utm_campaign%3Dweb-home" class="dl-btn-img" target="_blank" rel="noopener"><img id="playstore-badge" src="/badges/google-play-badge-hu.png" alt="Szerezd meg: Google Play" width="180" height="60" decoding="async"></a>
+      <!-- TA-START -->
+      <div class="ta-stamp">
+        <svg class="ta-seal" viewBox="0 0 96 88" aria-hidden="true" focusable="false">
+          <path d="M36 44 L28 78 L41 71 L46 46 Z" fill="#3A3589" opacity=".88"/>
+          <path d="M60 44 L68 78 L55 71 L50 46 Z" fill="#3A3589" opacity=".88"/>
+          <circle cx="48" cy="40" r="26" fill="#3A3589"/>
+          <circle cx="48" cy="40" r="21" fill="none" stroke="#fdfcff" stroke-width="1.2" opacity=".45"/>
+          <path d="M39.6 40.6 L45.3 46.3 L57 32.8" fill="none" stroke="#fdfcff" stroke-width="5.6" stroke-linecap="square" stroke-linejoin="miter"/>
+        </svg>
+        <span class="ta-text">
+          <span class="ta-main" data-i18n="ta.main">Tanári jóváhagyással</span>
+          <span class="ta-sub" data-i18n="ta.sub">Google Play</span>
+        </span>
+      </div>
+      <!-- TA-END -->
     </div>
   </div>
 </div>
@@ -856,7 +872,7 @@ en:{
 "cookies.gplink":"Google's privacy policy","cookies.fullnotice":"Full website privacy notice"
 },
 es:{
-"nav.ss":"Capturas","nav.feat":"Funciones","nav.lang":"Idiomas","nav.price":"Precios","nav.sup":"Soporte","nav.priv":"Privacidad","nav.credits":"Créditos","nav.home":"Inicio","nav.printables":"Fichas para colorear",
+"nav.ss":"Capturas","nav.feat":"Funciones","nav.lang":"Idiomas","nav.price":"Precios","nav.sup":"Soporte","nav.priv":"Privacidad","nav.credits":"Créditos","nav.home":"Inicio","nav.printables":"Fichas para colorear","ta.main":"Aprobada por profesores","ta.sub":"Google Play",
 "hero.sub":"El divertido juego de cartas de palabras que enseña palabras en múltiples idiomas",
 "b1":"4–12 años","b2":"9 idiomas","b3":"21+ Categorías","b4":"Sin Publicidad","b5":"Sin Conexión",
 "btn":"Descargar en el App Store","soon":"Próximamente en el App Store","btn.gp":"Descargar Flip & Learn en Google Play",
@@ -891,7 +907,7 @@ es:{
 "cookies.gplink":"Política de privacidad de Google","cookies.fullnotice":"Aviso de privacidad completo del sitio web"
 },
 fr:{
-"nav.ss":"Captures","nav.feat":"Fonctionnalités","nav.lang":"Langues","nav.price":"Tarifs","nav.sup":"Support","nav.priv":"Confidentialité","nav.credits":"Crédits","nav.home":"Accueil",
+"nav.ss":"Captures","nav.feat":"Fonctionnalités","nav.lang":"Langues","nav.price":"Tarifs","nav.sup":"Support","nav.priv":"Confidentialité","nav.credits":"Crédits","nav.home":"Accueil","ta.main":"Approuvé par les enseignants","ta.sub":"Google Play",
 "hero.sub":"Le jeu de cartes de mots amusant qui apprend aux enfants des mots dans plusieurs langues",
 "b1":"4–12 ans","b2":"9 langues","b3":"21+ Catégories","b4":"Sans Publicité","b5":"Hors Ligne",
 "btn":"Télécharger sur l'App Store","soon":"Bientôt sur l'App Store","btn.gp":"Télécharger Flip & Learn sur Google Play",
@@ -926,7 +942,7 @@ fr:{
 "cookies.gplink":"Politique de confidentialité de Google","cookies.fullnotice":"Avis de confidentialité complet du site"
 },
 de:{
-"nav.ss":"Screenshots","nav.feat":"Funktionen","nav.lang":"Sprachen","nav.price":"Preise","nav.sup":"Support","nav.priv":"Datenschutz","nav.credits":"Lizenzen","nav.home":"Startseite","nav.blog":"Blog","nav.printables":"Ausmalbilder",
+"nav.ss":"Screenshots","nav.feat":"Funktionen","nav.lang":"Sprachen","nav.price":"Preise","nav.sup":"Support","nav.priv":"Datenschutz","nav.credits":"Lizenzen","nav.home":"Startseite","nav.blog":"Blog","nav.printables":"Ausmalbilder","ta.main":"Von Pädagogen empfohlen","ta.sub":"Google Play",
 "hero.sub":"Das lustige Wortkarten-Spiel, das Kindern Wörter in mehreren Sprachen beibringt",
 "b1":"4–12 Jahre","b2":"9 Sprachen","b3":"21+ Kategorien","b4":"Keine Werbung","b5":"Offline nutzbar",
 "btn":"Im App Store laden","soon":"Demnächst im App Store","btn.gp":"Flip & Learn bei Google Play herunterladen",
@@ -961,7 +977,7 @@ de:{
 "cookies.gplink":"Datenschutzerklärung von Google","cookies.fullnotice":"Vollständige Datenschutzerklärung der Website"
 },
 hu:{
-"nav.ss":"Képernyő","nav.feat":"Funkciók","nav.lang":"Nyelvek","nav.price":"Árak","nav.sup":"Támogatás","nav.priv":"Adatvédelem","nav.credits":"Licencek","nav.home":"Főoldal","nav.blog":"Blog",
+"nav.ss":"Képernyő","nav.feat":"Funkciók","nav.lang":"Nyelvek","nav.price":"Árak","nav.sup":"Támogatás","nav.priv":"Adatvédelem","nav.credits":"Licencek","nav.home":"Főoldal","nav.blog":"Blog","ta.main":"Tanári jóváhagyással","ta.sub":"Google Play",
 "hero.sub":"A szórakoztató Szókártyajáték amely több nyelven tanít szavakat a gyerekeknek",
 "b1":"4–12 éveseknek","b2":"9 nyelv","b3":"21+ Kategória","b4":"Nincs Reklám","b5":"Offline Működik",
 "btn":"Letöltés az App Store-ból","soon":"Hamarosan az App Store-ban","btn.gp":"Szerezd meg: Google Play",
@@ -996,7 +1012,7 @@ hu:{
 "cookies.gplink":"A Google adatvédelmi szabályzata","cookies.fullnotice":"Teljes adatvédelmi tájékoztató"
 },
 ro:{
-"nav.ss":"Capturi","nav.feat":"Funcții","nav.lang":"Limbi","nav.price":"Prețuri","nav.sup":"Suport","nav.priv":"Confidențialitate","nav.credits":"Licențe","nav.home":"Acasă","nav.blog":"Blog","nav.printables":"Fișe de colorat",
+"nav.ss":"Capturi","nav.feat":"Funcții","nav.lang":"Limbi","nav.price":"Prețuri","nav.sup":"Suport","nav.priv":"Confidențialitate","nav.credits":"Licențe","nav.home":"Acasă","nav.blog":"Blog","nav.printables":"Fișe de colorat","ta.main":"Aprobată de profesori","ta.sub":"Google Play",
 "hero.sub":"Jocul de cărți cu cuvinte distractiv care îi învață pe copii cuvinte în mai multe limbi",
 "b1":"4–12 ani","b2":"9 limbi","b3":"21+ Categorii","b4":"Fără Reclame","b5":"Funcționează Offline",
 "btn":"Descarcă din App Store","soon":"În curând în App Store","btn.gp":"Descarcă Flip & Learn de pe Google Play",
@@ -1031,7 +1047,7 @@ ro:{
 "cookies.gplink":"Politica de confidențialitate Google","cookies.fullnotice":"Politica de confidențialitate completă a site-ului"
 },
 it:{
-"nav.ss":"Screenshot","nav.feat":"Funzionalità","nav.lang":"Lingue","nav.price":"Prezzi","nav.sup":"Supporto","nav.priv":"Privacy","nav.credits":"Crediti","nav.home":"Home",
+"nav.ss":"Screenshot","nav.feat":"Funzionalità","nav.lang":"Lingue","nav.price":"Prezzi","nav.sup":"Supporto","nav.priv":"Privacy","nav.credits":"Crediti","nav.home":"Home","ta.main":"Approvata dagli insegnanti","ta.sub":"Google Play",
 "hero.sub":"Il divertente gioco di carte di parole che insegna ai bambini parole in più lingue",
 "b1":"4–12 anni","b2":"9 lingue","b3":"21+ Categorie","b4":"Senza Pubblicità","b5":"Funziona Offline",
 "btn":"Scarica sull'App Store","soon":"Prossimamente sull'App Store","btn.gp":"Scarica Flip & Learn su Google Play",
@@ -1066,7 +1082,7 @@ it:{
 "cookies.gplink":"Informativa sulla privacy di Google","cookies.fullnotice":"Informativa sulla privacy completa del sito"
 },
 pt:{
-"nav.ss":"Capturas","nav.feat":"Funcionalidades","nav.lang":"Idiomas","nav.price":"Preços","nav.sup":"Suporte","nav.priv":"Privacidade","nav.credits":"Créditos","nav.home":"Início",
+"nav.ss":"Capturas","nav.feat":"Funcionalidades","nav.lang":"Idiomas","nav.price":"Preços","nav.sup":"Suporte","nav.priv":"Privacidade","nav.credits":"Créditos","nav.home":"Início","ta.main":"Aprovado por professores","ta.sub":"Google Play",
 "hero.sub":"O divertido jogo de cartas de palavras que ensina às crianças palavras em vários idiomas",
 "b1":"4–12 anos","b2":"9 idiomas","b3":"21+ Categorias","b4":"Sem Publicidade","b5":"Funciona Offline",
 "btn":"Descarregar na App Store","soon":"Em breve na App Store","btn.gp":"Descarregar Flip & Learn no Google Play",
@@ -1101,7 +1117,7 @@ pt:{
 "cookies.gplink":"Política de privacidade da Google","cookies.fullnotice":"Aviso de privacidade completo do site"
 },
 ar:{
-"nav.ss":"لقطات","nav.feat":"المميزات","nav.lang":"اللغات","nav.price":"الأسعار","nav.sup":"الدعم","nav.priv":"الخصوصية","nav.credits":"التراخيص","nav.home":"الرئيسية",
+"nav.ss":"لقطات","nav.feat":"المميزات","nav.lang":"اللغات","nav.price":"الأسعار","nav.sup":"الدعم","nav.priv":"الخصوصية","nav.credits":"التراخيص","nav.home":"الرئيسية","ta.main":"يوافق عليها المعلّمون","ta.sub":"Google Play",
 "hero.sub":"لعبة بطاقات الكلمات الممتعة التي تعلم الأطفال كلمات بلغات متعددة",
 "b1":"لأعمار 4-12 سنة","b2":"تدعم 9 لغات","b3":"أكثر من 21 فئة","b4":"خالية من الإعلانات","b5":"يعمل بدون إنترنت",
 "btn":"تحميل من App Store","soon":"قريباً في App Store","btn.gp":"حمّل Flip & Learn من Google Play",
@@ -1136,7 +1152,7 @@ ar:{
 "cookies.gplink":"سياسة خصوصية Google","cookies.fullnotice":"إشعار الخصوصية الكامل للموقع"
 },
 pl:{
-"nav.ss":"Zrzuty ekranu","nav.feat":"Funkcje","nav.lang":"Języki","nav.price":"Cennik","nav.sup":"Pomoc","nav.priv":"Prywatność","nav.credits":"Licencje","nav.home":"Start",
+"nav.ss":"Zrzuty ekranu","nav.feat":"Funkcje","nav.lang":"Języki","nav.price":"Cennik","nav.sup":"Pomoc","nav.priv":"Prywatność","nav.credits":"Licencje","nav.home":"Start","ta.main":"Zatwierdzone przez nauczycieli","ta.sub":"Google Play",
 "hero.sub":"Wesoła gra karciana ze słowami, która uczy dzieci nowych słów w wielu językach",
 "b1":"4–12 lat","b2":"9 języków","b3":"Ponad 21 kategorii","b4":"Zero reklam","b5":"Działa offline",
 "btn":"Pobierz w App Store","soon":"Wkrótce w App Store","btn.gp":"Pobierz Flip & Learn z Google Play",
@@ -1171,7 +1187,7 @@ pl:{
 "cookies.gplink":"Polityka prywatności Google","cookies.fullnotice":"Pełna informacja o prywatności witryny"
 },
 nl:{
-"nav.ss":"Screenshots","nav.feat":"Functies","nav.lang":"Talen","nav.price":"Prijzen","nav.sup":"Support","nav.priv":"Privacy","nav.credits":"Licenties","nav.home":"Home",
+"nav.ss":"Screenshots","nav.feat":"Functies","nav.lang":"Talen","nav.price":"Prijzen","nav.sup":"Support","nav.priv":"Privacy","nav.credits":"Licenties","nav.home":"Home","ta.main":"Goedgekeurd door docenten","ta.sub":"Google Play",
 "hero.sub":"Het leuke woordkaartspel dat kinderen nieuwe woorden leert in meerdere talen",
 "b1":"4–12 jaar","b2":"9 talen","b3":"21+ categorieën","b4":"Nooit reclame","b5":"Werkt offline",
 "btn":"Download in de App Store","soon":"Binnenkort in de App Store","btn.gp":"Download Flip & Learn op Google Play",
@@ -1206,7 +1222,7 @@ nl:{
 "cookies.gplink":"Privacybeleid van Google","cookies.fullnotice":"Volledige privacyverklaring van de website"
 },
 ru:{
-"nav.ss":"Скриншоты","nav.feat":"Функции","nav.lang":"Языки","nav.price":"Цены","nav.sup":"Поддержка","nav.priv":"Конфиденциальность","nav.credits":"Лицензии","nav.home":"Главная",
+"nav.ss":"Скриншоты","nav.feat":"Функции","nav.lang":"Языки","nav.price":"Цены","nav.sup":"Поддержка","nav.priv":"Конфиденциальность","nav.credits":"Лицензии","nav.home":"Главная","ta.main":"Одобрено преподавателями","ta.sub":"Google Play",
 "hero.sub":"Весёлая карточная игра со словами, которая учит детей новым словам на разных языках",
 "b1":"4–12 лет","b2":"9 языков","b3":"Более 21 категории","b4":"Без рекламы","b5":"Работает офлайн",
 "btn":"Загрузите в App Store","soon":"Скоро в App Store","btn.gp":"Скачать Flip & Learn в Google Play",
@@ -1241,7 +1257,7 @@ ru:{
 "cookies.gplink":"Политика конфиденциальности Google","cookies.fullnotice":"Полное уведомление о конфиденциальности сайта"
 },
 uk:{
-"nav.ss":"Скриншоти","nav.feat":"Функції","nav.lang":"Мови","nav.price":"Ціни","nav.sup":"Підтримка","nav.priv":"Конфіденційність","nav.credits":"Ліцензії","nav.home":"Головна",
+"nav.ss":"Скриншоти","nav.feat":"Функції","nav.lang":"Мови","nav.price":"Ціни","nav.sup":"Підтримка","nav.priv":"Конфіденційність","nav.credits":"Ліцензії","nav.home":"Головна","ta.main":"Схвалено викладачами","ta.sub":"Google Play",
 "hero.sub":"Весела карткова гра зі словами, що вчить дітей нових слів різними мовами",
 "b1":"4–12 років","b2":"9 мов","b3":"Понад 21 категорій","b4":"Без реклами","b5":"Працює офлайн",
 "btn":"Завантажуйте в App Store","soon":"Незабаром в App Store","btn.gp":"Завантажити Flip & Learn у Google Play",
@@ -1276,7 +1292,7 @@ uk:{
 "cookies.gplink":"Політика конфіденційності Google","cookies.fullnotice":"Повне повідомлення про конфіденційність сайту"
 },
 bg:{
-"nav.ss":"Екранни снимки","nav.feat":"Функции","nav.lang":"Езици","nav.price":"Цени","nav.sup":"Поддръжка","nav.priv":"Поверителност","nav.credits":"Лицензи","nav.home":"Начало",
+"nav.ss":"Екранни снимки","nav.feat":"Функции","nav.lang":"Езици","nav.price":"Цени","nav.sup":"Поддръжка","nav.priv":"Поверителност","nav.credits":"Лицензи","nav.home":"Начало","ta.main":"Одобрено от учители","ta.sub":"Google Play",
 "hero.sub":"Забавната игра с карти с думи, която учи децата на нови думи на различни езици",
 "b1":"4–12 години","b2":"9 езика","b3":"Над 21 категории","b4":"Без реклами","b5":"Работи офлайн",
 "btn":"Изтеглете от App Store","soon":"Скоро в App Store","btn.gp":"Изтеглете Flip & Learn от Google Play",
@@ -1311,7 +1327,7 @@ bg:{
 "cookies.gplink":"Политика за поверителност на Google","cookies.fullnotice":"Пълно известие за поверителност на сайта"
 },
 tr:{
-"nav.ss":"Ekran Görüntüleri","nav.feat":"Özellikler","nav.lang":"Diller","nav.price":"Fiyatlar","nav.sup":"Destek","nav.priv":"Gizlilik","nav.credits":"Lisanslar","nav.home":"Ana Sayfa",
+"nav.ss":"Ekran Görüntüleri","nav.feat":"Özellikler","nav.lang":"Diller","nav.price":"Fiyatlar","nav.sup":"Destek","nav.priv":"Gizlilik","nav.credits":"Lisanslar","nav.home":"Ana Sayfa","ta.main":"Öğretmen Onaylı","ta.sub":"Google Play",
 "hero.sub":"Çocuklara farklı dillerde yeni kelimeler öğreten eğlenceli kelime kartı oyunu",
 "b1":"4–12 yaş","b2":"9 dil","b3":"21+ kategori","b4":"Asla reklam yok","b5":"Çevrimdışı çalışır",
 "btn":"App Store'dan indir","soon":"Yakında App Store'da","btn.gp":"Flip & Learn'ü Google Play'den indir",
@@ -1346,7 +1362,7 @@ tr:{
 "cookies.gplink":"Google gizlilik politikası","cookies.fullnotice":"Sitenin tam gizlilik bildirimi"
 },
 cs:{
-"nav.ss":"Snímky obrazovky","nav.feat":"Funkce","nav.lang":"Jazyky","nav.price":"Ceník","nav.sup":"Podpora","nav.priv":"Soukromí","nav.credits":"Licence","nav.home":"Domů",
+"nav.ss":"Snímky obrazovky","nav.feat":"Funkce","nav.lang":"Jazyky","nav.price":"Ceník","nav.sup":"Podpora","nav.priv":"Soukromí","nav.credits":"Licence","nav.home":"Domů","ta.main":"Schváleno učiteli","ta.sub":"Google Play",
 "hero.sub":"Zábavná karetní hra se slovíčky, která učí děti nová slova v mnoha jazycích",
 "b1":"4–12 let","b2":"9 jazyků","b3":"Přes 21 kategorií","b4":"Žádné reklamy","b5":"Funguje offline",
 "btn":"Stáhnout v App Store","soon":"Již brzy v App Store","btn.gp":"Stáhnout Flip & Learn na Google Play",
@@ -1381,7 +1397,7 @@ cs:{
 "cookies.gplink":"Zásady ochrany soukromí Google","cookies.fullnotice":"Úplné oznámení o ochraně soukromí webu"
 },
 sk:{
-"nav.ss":"Snímky obrazovky","nav.feat":"Funkcie","nav.lang":"Jazyky","nav.price":"Cenník","nav.sup":"Podpora","nav.priv":"Súkromie","nav.credits":"Licencie","nav.home":"Domov",
+"nav.ss":"Snímky obrazovky","nav.feat":"Funkcie","nav.lang":"Jazyky","nav.price":"Cenník","nav.sup":"Podpora","nav.priv":"Súkromie","nav.credits":"Licencie","nav.home":"Domov","ta.main":"Schválené pedagógmi","ta.sub":"Google Play",
 "hero.sub":"Zábavná kartová hra so slovíčkami, ktorá učí deti nové slová v mnohých jazykoch",
 "b1":"4–12 rokov","b2":"9 jazykov","b3":"Vyše 21 kategórií","b4":"Žiadne reklamy","b5":"Funguje offline",
 "btn":"Stiahnuť v App Store","soon":"Už čoskoro v App Store","btn.gp":"Stiahnuť Flip & Learn na Google Play",
@@ -1416,7 +1432,7 @@ sk:{
 "cookies.gplink":"Zásady ochrany súkromia Google","cookies.fullnotice":"Úplné oznámenie o ochrane súkromia webu"
 },
 hr:{
-"nav.ss":"Snimke zaslona","nav.feat":"Značajke","nav.lang":"Jezici","nav.price":"Cijene","nav.sup":"Podrška","nav.priv":"Privatnost","nav.credits":"Licence","nav.home":"Početna",
+"nav.ss":"Snimke zaslona","nav.feat":"Značajke","nav.lang":"Jezici","nav.price":"Cijene","nav.sup":"Podrška","nav.priv":"Privatnost","nav.credits":"Licence","nav.home":"Početna","ta.main":"Odobrili nastavnici","ta.sub":"Google Play",
 "hero.sub":"Zabavna igra s karticama riječi koja djecu uči novim riječima na više jezika",
 "b1":"4–12 godina","b2":"9 jezika","b3":"Više od 21 kategorije","b4":"Bez reklama","b5":"Radi offline",
 "btn":"Preuzmite u App Storeu","soon":"Uskoro u App Storeu","btn.gp":"Preuzmite Flip & Learn na Google Playu",
@@ -1451,7 +1467,7 @@ hr:{
 "cookies.gplink":"Googleova pravila privatnosti","cookies.fullnotice":"Potpuna obavijest o privatnosti web-stranice"
 },
 sl:{
-"nav.ss":"Posnetki zaslona","nav.feat":"Funkcije","nav.lang":"Jeziki","nav.price":"Cene","nav.sup":"Podpora","nav.priv":"Zasebnost","nav.credits":"Licence","nav.home":"Domov",
+"nav.ss":"Posnetki zaslona","nav.feat":"Funkcije","nav.lang":"Jeziki","nav.price":"Cene","nav.sup":"Podpora","nav.priv":"Zasebnost","nav.credits":"Licence","nav.home":"Domov","ta.main":"Z odobritvijo učiteljev","ta.sub":"Google Play",
 "hero.sub":"Zabavna igra s karticami besed, ki otroke uči novih besed v več jezikih",
 "b1":"4–12 let","b2":"9 jezikov","b3":"Več kot 21 kategorij","b4":"Brez oglasov","b5":"Deluje brez povezave",
 "btn":"Prenesite iz App Stora","soon":"Kmalu v App Storu","btn.gp":"Prenesite Flip & Learn iz Google Playa",
@@ -1486,7 +1502,7 @@ sl:{
 "cookies.gplink":"Googlov pravilnik o zasebnosti","cookies.fullnotice":"Celotno obvestilo o zasebnosti spletnega mesta"
 },
 el:{
-"nav.ss":"Στιγμιότυπα","nav.feat":"Λειτουργίες","nav.lang":"Γλώσσες","nav.price":"Τιμές","nav.sup":"Υποστήριξη","nav.priv":"Απόρρητο","nav.credits":"Άδειες χρήσης","nav.home":"Αρχική",
+"nav.ss":"Στιγμιότυπα","nav.feat":"Λειτουργίες","nav.lang":"Γλώσσες","nav.price":"Τιμές","nav.sup":"Υποστήριξη","nav.priv":"Απόρρητο","nav.credits":"Άδειες χρήσης","nav.home":"Αρχική","ta.main":"Εγκεκριμένο από εκπαιδευτικούς","ta.sub":"Google Play",
 "hero.sub":"Το διασκεδαστικό παιχνίδι με κάρτες λέξεων που μαθαίνει στα παιδιά νέες λέξεις σε πολλές γλώσσες",
 "b1":"4–12 ετών","b2":"9 γλώσσες","b3":"Πάνω από 21 κατηγορίες","b4":"Χωρίς διαφημίσεις","b5":"Λειτουργεί εκτός σύνδεσης",
 "btn":"Λήψη από το App Store","soon":"Σύντομα στο App Store","btn.gp":"Λήψη του Flip & Learn από το Google Play",
@@ -1521,7 +1537,7 @@ el:{
 "cookies.gplink":"Πολιτική απορρήτου της Google","cookies.fullnotice":"Πλήρης ενημέρωση απορρήτου του ιστότοπου"
 },
 sv:{
-"nav.ss":"Skärmbilder","nav.feat":"Funktioner","nav.lang":"Språk","nav.price":"Priser","nav.sup":"Support","nav.priv":"Integritet","nav.credits":"Licenser","nav.home":"Hem",
+"nav.ss":"Skärmbilder","nav.feat":"Funktioner","nav.lang":"Språk","nav.price":"Priser","nav.sup":"Support","nav.priv":"Integritet","nav.credits":"Licenser","nav.home":"Hem","ta.main":"Godkänd av lärare","ta.sub":"Google Play",
 "hero.sub":"Det roliga ordkortsspelet som lär barn nya ord på flera språk",
 "b1":"4–12 år","b2":"9 språk","b3":"21+ kategorier","b4":"Aldrig reklam","b5":"Fungerar offline",
 "btn":"Hämta i App Store","soon":"Snart i App Store","btn.gp":"Hämta Flip & Learn på Google Play",
@@ -1556,7 +1572,7 @@ sv:{
 "cookies.gplink":"Googles integritetspolicy","cookies.fullnotice":"Webbplatsens fullständiga integritetsmeddelande"
 },
 da:{
-"nav.ss":"Skærmbilleder","nav.feat":"Funktioner","nav.lang":"Sprog","nav.price":"Priser","nav.sup":"Support","nav.priv":"Privatliv","nav.credits":"Licenser","nav.home":"Hjem",
+"nav.ss":"Skærmbilleder","nav.feat":"Funktioner","nav.lang":"Sprog","nav.price":"Priser","nav.sup":"Support","nav.priv":"Privatliv","nav.credits":"Licenser","nav.home":"Hjem","ta.main":"Godkendt af lærere","ta.sub":"Google Play",
 "hero.sub":"Det sjove ordkortspil, der lærer børn nye ord på flere sprog",
 "b1":"4–12 år","b2":"9 sprog","b3":"21+ kategorier","b4":"Aldrig reklamer","b5":"Virker offline",
 "btn":"Hent i App Store","soon":"Snart i App Store","btn.gp":"Hent Flip & Learn på Google Play",
@@ -1591,7 +1607,7 @@ da:{
 "cookies.gplink":"Googles privatlivspolitik","cookies.fullnotice":"Webstedets fulde privatlivsmeddelelse"
 },
 no:{
-"nav.ss":"Skjermbilder","nav.feat":"Funksjoner","nav.lang":"Språk","nav.price":"Priser","nav.sup":"Support","nav.priv":"Personvern","nav.credits":"Lisenser","nav.home":"Hjem",
+"nav.ss":"Skjermbilder","nav.feat":"Funksjoner","nav.lang":"Språk","nav.price":"Priser","nav.sup":"Support","nav.priv":"Personvern","nav.credits":"Lisenser","nav.home":"Hjem","ta.main":"Lærergodkjent","ta.sub":"Google Play",
 "hero.sub":"Det morsomme ordkortspillet som lærer barn nye ord på flere språk",
 "b1":"4–12 år","b2":"9 språk","b3":"21+ kategorier","b4":"Aldri reklame","b5":"Fungerer offline",
 "btn":"Last ned fra App Store","soon":"Snart på App Store","btn.gp":"Last ned Flip & Learn på Google Play",
@@ -1626,7 +1642,7 @@ no:{
 "cookies.gplink":"Googles personvernerklæring","cookies.fullnotice":"Nettstedets fullstendige personvernerklæring"
 },
 fi:{
-"nav.ss":"Kuvakaappaukset","nav.feat":"Ominaisuudet","nav.lang":"Kielet","nav.price":"Hinnat","nav.sup":"Tuki","nav.priv":"Tietosuoja","nav.credits":"Lisenssit","nav.home":"Etusivu",
+"nav.ss":"Kuvakaappaukset","nav.feat":"Ominaisuudet","nav.lang":"Kielet","nav.price":"Hinnat","nav.sup":"Tuki","nav.priv":"Tietosuoja","nav.credits":"Lisenssit","nav.home":"Etusivu","ta.main":"Opettajien hyväksymä","ta.sub":"Google Play",
 "hero.sub":"Hauska sanakorttipeli, joka opettaa lapsille uusia sanoja monilla kielillä",
 "b1":"4–12 v","b2":"9 kieltä","b3":"21+ kategoriaa","b4":"Ei koskaan mainoksia","b5":"Toimii offline-tilassa",
 "btn":"Lataa App Storesta","soon":"Tulossa pian App Storeen","btn.gp":"Lataa Flip & Learn Google Playsta",
@@ -1661,7 +1677,7 @@ fi:{
 "cookies.gplink":"Googlen tietosuojakäytäntö","cookies.fullnotice":"Sivuston koko tietosuojailmoitus"
 },
 lt:{
-"nav.ss":"Ekrano nuotraukos","nav.feat":"Funkcijos","nav.lang":"Kalbos","nav.price":"Kainos","nav.sup":"Pagalba","nav.priv":"Privatumas","nav.credits":"Licencijos","nav.home":"Pradžia",
+"nav.ss":"Ekrano nuotraukos","nav.feat":"Funkcijos","nav.lang":"Kalbos","nav.price":"Kainos","nav.sup":"Pagalba","nav.priv":"Privatumas","nav.credits":"Licencijos","nav.home":"Pradžia","ta.main":"Patvirtinta mokytojų","ta.sub":"Google Play",
 "hero.sub":"Smagus žodžių kortelių žaidimas, mokantis vaikus naujų žodžių keliomis kalbomis",
 "b1":"4–12 m.","b2":"9 kalbos","b3":"21+ kategorijų","b4":"Jokių reklamų","b5":"Veikia be interneto",
 "btn":"Atsisiųsk iš App Store","soon":"Netrukus App Store","btn.gp":"Atsisiųsk Flip & Learn iš Google Play",
@@ -1696,7 +1712,7 @@ lt:{
 "cookies.gplink":"Google privatumo politika","cookies.fullnotice":"Visas svetainės privatumo pranešimas"
 },
 lv:{
-"nav.ss":"Ekrānuzņēmumi","nav.feat":"Funkcijas","nav.lang":"Valodas","nav.price":"Cenas","nav.sup":"Atbalsts","nav.priv":"Privātums","nav.credits":"Licences","nav.home":"Sākums",
+"nav.ss":"Ekrānuzņēmumi","nav.feat":"Funkcijas","nav.lang":"Valodas","nav.price":"Cenas","nav.sup":"Atbalsts","nav.priv":"Privātums","nav.credits":"Licences","nav.home":"Sākums","ta.main":"Apstiprinājuši skolotāji","ta.sub":"Google Play",
 "hero.sub":"Jautra vārdu kartīšu spēle, kas māca bērniem jaunus vārdus vairākās valodās",
 "b1":"4–12 gadi","b2":"9 valodas","b3":"21+ kategorijas","b4":"Nekad nekādu reklāmu","b5":"Darbojas bezsaistē",
 "btn":"Lejupielādē no App Store","soon":"Drīzumā App Store","btn.gp":"Lejupielādē Flip & Learn no Google Play",
@@ -1731,7 +1747,7 @@ lv:{
 "cookies.gplink":"Google privātuma politika","cookies.fullnotice":"Pilns vietnes privātuma paziņojums"
 },
 et:{
-"nav.ss":"Ekraanipildid","nav.feat":"Funktsioonid","nav.lang":"Keeled","nav.price":"Hinnad","nav.sup":"Tugi","nav.priv":"Privaatsus","nav.credits":"Litsentsid","nav.home":"Avaleht",
+"nav.ss":"Ekraanipildid","nav.feat":"Funktsioonid","nav.lang":"Keeled","nav.price":"Hinnad","nav.sup":"Tugi","nav.priv":"Privaatsus","nav.credits":"Litsentsid","nav.home":"Avaleht","ta.main":"Õpetajate heakskiidetud","ta.sub":"Google Play",
 "hero.sub":"Lõbus sõnakaardimäng, mis õpetab lastele uusi sõnu mitmes keeles",
 "b1":"4–12 a","b2":"9 keelt","b3":"21+ kategooriat","b4":"Mitte kunagi reklaame","b5":"Töötab võrguta",
 "btn":"Laadi alla App Store'ist","soon":"Peagi App Store'is","btn.gp":"Laadi Flip & Learn alla Google Playst",
@@ -1766,7 +1782,7 @@ et:{
 "cookies.gplink":"Google'i privaatsuspoliitika","cookies.fullnotice":"Saidi täielik privaatsusteade"
 },
 sq:{
-"nav.ss":"Pamje ekrani","nav.feat":"Veçoritë","nav.lang":"Gjuhët","nav.price":"Çmimet","nav.sup":"Ndihma","nav.priv":"Privatësia","nav.credits":"Licencat","nav.home":"Kryefaqja",
+"nav.ss":"Pamje ekrani","nav.feat":"Veçoritë","nav.lang":"Gjuhët","nav.price":"Çmimet","nav.sup":"Ndihma","nav.priv":"Privatësia","nav.credits":"Licencat","nav.home":"Kryefaqja","ta.main":"Miratuar nga mësuesit","ta.sub":"Google Play",
 "hero.sub":"Loja argëtuese me karta fjalësh që u mëson fëmijëve fjalë të reja në shumë gjuhë",
 "b1":"4–12 vjeç","b2":"9 gjuhë","b3":"21+ kategori","b4":"Kurrë reklama","b5":"Punon offline",
 "btn":"Shkarko nga App Store","soon":"Së shpejti në App Store","btn.gp":"Shkarko Flip & Learn nga Google Play",
@@ -1801,7 +1817,7 @@ sq:{
 "cookies.gplink":"Politika e privatësisë së Google","cookies.fullnotice":"Njoftimi i plotë i privatësisë së sajtit"
 },
 sr:{
-"nav.ss":"Снимци екрана","nav.feat":"Функције","nav.lang":"Језици","nav.price":"Цене","nav.sup":"Подршка","nav.priv":"Приватност","nav.credits":"Лиценце","nav.home":"Почетна",
+"nav.ss":"Снимци екрана","nav.feat":"Функције","nav.lang":"Језици","nav.price":"Цене","nav.sup":"Подршка","nav.priv":"Приватност","nav.credits":"Лиценце","nav.home":"Почетна","ta.main":"Одобрили наставници","ta.sub":"Google Play",
 "hero.sub":"Забавна игра са картицама речи која учи децу новим речима на више језика",
 "b1":"4–12 година","b2":"9 језика","b3":"Више од 21 категорије","b4":"Без реклама","b5":"Ради офлајн",
 "btn":"Преузмите из App Store-а","soon":"Ускоро у App Store-у","btn.gp":"Преузмите Flip & Learn са Google Play-а",
@@ -1836,7 +1852,7 @@ sr:{
 "cookies.gplink":"Google-ова политика приватности","cookies.fullnotice":"Потпуно обавештење о приватности сајта"
 },
 ja:{
-"nav.ss":"スクリーンショット","nav.feat":"機能","nav.lang":"言語","nav.price":"料金","nav.sup":"サポート","nav.priv":"プライバシー","nav.credits":"ライセンス","nav.home":"ホーム",
+"nav.ss":"スクリーンショット","nav.feat":"機能","nav.lang":"言語","nav.price":"料金","nav.sup":"サポート","nav.priv":"プライバシー","nav.credits":"ライセンス","nav.home":"ホーム","ta.main":"教師承認済み","ta.sub":"Google Play",
 "hero.sub":"多言語で新しい言葉を学べる、楽しい単語カードゲーム",
 "b1":"4〜12歳","b2":"9言語","b3":"21以上のカテゴリー","b4":"広告なし","b5":"オフラインで動作",
 "btn":"App Storeでダウンロード","soon":"App Storeで近日公開","btn.gp":"Google PlayでFlip & Learnをダウンロード",
@@ -1871,7 +1887,7 @@ ja:{
 "cookies.gplink":"Googleのプライバシーポリシー","cookies.fullnotice":"ウェブサイトのプライバシー通知(全文)"
 },
 ko:{
-"nav.ss":"스크린샷","nav.feat":"기능","nav.lang":"언어","nav.price":"가격","nav.sup":"지원","nav.priv":"개인정보","nav.credits":"라이선스","nav.home":"홈",
+"nav.ss":"스크린샷","nav.feat":"기능","nav.lang":"언어","nav.price":"가격","nav.sup":"지원","nav.priv":"개인정보","nav.credits":"라이선스","nav.home":"홈","ta.main":"교사 추천","ta.sub":"Google Play",
 "hero.sub":"여러 언어로 새로운 단어를 배우는 재미있는 단어 카드 게임",
 "b1":"4~12세","b2":"9개 언어","b3":"21개 이상 카테고리","b4":"광고 없음","b5":"오프라인 작동",
 "btn":"App Store에서 다운로드","soon":"곧 App Store 출시","btn.gp":"Google Play에서 Flip & Learn 다운로드",

@@ -77,10 +77,14 @@ const BLOG_INDEX_LOCALES = new Set(['en', 'de', 'ro', 'hu']);
 const PRINTABLES_LOCALES = new Set(['en', 'de', 'ro', 'es']);
 const PRINTABLES_PATHS = { en: '/en/printables/', de: '/de/ausmalbilder/', ro: '/ro/fise-de-colorat/', es: '/es/fichas-para-colorear/' };
 // Locales that render the Teacher Approved stamp in the hero. The badge wording is a
-// Google UI string with an official translation per language, so each locale added here
-// also needs its own ta.main and ta.sub keys in the T dictionary. English only for now;
-// the remaining 30 follow once the wording is reviewed.
-const TEACHER_BADGE_LOCALES = new Set(['en']);
+// Google UI string with an official translation per language, so each locale listed here
+// needs its own ta.main and ta.sub keys in the T dictionary. The wording has been reviewed
+// for all 31 site locales, so this is the full set rather than a pilot gate; a locale left
+// out of it still gets the block stripped by rewriteTeacherBadge().
+const TEACHER_BADGE_LOCALES = new Set([
+  'en','ar','bg','cs','da','de','el','es','et','fi','fr','hr','hu','it','ja','ko',
+  'lt','lv','nl','no','pl','pt','ro','ru','sk','sl','sq','sr','sv','tr','uk'
+]);
 
 // ------------------------------------------------------------
 // Flip & Learn ABC landing page (/abc/ and /<loc>/abc/) — FLI-394
