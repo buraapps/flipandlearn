@@ -168,7 +168,7 @@ h1{font-size:clamp(36px,5vw,62px);line-height:1.05;font-weight:900;letter-spacin
 .shot-dot::before{content:"";inline-size:12px;block-size:12px;border-radius:50%;border:2px solid var(--white)}
 .shot-dot[aria-current]::before{background:var(--white)}
 
-/* Numbers of the world */
+/* Numbers out loud */
 .langs{background:var(--white);border-start-start-radius:48px;border-start-end-radius:48px;padding-block:88px}
 .langs .eyebrow{color:var(--coral)}
 .lang-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
@@ -439,7 +439,7 @@ body.rtl .cc-inner{direction:rtl}
 <section class="langs" id="languages">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow" data-i18n="num.langs.eyebrow">Numerele lumii</p>
+      <p class="eyebrow" data-i18n="num.langs.eyebrow">Numerele cu voce tare</p>
       <h2 data-i18n="num.langs.h2">Șapte limbi, fiecare număr rostit.</h2>
       <p class="lead" data-i18n="num.langs.p">Alege una dintre cele șapte limbi pe ecranul principal, iar aplicația o ține minte. Fiecare număr de la 0 la 100 este rostit în limba aleasă.</p>
     </div>
@@ -468,7 +468,7 @@ body.rtl .cc-inner{direction:rtl}
       <li class="game g-pm"><span class="g-glyph" aria-hidden="true"><span class="g-tile g-tile-pm" dir="ltr">3 3</span></span><h4 data-i18n="num.game.pm.name">Găsește perechea</h4><p data-i18n="num.game.pm.desc">Întoarce cărțile și găsește două cu același număr. La fiecare pereche, numărul este rostit.</p></li>
       <li class="game g-cm"><span class="g-glyph" aria-hidden="true"><span class="g-tile" dir="ltr">3<span class="g-dots">●●●</span></span></span><h4 data-i18n="num.game.cm.name">Numără și găsește</h4><p data-i18n="num.game.cm.desc">Potrivește un număr cu cantitatea potrivită de buline sau obiecte.</p></li>
       <li class="game g-wm"><span class="g-glyph" aria-hidden="true"><span class="g-tile" dir="ltr">5<small data-i18n="num.game.wm.word">cinci</small></span></span><h4 data-i18n="num.game.wm.name">Numere și cuvinte</h4><p data-i18n="num.game.wm.desc">Atinge o carte audio, ascultă numărul și găsește cifra lui.</p></li>
-      <li class="game g-om"><span class="g-glyph" aria-hidden="true"><span class="g-tile" dir="ltr">5 → 6</span></span><h4 data-i18n="num.game.om.name">Ordinea numerelor</h4><p data-i18n="num.game.om.desc">Ce număr urmează? Găsește cartea care vine după.</p></li>
+      <li class="game g-om"><span class="g-glyph" aria-hidden="true"><span class="g-tile" dir="ltr">5 → 6</span></span><h4 data-i18n="num.game.om.name">Ordinea numerelor</h4><p data-i18n="num.game.om.desc">Ce număr urmează? Găsește cartea care urmează.</p></li>
     </ul>
     <h3 class="game-group" data-i18n="num.games.mo">Joacă-te cu Mo</h3>
     <ul class="game-grid game-grid-mo">
@@ -486,9 +486,9 @@ body.rtl .cc-inner{direction:rtl}
   <div class="wrap parents-in">
     <div class="parents-copy">
       <p class="eyebrow" data-i18n="num.parents.eyebrow">Pentru părinți</p>
-      <h2 data-i18n="num.parents.h2">Făcută pentru copii, cu gândul la părinți.</h2>
+      <h2 data-i18n="num.parents.h2">Creată pentru copii, cu gândul la părinți.</h2>
       <p class="lead" data-i18n="num.parents.p1">Am început Flip &amp; Learn pentru fiul meu și fac în continuare eu însumi fiecare aplicație, în Regensburg, Germania.</p>
-      <p class="lead" data-i18n="num.parents.p2">În Flip &amp; Learn 123 nu e nimic de cumpărat, nu trebuie creat niciun cont și nicio dată nu părăsește dispozitivul.</p>
+      <p class="lead" data-i18n="num.parents.p2">În Flip &amp; Learn 123 nu e nimic de cumpărat, nu trebuie creat niciun cont și datele nu părăsesc dispozitivul.</p>
       <p><a href="/123/privacy.html" data-i18n="num.parents.privacy">Citește politica de confidențialitate 123</a></p>
     </div>
     <ul class="safe-grid">
@@ -506,7 +506,7 @@ body.rtl .cc-inner{direction:rtl}
   <div class="wrap words-in">
     <div class="words-copy">
       <p class="eyebrow" data-i18n="num.words.eyebrow">Tot de la Flip &amp; Learn</p>
-      <h2 data-i18n="num.words.h2">Numere și cuvinte, unele lângă altele.</h2>
+      <h2 data-i18n="num.words.h2">Numere și cuvinte, alături.</h2>
       <p class="lead" data-i18n="num.words.p">Flip &amp; Learn: Joc de cuvinte vine din aceeași familie: 21+ categorii, 9 limbi și fiecare cuvânt rostit cu voce tare.</p>
       <p class="words-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.8"/></svg><span data-i18n="num.words.badge">Aprobat de profesori pe Google Play</span></p>
       <a class="btn btn-gold" id="numWordsCta" href="/ro/" data-i18n="num.words.cta">Descoperă Flip &amp; Learn: Joc de cuvinte</a>
@@ -525,7 +525,7 @@ body.rtl .cc-inner{direction:rtl}
     <div class="print-in">
       <div class="print-copy">
         <h2 data-i18n="num.print.h2">Fișe gratuite cu numere, de colorat și scris</h2>
-        <p data-i18n="num.print.p">Zece fișe PDF A4 de printat, de la unu la zece. Colorează cifra și tot atâtea imagini, apoi trasează cuvântul în două limbi, urmând săgețile numerotate.</p>
+        <p data-i18n="num.print.p">Zece fișe PDF A4 de printat, de la unu la zece. Colorează numărul și tot atâtea imagini, apoi trasează cuvântul în două limbi, urmând săgețile numerotate.</p>
       </div>
       <a class="btn btn-green" id="numPrintCta" href="/ro/fise-de-colorat/#numere" data-i18n="num.print.cta">Vezi fișele de colorat</a>
     </div>
