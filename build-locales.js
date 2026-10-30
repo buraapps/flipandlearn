@@ -129,6 +129,13 @@ const APPS = {
     stringsFile: 'abc-strings.js',
     source: path.join(ROOT, 'abc', 'index.html'),   // also the EN output
     privacy: path.join(ROOT, 'abc', 'privacy.html'),
+    // The app's entry in the family links: its keys in family-strings.js, the mini tiles
+    // beside its name, and its accent colour.
+    family: {
+      keys: 'family',
+      accent: '#2A78C8',
+      tiles: [['A', '#CA4B25', '#fff'], ['B', '#F5B82E', '#1B2A6B'], ['C', '#1A855A', '#fff']],
+    },
     shotsDir: 'abc/shots',                 // home{1,2}-<code>.webp
     campaign: 'web-abc',                   // ct= on Apple, utm_campaign= on Play
     // The digits after "id" in the App Store URL.
@@ -159,6 +166,11 @@ const APPS = {
     stringsFile: '123-strings.js',
     source: path.join(ROOT, '123', 'index.html'),   // also the EN output
     privacy: path.join(ROOT, '123', 'privacy.html'),
+    family: {
+      keys: 'family.num',
+      accent: '#C44618',
+      tiles: [['1', '#D93A2B', '#fff'], ['2', '#2A78C8', '#fff'], ['3', '#FFC93C', '#6B2108']],
+    },
     shotsDir: '123/shots',
     campaign: 'web-123',
     printablesAnchors: PRINTABLES_ANCHORS,
@@ -520,21 +532,22 @@ function rewriteTeacherBadge(html, locale) {
 // 5) Build a single locale variant
 // ============================================================
 // ============================================================
-// 5a) Flip & Learn ABC entry points on the Words homepages (FLI-394 step 5).
-//    A "More from Flip & Learn" card (after "Made by a parent", before Support), a
-//    header nav link and a footer link, plus their CSS. Rendered ONLY when
-//    isVisible(APPS.abc), so in 'preview' as well as 'launched'; strings from
-//    family-strings.js. In 'preview' these live pages deliberately link to the page of a
-//    not-yet-released app (see APPS).
+// 5a) Family links: each page links to the other apps that are visible.
+//    A "More from Flip & Learn" card per sibling, header nav links and footer links, plus
+//    their CSS. A page's siblings are the APP_LIST entries that are isVisible(), without
+//    the app the page belongs to, so a page has none while every other app is 'hidden'
+//    and then gets nothing at all. In 'preview' these live pages deliberately link to the
+//    page of a not-yet-released app (see APPS). Strings from family-strings.js.
 //
 //    Every piece is wrapped in a marker pair, <!-- FAMILY:NAME --> … <!-- /FAMILY:NAME -->,
-//    and stripFamily() removes all of them from index.html before anything else reads
-//    it. Because index.html is also the EN output, that is what makes the switch
-//    reversible: visible, the blocks are added; state back to 'hidden', the next build
-//    removes them and every homepage is byte-identical to the hidden state again.
+//    and stripFamily() removes all of them from each source (index.html and the app
+//    templates) before anything else reads it. Because a source is also its EN output,
+//    that is what makes the switch reversible and the build idempotent: visible, the
+//    blocks are added; state back to 'hidden', the next build removes them and every
+//    page is byte-identical to the hidden state again.
 // ============================================================
 const FAMILY_ANCHORS = {
-  // all three must occur exactly once in index.html, or the build stops
+  // on the Words homepage. Each must occur exactly once, or the build stops
   nav: '\n    <a href="/credits.html" data-i18n="nav.credits">Credits</a>',
   card: '\n<section id="support">',
   foot: '\n    <a href="#" id="cookiePrefs"',
@@ -545,26 +558,43 @@ function stripFamily(html) {
   return html.replace(/\n[ \t]*<!-- FAMILY:([A-Z]+) -->[\s\S]*?<!-- \/FAMILY:\1 -->/g, '');
 }
 
-function familyCss() {
+// The same four anchors on an app's page, from the template shared by every app page.
+function familyAnchors(host) {
+  if (!host) return FAMILY_ANCHORS;
+  return {
+    nav: `\n        <a href="#words" data-i18n="${host.keyPrefix}.nav.words">Flip &amp; Learn: Word Card Game</a>`,
+    card: `\n<!-- ${host.marker}:PRINTABLES_BEGIN -->`,
+    foot: `\n      <a href="/${host.segment}/privacy.html" data-i18n="${host.keyPrefix}.foot.privacy"`,
+    css: '\n</head>',
+  };
+}
+
+function familyCss(siblings) {
+  const perApp = siblings.map(app => {
+    const c = `.fam-card-${app.segment}`;
+    return `${c}{--fam-accent:${app.family.accent}}\n` + app.family.tiles
+      .map(([, bg, fg], i) => `${c} .fam-tiles span:nth-child(${i + 1}){background:${bg};color:${fg}}`).join('\n');
+  }).join('\n');
   return `<style>
-/* Flip & Learn ABC family card (FLI-394 step 5). Words-site styling with an ABC accent:
-   sky-blue edge and the A·B·C tiles in miniature. Logical properties only (RTL on /ar/). */
+/* Family card. Words-site styling with the app's accent: coloured edge and the app's tiles
+   in miniature. Logical properties only (RTL on /ar/). */
 .fam-wrap{background:#fff}
 .fam-wrap section{padding-block:56px;padding-inline:24px}
-.fam-card{display:flex;align-items:center;gap:22px;max-width:760px;margin:0 auto;background:#fff;border:1px solid #e3e2f5;border-inline-start:6px solid #2A78C8;border-radius:18px;padding:26px 28px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.fam-wrap section+section{padding-block-start:0}
+.fam-card{display:flex;align-items:center;gap:22px;max-width:760px;margin:0 auto;background:#fff;border:1px solid #e3e2f5;border-inline-start:6px solid var(--fam-accent);border-radius:18px;padding:26px 28px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
 .fam-icon{flex:none;width:72px;height:auto;border-radius:22.5%;box-shadow:0 4px 0 #1B2A6B}
 .fam-body{flex:1 1 auto;min-width:0}
-.fam-eyebrow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 6px;font-size:13px;font-weight:600;color:#2A78C8}
-.fam-new{display:inline-block;background:#2A78C8;color:#fff;font-size:11px;font-weight:700;line-height:1;padding:4px 8px;border-radius:999px}
+.fam-eyebrow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 6px;font-size:13px;font-weight:600;color:var(--fam-accent)}
+.fam-new{display:inline-block;background:var(--fam-accent);color:#fff;font-size:11px;font-weight:700;line-height:1;padding:4px 8px;border-radius:999px}
 .fam-card .fam-title{margin:0 0 6px;font-size:22px;font-weight:700;text-align:start;color:#1d1d1f}
 .fam-text{margin:0 0 4px;font-size:15px;line-height:1.5;color:#3a3a3c}
 .fam-facts{margin:0;font-size:13px;color:#6e6e73}
 .fam-tiles{display:inline-flex;gap:4px;margin-inline-start:4px;vertical-align:middle}
-.fam-tiles span{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;color:#fff;font-size:12px;font-weight:800;line-height:1}
-.fam-tiles span:nth-child(1){background:#CA4B25}.fam-tiles span:nth-child(2){background:#F5B82E;color:#1B2A6B}.fam-tiles span:nth-child(3){background:#1A855A}
+.fam-tiles span{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;font-size:12px;font-weight:800;line-height:1}
+${perApp}
 .fam-btn{flex:none;display:inline-block;background:#3A3589;color:#fff;padding:12px 22px;border-radius:11px;text-decoration:none;font-weight:600;font-size:14px;text-align:center}
 .fam-btn:hover{background:#2e2a70}
-.fam-btn:focus-visible,.fam-navlink:focus-visible{outline:3px solid #2A78C8;outline-offset:2px}
+.fam-btn:focus-visible,.fam-navlink:focus-visible{outline:3px solid var(--fam-accent,#3A3589);outline-offset:2px}
 /* Header nav link: desktop only. With it, the nav no longer fits one row below 1200px in
    the longest locales (ru wraps at 1024px); the footer link is shown at every width. */
 .nav-links .fam-navlink{display:none}
@@ -577,35 +607,48 @@ function familyBlock(name, inner, indent = '') {
   return `\n${indent}<!-- FAMILY:${name} -->${inner}<!-- /FAMILY:${name} -->`;
 }
 
-function applyFamily(html, locale) {
-  if (!isVisible(APPS.abc)) return html;
+// `host` is the app whose page this is, or null for the Words homepage.
+function applyFamily(html, locale, host = null) {
+  const siblings = APP_LIST.filter(app => app !== host && isVisible(app));
+  if (!siblings.length) return html;
   const f = F[locale.code];
   const e = htmlEscape;
-  const href = appPath(APPS.abc, locale);
-  for (const [name, anchor] of Object.entries(FAMILY_ANCHORS)) {
+  const anchors = familyAnchors(host);
+  for (const [name, anchor] of Object.entries(anchors)) {
     const n = html.split(anchor).length - 1;
-    if (n !== 1) throw new Error(`family card: anchor "${name}" occurs ${n} times in index.html (expected exactly 1)`);
+    if (n !== 1) throw new Error(`family card: anchor "${name}" occurs ${n} times in ${host ? `${host.segment}/index.html` : 'index.html'} (expected exactly 1)`);
   }
-  const card = `
-<div class="fam-wrap">
-<section aria-labelledby="famTitle">
-  <div class="fam-card">
-    <img class="fam-icon" src="/abc/app-icon-144.webp" srcset="/abc/app-icon-96.webp 1.3x, /abc/app-icon-144.webp 2x" alt="" width="72" height="72" loading="lazy" decoding="async">
+  // A locale the sibling has no page in yet links to its English page, never to a 404.
+  const en = LOCALES.find(l => l.isDefault);
+  const hrefOf = app => appPath(app, app.locales.has(locale.code) ? locale : en);
+  const str = (app, key) => f[`${app.family.keys}.${key}`];
+  const cards = siblings.map((app, i) => {
+    const titleId = i === 0 ? 'famTitle' : `famTitle-${app.segment}`;
+    const tiles = app.family.tiles.map(([t]) => `<span>${t}</span>`).join('');
+    return `<section aria-labelledby="${titleId}">
+  <div class="fam-card fam-card-${app.segment}">
+    <img class="fam-icon" src="/${app.segment}/app-icon-144.webp" srcset="/${app.segment}/app-icon-96.webp 1.3x, /${app.segment}/app-icon-144.webp 2x" alt="" width="72" height="72" loading="lazy" decoding="async">
     <div class="fam-body">
       <p class="fam-eyebrow"><span>${e(f['family.eyebrow'])}</span><span class="fam-new">${e(f['family.new'])}</span></p>
-      <h2 class="fam-title" id="famTitle">Flip &amp; Learn ABC<span class="fam-tiles" aria-hidden="true" dir="ltr"><span>A</span><span>B</span><span>C</span></span></h2>
-      <p class="fam-text">${e(f['family.text'])}</p>
-      <p class="fam-facts">${e(f['family.facts'])}</p>
+      <h2 class="fam-title" id="${titleId}">${app.name}<span class="fam-tiles" aria-hidden="true" dir="ltr">${tiles}</span></h2>
+      <p class="fam-text">${e(str(app, 'text'))}</p>
+      <p class="fam-facts">${e(str(app, 'facts'))}</p>
     </div>
-    <a class="fam-btn" href="${href}">${e(f['family.cta'])}</a>
+    <a class="fam-btn" href="${hrefOf(app)}">${e(str(app, 'cta'))}</a>
   </div>
-</section>
+</section>`;
+  }).join('\n');
+  const card = `
+<div class="fam-wrap">
+${cards}
 </div>
 `;
-  html = html.replace(FAMILY_ANCHORS.css, familyBlock('CSS', familyCss()) + FAMILY_ANCHORS.css);
-  html = html.replace(FAMILY_ANCHORS.nav, FAMILY_ANCHORS.nav + familyBlock('NAV', `<a class="fam-navlink" href="${href}">${e(f['family.nav'])}</a>`, '    '));
-  html = html.replace(FAMILY_ANCHORS.card, familyBlock('CARD', card) + FAMILY_ANCHORS.card);
-  html = html.replace(FAMILY_ANCHORS.foot, familyBlock('FOOT', `<a href="${href}">${e(f['family.foot'])}</a>`, '    ') + FAMILY_ANCHORS.foot);
+  const nav = siblings.map(app => `<a class="fam-navlink" href="${hrefOf(app)}">${e(str(app, 'nav'))}</a>`).join(' ');
+  const foot = siblings.map(app => `<a href="${hrefOf(app)}">${e(str(app, 'foot'))}</a>`).join(' ');
+  html = html.replace(anchors.css, () => familyBlock('CSS', familyCss(siblings)) + anchors.css);
+  html = html.replace(anchors.nav, () => anchors.nav + familyBlock('NAV', nav, '    '));
+  html = html.replace(anchors.card, () => familyBlock('CARD', card) + anchors.card);
+  html = html.replace(anchors.foot, () => familyBlock('FOOT', foot, '    ') + anchors.foot);
   return html;
 }
 
@@ -1008,7 +1051,8 @@ function applyDataI18nAlt(html, dict) {
 function buildAppLocale(app, sourceHtml, locale, T, M, chrome) {
   const merged = Object.assign({}, T[locale.code] || {}, app.strings[locale.code] || {});
   const wrap = { [locale.code]: merged };
-  let html = sourceHtml;
+  // First, while the anchors are still the English template text, as in buildLocale.
+  let html = applyFamily(sourceHtml, locale, app);
   html = rewriteHtmlTag(html, locale);
   html = rewriteBodyTag(html, locale);
   html = rewriteAppHead(app, html, locale, merged);
@@ -1318,13 +1362,13 @@ function main() {
     ? parseSitemapLastmod(fs.readFileSync(sitemapPath, 'utf8'))
     : null;
 
-  // stripFamily: index.html is also the EN output, so drop any family blocks a visible-state
+  // stripFamily: each source is also its EN output, so drop any family blocks a visible-state
   // build left in it before anything reads it (see applyFamily).
   const source = stripFamily(fs.readFileSync(SOURCE, 'utf8'));
   const cookiesSource = fs.readFileSync(COOKIES_SOURCE, 'utf8');
   const privacySource = fs.readFileSync(PRIVACY_SOURCE, 'utf8');
   const privacyWebsiteSource = fs.readFileSync(PRIVACY_WEBSITE_SOURCE, 'utf8');
-  const appSources = new Map(APP_LIST.map(app => [app, fs.readFileSync(app.source, 'utf8')]));
+  const appSources = new Map(APP_LIST.map(app => [app, stripFamily(fs.readFileSync(app.source, 'utf8'))]));
   const { T, M } = extractLangData(source);
 
   // App pages: check the configuration before anything is written.
@@ -1373,6 +1417,11 @@ function main() {
     if (!app.playPackage) {
       throw new Error(`${app.segment} is 'launched' but playPackage is not set`);
     }
+  }
+  // A visible app needs its family strings in every locale, or its links would read "undefined".
+  for (const app of APP_LIST.filter(isVisible)) {
+    const missing = ['text', 'facts', 'cta', 'nav', 'foot'].map(k => `${app.family.keys}.${k}`).filter(k => typeof F.en[k] !== 'string');
+    if (missing.length) throw new Error(`${app.segment} is '${app.state}' but family-strings.js has no ${missing.join(', ')}`);
   }
   const chrome = extractSharedChrome(source);
 
