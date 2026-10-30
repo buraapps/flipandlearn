@@ -21,8 +21,8 @@ enhancement.
 | `cookies.html` | `T` | `/cookies.html`, `/<loc>/cookies.html` (31) |
 | `privacy.html` | `P` in `privacy-strings.js` | `/privacy.html`, `/<loc>/privacy.html` (31) |
 | `privacy-website.html` | `PW` in `privacy-strings.js` | `/privacy-website.html`, `/<loc>/privacy-website.html` (31) |
-| `abc/index.html` | `A` in `abc-strings.js` | `/abc/index.html`, `/<loc>/abc/index.html` (only the locales in `ABC_LOCALES`) |
-| (inserted into every homepage, only when `ABC_LAUNCHED`) | `F` in `family-strings.js` | the Flip & Learn ABC card, header nav link and footer link on `/index.html`, `/<loc>/index.html` |
+| `abc/index.html` | `A` in `abc-strings.js` | `/abc/index.html`, `/<loc>/abc/index.html` (only the locales in `APPS.abc.locales`) |
+| (inserted into every homepage, only when ABC is `preview` or `launched`) | `F` in `family-strings.js` | the Flip & Learn ABC card, header nav link and footer link on `/index.html`, `/<loc>/index.html` |
 | — | — | `/sitemap.xml` |
 
 Every source template is also its own English output: the build rewrites it in place.
@@ -83,7 +83,8 @@ The build **stops with an error** (it never falls back to restamping) when:
 - an argument other than `--touch=…` is given, or a `--touch` path is not a generated
   sitemap URL;
 - a `<url>` template does not have `<lastmod>` directly after `<loc>`;
-- an `/abc/` URL is in the sitemap while `ABC_LAUNCHED` is false.
+- a URL under an app's path (`/abc/`) is in the sitemap while that app is not `launched`;
+- an app has an invalid `state`, or is `launched` without a numeric `appStoreId` or a `playPackage`.
 
 ## Flip & Learn ABC page
 
@@ -99,18 +100,32 @@ The template keeps permanent marker pairs, `<!-- ABC:NAME -->` … `<!-- /ABC:NA
 replaces what is between them. Never delete a marker: because the template is also
 the English output, a block that is empty in one state would otherwise be lost.
 
-Four constants at the top of `build-locales.js` control it:
+The `APPS.abc` entry at the top of `build-locales.js` controls it. `state` is the launch
+gate, one of three values (any other value stops the build):
 
-| Constant | Now | Meaning |
+| `state` | Landing pages and `abc/privacy.html` | Store badges, `apple-itunes-app` meta | `sitemap.xml` | Family links on other pages |
+|---|---|---|---|---|
+| `hidden` (now) | `noindex`, "Coming soon to the App Store and Google Play" | none | not listed | none: no page on the site links to `/abc/` |
+| `preview` | as `hidden` | none | not listed | shown |
+| `launched` | `index,follow` | badges with `ct=web-abc` / `utm_campaign=web-abc`, and the meta | ABC pages plus `/abc/privacy.html` | shown |
+
+`preview` deliberately links to the page of a not-yet-released app from live pages. This
+reverses the old rule "nothing may link to `/abc/` before launch"; the page itself stays
+noindex with "Coming soon".
+
+Other fields of the entry:
+
+| Field | Now | Meaning |
 |---|---|---|
-| `ABC_LAUNCHED` | `false` | The launch switch. `false`: `noindex`, "Coming soon to the App Store and Google Play" with no store links, no `apple-itunes-app` meta, no sitemap entry, and nothing on the site may link to `/abc/`. `true`: `index,follow` (also on `abc/privacy.html`), store badges with `ct=web-abc` / `utm_campaign=web-abc`, the `apple-itunes-app` meta, and the sitemap entries (ABC pages plus `/abc/privacy.html`). |
-| `ABC_LOCALES` | `['en','hu','ro','de','fr','es','it','pt','nl','pl','tr','cs','sk','hr','sl','sv','da','no','fi','lt','lv','et','sq','ru','uk','bg','sr','el','ja','ko','ar']` (all 31) | Locales whose ABC page is emitted. `hreflang` and the sitemap list exactly these. In the page's language switcher a locale in the set links to its ABC page, any other locale to its homepage. |
-| `ABC_APP_STORE_ID` | `null` | ABC's numeric App Store ID. With `ABC_LAUNCHED` true and no ID the build stops. |
-| `ABC_PLAY_PACKAGE` | `com.buraapps.flipandlearnabc` | ABC's Google Play package. |
+| `locales` | `['en','hu','ro','de','fr','es','it','pt','nl','pl','tr','cs','sk','hr','sl','sv','da','no','fi','lt','lv','et','sq','ru','uk','bg','sr','el','ja','ko','ar']` (all 31) | Locales whose ABC page is emitted. `hreflang` and the sitemap list exactly these. In the page's language switcher a locale in the set links to its ABC page, any other locale to its homepage. |
+| `menuLocales` | the app's 18 menu languages | Locales that show their own Home screenshots. |
+| `appStoreId` | `'6822385987'` | ABC's numeric App Store ID. `launched` without it stops the build; `hidden` and `preview` do not use it. |
+| `playPackage` | `com.buraapps.flipandlearnabc` | ABC's Google Play package. `launched` without it stops the build. |
+| `segment`, `marker`, `linkPrefix`, `keyPrefix`, `strings`, `stringsFile`, `source`, `privacy`, `shotsDir`, `campaign`, `name` | ABC's values | The URL segment, template markers, link ids, string keys, files and campaign tag of the app. |
 
 To add a locale to the ABC page: add its full string table to `abc-strings.js`, add
-the code to `ABC_LOCALES`, build. The build runs a key-parity check on every table in
-`abc-strings.js` (also one that is not in `ABC_LOCALES` yet): each must have exactly
+the code to `APPS.abc.locales`, build. The build runs a key-parity check on every table in
+`abc-strings.js` (also one that is not in `APPS.abc.locales` yet): each must have exactly
 the keys of `en`. A missing key or an extra key stops the build and is named in the
 error.
 
@@ -122,7 +137,7 @@ example en "Flip & Learn: Word Card Game", hu "Flip & Learn: Szókártyajáték"
 title. The name is never inflected, shortened or translated; the sentence is built
 around it. "Flip & Learn", "Flip & Learn ABC", "ABC" and "Mo" stay untranslated.
 
-Hero screenshots: a locale in `ABC_MENU_LOCALES` (the app's 18 menu languages) needs
+Hero screenshots: a locale in `APPS.abc.menuLocales` (the app's 18 menu languages) needs
 its own `abc/shots/home1-<code>.webp` and `home2-<code>.webp`, taken on the
 `ABC_Pixel_Screenshots` emulator from a committed ABC build. Any other locale reuses the
 English pair (that is what the app shows on such a device), and its `abc.shot.p*.alt`
@@ -143,13 +158,13 @@ points left, ArrowLeft = next). The screenshots themselves are not mirrored.
 Release day: follow "Release day: ABC launch" below.
 
 The standalone `abc/privacy.html` follows the same switch. The build rewrites only
-its robots meta (`noindex` before launch, `index,follow` after) and registers
+its robots meta (`noindex` while `hidden` or `preview`, `index,follow` when `launched`) and registers
 `/abc/privacy.html` in the sitemap's legal group once launched; every other byte of
 that page is left alone.
 
 ### Flip & Learn ABC on the Words homepages (family card)
 
-With `ABC_LAUNCHED = true`, every homepage (`/index.html`, `/<loc>/index.html`, 31) also gets:
+With ABC `preview` or `launched`, every homepage (`/index.html`, `/<loc>/index.html`, 31) also gets:
 
 - a "More from Flip & Learn" card after the "Made by a parent" section and before Support
   (inserted before `<section id="support">`): the ABC app icon (`abc/app-icon-96/144.webp`),
@@ -163,13 +178,13 @@ Strings: `F` in `family-strings.js` (7 keys × 31 locales; the build checks key 
 every run, launched or not). The markup has no `data-i18n`, so the homepage's runtime
 `setLang()` leaves it in the page's own language.
 
-Gating: `applyFamily()` adds the pieces (CSS included) only when `ABC_LAUNCHED` is true,
+Gating: `applyFamily()` adds the pieces (CSS included) only when `isVisible(APPS.abc)`,
 each wrapped in `<!-- FAMILY:NAME --> … <!-- /FAMILY:NAME -->` (CSS, NAV, CARD, FOOT).
 Because `index.html` is also the EN output, the build first strips every FAMILY block from
-it (`stripFamily()`), so with the flag false the homepages are byte-identical to the
-unlaunched state: no markup, no CSS, no strings. The anchors (the Credits nav link,
+it (`stripFamily()`), so with ABC `hidden` the homepages are byte-identical to the
+hidden state: no markup, no CSS, no strings. The anchors (the Credits nav link,
 `<section id="support">`, the Cookie settings footer link, `</head>`) must each occur
-exactly once in `index.html`, or a launched build stops.
+exactly once in `index.html`, or a `preview` or `launched` build stops.
 
 ### Images made from the app icon (re-export if the app icon changes)
 
@@ -208,7 +223,7 @@ and the carousel is the two screenshots. Strings: `abc.intro.play`, `abc.intro.r
 ### Hero tile check (run after every ABC template change and every locale batch)
 
 The four floating letter tiles in the hero (Ș, ß, Gy, Ñ) sit on the outer corners of
-the phone. `tools/check-abc-hero.mjs` proves, for every locale in `ABC_LOCALES` at 13
+the phone. `tools/check-abc-hero.mjs` proves, for every locale in `APPS.abc.locales` at 13
 widths (320, 360, 375, 390, 393, 412, 414, 428, 430, 768, 1024, 1280, 1440) and with
 the float animation frozen at its start, middle and peak, that each tile
 
@@ -240,12 +255,12 @@ generated page).
 1. **Before.** `node build-locales.js` must print `sitemap: 0 new, 0 touched, 0 removed`
    and `git status` must stay clean apart from your own files. If not, stop and fix first.
 2. **Flip the switch.** In `build-locales.js` set
-   - `ABC_APP_STORE_ID = <the digits after "id" in the App Store URL>` (number, no quotes);
-   - `ABC_LAUNCHED = true`.
-   Check `ABC_PLAY_PACKAGE` is `com.buraapps.flipandlearnabc`.
+   - check `APPS.abc.appStoreId` is the digits after "id" in the App Store URL;
+   - `APPS.abc.state = 'launched'`.
+   Check `APPS.abc.playPackage` is `com.buraapps.flipandlearnabc`.
 3. **Build.** `node build-locales.js`. Expect:
    - `sitemap: 32 new, 0 touched, 0 removed` (31 ABC pages + `/abc/privacy.html`);
-   - `abc: 31 page(s), LAUNCHED (indexable, store badges, in sitemap)`.
+   - `abc: 31 page(s), LAUNCHED (indexable, store badges, in sitemap, family links shown)`.
    What the build changed:
    - the 31 ABC pages: `noindex` → `index,follow`, the "Coming soon" line replaced by the
      App Store and Google Play badges (`ct=web-abc` on Apple, `utm_campaign=web-abc` on
@@ -283,12 +298,11 @@ generated page).
    curl -s https://flipandlearn.app/sitemap.xml | grep -c '<loc>[^<]*/abc/'  # 32
    curl -s https://flipandlearn.app/ | grep -c 'FAMILY:CARD'                # 1
    curl -s https://flipandlearn.app/ar/ | grep -c 'href="/ar/abc/"'         # 3 (card, nav, footer)
-   curl -sI "https://apps.apple.com/app/id<ABC_APP_STORE_ID>" | head -1     # 200
+   curl -sI "https://apps.apple.com/app/id<appStoreId>" | head -1     # 200
    curl -sI "https://play.google.com/store/apps/details?id=com.buraapps.flipandlearnabc" | head -1   # 200
    ```
    Then submit `https://flipandlearn.app/sitemap.xml` again in Google Search Console.
-7. **Rollback** (if anything is wrong): set `ABC_LAUNCHED = false` (leave or reset
-   `ABC_APP_STORE_ID`), run `node build-locales.js` (expect `0 new, 0 touched, 32 removed`
+7. **Rollback** (if anything is wrong): set `APPS.abc.state = 'hidden'`, run `node build-locales.js` (expect `0 new, 0 touched, 32 removed`
    and the 32 `REMOVED` lines), run it again (expect `0/0/0`), then commit and push. All
    homepages, ABC pages, `abc/privacy.html` and `sitemap.xml` return byte for byte to the
    unlaunched state (proved in the step 5 dry run).

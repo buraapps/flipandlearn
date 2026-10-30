@@ -1,7 +1,10 @@
 /**
  * family-strings.js — the "More from Flip & Learn" card and the Flip & Learn ABC nav/footer
- * links on the 31 Words homepages. Rendered ONLY when ABC_LAUNCHED is true in
- * build-locales.js; with the flag false none of this reaches the output.
+ * links on the 31 Words homepages. Rendered ONLY when ABC's state in build-locales.js is
+ * 'preview' or 'launched'; while it is 'hidden' none of this reaches the output. 'preview'
+ * deliberately links to the page of a not-yet-released app from live pages (reversing the
+ * old "nothing may link to /abc/ before launch" rule); that page stays noindex with
+ * "Coming soon".
  *
  * Same rules as abc-strings.js: "Flip & Learn", "Flip & Learn ABC" and "ABC" are never
  * translated or inflected; no age claim; never "completely free"; never "memory".

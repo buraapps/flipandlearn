@@ -87,48 +87,77 @@ const TEACHER_BADGE_LOCALES = new Set([
 ]);
 
 // ------------------------------------------------------------
-// Flip & Learn ABC landing page (/abc/ and /<loc>/abc/) — FLI-394
+// App landing pages (/abc/ and /<loc>/abc/ — FLI-394) and their launch gate
 // ------------------------------------------------------------
 
-// The one launch switch. While false (the app is not in the stores yet) every ABC
-// page — the landing pages and the standalone abc/privacy.html — carries `noindex`, shows "Coming soon…" instead of store badges, has no
-// apple-itunes-app meta and is NOT in sitemap.xml (the build fails if an /abc/ URL
-// gets in). Nothing on the site may link to /abc/ while it is false. Setting it to
-// true switches all of that in one build: index,follow (abc/privacy.html included),
-// store badges with the web-abc campaign tags, the apple-itunes-app meta and the
-// sitemap entries (the ABC pages plus /abc/privacy.html). Any homepage, nav
-// or footer link to the ABC page must be gated on this constant too.
-const ABC_LAUNCHED = false;
-
-// Locales whose ABC page is emitted. 'en' is the template itself and must stay in.
-// A locale may be added once abc-strings.js has its full string table. The hreflang
-// block and the sitemap list exactly these locales; in the page's language switcher a
-// locale in this set links to its ABC page, every other locale to its homepage.
-const ABC_LOCALES = new Set(['en', 'hu', 'ro', 'de', 'fr', 'es', 'it', 'pt', 'nl', 'pl', 'tr', 'cs', 'sk',
-  'hr', 'sl', 'sv', 'da', 'no', 'fi', 'lt', 'lv', 'et', 'sq', 'ru', 'uk', 'bg', 'sr', 'el', 'ja', 'ko', 'ar']);
-
-// The 18 menu languages of the ABC app (ABC repo, lib/l10n/app_<code>.arb). A page in
-// one of these shows its own two Home screenshots (abc/shots/home{1,2}-<code>.webp).
-// Any other page reuses the English screenshots, because that is what the app shows
-// on a device set to that language; its alt text says the menus are in English.
-const ABC_MENU_LOCALES = new Set(['en', 'de', 'es', 'fr', 'it', 'pt', 'ro', 'hu', 'tr', 'sl', 'nl', 'bg', 'uk', 'ru',
-  'pl', 'cs', 'sk', 'hr']);
-const abcShotLocale = code => (ABC_MENU_LOCALES.has(code) ? code : 'en');
-
-// ABC's numeric App Store ID (the digits after "id" in the App Store URL). null until
-// the app has one. With ABC_LAUNCHED true and no ID the build stops: the badges are
-// never rendered with a missing or made-up ID.
-const ABC_APP_STORE_ID = null;
-
-// ABC's Google Play package (ABC repo android/app/build.gradle.kts applicationId).
-const ABC_PLAY_PACKAGE = 'com.buraapps.flipandlearnabc';
+const ROOT = __dirname;
 
 // Apple provider token: the same account-level pt= value the Words store links carry.
 const APPLE_PROVIDER_TOKEN = '128736959';
 
-const ROOT = __dirname;
-const ABC_SOURCE = path.join(ROOT, 'abc', 'index.html');
-const ABC_PRIVACY = path.join(ROOT, 'abc', 'privacy.html');
+// One entry per app with its own section on the site. `state` is that app's launch gate:
+//
+//   'hidden'    The app's pages are built, but they — the landing pages and the standalone
+//               privacy page — carry `noindex`, show "Coming soon…" instead of store badges,
+//               have no apple-itunes-app meta and are NOT in sitemap.xml (the build fails
+//               if a URL under the app's path gets in). No page on the site links to them.
+//   'preview'   The same as 'hidden', except that the family links to the app are shown.
+//               This deliberately links to the page of a not-yet-released app from live
+//               pages, and reverses the old rule "nothing may link to /abc/ before launch".
+//               The page itself stays noindex with "Coming soon".
+//   'launched'  index,follow (privacy page included), store badges with the app's campaign
+//               tags, the apple-itunes-app meta, the sitemap entries (the landing pages
+//               plus the privacy page) and the family links. The build stops if the app
+//               has no numeric App Store ID or no Google Play package: the badges are never
+//               rendered with a missing or made-up ID.
+//
+// Pages, privacy robots, badges, meta and sitemap follow isLaunched(); family links follow
+// isVisible(). Any homepage, nav or footer link to an app page must go through isVisible().
+const APPS = {
+  abc: {
+    state: 'hidden',
+    name: 'Flip &amp; Learn ABC',          // as written in HTML (fallback alt text of the badges)
+    segment: 'abc',                        // URL path segment: /abc/, /<loc>/abc/
+    marker: 'ABC',                         // template markers: <!-- ABC:NAME --> … <!-- /ABC:NAME -->
+    linkPrefix: 'abc',                     // template link ids: abcWordsCta, abcFootWords, …
+    keyPrefix: 'abc',                      // i18n keys: abc.meta.title, abc.badge.apple, …
+    strings: A,
+    stringsFile: 'abc-strings.js',
+    source: path.join(ROOT, 'abc', 'index.html'),   // also the EN output
+    privacy: path.join(ROOT, 'abc', 'privacy.html'),
+    shotsDir: 'abc/shots',                 // home{1,2}-<code>.webp
+    campaign: 'web-abc',                   // ct= on Apple, utm_campaign= on Play
+    // The digits after "id" in the App Store URL.
+    appStoreId: '6822385987',
+    // ABC repo android/app/build.gradle.kts applicationId.
+    playPackage: 'com.buraapps.flipandlearnabc',
+    // Locales whose page is emitted. 'en' is the template itself and must stay in.
+    // A locale may be added once the string table has it in full. The hreflang block and
+    // the sitemap list exactly these locales; in the page's language switcher a locale in
+    // this set links to its app page, every other locale to its homepage.
+    locales: new Set(['en', 'hu', 'ro', 'de', 'fr', 'es', 'it', 'pt', 'nl', 'pl', 'tr', 'cs', 'sk',
+      'hr', 'sl', 'sv', 'da', 'no', 'fi', 'lt', 'lv', 'et', 'sq', 'ru', 'uk', 'bg', 'sr', 'el', 'ja', 'ko', 'ar']),
+    // The 18 menu languages of the ABC app (ABC repo, lib/l10n/app_<code>.arb). A page in
+    // one of these shows its own two Home screenshots (abc/shots/home{1,2}-<code>.webp).
+    // Any other page reuses the English screenshots, because that is what the app shows
+    // on a device set to that language; its alt text says the menus are in English.
+    menuLocales: new Set(['en', 'de', 'es', 'fr', 'it', 'pt', 'ro', 'hu', 'tr', 'sl', 'nl', 'bg', 'uk', 'ru',
+      'pl', 'cs', 'sk', 'hr']),
+  },
+};
+const APP_LIST = Object.values(APPS);
+
+const APP_STATES = ['hidden', 'preview', 'launched'];
+function appState(app) {
+  if (!APP_STATES.includes(app.state)) {
+    throw new Error(`app "${app.segment}": invalid state "${app.state}" (expected ${APP_STATES.join(' | ')})`);
+  }
+  return app.state;
+}
+const isLaunched = app => appState(app) === 'launched';
+const isVisible = app => appState(app) !== 'hidden';
+const appShotLocale = (app, code) => (app.menuLocales.has(code) ? code : 'en');
+
 const SOURCE = path.join(ROOT, 'index.html');
 const COOKIES_SOURCE = path.join(ROOT, 'cookies.html');
 const PRIVACY_SOURCE = path.join(ROOT, 'privacy.html');
@@ -465,13 +494,15 @@ function rewriteTeacherBadge(html, locale) {
 // 5a) Flip & Learn ABC entry points on the Words homepages (FLI-394 step 5).
 //    A "More from Flip & Learn" card (after "Made by a parent", before Support), a
 //    header nav link and a footer link, plus their CSS. Rendered ONLY when
-//    ABC_LAUNCHED is true; strings from family-strings.js.
+//    isVisible(APPS.abc), so in 'preview' as well as 'launched'; strings from
+//    family-strings.js. In 'preview' these live pages deliberately link to the page of a
+//    not-yet-released app (see APPS).
 //
 //    Every piece is wrapped in a marker pair, <!-- FAMILY:NAME --> … <!-- /FAMILY:NAME -->,
 //    and stripFamily() removes all of them from index.html before anything else reads
 //    it. Because index.html is also the EN output, that is what makes the switch
-//    reversible: launched, the blocks are added; flag back to false, the next build
-//    removes them and every homepage is byte-identical to the unlaunched state again.
+//    reversible: visible, the blocks are added; state back to 'hidden', the next build
+//    removes them and every homepage is byte-identical to the hidden state again.
 // ============================================================
 const FAMILY_ANCHORS = {
   // all three must occur exactly once in index.html, or the build stops
@@ -518,10 +549,10 @@ function familyBlock(name, inner, indent = '') {
 }
 
 function applyFamily(html, locale) {
-  if (!ABC_LAUNCHED) return html;
+  if (!isVisible(APPS.abc)) return html;
   const f = F[locale.code];
   const e = htmlEscape;
-  const href = abcPath(locale);
+  const href = appPath(APPS.abc, locale);
   for (const [name, anchor] of Object.entries(FAMILY_ANCHORS)) {
     const n = html.split(anchor).length - 1;
     if (n !== 1) throw new Error(`family card: anchor "${name}" occurs ${n} times in index.html (expected exactly 1)`);
@@ -775,24 +806,24 @@ function buildPrivacyWebsiteLocale(sourceHtml, locale, T, PW) {
 }
 
 // ============================================================
-// 5d) Flip & Learn ABC landing page (FLI-394).
-//    Template: abc/index.html (also the EN output, like index.html). Strings: A in
-//    abc-strings.js, merged over T[code] for the shared cookie.* / nav.* keys.
-//    The template keeps permanent <!-- ABC:NAME --> … <!-- /ABC:NAME --> marker pairs;
-//    the build replaces what is between them, so a block that is empty in one state
-//    (no badges before launch) is never lost from the source.
+// 5d) App landing pages (FLI-394; config in APPS).
+//    Template: app.source (also the EN output, like index.html). Strings: app.strings,
+//    merged over T[code] for the shared cookie.* / nav.* keys.
+//    The template keeps permanent <!-- ABC:NAME --> … <!-- /ABC:NAME --> marker pairs
+//    (prefix: app.marker); the build replaces what is between them, so a block that is
+//    empty in one state (no badges before launch) is never lost from the source.
 // ============================================================
-function abcPath(locale) {
-  return `${locale.path}abc/`;
+function appPath(app, locale) {
+  return `${locale.path}${app.segment}/`;
 }
 
-function fillAbcMarker(html, name, content) {
-  const re = new RegExp(`<!-- ABC:${name} -->[\\s\\S]*?<!-- /ABC:${name} -->`);
-  if (!re.test(html)) throw new Error(`abc/index.html: marker ABC:${name} not found`);
-  return html.replace(re, () => `<!-- ABC:${name} -->\n${content}${content ? '\n' : ''}<!-- /ABC:${name} -->`);
+function fillAppMarker(app, html, name, content) {
+  const re = new RegExp(`<!-- ${app.marker}:${name} -->[\\s\\S]*?<!-- /${app.marker}:${name} -->`);
+  if (!re.test(html)) throw new Error(`${app.segment}/index.html: marker ${app.marker}:${name} not found`);
+  return html.replace(re, () => `<!-- ${app.marker}:${name} -->\n${content}${content ? '\n' : ''}<!-- /${app.marker}:${name} -->`);
 }
 
-// The shared chrome of the Words homepage, taken from index.html so the ABC page
+// The shared chrome of the Words homepage, taken from index.html so an app page
 // inherits it unchanged: the consent-gated Google Ads loader, the cookie banner (CSS,
 // markup, controller), the store_click handler, the Cloudflare Web Analytics beacon
 // (cookieless; same snippet, same place at the end of <body>) and the language names
@@ -822,7 +853,7 @@ function extractSharedChrome(source) {
   const beacon = need(
     /<!-- Cloudflare Web Analytics -->[\s\S]*?<!-- End Cloudflare Web Analytics -->/.exec(source),
     'Cloudflare Web Analytics beacon')[0];
-  // Picker entries are "<flag> <name>"; the ABC page shows the name only (no emoji).
+  // Picker entries are "<flag> <name>"; an app page shows the name only (no emoji).
   const names = {};
   const optRe = /<a class="lang-opt[^"]*" data-lang="([a-z]+)"[^>]*>([^<]+)<\/a>/g;
   let m;
@@ -833,14 +864,14 @@ function extractSharedChrome(source) {
   return { loader, css: cssLines.join('\n'), banner, script, beacon, names };
 }
 
-function abcLangMenu(locale, M, names) {
+function appLangMenu(app, locale, M, names) {
   const items = LOCALES.map(l => {
-    const href = ABC_LOCALES.has(l.code) ? abcPath(l) : l.path;
+    const href = app.locales.has(l.code) ? appPath(app, l) : l.path;
     const active = l.code === locale.code;
     return `          <a class="lang-opt${active ? ' active' : ''}" data-lang="${l.code}" lang="${l.code}" hreflang="${l.code}" href="${href}"${active ? ' aria-current="page"' : ''} onclick="try{localStorage.setItem('flipandlearn_lang','${l.code}')}catch(e){}">${htmlEscape(names[l.code])}</a>`;
   }).join('\n');
   return `      <details class="lang">
-        <summary aria-label="Change page language" data-i18n-aria="abc.lang.aria">${M[locale.code].l}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <summary aria-label="Change page language" data-i18n-aria="${app.keyPrefix}.lang.aria">${M[locale.code].l}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
         <div class="lang-menu">
 ${items}
         </div>
@@ -849,40 +880,40 @@ ${items}
 
 // Hero call to action. Before launch: a plain status line (clock icon + "Coming
 // soon…"), not a link or button and not styled like one; no store links.
-// After launch: the store badges with the web-abc campaign tags, which the shared
+// After launch: the store badges with the app's campaign tags, which the shared
 // store_click handler reads (ct= on Apple, utm_campaign= on Play).
-function abcCta(locale) {
-  if (!ABC_LAUNCHED) {
-    return '      <p class="soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="abc.hero.soon">Coming soon to the App Store and Google Play</span></p>';
+function appCta(app, locale) {
+  if (!isLaunched(app)) {
+    return `      <p class="soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="${app.keyPrefix}.hero.soon">Coming soon to the App Store and Google Play</span></p>`;
   }
-  const apple = `https://apps.apple.com/app/id${ABC_APP_STORE_ID}?pt=${APPLE_PROVIDER_TOKEN}&amp;ct=web-abc&amp;mt=8`;
-  const play = `https://play.google.com/store/apps/details?id=${ABC_PLAY_PACKAGE}&amp;referrer=utm_source%3Dflipandlearn.app%26utm_medium%3Dweb%26utm_campaign%3Dweb-abc`;
+  const apple = `https://apps.apple.com/app/id${app.appStoreId}?pt=${APPLE_PROVIDER_TOKEN}&amp;ct=${app.campaign}&amp;mt=8`;
+  const play = `https://play.google.com/store/apps/details?id=${app.playPackage}&amp;referrer=utm_source%3Dflipandlearn.app%26utm_medium%3Dweb%26utm_campaign%3D${app.campaign}`;
   return `      <div class="dl-badges">
-        <a href="${apple}" target="_blank" rel="noopener"><img src="/badges/app-store-badge-${locale.code}.svg" alt="Download Flip &amp; Learn ABC on the App Store" data-i18n-alt="abc.badge.apple" width="180" height="60"></a>
-        <a href="${play}" target="_blank" rel="noopener"><img src="/badges/google-play-badge-${locale.code}.png" alt="Get Flip &amp; Learn ABC on Google Play" data-i18n-alt="abc.badge.play" width="180" height="60" decoding="async"></a>
+        <a href="${apple}" target="_blank" rel="noopener"><img src="/badges/app-store-badge-${locale.code}.svg" alt="Download ${app.name} on the App Store" data-i18n-alt="${app.keyPrefix}.badge.apple" width="180" height="60"></a>
+        <a href="${play}" target="_blank" rel="noopener"><img src="/badges/google-play-badge-${locale.code}.png" alt="Get ${app.name} on Google Play" data-i18n-alt="${app.keyPrefix}.badge.play" width="180" height="60" decoding="async"></a>
       </div>`;
 }
 
-function rewriteAbcHead(html, locale, dict) {
-  const url = `${SITE}${abcPath(locale)}`;
-  const titleText = dict['abc.meta.title'];
-  const descText = dict['abc.meta.desc'];
+function rewriteAppHead(app, html, locale, dict) {
+  const url = `${SITE}${appPath(app, locale)}`;
+  const titleText = dict[`${app.keyPrefix}.meta.title`];
+  const descText = dict[`${app.keyPrefix}.meta.desc`];
 
   html = html.replace(/<title>[\s\S]*?<\/title>/, () => `<title>${htmlEscape(titleText)}</title>`);
   html = html.replace(/<meta name="description" content="[^"]*">/,
     () => `<meta name="description" content="${attrEscape(descText)}">`);
   html = html.replace(/<meta name="robots" content="[^"]*">/,
-    `<meta name="robots" content="${ABC_LAUNCHED ? 'index,follow' : 'noindex'}">`);
-  html = fillAbcMarker(html, 'STORE_META',
-    ABC_LAUNCHED ? `<meta name="apple-itunes-app" content="app-id=${ABC_APP_STORE_ID}">` : '');
+    `<meta name="robots" content="${isLaunched(app) ? 'index,follow' : 'noindex'}">`);
+  html = fillAppMarker(app, html, 'STORE_META',
+    isLaunched(app) ? `<meta name="apple-itunes-app" content="app-id=${app.appStoreId}">` : '');
 
-  // Canonical + hreflang: only the locales that have an ABC page, x-default → EN.
+  // Canonical + hreflang: only the locales that have a page of this app, x-default → EN.
   const en = LOCALES.find(l => l.code === 'en');
-  const alternates = LOCALES.filter(l => ABC_LOCALES.has(l.code))
-    .map(l => `<link rel="alternate" hreflang="${l.code}" href="${SITE}${abcPath(l)}">`)
+  const alternates = LOCALES.filter(l => app.locales.has(l.code))
+    .map(l => `<link rel="alternate" hreflang="${l.code}" href="${SITE}${appPath(app, l)}">`)
     .join('\n');
-  html = fillAbcMarker(html, 'HREFLANG',
-    `<link rel="canonical" href="${url}">\n${alternates}\n<link rel="alternate" hreflang="x-default" href="${SITE}${abcPath(en)}">`);
+  html = fillAppMarker(app, html, 'HREFLANG',
+    `<link rel="canonical" href="${url}">\n${alternates}\n<link rel="alternate" hreflang="x-default" href="${SITE}${appPath(app, en)}">`);
 
   html = html.replace(/<meta property="og:title" content="[^"]*">/,
     () => `<meta property="og:title" content="${attrEscape(titleText)}">`);
@@ -891,7 +922,7 @@ function rewriteAbcHead(html, locale, dict) {
   html = html.replace(/<meta property="og:url" content="[^"]*">/,
     `<meta property="og:url" content="${url}">`);
   html = html.replace(/<meta property="og:image:alt" content="[^"]*">/,
-    () => `<meta property="og:image:alt" content="${attrEscape(dict['abc.meta.ogalt'])}">`);
+    () => `<meta property="og:image:alt" content="${attrEscape(dict[`${app.keyPrefix}.meta.ogalt`])}">`);
   html = html.replace(/<meta property="og:locale" content="[^"]*">/,
     `<meta property="og:locale" content="${locale.ogLocale}">`);
   html = html.replace(/<meta name="twitter:title" content="[^"]*">/,
@@ -901,38 +932,39 @@ function rewriteAbcHead(html, locale, dict) {
   return html;
 }
 
-// Links from the ABC page to the rest of the site, per locale. EN always keeps every
+// Links from an app page to the rest of the site, per locale. EN always keeps every
 // link, so the template (the EN output) never loses one.
-function rewriteAbcLinks(html, locale) {
+function rewriteAppLinks(app, html, locale) {
+  const id = name => `${app.linkPrefix}${name}`;
   const setHref = (id, href) => {
     const re = new RegExp(`(<a\\b[^>]*\\bid="${id}"[^>]*\\bhref=")[^"]*(")|(<a\\b[^>]*\\bhref=")[^"]*("[^>]*\\bid="${id}")`);
-    if (!re.test(html)) throw new Error(`abc/index.html: link #${id} not found`);
+    if (!re.test(html)) throw new Error(`${app.segment}/index.html: link #${id} not found`);
     html = html.replace(re, (m, a, b, c, d) => (a ? `${a}${href}${b}` : `${c}${href}${d}`));
   };
   const dropLink = id => {
     html = html.replace(new RegExp(`\\s*<a\\b[^>]*\\bid="${id}"[^>]*>[^<]*<\\/a>`), '');
   };
-  setHref('abcWordsCta', locale.path);
-  setHref('abcFootWords', locale.path);
-  if (BLOG_INDEX_LOCALES.has(locale.code)) setHref('abcFootBlog', `/${locale.code}/blog/`);
-  else dropLink('abcFootBlog');
+  setHref(id('WordsCta'), locale.path);
+  setHref(id('FootWords'), locale.path);
+  if (BLOG_INDEX_LOCALES.has(locale.code)) setHref(id('FootBlog'), `/${locale.code}/blog/`);
+  else dropLink(id('FootBlog'));
   if (PRINTABLES_LOCALES.has(locale.code)) {
-    setHref('abcFootPrint', PRINTABLES_PATHS[locale.code]);
-    setHref('abcPrintCta', PRINTABLES_PATHS[locale.code]);
+    setHref(id('FootPrint'), PRINTABLES_PATHS[locale.code]);
+    setHref(id('PrintCta'), PRINTABLES_PATHS[locale.code]);
   } else {
-    dropLink('abcFootPrint');
-    html = html.replace(/<!-- ABC:PRINTABLES_BEGIN -->[\s\S]*?<!-- ABC:PRINTABLES_END -->\s*/, '');
+    dropLink(id('FootPrint'));
+    html = html.replace(new RegExp(`<!-- ${app.marker}:PRINTABLES_BEGIN -->[\\s\\S]*?<!-- ${app.marker}:PRINTABLES_END -->\\s*`), '');
   }
   return html;
 }
 
-// abc/privacy.html is a standalone, hand-written page. The build changes exactly one
-// thing in it: the robots meta follows ABC_LAUNCHED (noindex before launch,
-// index,follow after). Every other byte stays as it is.
-function rewriteAbcPrivacyRobots(html) {
+// An app's privacy page is a standalone, hand-written page. The build changes exactly
+// one thing in it: the robots meta follows isLaunched() (noindex when hidden or in
+// preview, index,follow when launched). Every other byte stays as it is.
+function rewriteAppPrivacyRobots(app, html) {
   const re = /<meta name="robots" content="[^"]*">/;
-  if (!re.test(html)) throw new Error('abc/privacy.html: robots meta not found');
-  return html.replace(re, `<meta name="robots" content="${ABC_LAUNCHED ? 'index,follow' : 'noindex'}">`);
+  if (!re.test(html)) throw new Error(`${app.segment}/privacy.html: robots meta not found`);
+  return html.replace(re, `<meta name="robots" content="${isLaunched(app) ? 'index,follow' : 'noindex'}">`);
 }
 
 // alt="" from a data-i18n-alt key (the store badges).
@@ -944,23 +976,23 @@ function applyDataI18nAlt(html, dict) {
   });
 }
 
-function buildAbcLocale(sourceHtml, locale, T, M, chrome) {
-  const merged = Object.assign({}, T[locale.code] || {}, A[locale.code] || {});
+function buildAppLocale(app, sourceHtml, locale, T, M, chrome) {
+  const merged = Object.assign({}, T[locale.code] || {}, app.strings[locale.code] || {});
   const wrap = { [locale.code]: merged };
   let html = sourceHtml;
   html = rewriteHtmlTag(html, locale);
   html = rewriteBodyTag(html, locale);
-  html = rewriteAbcHead(html, locale, merged);
-  html = fillAbcMarker(html, 'CONSENT_HEAD', `${chrome.loader}\n<style>\n${chrome.css}\n</style>`);
-  html = fillAbcMarker(html, 'LANG', abcLangMenu(locale, M, chrome.names));
-  html = fillAbcMarker(html, 'CTA', abcCta(locale));
-  // The banner's "Learn more" link is relative on the homepage; from /abc/ it has to
+  html = rewriteAppHead(app, html, locale, merged);
+  html = fillAppMarker(app, html, 'CONSENT_HEAD', `${chrome.loader}\n<style>\n${chrome.css}\n</style>`);
+  html = fillAppMarker(app, html, 'LANG', appLangMenu(app, locale, M, chrome.names));
+  html = fillAppMarker(app, html, 'CTA', appCta(app, locale));
+  // The banner's "Learn more" link is relative on the homepage; from an app page it has to
   // point at this locale's cookies page explicitly.
   const banner = chrome.banner.replace('href="cookies.html"', `href="${locale.path}cookies.html"`);
-  html = fillAbcMarker(html, 'CONSENT_BODY', `${banner}\n<script>\n${chrome.script}\n</script>\n\n${chrome.beacon}`);
-  html = rewriteAbcLinks(html, locale);
+  html = fillAppMarker(app, html, 'CONSENT_BODY', `${banner}\n<script>\n${chrome.script}\n</script>\n\n${chrome.beacon}`);
+  html = rewriteAppLinks(app, html, locale);
   // Hero phone: this locale's screenshots of the app's two Home pages.
-  html = html.replace(/\/abc\/shots\/home([12])-en\.webp/g, `/abc/shots/home$1-${abcShotLocale(locale.code)}.webp`);
+  html = html.replace(new RegExp(`/${app.shotsDir}/home([12])-en\\.webp`, 'g'), `/${app.shotsDir}/home$1-${appShotLocale(app, locale.code)}.webp`);
   html = applyDataI18nText(html, wrap, locale.code);
   html = applyDataI18nHtml(html, merged);
   html = applyDataI18nAria(html, wrap, locale.code);
@@ -1123,21 +1155,23 @@ ${privacyWebsiteXDefault}
     <priority>0.8</priority>
   </url>`).join('\n');
 
-  // Flip & Learn ABC landing pages (FLI-394): one URL per locale in ABC_LOCALES, with
-  // alternates for exactly those locales. Registered ONLY once ABC_LAUNCHED is true;
-  // before launch the pages are noindex and must not be in the sitemap (checked below).
-  const abcLocales = LOCALES.filter(l => ABC_LOCALES.has(l.code));
-  const abcAltLinks = abcLocales
-    .map(l => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${SITE}${abcPath(l)}"/>`)
-    .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/abc/"/>`)
-    .join('\n');
-  const abcUrls = !ABC_LAUNCHED ? '' : abcLocales.map(l => `  <url>
-    <loc>${SITE}${abcPath(l)}</loc>
+  // App landing pages (FLI-394): one URL per locale in app.locales, with alternates for
+  // exactly those locales. Registered ONLY once the app is launched; hidden or in preview
+  // the pages are noindex and must not be in the sitemap (checked below).
+  const appUrls = APP_LIST.filter(isLaunched).map(app => {
+    const appLocales = LOCALES.filter(l => app.locales.has(l.code));
+    const altLinks = appLocales
+      .map(l => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${SITE}${appPath(app, l)}"/>`)
+      .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/${app.segment}/"/>`)
+      .join('\n');
+    return appLocales.map(l => `  <url>
+    <loc>${SITE}${appPath(app, l)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-${abcAltLinks}
+${altLinks}
   </url>`).join('\n') + '\n';
+  }).join('');
 
   // Standalone en+de+ro+es printables hubs (not part of the per-locale build). Same priority
   // and changefreq as landingUrls since these are landing pages, not blog content. The
@@ -1166,11 +1200,11 @@ ${printablesAltLinks}
   // every locale's footer (the "nav.credits" label is localized, the page is not), so it
   // takes no hreflang alternates. Lowest priority: it exists to satisfy licence
   // attribution (CC BY 4.0 Twemoji, CC BY-SA 4.0 OpenMoji, OFL fonts), not to rank.
-  // abc/privacy.html joins this group once ABC_LAUNCHED is true (FLI-394); before
-  // launch it is noindex and must not be listed.
+  // An app's privacy page joins this group once the app is launched (FLI-394); before
+  // that it is noindex and must not be listed.
   const legalUrls = [
     'credits.html',
-    ...(ABC_LAUNCHED ? ['abc/privacy.html'] : []),
+    ...APP_LIST.filter(isLaunched).map(app => path.relative(ROOT, app.privacy)),
   ].map(slug => `  <url>
     <loc>${SITE}/${slug}</loc>
     <lastmod>${today}</lastmod>
@@ -1188,14 +1222,16 @@ ${privacyWebsiteUrls}
 ${blogUrls}
 ${blogIndexUrls}
 ${landingUrls}
-${abcUrls}${printablesUrls}
+${appUrls}${printablesUrls}
 ${legalUrls}
 </urlset>
 `;
 
-  // Before launch no ABC URL may be in the sitemap (the pages are noindex and unlinked).
-  if (!ABC_LAUNCHED && stamped.includes('/abc/')) {
-    throw new Error('sitemap: an /abc/ URL is registered while ABC_LAUNCHED is false');
+  // Before launch no URL of an app may be in the sitemap (its pages are noindex).
+  for (const app of APP_LIST) {
+    if (!isLaunched(app) && stamped.includes(`/${app.segment}/`)) {
+      throw new Error(`sitemap: a /${app.segment}/ URL is registered while the app's state is '${app.state}'`);
+    }
   }
 
   // Every template above stamps today's date; put each URL's preserved date back.
@@ -1253,37 +1289,41 @@ function main() {
     ? parseSitemapLastmod(fs.readFileSync(sitemapPath, 'utf8'))
     : null;
 
-  // stripFamily: index.html is also the EN output, so drop any family blocks a launched
+  // stripFamily: index.html is also the EN output, so drop any family blocks a visible-state
   // build left in it before anything reads it (see applyFamily).
   const source = stripFamily(fs.readFileSync(SOURCE, 'utf8'));
   const cookiesSource = fs.readFileSync(COOKIES_SOURCE, 'utf8');
   const privacySource = fs.readFileSync(PRIVACY_SOURCE, 'utf8');
   const privacyWebsiteSource = fs.readFileSync(PRIVACY_WEBSITE_SOURCE, 'utf8');
-  const abcSource = fs.readFileSync(ABC_SOURCE, 'utf8');
+  const appSources = new Map(APP_LIST.map(app => [app, fs.readFileSync(app.source, 'utf8')]));
   const { T, M } = extractLangData(source);
 
-  // ABC page: check the configuration before anything is written.
-  if (!ABC_LOCALES.has('en')) throw new Error('ABC_LOCALES must contain "en" (abc/index.html is the EN page)');
-  for (const code of ABC_LOCALES) {
-    if (!LOCALES.some(l => l.code === code)) throw new Error(`ABC_LOCALES: unknown locale "${code}"`);
-    if (!A[code]) throw new Error(`abc-strings.js has no entry for locale "${code}"`);
-    for (const n of [1, 2]) {
-      const shot = path.join(ROOT, 'abc', 'shots', `home${n}-${abcShotLocale(code)}.webp`);
-      if (!fs.existsSync(shot)) throw new Error(`ABC page "${code}": screenshot abc/shots/home${n}-${abcShotLocale(code)}.webp is missing`);
+  // App pages: check the configuration before anything is written.
+  for (const app of APP_LIST) {
+    appState(app);
+    const S = app.strings;
+    if (!app.locales.has('en')) throw new Error(`${app.segment}: locales must contain "en" (${app.segment}/index.html is the EN page)`);
+    for (const code of app.locales) {
+      if (!LOCALES.some(l => l.code === code)) throw new Error(`${app.segment} locales: unknown locale "${code}"`);
+      if (!S[code]) throw new Error(`${app.stringsFile} has no entry for locale "${code}"`);
+      for (const n of [1, 2]) {
+        const shot = `${app.shotsDir}/home${n}-${appShotLocale(app, code)}.webp`;
+        if (!fs.existsSync(path.join(ROOT, shot))) throw new Error(`${app.segment} page "${code}": screenshot ${shot} is missing`);
+      }
+      for (const k of Object.keys(S.en)) {
+        if (typeof S[code][k] !== 'string') throw new Error(`${app.stringsFile}: locale "${code}" is missing "${k}"`);
+      }
     }
-    for (const k of Object.keys(A.en)) {
-      if (typeof A[code][k] !== 'string') throw new Error(`abc-strings.js: locale "${code}" is missing "${k}"`);
-    }
-  }
-  // Key parity for EVERY table in abc-strings.js (also one not in ABC_LOCALES yet):
-  // exactly the keys of "en" — none missing, none extra.
-  for (const code of Object.keys(A)) {
-    const missing = Object.keys(A.en).filter(k => typeof A[code][k] !== 'string');
-    const extra = Object.keys(A[code]).filter(k => !(k in A.en));
-    if (missing.length || extra.length) {
-      throw new Error(`abc-strings.js: locale "${code}" does not match the "en" key set` +
-        (missing.length ? ` — missing: ${missing.join(', ')}` : '') +
-        (extra.length ? ` — extra: ${extra.join(', ')}` : ''));
+    // Key parity for EVERY table in the strings file (also one not in app.locales yet):
+    // exactly the keys of "en" — none missing, none extra.
+    for (const code of Object.keys(S)) {
+      const missing = Object.keys(S.en).filter(k => typeof S[code][k] !== 'string');
+      const extra = Object.keys(S[code]).filter(k => !(k in S.en));
+      if (missing.length || extra.length) {
+        throw new Error(`${app.stringsFile}: locale "${code}" does not match the "en" key set` +
+          (missing.length ? ` — missing: ${missing.join(', ')}` : '') +
+          (extra.length ? ` — extra: ${extra.join(', ')}` : ''));
+      }
     }
   }
   // Key parity for family-strings.js: exactly the LOCALES, each with exactly the keys of "en".
@@ -1297,11 +1337,13 @@ function main() {
         (missing.length ? ` — missing: ${missing.join(', ')}` : '') + (extra.length ? ` — extra: ${extra.join(', ')}` : ''));
     }
   }
-  if (ABC_LAUNCHED && !/^\d+$/.test(String(ABC_APP_STORE_ID || ''))) {
-    throw new Error('ABC_LAUNCHED is true but ABC_APP_STORE_ID is not set: the store badges and the apple-itunes-app meta need the numeric App Store ID');
-  }
-  if (ABC_LAUNCHED && !ABC_PLAY_PACKAGE) {
-    throw new Error('ABC_LAUNCHED is true but ABC_PLAY_PACKAGE is not set');
+  for (const app of APP_LIST.filter(isLaunched)) {
+    if (!/^\d+$/.test(String(app.appStoreId || ''))) {
+      throw new Error(`${app.segment} is 'launched' but appStoreId is not set: the store badges and the apple-itunes-app meta need the numeric App Store ID`);
+    }
+    if (!app.playPackage) {
+      throw new Error(`${app.segment} is 'launched' but playPackage is not set`);
+    }
   }
   const chrome = extractSharedChrome(source);
 
@@ -1358,21 +1400,24 @@ function main() {
     fs.writeFileSync(privacyWebsiteOutPath, privacyWebsiteHtml, 'utf8');
     console.log(`  wrote ${path.relative(ROOT, privacyWebsiteOutPath)}  (${privacyWebsiteHtml.length.toLocaleString()} bytes)`);
 
-    if (ABC_LOCALES.has(locale.code)) {
-      const abcHtml = buildAbcLocale(abcSource, locale, T, M, chrome);
-      const abcDir = path.join(ROOT, abcPath(locale).replace(/^\/|\/$/g, ''));
-      fs.mkdirSync(abcDir, { recursive: true });
-      const abcOutPath = path.join(abcDir, 'index.html');
-      fs.writeFileSync(abcOutPath, abcHtml, 'utf8');
-      console.log(`  wrote ${path.relative(ROOT, abcOutPath)}  (${abcHtml.length.toLocaleString()} bytes)`);
+    for (const app of APP_LIST) {
+      if (!app.locales.has(locale.code)) continue;
+      const appHtml = buildAppLocale(app, appSources.get(app), locale, T, M, chrome);
+      const appDir = path.join(ROOT, appPath(app, locale).replace(/^\/|\/$/g, ''));
+      fs.mkdirSync(appDir, { recursive: true });
+      const appOutPath = path.join(appDir, 'index.html');
+      fs.writeFileSync(appOutPath, appHtml, 'utf8');
+      console.log(`  wrote ${path.relative(ROOT, appOutPath)}  (${appHtml.length.toLocaleString()} bytes)`);
     }
   }
 
-  // ABC privacy page: only its robots meta follows the launch switch.
-  const abcPrivacy = fs.readFileSync(ABC_PRIVACY, 'utf8');
-  const abcPrivacyOut = rewriteAbcPrivacyRobots(abcPrivacy);
-  if (abcPrivacyOut !== abcPrivacy) fs.writeFileSync(ABC_PRIVACY, abcPrivacyOut, 'utf8');
-  console.log(`  ${abcPrivacyOut !== abcPrivacy ? 'wrote' : 'kept '} abc/privacy.html  (robots: ${ABC_LAUNCHED ? 'index,follow' : 'noindex'})`);
+  // App privacy pages: only the robots meta follows the launch gate.
+  for (const app of APP_LIST) {
+    const privacy = fs.readFileSync(app.privacy, 'utf8');
+    const privacyOut = rewriteAppPrivacyRobots(app, privacy);
+    if (privacyOut !== privacy) fs.writeFileSync(app.privacy, privacyOut, 'utf8');
+    console.log(`  ${privacyOut !== privacy ? 'wrote' : 'kept '} ${path.relative(ROOT, app.privacy)}  (robots: ${isLaunched(app) ? 'index,follow' : 'noindex'})`);
+  }
 
   const { xml: sitemap, added, touched, removed } = buildSitemap(existingLastmod, touch);
   fs.writeFileSync(sitemapPath, sitemap, 'utf8');
@@ -1382,9 +1427,14 @@ function main() {
   for (const loc of touched) console.log(`    touched (lastmod today): ${loc}`);
   for (const loc of removed) console.log(`    REMOVED (no longer generated): ${loc}`);
 
-  console.log(`  abc: ${ABC_LOCALES.size} page(s), ${ABC_LAUNCHED ? 'LAUNCHED (indexable, store badges, in sitemap)' : 'not launched (noindex, coming soon, not in sitemap)'}`);
+  const stateNote = {
+    hidden: 'hidden (noindex, coming soon, not in sitemap, no family links)',
+    preview: 'preview (noindex, coming soon, not in sitemap, family links shown)',
+    launched: 'LAUNCHED (indexable, store badges, in sitemap, family links shown)',
+  };
+  for (const app of APP_LIST) console.log(`  ${app.segment}: ${app.locales.size} page(s), ${stateNote[app.state]}`);
 
-  console.log(`\nDone. ${LOCALES.length} index + ${LOCALES.length} cookies + ${LOCALES.length} privacy + ${LOCALES.length} privacy-website + ${ABC_LOCALES.size} abc + sitemap.xml regenerated.`);
+  console.log(`\nDone. ${LOCALES.length} index + ${LOCALES.length} cookies + ${LOCALES.length} privacy + ${LOCALES.length} privacy-website + ${APP_LIST.map(app => `${app.locales.size} ${app.segment}`).join(' + ')} + sitemap.xml regenerated.`);
 }
 
 main();

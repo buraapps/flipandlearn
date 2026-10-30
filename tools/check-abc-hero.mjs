@@ -4,7 +4,7 @@
  * hero of the Flip & Learn ABC pages (FLI-411). Run it after every change to the ABC
  * template and after every new locale batch.
  *
- * For every locale in ABC_LOCALES (read from build-locales.js) and every width below,
+ * For every locale of APPS.abc (read from build-locales.js) and every width below,
  * with the float animation frozen at its start, middle and peak, it requires:
  *   1. no overlap  — 0 px² between each tile and every text node, chip, button, link
  *                    and the status line in the hero (the faint giant background
@@ -49,8 +49,8 @@ try {
 }
 
 const src = fs.readFileSync(path.join(ROOT, 'build-locales.js'), 'utf8');
-const m = /const ABC_LOCALES = new Set\(\[([^\]]*)\]\)/.exec(src);
-if (!m) { console.error('ABC_LOCALES not found in build-locales.js'); process.exit(2); }
+const m = /\babc: \{[\s\S]*?\blocales: new Set\(\[([^\]]*)\]\)/.exec(src);
+if (!m) { console.error('APPS.abc locales not found in build-locales.js'); process.exit(2); }
 const allLocales = m[1].split(',').map(s => s.trim().replace(/['"]/g, '')).filter(Boolean);
 const locales = arg('locales') ? arg('locales').split(',') : allLocales;
 const widths = arg('widths') ? arg('widths').split(',').map(Number) : WIDTHS;
