@@ -11,6 +11,9 @@
  * family.text is the ABC page's tagline (abc.meta.title after the dash), so the card
  * says the same thing as the page it links to; family.facts repeats three ABC chips.
  * hu/ro: reviewed by Laci.
+ *
+ * family.more ("More apps", the header nav link when a page has two or more siblings) is
+ * English only so far. Until every locale has it, the build stops if a page needs it.
  */
 'use strict';
 
@@ -23,6 +26,7 @@ en: {
 "family.cta": "Discover Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "More apps",
 },
 de: {
 "family.eyebrow": "Mehr von Flip & Learn",

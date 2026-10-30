@@ -533,8 +533,9 @@ function rewriteTeacherBadge(html, locale) {
 // ============================================================
 // ============================================================
 // 5a) Family links: each page links to the other apps that are visible.
-//    A "More from Flip & Learn" card per sibling, header nav links and footer links, plus
-//    their CSS. A page's siblings are the APP_LIST entries that are isVisible(), without
+//    A "More from Flip & Learn" card and a footer link per sibling, plus their CSS. In the
+//    header nav: a direct link with one sibling, a single "More apps" link to the card
+//    region with two or more. A page's siblings are the APP_LIST entries that are isVisible(), without
 //    the app the page belongs to, so a page has none while every other app is 'hidden'
 //    and then gets nothing at all. In 'preview' these live pages deliberately link to the
 //    page of a not-yet-released app (see APPS). Strings from family-strings.js.
@@ -546,6 +547,8 @@ function rewriteTeacherBadge(html, locale) {
 //    blocks are added; state back to 'hidden', the next build removes them and every
 //    page is byte-identical to the hidden state again.
 // ============================================================
+const FAMILY_REGION_ID = 'more-apps';
+
 const FAMILY_ANCHORS = {
   // on the Words homepage. Each must occur exactly once, or the build stops
   nav: '\n    <a href="/credits.html" data-i18n="nav.credits">Credits</a>',
@@ -569,12 +572,19 @@ function familyAnchors(host) {
   };
 }
 
-function familyCss(siblings) {
+function familyCss(siblings, host) {
   const perApp = siblings.map(app => {
     const c = `.fam-card-${app.segment}`;
     return `${c}{--fam-accent:${app.family.accent}}\n` + app.family.tiles
       .map(([, bg, fg], i) => `${c} .fam-tiles span:nth-child(${i + 1}){background:${bg};color:${fg}}`).join('\n');
   }).join('\n');
+  const extra = [
+    // On an app page the sibling link waits until 1024px: from 861px, where that nav
+    // appears, it wraps at 900px in most locales.
+    ...(host ? ['.top-nav .fam-navlink{display:none}', '@media (min-width:1024px){.top-nav .fam-navlink{display:inline}}'] : []),
+    // The jump target of "More apps" lands right below the 56px sticky nav of the homepage.
+    ...(siblings.length > 1 ? [`#${FAMILY_REGION_ID}{scroll-margin-top:56px}`] : []),
+  ].map(rule => `\n${rule}`).join('');
   return `<style>
 /* Family card. Words-site styling with the app's accent: coloured edge and the app's tiles
    in miniature. Logical properties only (RTL on /ar/). */
@@ -599,7 +609,7 @@ ${perApp}
    the longest locales (ru wraps at 1024px); the footer link is shown at every width. */
 .nav-links .fam-navlink{display:none}
 @media (min-width:1200px){.nav-links .fam-navlink{display:inline}}
-@media (max-width:640px){.fam-card{flex-wrap:wrap;gap:16px;padding:22px 20px}.fam-icon{width:60px}.fam-body{flex-basis:calc(100% - 76px)}.fam-btn{flex:1 1 100%}}
+@media (max-width:640px){.fam-card{flex-wrap:wrap;gap:16px;padding:22px 20px}.fam-icon{width:60px}.fam-body{flex-basis:calc(100% - 76px)}.fam-btn{flex:1 1 100%}}${extra}
 </style>`;
 }
 
@@ -639,13 +649,15 @@ function applyFamily(html, locale, host = null) {
 </section>`;
   }).join('\n');
   const card = `
-<div class="fam-wrap">
+<div class="fam-wrap"${siblings.length > 1 ? ` id="${FAMILY_REGION_ID}"` : ''}>
 ${cards}
 </div>
 `;
-  const nav = siblings.map(app => `<a class="fam-navlink" href="${hrefOf(app)}">${e(str(app, 'nav'))}</a>`).join(' ');
+  const nav = siblings.length > 1
+    ? `<a class="fam-navlink" href="#${FAMILY_REGION_ID}">${e(f['family.more'])}</a>`
+    : `<a class="fam-navlink" href="${hrefOf(siblings[0])}">${e(str(siblings[0], 'nav'))}</a>`;
   const foot = siblings.map(app => `<a href="${hrefOf(app)}">${e(str(app, 'foot'))}</a>`).join(' ');
-  html = html.replace(anchors.css, () => familyBlock('CSS', familyCss(siblings)) + anchors.css);
+  html = html.replace(anchors.css, () => familyBlock('CSS', familyCss(siblings, host)) + anchors.css);
   html = html.replace(anchors.nav, () => anchors.nav + familyBlock('NAV', nav, '    '));
   html = html.replace(anchors.card, () => familyBlock('CARD', card) + anchors.card);
   html = html.replace(anchors.foot, () => familyBlock('FOOT', foot, '    ') + anchors.foot);
@@ -1400,10 +1412,13 @@ function main() {
     }
   }
   // Key parity for family-strings.js: exactly the LOCALES, each with exactly the keys of "en".
+  // family.more is English only so far, so it is exempt here and required below, for every
+  // locale that renders it: a page with two or more siblings stops the build rather than
+  // show English.
   for (const l of LOCALES) if (!F[l.code]) throw new Error(`family-strings.js has no entry for locale "${l.code}"`);
   for (const code of Object.keys(F)) {
     if (!LOCALES.some(l => l.code === code)) throw new Error(`family-strings.js: unknown locale "${code}"`);
-    const missing = Object.keys(F.en).filter(k => typeof F[code][k] !== 'string');
+    const missing = Object.keys(F.en).filter(k => k !== 'family.more' && typeof F[code][k] !== 'string');
     const extra = Object.keys(F[code]).filter(k => !(k in F.en));
     if (missing.length || extra.length) {
       throw new Error(`family-strings.js: locale "${code}" does not match the "en" key set` +
@@ -1422,6 +1437,14 @@ function main() {
   for (const app of APP_LIST.filter(isVisible)) {
     const missing = ['text', 'facts', 'cta', 'nav', 'foot'].map(k => `${app.family.keys}.${k}`).filter(k => typeof F.en[k] !== 'string');
     if (missing.length) throw new Error(`${app.segment} is '${app.state}' but family-strings.js has no ${missing.join(', ')}`);
+  }
+  for (const host of [null, ...APP_LIST]) {
+    if (APP_LIST.filter(app => app !== host && isVisible(app)).length < 2) continue;
+    const hostLocales = host ? [...host.locales] : LOCALES.map(l => l.code);
+    const untranslated = hostLocales.filter(code => typeof F[code]['family.more'] !== 'string');
+    if (untranslated.length) {
+      throw new Error(`family-strings.js: "family.more" is needed on ${host ? `the ${host.segment}` : 'the Words'} pages but has no text for: ${untranslated.join(', ')}`);
+    }
   }
   const chrome = extractSharedChrome(source);
 
