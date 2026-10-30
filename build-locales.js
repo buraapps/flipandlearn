@@ -23,6 +23,7 @@ const path = require('path');
 const vm = require('vm');
 const { P, PW } = require('./privacy-strings.js');
 const { A } = require('./abc-strings.js');
+const { N } = require('./123-strings.js');
 const { F } = require('./family-strings.js');
 
 // ============================================================
@@ -76,6 +77,9 @@ const BLOG_INDEX_LOCALES = new Set(['en', 'de', 'ro', 'hu']);
 // buildSitemap().
 const PRINTABLES_LOCALES = new Set(['en', 'de', 'ro', 'es']);
 const PRINTABLES_PATHS = { en: '/en/printables/', de: '/de/ausmalbilder/', ro: '/ro/fise-de-colorat/', es: '/es/fichas-para-colorear/' };
+// The numbers section of each printables hub (<section id="…">). Only the 123 page's print
+// button uses these: the ABC button and every footer link stay on the hub root.
+const PRINTABLES_ANCHORS = { en: '#numbers', de: '#numbers', ro: '#numere', es: '#numeros' };
 // Locales that render the Teacher Approved stamp in the hero. The badge wording is a
 // Google UI string with an official translation per language, so each locale listed here
 // needs its own ta.main and ta.sub keys in the T dictionary. The wording has been reviewed
@@ -142,6 +146,31 @@ const APPS = {
     // Any other page reuses the English screenshots, because that is what the app shows
     // on a device set to that language; its alt text says the menus are in English.
     menuLocales: new Set(['en', 'de', 'es', 'fr', 'it', 'pt', 'ro', 'hu', 'tr', 'sl', 'nl', 'bg', 'uk', 'ru',
+      'pl', 'cs', 'sk', 'hr']),
+  },
+  num: {
+    state: 'hidden',
+    name: 'Flip &amp; Learn 123',
+    segment: '123',
+    marker: 'NUM',
+    linkPrefix: 'num',
+    keyPrefix: 'num',
+    strings: N,
+    stringsFile: '123-strings.js',
+    source: path.join(ROOT, '123', 'index.html'),   // also the EN output
+    privacy: path.join(ROOT, '123', 'privacy.html'),
+    shotsDir: '123/shots',
+    campaign: 'web-123',
+    printablesAnchors: PRINTABLES_ANCHORS,
+    appStoreId: '6826912900',
+    // Numbers repo android/app/build.gradle.kts applicationId.
+    playPackage: 'com.buraapps.flipandlearn_numbers',
+    // Only 'en' until 123-strings.js has more: a larger set would emit hreflang for
+    // pages that don't exist.
+    locales: new Set(['en']),
+    // The 17 menu languages of the 123 app (Numbers repo, lib/l10n/app_<code>.arb): ABC's
+    // 18 without Portuguese. Any other page reuses the English screenshots.
+    menuLocales: new Set(['en', 'de', 'es', 'fr', 'it', 'ro', 'hu', 'tr', 'sl', 'nl', 'bg', 'uk', 'ru',
       'pl', 'cs', 'sk', 'hr']),
   },
 };
@@ -950,7 +979,7 @@ function rewriteAppLinks(app, html, locale) {
   else dropLink(id('FootBlog'));
   if (PRINTABLES_LOCALES.has(locale.code)) {
     setHref(id('FootPrint'), PRINTABLES_PATHS[locale.code]);
-    setHref(id('PrintCta'), PRINTABLES_PATHS[locale.code]);
+    setHref(id('PrintCta'), PRINTABLES_PATHS[locale.code] + ((app.printablesAnchors || {})[locale.code] || ''));
   } else {
     dropLink(id('FootPrint'));
     html = html.replace(new RegExp(`<!-- ${app.marker}:PRINTABLES_BEGIN -->[\\s\\S]*?<!-- ${app.marker}:PRINTABLES_END -->\\s*`), '');
