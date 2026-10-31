@@ -243,19 +243,19 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.6}
 :lang(ko){word-break:keep-all}
-nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:100;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:56px}
-.nav-brand{font-size:17px;font-weight:600;color:#3A3589;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
-.nav-links{display:flex;gap:20px}
-.nav-links a{color:#3A3589;text-decoration:none;font-size:14px;opacity:.8}
+nav{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:100;padding:0 32px;display:flex;align-items:center;justify-content:space-between;min-height:56px}
+.nav-brand{font-size:17px;font-weight:600;color:#3A3589;text-decoration:none;display:inline-flex;align-items:center;gap:8px;flex:none;white-space:nowrap}
+.nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 20px;margin:6px 12px}
+.nav-links a{color:#3A3589;text-decoration:none;font-size:14px;opacity:.8;white-space:nowrap}
 .nav-links a:hover{opacity:1}
-.lang-sw{position:relative}
-.lang-btn{background:#f0effe;border:1.5px solid #c5c2f5;border-radius:10px;padding:5px 10px;font-size:13px;font-weight:600;color:#3A3589;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.lang-sw{position:relative;flex:none}
+.lang-btn{white-space:nowrap;background:#f0effe;border:1.5px solid #c5c2f5;border-radius:10px;padding:5px 10px;font-size:13px;font-weight:600;color:#3A3589;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .lang-menu{position:absolute;inset-inline-end:0;top:calc(100% + 6px);background:white;border:1px solid #e0e0e0;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12);min-width:160px;display:none;z-index:200;overflow-x:hidden;overflow-y:auto;max-height:min(60vh,420px)}
 .lang-menu.open{display:block}
 .lang-opt{padding:9px 14px;font-size:13px;cursor:pointer;color:#1d1d1f;-webkit-tap-highlight-color:transparent;text-decoration:none;display:block}
 .lang-opt:hover{background:#f5f5f7}
 .lang-opt.active{background:#f0effe;font-weight:600;color:#3A3589}
-.hero{background:linear-gradient(135deg,#3A3589 0%,#5E5CE6 60%,#7B79F0 100%);color:white;text-align:center;padding:72px 20px 90px}
+.hero{background:linear-gradient(135deg,#3A3589 0%,#5E5CE6 60%,#7B79F0 100%);color:white;text-align:center;padding:72px 20px 90px;overflow-x:clip}
 .hero-icon{width:110px;height:110px;border-radius:24px;margin:0 auto 24px;display:block;box-shadow:0 8px 32px rgba(0,0,0,.3)}
 .hero h1{font-size:44px;font-weight:700;letter-spacing:-1px;margin-bottom:14px}
 .hero p{font-size:19px;opacity:.88;max-width:500px;margin:0 auto 32px}
@@ -344,7 +344,7 @@ body.rtl .ss-arrow.next{right:auto;left:8px}
 @media (hover:hover) and (pointer:fine){.ss-arrow{display:flex}.ss-dots{display:flex}.hint-touch{display:none}.hint-desk{display:inline}}
 @media (prefers-reduced-motion:reduce){.ss-scroll{scroll-behavior:auto}}
 section{max-width:960px;margin:0 auto;padding:64px 24px}
-section h2{font-size:32px;font-weight:700;text-align:center;margin-bottom:44px}
+section h2{font-size:32px;font-weight:700;text-align:center;margin-bottom:44px;overflow-wrap:break-word}
 .alt{background:white}
 .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
 .fcard{background:#f5f5f7;border-radius:16px;padding:26px 22px}
@@ -369,6 +369,7 @@ section h2{font-size:32px;font-weight:700;text-align:center;margin-bottom:44px}
 .safe-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;max-width:680px;margin:0 auto}
 .safe-item{font-size:14px;opacity:.9}
 .safe-item span{font-size:22px;display:block;margin-bottom:5px}
+@media (max-width:400px){.safe-item span{overflow-wrap:break-word}}
 .price-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:620px;margin:0 auto}
 .pcard{background:white;border-radius:18px;padding:28px 22px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.06)}
 .pcard.feat2{background:linear-gradient(135deg,#3A3589,#5E5CE6);color:white}
@@ -862,7 +863,7 @@ body.rtl .cc-inner{direction:rtl}
     <a href="/" data-i18n="nav.home">Home</a>
     <a href="/en/blog/" id="blogLink" data-i18n="nav.blog">Blog</a>
     <a href="/en/printables/" id="printablesLink" data-i18n="nav.printables">Printables</a>
-    <a href="privacy.html" data-i18n="nav.priv">Privacy</a>
+    <a href="privacy.html" data-i18n="nav.priv">Privacy</a> <a href="/credits.html" data-i18n="nav.credits">Credits</a>
     <!-- FAMILY:FOOT --><a href="/abc/">Flip &amp; Learn ABC</a> <a href="/123/">Flip &amp; Learn 123</a><!-- /FAMILY:FOOT -->
     <a href="#" id="cookiePrefs" data-i18n="cookie.settings" onclick="event.preventDefault();window.__flShowConsent&amp;&amp;window.__flShowConsent();">Cookie settings</a>
     <a href="mailto:support@flipandlearn.app">support@flipandlearn.app</a>
@@ -1023,7 +1024,7 @@ de:{
 "lt":"Mehrere Sprachen lernen","free":"Kostenlos","prem":"Premium",
 "ct":"21+ Wortkategorien",
 "c1":"Tiere","c2":"Früchte","c3":"Farben","c4":"Zahlen","c5":"Gegenstände","c6":"Gefühle","c7":"Buchstaben","c8":"Flaggen","c9":"Fahrzeuge","c10":"Essen und Trinken","c11":"Sport","c12":"Wetter","c13":"Körper","c14":"Natur","c15":"Berufe","c16":"Weltraum","c17":"Haushalt","c18":"Kleidung","c19":"Musik und Kunst","c20":"Werkzeug","c21":"Gemüse",
-"lvt":"5 Schwierigkeitsstufen für jedes Alter",
+"lvt":"5 Schwierigkeits­stufen für jedes Alter",
 "lv1":"Einfach","lv1d":"4-5 Jahre - 4 Paare","lv2":"Mittel","lv2d":"5+ Jahre - 6 Paare","lv3":"Schwer","lv3d":"7+ Jahre - 8 Paare","lv4":"Experte","lv4d":"9+ Jahre - Bild+Wort","lv5":"Meister","lv5d":"12+ Jahre - Nur Wörter",
 "sft":"Sicher für Kinder","s1":"Keine Werbung niemals","s2":"Keine sozialen Funktionen","s3":"Funktioniert offline","s4":"Elternschutz","s5":"Keine Datenerfassung","s6":"COPPA-konform",
 "prt":"Einfache ehrliche Preise",
@@ -1235,7 +1236,7 @@ pl:{
 "c1":"Zwierzęta","c2":"Owoce","c3":"Kolory","c4":"Liczby","c5":"Przedmioty","c6":"Emocje","c7":"Litery","c8":"Flagi","c9":"Pojazdy","c10":"Jedzenie i napoje","c11":"Sport","c12":"Pogoda","c13":"Części ciała","c14":"Przyroda","c15":"Zawody","c16":"Kosmos","c17":"Dom","c18":"Ubrania","c19":"Muzyka i sztuka","c20":"Narzędzia","c21":"Warzywa",
 "lvt":"5 poziomów trudności dla każdego wieku",
 "lv1":"Łatwy","lv1d":"4-5 lat - 4 pary","lv2":"Średni","lv2d":"5+ lat - 6 par","lv3":"Trudny","lv3d":"7+ lat - 8 par","lv4":"Ekspert","lv4d":"9+ lat - Obrazek+Słowo","lv5":"Mistrz","lv5d":"12+ lat - Tylko słowa",
-"sft":"Bezpieczna dla dzieci","s1":"Zero reklam","s2":"Bez funkcji społecznościowych","s3":"Działa offline","s4":"Rodzicielska blokada zakupów","s5":"Brak zbierania danych","s6":"Zgodna z COPPA",
+"sft":"Bezpieczna dla dzieci","s1":"Zero reklam","s2":"Bez funkcji społeczności­owych","s3":"Działa offline","s4":"Rodzicielska blokada zakupów","s5":"Brak zbierania danych","s6":"Zgodna z COPPA",
 "prt":"Prosty, uczciwy cennik",
 "p1n":"Za darmo","p1no":"Bezpłatnie na zawsze","p1a":"Język angielski","p1b":"Zwierzęta Owoce Kolory","p1c":"Poziomy Łatwy i Średni","p1d":"Klasyczny wzór kart","p1e":"Słowo dnia","p1f":"Motywy sezonowe",
 "p2n":"Pełna wersja","p2no":"Jednorazowo - bez subskrypcji","p2a":"Wszystkie języki","p2b":"Wszystkie kategorie (21+)","p2c":"Wszystkie 5 poziomów","p2d":"9 wzorów kart","p2e":"Wszystkie przyszłe treści gratis","p2f":"Wszystko na zawsze","price.free":"0 €","price.full":"2,99 €",
@@ -1266,11 +1267,11 @@ nl:{
 "f5t":"Woord van de dag","f5d":"Elke dag een nieuw woord met uitspraak.",
 "f6t":"Seizoensthema's","f6d":"Versiert zichzelf automatisch voor Pasen, Halloween, Kerst en alle vier de seizoenen.",
 "lt":"Leer meerdere talen","free":"Gratis","prem":"Premium",
-"ct":"21+ woordcategorieën",
+"ct":"21+ woord­categorieën",
 "c1":"Dieren","c2":"Fruit","c3":"Kleuren","c4":"Cijfers","c5":"Voorwerpen","c6":"Emoties","c7":"Letters","c8":"Vlaggen","c9":"Voertuigen","c10":"Eten en drinken","c11":"Sport","c12":"Weer","c13":"Lichaamsdelen","c14":"Natuur","c15":"Beroepen","c16":"Ruimte","c17":"Huishouden","c18":"Kleding","c19":"Muziek en kunst","c20":"Gereedschap","c21":"Groenten",
-"lvt":"5 moeilijkheidsniveaus voor elke leeftijd",
+"lvt":"5 moeilijkheids­niveaus voor elke leeftijd",
 "lv1":"Makkelijk","lv1d":"4-5 jaar - 4 paren","lv2":"Gemiddeld","lv2d":"5+ jaar - 6 paren","lv3":"Moeilijk","lv3d":"7+ jaar - 8 paren","lv4":"Expert","lv4d":"9+ jaar - Beeld+Woord","lv5":"Meester","lv5d":"12+ jaar - Alleen woorden",
-"sft":"Veilig voor kinderen","s1":"Nooit reclame","s2":"Geen sociale functies","s3":"Werkt offline","s4":"Ouderlijk aankoopslot","s5":"Geen dataverzameling","s6":"COPPA-conform",
+"sft":"Veilig voor kinderen","s1":"Nooit reclame","s2":"Geen sociale functies","s3":"Werkt offline","s4":"Ouderlijk aankoopslot","s5":"Geen data­verzameling","s6":"COPPA-conform",
 "prt":"Simpele, eerlijke prijzen",
 "p1n":"Gratis","p1no":"Voor altijd gratis","p1a":"Engelse taal","p1b":"Dieren Fruit Kleuren","p1c":"Niveaus Makkelijk en Gemiddeld","p1d":"Klassiek kaartontwerp","p1e":"Woord van de dag","p1f":"Seizoensthema's",
 "p2n":"Volledige versie","p2no":"Eenmalig - geen abonnement","p2a":"Alle talen","p2b":"Alle 21+ categorieën","p2c":"Alle 5 niveaus","p2d":"9 kaartontwerpen","p2e":"Alle toekomstige content gratis","p2f":"Alles voor altijd","price.free":"0 €","price.full":"2,99 €",
@@ -1688,7 +1689,7 @@ no:{
 "lt":"Lær flere språk","free":"Gratis","prem":"Premium",
 "ct":"21+ ordkategorier",
 "c1":"Dyr","c2":"Frukt","c3":"Farger","c4":"Tall","c5":"Gjenstander","c6":"Følelser","c7":"Bokstaver","c8":"Flagg","c9":"Kjøretøy","c10":"Mat og drikke","c11":"Sport","c12":"Vær","c13":"Kroppsdeler","c14":"Natur","c15":"Yrker","c16":"Verdensrommet","c17":"Husholdning","c18":"Klær","c19":"Musikk og kunst","c20":"Verktøy","c21":"Grønnsaker",
-"lvt":"5 vanskelighetsgrader for alle aldre",
+"lvt":"5 vanskelighets­grader for alle aldre",
 "lv1":"Lett","lv1d":"4-5 år - 4 par","lv2":"Middels","lv2d":"5+ år - 6 par","lv3":"Vanskelig","lv3d":"7+ år - 8 par","lv4":"Ekspert","lv4d":"9+ år - Bilde+Ord","lv5":"Mester","lv5d":"12+ år - Kun ord",
 "sft":"Trygt for barn","s1":"Aldri reklame","s2":"Ingen sosiale funksjoner","s3":"Fungerer offline","s4":"Foreldrelås på kjøp","s5":"Ingen datainnsamling","s6":"COPPA-kompatibel",
 "prt":"Enkle og ærlige priser",
