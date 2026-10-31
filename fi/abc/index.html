@@ -360,6 +360,37 @@ body.rtl .cc-inner{direction:rtl}
 @media(max-width:600px){.cc-inner{flex-direction:column;align-items:stretch}.cc-actions{justify-content:stretch}.cc-btn{flex:1 1 0;min-width:0}.cc-text{flex:0 0 auto}.cc-btn{min-height:44px}}
 </style>
 <!-- /ABC:CONSENT_HEAD -->
+<!-- FAMILY:CSS --><style>
+/* Family card. Words-site styling with the app's accent: coloured edge and the app's tiles
+   in miniature. Logical properties only (RTL on /ar/). */
+.fam-wrap{background:#fff}
+.fam-wrap section{padding-block:56px;padding-inline:24px}
+.fam-wrap section+section{padding-block-start:0}
+.fam-card{display:flex;align-items:center;gap:22px;max-width:760px;margin:0 auto;background:#fff;border:1px solid #e3e2f5;border-inline-start:6px solid var(--fam-accent);border-radius:18px;padding:26px 28px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.fam-icon{flex:none;width:72px;height:auto;border-radius:22.5%;box-shadow:0 4px 0 #1B2A6B}
+.fam-body{flex:1 1 auto;min-width:0}
+.fam-eyebrow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 6px;font-size:13px;font-weight:600;color:var(--fam-accent)}
+.fam-new{display:inline-block;background:var(--fam-accent);color:#fff;font-size:11px;font-weight:700;line-height:1;padding:4px 8px;border-radius:999px}
+.fam-card .fam-title{margin:0 0 6px;font-size:22px;font-weight:700;text-align:start;color:#1d1d1f}
+.fam-text{margin:0 0 4px;font-size:15px;line-height:1.5;color:#3a3a3c}
+.fam-facts{margin:0;font-size:13px;color:#6e6e73}
+.fam-tiles{display:inline-flex;gap:4px;margin-inline-start:4px;vertical-align:middle}
+.fam-tiles span{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;font-size:12px;font-weight:800;line-height:1}
+.fam-card-123{--fam-accent:#C44618}
+.fam-card-123 .fam-tiles span:nth-child(1){background:#D93A2B;color:#fff}
+.fam-card-123 .fam-tiles span:nth-child(2){background:#2A78C8;color:#fff}
+.fam-card-123 .fam-tiles span:nth-child(3){background:#FFC93C;color:#6B2108}
+.fam-btn{flex:none;display:inline-block;background:#3A3589;color:#fff;padding:12px 22px;border-radius:11px;text-decoration:none;font-weight:600;font-size:14px;text-align:center}
+.fam-btn:hover{background:#2e2a70}
+.fam-btn:focus-visible,.fam-navlink:focus-visible{outline:3px solid var(--fam-accent,#3A3589);outline-offset:2px}
+/* Header nav link: desktop only. With it, the nav no longer fits one row below 1200px in
+   the longest locales (ru wraps at 1024px); the footer link is shown at every width. */
+.nav-links .fam-navlink{display:none}
+@media (min-width:1200px){.nav-links .fam-navlink{display:inline}}
+@media (max-width:640px){.fam-card{flex-wrap:wrap;gap:16px;padding:22px 20px}.fam-icon{width:60px}.fam-body{flex-basis:calc(100% - 76px)}.fam-btn{flex:1 1 100%}}
+.top-nav .fam-navlink{display:none}
+@media (min-width:1024px){.top-nav .fam-navlink{display:inline}}
+</style><!-- /FAMILY:CSS -->
 </head>
 <body>
 
@@ -375,6 +406,7 @@ body.rtl .cc-inner{direction:rtl}
         <a href="#languages" data-i18n="abc.nav.languages">Kielet</a>
         <a href="#parents" data-i18n="abc.nav.parents">Vanhemmille</a>
         <a href="#words" data-i18n="abc.nav.words">Flip &amp; Learn: Word Card Game</a>
+    <!-- FAMILY:NAV --><a class="fam-navlink" href="/fi/123/">Flip &amp; Learn 123</a><!-- /FAMILY:NAV -->
       </nav>
 <!-- ABC:LANG -->
       <details class="lang">
@@ -550,6 +582,22 @@ body.rtl .cc-inner{direction:rtl}
   </div>
 </section>
 
+<!-- FAMILY:CARD -->
+<div class="fam-wrap">
+<section aria-labelledby="famTitle">
+  <div class="fam-card fam-card-123">
+    <img class="fam-icon" src="/123/app-icon-144.webp" srcset="/123/app-icon-96.webp 1.3x, /123/app-icon-144.webp 2x" alt="" width="72" height="72" loading="lazy" decoding="async">
+    <div class="fam-body">
+      <p class="fam-eyebrow"><span>Lisää Flip &amp; Learn -perheestä</span><span class="fam-new">Uutta</span></p>
+      <h2 class="fam-title" id="famTitle">Flip &amp; Learn 123<span class="fam-tiles" aria-hidden="true" dir="ltr"><span>1</span><span>2</span><span>3</span></span></h2>
+      <p class="fam-text">Opi numerot leikkien, seitsemällä kielellä.</p>
+      <p class="fam-facts">Ilmainen · Ei mainoksia · Ei sovelluksen sisäisiä ostoksia</p>
+    </div>
+    <a class="fam-btn" href="/fi/123/">Tutustu: Flip &amp; Learn 123</a>
+  </div>
+</section>
+</div>
+<!-- /FAMILY:CARD -->
 </main>
 
 <footer class="foot">
@@ -561,6 +609,7 @@ body.rtl .cc-inner{direction:rtl}
     </div>
     <nav class="foot-nav" aria-label="Alatunniste" data-i18n-aria="abc.foot.aria">
       <a href="/fi/" id="abcFootWords" data-i18n="abc.foot.words">Flip &amp; Learn: Word Card Game</a>
+    <!-- FAMILY:FOOT --><a href="/fi/123/">Flip &amp; Learn 123</a><!-- /FAMILY:FOOT -->
       <a href="/abc/privacy.html" data-i18n="abc.foot.privacy">ABC-tietosuoja (englanniksi)</a>
       <button type="button" id="cookiePrefs" data-i18n="cookie.settings" onclick="window.__flShowConsent&amp;&amp;window.__flShowConsent();">Evästeasetukset</button>
       <a href="mailto:support@flipandlearn.app">support@flipandlearn.app</a>

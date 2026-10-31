@@ -1,19 +1,25 @@
 /**
- * family-strings.js — the "More from Flip & Learn" card and the Flip & Learn ABC nav/footer
- * links on the 31 Words homepages. Rendered ONLY when ABC's state in build-locales.js is
- * 'preview' or 'launched'; while it is 'hidden' none of this reaches the output. 'preview'
- * deliberately links to the page of a not-yet-released app from live pages (reversing the
- * old "nothing may link to /abc/ before launch" rule); that page stays noindex with
- * "Coming soon".
+ * family-strings.js — the "More from Flip & Learn" cards, the header nav link and the footer
+ * links that connect the apps: on the 31 Words homepages (to ABC and 123), and on the ABC
+ * and 123 pages (to each other). A link to an app is rendered ONLY when that app's state in
+ * build-locales.js is 'preview' or 'launched'; while it is 'hidden' none of its strings reach
+ * the output. 'preview' deliberately links to the page of a not-yet-released app from live
+ * pages (reversing the old "nothing may link to /abc/ before launch" rule); that page stays
+ * noindex with "Coming soon".
  *
- * Same rules as abc-strings.js: "Flip & Learn", "Flip & Learn ABC" and "ABC" are never
- * translated or inflected; no age claim; never "completely free"; never "memory".
- * family.text is the ABC page's tagline (abc.meta.title after the dash), so the card
- * says the same thing as the page it links to; family.facts repeats three ABC chips.
- * hu/ro: reviewed by Laci.
- *
- * family.more ("More apps", the header nav link when a page has two or more siblings) is
- * English only so far. Until every locale has it, the build stops if a page needs it.
+ * Same rules as abc-strings.js: "Flip & Learn", "Flip & Learn ABC", "Flip & Learn 123", "ABC"
+ * and "123" are never translated or inflected; no age claim; never "completely free"; never
+ * "memory".
+ * family.text is the ABC page's tagline (abc.meta.title after the dash), so the card says the
+ * same thing as the page it links to; family.facts repeats three ABC chips.
+ * family.num.* derives from 123-strings.js and the ABC keys: .text is num.meta.title after the
+ * dash, with family.text's "in seven languages" part added where the title lacks it and
+ * family.text's closing punctuation, because the two cards sit together; .facts equals
+ * family.facts; .cta is family.cta with the app name swapped; .nav and .foot are the app name.
+ * family.more ("More apps") is the Words header link when a page has two or more siblings. It
+ * is in all locales.
+ * hu/ro: the ABC strings are reviewed by Laci; family.more and family.num.* are awaiting Laci's
+ * review.
  */
 'use strict';
 
@@ -27,6 +33,11 @@ en: {
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
 "family.more": "More apps",
+"family.num.text": "Learn numbers by playing, in seven languages.",
+"family.num.facts": "Free · No ads · No in-app purchases",
+"family.num.cta": "Discover Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 de: {
 "family.eyebrow": "Mehr von Flip & Learn",
@@ -36,6 +47,12 @@ de: {
 "family.cta": "Flip & Learn ABC entdecken",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Weitere Apps",
+"family.num.text": "Zahlen spielend lernen, in sieben Sprachen.",
+"family.num.facts": "Kostenlos · Keine Werbung · Keine In-App-Käufe",
+"family.num.cta": "Flip & Learn 123 entdecken",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 fr: {
 "family.eyebrow": "Aussi chez Flip & Learn",
@@ -45,6 +62,12 @@ fr: {
 "family.cta": "Découvrir Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Autres apps",
+"family.num.text": "Apprendre les nombres en jouant, en sept langues.",
+"family.num.facts": "Gratuit · Sans publicité · Sans achats intégrés",
+"family.num.cta": "Découvrir Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 es: {
 "family.eyebrow": "Más de Flip & Learn",
@@ -54,6 +77,12 @@ es: {
 "family.cta": "Descubrir Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Más apps",
+"family.num.text": "Aprende los números jugando, en siete idiomas.",
+"family.num.facts": "Gratis · Sin publicidad · Sin compras en la app",
+"family.num.cta": "Descubrir Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 it: {
 "family.eyebrow": "Anche da Flip & Learn",
@@ -63,6 +92,12 @@ it: {
 "family.cta": "Scopri Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Altre app",
+"family.num.text": "Impara i numeri giocando, in sette lingue.",
+"family.num.facts": "Gratis · Senza pubblicità · Senza acquisti in-app",
+"family.num.cta": "Scopri Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 pt: {
 "family.eyebrow": "Mais de Flip & Learn",
@@ -72,6 +107,12 @@ pt: {
 "family.cta": "Descobrir Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Mais apps",
+"family.num.text": "Aprender os números a brincar, em sete línguas.",
+"family.num.facts": "Grátis · Sem publicidade · Sem compras na app",
+"family.num.cta": "Descobrir Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 ro: {
 "family.eyebrow": "Mai multe de la Flip & Learn",
@@ -81,6 +122,12 @@ ro: {
 "family.cta": "Descoperă Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Alte aplicații",
+"family.num.text": "Învață numerele prin joacă, în șapte limbi.",
+"family.num.facts": "Gratuit · Fără reclame · Fără achiziții în aplicație",
+"family.num.cta": "Descoperă Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 hu: {
 "family.eyebrow": "Még több Flip & Learn",
@@ -90,6 +137,12 @@ hu: {
 "family.cta": "Ismerd meg: Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "További alkalmazások",
+"family.num.text": "Tanuld meg a számokat játszva, hét nyelven.",
+"family.num.facts": "Ingyenes · Nincs reklám · Nincs alkalmazáson belüli vásárlás",
+"family.num.cta": "Ismerd meg: Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 pl: {
 "family.eyebrow": "Więcej od Flip & Learn",
@@ -99,6 +152,12 @@ pl: {
 "family.cta": "Poznaj Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Więcej aplikacji",
+"family.num.text": "Liczby przez zabawę, w siedmiu językach.",
+"family.num.facts": "Bezpłatnie · Bez reklam · Bez zakupów w aplikacji",
+"family.num.cta": "Poznaj Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 nl: {
 "family.eyebrow": "Meer van Flip & Learn",
@@ -108,6 +167,12 @@ nl: {
 "family.cta": "Ontdek Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Meer apps",
+"family.num.text": "Spelend getallen leren, in zeven talen.",
+"family.num.facts": "Gratis · Geen reclame · Geen in-app-aankopen",
+"family.num.cta": "Ontdek Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 ru: {
 "family.eyebrow": "Ещё от Flip & Learn",
@@ -117,6 +182,12 @@ ru: {
 "family.cta": "Подробнее: Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Другие приложения",
+"family.num.text": "Числа в игре, на семи языках.",
+"family.num.facts": "Бесплатно · Без рекламы · Без покупок в приложении",
+"family.num.cta": "Подробнее: Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 uk: {
 "family.eyebrow": "Ще від Flip & Learn",
@@ -126,6 +197,12 @@ uk: {
 "family.cta": "Детальніше: Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Інші застосунки",
+"family.num.text": "Числа у грі, сімома мовами.",
+"family.num.facts": "Безкоштовно · Без реклами · Без покупок у застосунку",
+"family.num.cta": "Детальніше: Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 bg: {
 "family.eyebrow": "Още от Flip & Learn",
@@ -135,6 +212,12 @@ bg: {
 "family.cta": "Вижте Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Още приложения",
+"family.num.text": "Числата с игра, на седем езика.",
+"family.num.facts": "Безплатно · Без реклами · Без покупки в приложението",
+"family.num.cta": "Вижте Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 tr: {
 "family.eyebrow": "Flip & Learn ailesi",
@@ -144,6 +227,12 @@ tr: {
 "family.cta": "Keşfet: Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Diğer uygulamalar",
+"family.num.text": "Oynayarak sayı öğren, yedi dilde.",
+"family.num.facts": "Ücretsiz · Reklam yok · Uygulama içi satın alma yok",
+"family.num.cta": "Keşfet: Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 cs: {
 "family.eyebrow": "Další od Flip & Learn",
@@ -153,6 +242,12 @@ cs: {
 "family.cta": "Objevte Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Další aplikace",
+"family.num.text": "Čísla hrou, v sedmi jazycích.",
+"family.num.facts": "Zdarma · Žádné reklamy · Žádné nákupy v aplikaci",
+"family.num.cta": "Objevte Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 sk: {
 "family.eyebrow": "Ďalšie od Flip & Learn",
@@ -162,6 +257,12 @@ sk: {
 "family.cta": "Objavte Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Ďalšie aplikácie",
+"family.num.text": "Čísla hrou, v siedmich jazykoch.",
+"family.num.facts": "Zadarmo · Žiadne reklamy · Žiadne nákupy v aplikácii",
+"family.num.cta": "Objavte Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 hr: {
 "family.eyebrow": "Još od Flip & Learn",
@@ -171,6 +272,12 @@ hr: {
 "family.cta": "Otkrijte Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Više aplikacija",
+"family.num.text": "Brojevi kroz igru, na sedam jezika.",
+"family.num.facts": "Besplatno · Bez reklama · Bez kupnji u aplikaciji",
+"family.num.cta": "Otkrijte Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 sl: {
 "family.eyebrow": "Še od Flip & Learn",
@@ -180,6 +287,12 @@ sl: {
 "family.cta": "Odkrijte Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Več aplikacij",
+"family.num.text": "Števila skozi igro, v sedmih jezikih.",
+"family.num.facts": "Brezplačno · Brez oglasov · Brez nakupov v aplikaciji",
+"family.num.cta": "Odkrijte Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 el: {
 "family.eyebrow": "Περισσότερα από το Flip & Learn",
@@ -189,6 +302,12 @@ el: {
 "family.cta": "Δείτε το Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Περισσότερες εφαρμογές",
+"family.num.text": "Οι αριθμοί παίζοντας, σε επτά γλώσσες.",
+"family.num.facts": "Δωρεάν · Χωρίς διαφημίσεις · Χωρίς αγορές εντός εφαρμογής",
+"family.num.cta": "Δείτε το Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 sv: {
 "family.eyebrow": "Mer från Flip & Learn",
@@ -198,6 +317,12 @@ sv: {
 "family.cta": "Upptäck Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Fler appar",
+"family.num.text": "Lär dig talen genom lek, på sju språk.",
+"family.num.facts": "Gratis · Ingen reklam · Inga köp i appen",
+"family.num.cta": "Upptäck Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 da: {
 "family.eyebrow": "Mere fra Flip & Learn",
@@ -207,6 +332,12 @@ da: {
 "family.cta": "Opdag Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Flere apps",
+"family.num.text": "Lær tallene gennem leg, på syv sprog.",
+"family.num.facts": "Gratis · Ingen reklamer · Ingen køb i appen",
+"family.num.cta": "Opdag Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 no: {
 "family.eyebrow": "Mer fra Flip & Learn",
@@ -216,6 +347,12 @@ no: {
 "family.cta": "Oppdag Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Flere apper",
+"family.num.text": "Lær tallene gjennom lek, på sju språk.",
+"family.num.facts": "Gratis · Ingen reklame · Ingen kjøp i appen",
+"family.num.cta": "Oppdag Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 fi: {
 "family.eyebrow": "Lisää Flip & Learn -perheestä",
@@ -225,6 +362,12 @@ fi: {
 "family.cta": "Tutustu: Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Lisää sovelluksia",
+"family.num.text": "Opi numerot leikkien, seitsemällä kielellä.",
+"family.num.facts": "Ilmainen · Ei mainoksia · Ei sovelluksen sisäisiä ostoksia",
+"family.num.cta": "Tutustu: Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 lt: {
 "family.eyebrow": "Daugiau iš Flip & Learn",
@@ -234,6 +377,12 @@ lt: {
 "family.cta": "Atrask Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Daugiau programėlių",
+"family.num.text": "Mokykis skaičių žaisdamas, septyniomis kalbomis.",
+"family.num.facts": "Nemokamai · Be reklamų · Be pirkimų programėlėje",
+"family.num.cta": "Atrask Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 lv: {
 "family.eyebrow": "Vēl no Flip & Learn",
@@ -243,6 +392,12 @@ lv: {
 "family.cta": "Iepazīsti Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Citas lietotnes",
+"family.num.text": "Apgūsti skaitļus rotaļājoties, septiņās valodās.",
+"family.num.facts": "Bez maksas · Bez reklāmām · Bez pirkumiem lietotnē",
+"family.num.cta": "Iepazīsti Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 et: {
 "family.eyebrow": "Veel sarjast Flip & Learn",
@@ -252,6 +407,12 @@ et: {
 "family.cta": "Tutvu: Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Veel rakendusi",
+"family.num.text": "Õpi numbreid mängides, seitsmes keeles.",
+"family.num.facts": "Tasuta · Reklaamideta · Rakendusesiseste ostudeta",
+"family.num.cta": "Tutvu: Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 sq: {
 "family.eyebrow": "Më shumë nga Flip & Learn",
@@ -261,6 +422,12 @@ sq: {
 "family.cta": "Zbulo Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Më shumë aplikacione",
+"family.num.text": "Mëso numrat duke luajtur, në shtatë gjuhë.",
+"family.num.facts": "Falas · Pa reklama · Pa blerje brenda aplikacionit",
+"family.num.cta": "Zbulo Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 sr: {
 "family.eyebrow": "Још од Flip & Learn",
@@ -270,6 +437,12 @@ sr: {
 "family.cta": "Упознајте Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "Још апликација",
+"family.num.text": "Бројеви кроз игру, на седам језика.",
+"family.num.facts": "Бесплатно · Без реклама · Без куповина у апликацији",
+"family.num.cta": "Упознајте Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 ja: {
 "family.eyebrow": "Flip & Learn のアプリ",
@@ -279,6 +452,12 @@ ja: {
 "family.cta": "Flip & Learn ABC を見る",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "その他のアプリ",
+"family.num.text": "7つの言語で、遊びながら数を学ぼう。",
+"family.num.facts": "無料 · 広告なし · アプリ内課金なし",
+"family.num.cta": "Flip & Learn 123 を見る",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 ko: {
 "family.eyebrow": "Flip & Learn의 다른 앱",
@@ -288,6 +467,12 @@ ko: {
 "family.cta": "Flip & Learn ABC 알아보기",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "다른 앱",
+"family.num.text": "놀면서 배우는 7개 언어의 숫자.",
+"family.num.facts": "무료 · 광고 없음 · 인앱 구매 없음",
+"family.num.cta": "Flip & Learn 123 알아보기",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 ar: {
 "family.eyebrow": "المزيد من Flip & Learn",
@@ -297,6 +482,12 @@ ar: {
 "family.cta": "اكتشف Flip & Learn ABC",
 "family.nav": "Flip & Learn ABC",
 "family.foot": "Flip & Learn ABC",
+"family.more": "تطبيقات أخرى",
+"family.num.text": "الأرقام باللعب، بسبع لغات.",
+"family.num.facts": "مجاني · بلا إعلانات · بلا مشتريات داخل التطبيق",
+"family.num.cta": "اكتشف Flip & Learn 123",
+"family.num.nav": "Flip & Learn 123",
+"family.num.foot": "Flip & Learn 123",
 },
 };
 

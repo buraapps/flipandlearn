@@ -445,6 +445,40 @@ body.rtl .cc-inner{direction:rtl}
   try{if(localStorage.getItem('fl_consent')==='accepted')window.__flLoadGtag();}catch(e){}
 })();
 </script>
+<!-- FAMILY:CSS --><style>
+/* Family card. Words-site styling with the app's accent: coloured edge and the app's tiles
+   in miniature. Logical properties only (RTL on /ar/). */
+.fam-wrap{background:#fff}
+.fam-wrap section{padding-block:56px;padding-inline:24px}
+.fam-wrap section+section{padding-block-start:0}
+.fam-card{display:flex;align-items:center;gap:22px;max-width:760px;margin:0 auto;background:#fff;border:1px solid #e3e2f5;border-inline-start:6px solid var(--fam-accent);border-radius:18px;padding:26px 28px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.fam-icon{flex:none;width:72px;height:auto;border-radius:22.5%;box-shadow:0 4px 0 #1B2A6B}
+.fam-body{flex:1 1 auto;min-width:0}
+.fam-eyebrow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 6px;font-size:13px;font-weight:600;color:var(--fam-accent)}
+.fam-new{display:inline-block;background:var(--fam-accent);color:#fff;font-size:11px;font-weight:700;line-height:1;padding:4px 8px;border-radius:999px}
+.fam-card .fam-title{margin:0 0 6px;font-size:22px;font-weight:700;text-align:start;color:#1d1d1f}
+.fam-text{margin:0 0 4px;font-size:15px;line-height:1.5;color:#3a3a3c}
+.fam-facts{margin:0;font-size:13px;color:#6e6e73}
+.fam-tiles{display:inline-flex;gap:4px;margin-inline-start:4px;vertical-align:middle}
+.fam-tiles span{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;font-size:12px;font-weight:800;line-height:1}
+.fam-card-abc{--fam-accent:#2A78C8}
+.fam-card-abc .fam-tiles span:nth-child(1){background:#CA4B25;color:#fff}
+.fam-card-abc .fam-tiles span:nth-child(2){background:#F5B82E;color:#1B2A6B}
+.fam-card-abc .fam-tiles span:nth-child(3){background:#1A855A;color:#fff}
+.fam-card-123{--fam-accent:#C44618}
+.fam-card-123 .fam-tiles span:nth-child(1){background:#D93A2B;color:#fff}
+.fam-card-123 .fam-tiles span:nth-child(2){background:#2A78C8;color:#fff}
+.fam-card-123 .fam-tiles span:nth-child(3){background:#FFC93C;color:#6B2108}
+.fam-btn{flex:none;display:inline-block;background:#3A3589;color:#fff;padding:12px 22px;border-radius:11px;text-decoration:none;font-weight:600;font-size:14px;text-align:center}
+.fam-btn:hover{background:#2e2a70}
+.fam-btn:focus-visible,.fam-navlink:focus-visible{outline:3px solid var(--fam-accent,#3A3589);outline-offset:2px}
+/* Header nav link: desktop only. With it, the nav no longer fits one row below 1200px in
+   the longest locales (ru wraps at 1024px); the footer link is shown at every width. */
+.nav-links .fam-navlink{display:none}
+@media (min-width:1200px){.nav-links .fam-navlink{display:inline}}
+@media (max-width:640px){.fam-card{flex-wrap:wrap;gap:16px;padding:22px 20px}.fam-icon{width:60px}.fam-body{flex-basis:calc(100% - 76px)}.fam-btn{flex:1 1 100%}}
+#more-apps{scroll-margin-top:56px}
+</style><!-- /FAMILY:CSS -->
 </head>
 <body>
 <nav>
@@ -457,6 +491,7 @@ body.rtl .cc-inner{direction:rtl}
     <a href="#support" data-i18n="nav.sup">Tuki</a>
     <a href="privacy.html" data-i18n="nav.priv">Tietosuoja</a>
     <a href="/credits.html" data-i18n="nav.credits">Lisenssit</a>
+    <!-- FAMILY:NAV --><a class="fam-navlink" href="#more-apps">Lisää sovelluksia</a><!-- /FAMILY:NAV -->
   </div>
   <div class="lang-sw">
     <button class="lang-btn" id="langBtn" onclick="toggleMenu()">🇫🇮 FI ▾</button>
@@ -781,6 +816,34 @@ body.rtl .cc-inner{direction:rtl}
 </section>
 </div>
 
+<!-- FAMILY:CARD -->
+<div class="fam-wrap" id="more-apps">
+<section aria-labelledby="famTitle">
+  <div class="fam-card fam-card-abc">
+    <img class="fam-icon" src="/abc/app-icon-144.webp" srcset="/abc/app-icon-96.webp 1.3x, /abc/app-icon-144.webp 2x" alt="" width="72" height="72" loading="lazy" decoding="async">
+    <div class="fam-body">
+      <p class="fam-eyebrow"><span>Lisää Flip &amp; Learn -perheestä</span><span class="fam-new">Uutta</span></p>
+      <h2 class="fam-title" id="famTitle">Flip &amp; Learn ABC<span class="fam-tiles" aria-hidden="true" dir="ltr"><span>A</span><span>B</span><span>C</span></span></h2>
+      <p class="fam-text">Opi aakkoset leikkien, seitsemällä kielellä.</p>
+      <p class="fam-facts">Ilmainen · Ei mainoksia · Ei sovelluksen sisäisiä ostoksia</p>
+    </div>
+    <a class="fam-btn" href="/fi/abc/">Tutustu: Flip &amp; Learn ABC</a>
+  </div>
+</section>
+<section aria-labelledby="famTitle-123">
+  <div class="fam-card fam-card-123">
+    <img class="fam-icon" src="/123/app-icon-144.webp" srcset="/123/app-icon-96.webp 1.3x, /123/app-icon-144.webp 2x" alt="" width="72" height="72" loading="lazy" decoding="async">
+    <div class="fam-body">
+      <p class="fam-eyebrow"><span>Lisää Flip &amp; Learn -perheestä</span><span class="fam-new">Uutta</span></p>
+      <h2 class="fam-title" id="famTitle-123">Flip &amp; Learn 123<span class="fam-tiles" aria-hidden="true" dir="ltr"><span>1</span><span>2</span><span>3</span></span></h2>
+      <p class="fam-text">Opi numerot leikkien, seitsemällä kielellä.</p>
+      <p class="fam-facts">Ilmainen · Ei mainoksia · Ei sovelluksen sisäisiä ostoksia</p>
+    </div>
+    <a class="fam-btn" href="/fi/123/">Tutustu: Flip &amp; Learn 123</a>
+  </div>
+</section>
+</div>
+<!-- /FAMILY:CARD -->
 <section id="support">
   <h2 data-i18n="supt">Tuki</h2>
   <div class="sup-box">
@@ -798,6 +861,7 @@ body.rtl .cc-inner{direction:rtl}
   <div class="flinks">
     <a href="/" data-i18n="nav.home">Etusivu</a>
     <a href="privacy.html" data-i18n="nav.priv">Tietosuoja</a>
+    <!-- FAMILY:FOOT --><a href="/fi/abc/">Flip &amp; Learn ABC</a> <a href="/fi/123/">Flip &amp; Learn 123</a><!-- /FAMILY:FOOT -->
     <a href="#" id="cookiePrefs" data-i18n="cookie.settings" onclick="event.preventDefault();window.__flShowConsent&amp;&amp;window.__flShowConsent();">Evästeasetukset</a>
     <a href="mailto:support@flipandlearn.app">support@flipandlearn.app</a>
   </div>

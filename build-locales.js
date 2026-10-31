@@ -119,7 +119,7 @@ const APPLE_PROVIDER_TOKEN = '128736959';
 // isVisible(). Any homepage, nav or footer link to an app page must go through isVisible().
 const APPS = {
   abc: {
-    state: 'hidden',
+    state: 'preview',
     name: 'Flip &amp; Learn ABC',          // as written in HTML (fallback alt text of the badges)
     segment: 'abc',                        // URL path segment: /abc/, /<loc>/abc/
     marker: 'ABC',                         // template markers: <!-- ABC:NAME --> … <!-- /ABC:NAME -->
@@ -156,7 +156,7 @@ const APPS = {
       'pl', 'cs', 'sk', 'hr']),
   },
   num: {
-    state: 'hidden',
+    state: 'preview',
     name: 'Flip &amp; Learn 123',
     segment: '123',
     marker: 'NUM',
@@ -1413,13 +1413,10 @@ function main() {
     }
   }
   // Key parity for family-strings.js: exactly the LOCALES, each with exactly the keys of "en".
-  // family.more is English only so far, so it is exempt here and required below, for every
-  // locale that renders it: a page with two or more siblings stops the build rather than
-  // show English.
   for (const l of LOCALES) if (!F[l.code]) throw new Error(`family-strings.js has no entry for locale "${l.code}"`);
   for (const code of Object.keys(F)) {
     if (!LOCALES.some(l => l.code === code)) throw new Error(`family-strings.js: unknown locale "${code}"`);
-    const missing = Object.keys(F.en).filter(k => k !== 'family.more' && typeof F[code][k] !== 'string');
+    const missing = Object.keys(F.en).filter(k => typeof F[code][k] !== 'string');
     const extra = Object.keys(F[code]).filter(k => !(k in F.en));
     if (missing.length || extra.length) {
       throw new Error(`family-strings.js: locale "${code}" does not match the "en" key set` +
@@ -1438,14 +1435,6 @@ function main() {
   for (const app of APP_LIST.filter(isVisible)) {
     const missing = ['text', 'facts', 'cta', 'nav', 'foot'].map(k => `${app.family.keys}.${k}`).filter(k => typeof F.en[k] !== 'string');
     if (missing.length) throw new Error(`${app.segment} is '${app.state}' but family-strings.js has no ${missing.join(', ')}`);
-  }
-  for (const host of [null, ...APP_LIST]) {
-    if (APP_LIST.filter(app => app !== host && isVisible(app)).length < 2) continue;
-    const hostLocales = host ? [...host.locales] : LOCALES.map(l => l.code);
-    const untranslated = hostLocales.filter(code => typeof F[code]['family.more'] !== 'string');
-    if (untranslated.length) {
-      throw new Error(`family-strings.js: "family.more" is needed on ${host ? `the ${host.segment}` : 'the Words'} pages but has no text for: ${untranslated.join(', ')}`);
-    }
   }
   const chrome = extractSharedChrome(source);
 
