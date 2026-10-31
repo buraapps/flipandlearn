@@ -179,7 +179,8 @@ const APPS = {
     playPackage: 'com.buraapps.flipandlearn_numbers',
     // Grows with 123-strings.js: a locale without a table would emit hreflang for a
     // page that doesn't exist.
-    locales: new Set(['en', 'de', 'ro', 'hu', 'es', 'fr', 'it', 'bg', 'cs', 'hr', 'nl', 'pl', 'ru', 'sk', 'sl', 'tr', 'uk']),
+    locales: new Set(['en', 'de', 'ro', 'hu', 'es', 'fr', 'it', 'bg', 'cs', 'hr', 'nl', 'pl', 'ru', 'sk', 'sl', 'tr', 'uk',
+      'pt', 'ar', 'da', 'el', 'et', 'fi', 'ja', 'ko', 'lt', 'lv', 'no', 'sq', 'sr', 'sv']),
     // The 17 menu languages of the 123 app (Numbers repo, lib/l10n/app_<code>.arb): ABC's
     // 18 without Portuguese. Any other page reuses the English screenshots.
     menuLocales: new Set(['en', 'de', 'es', 'fr', 'it', 'ro', 'hu', 'tr', 'sl', 'nl', 'bg', 'uk', 'ru',
