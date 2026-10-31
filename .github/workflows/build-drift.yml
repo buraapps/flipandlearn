@@ -2,9 +2,12 @@
 #
 # index.html is the build source. build-locales.js generates the committed site from
 # it: 31 locale homepages plus cookies.html, privacy.html and privacy-website.html for
-# each locale (124 files), the Flip & Learn ABC page for every locale in ABC_LOCALES,
-# and sitemap.xml. Those generated files are committed and served directly by GitHub
-# Pages, so if someone edits a source without re-running the build, the committed
+# each locale (124 files), and sitemap.xml. It also generates the pages of the two gated
+# apps, Flip & Learn ABC and Flip & Learn 123, from their own templates: 31 pages each,
+# which with the homepages makes 93 app/landing pages. Each app's state in build-locales.js
+# (hidden, preview, launched) decides the family links, robots, store badges and sitemap
+# entries, so a state change must be committed together with its output. Those generated
+# files are committed and served directly by GitHub Pages, so if someone edits a source without re-running the build, the committed
 # output silently goes stale. That has happened: a nav.blog dictionary key sat unbuilt
 # across 29 locales for several commits, and a German hero.sub fix reached
 # de/index.html but none of the others.
@@ -35,8 +38,8 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v4
 
-      # build-locales.js uses only Node built-ins (fs, path, vm) plus the local
-      # privacy-strings.js. There is no package.json and no install step.
+      # build-locales.js uses only Node built-ins (fs, path, vm) plus the local string
+      # tables (privacy, ABC, 123, family). There is no package.json and no install step.
       # Pinned to 24 to match the version used locally, so CI cannot diverge from
       # a local build. Nothing else in the repo pins a Node version.
       - name: Set up Node
