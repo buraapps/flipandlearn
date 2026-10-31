@@ -227,6 +227,9 @@ h1{font-size:clamp(36px,5vw,62px);line-height:1.05;font-weight:900;letter-spacin
 .g-tile{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-inline-size:56px;block-size:56px;padding-inline:14px;border-radius:14px;background:var(--white);color:var(--navy);font-weight:900;font-size:30px;line-height:1}
 .g-tile svg{inline-size:44px;block-size:44px}
 .g-tile-lm{color:var(--lm)}
+.g-pair{display:inline-flex;align-items:center;gap:10px}
+.g-tile-card{min-inline-size:0;inline-size:40px;block-size:50px;padding-inline:0;border-radius:10px;transform:rotate(-6deg)}
+.g-tile-card+.g-tile-card{transform:rotate(6deg)}
 .g-tile-wm{color:var(--wm)}
 .g-pic{display:flex;flex-direction:column;align-items:center;gap:1px}
 .g-pic img{display:block;inline-size:26px;height:auto}
@@ -497,8 +500,8 @@ body.rtl .cc-inner{direction:rtl}
       <h2 data-i18n="abc.games.h2">Jeden Tag den Buchstaben neu begegnen.</h2>
     </div>
     <ul class="game-grid">
-      <li class="game g-lm"><span class="g-glyph" aria-hidden="true"><span class="g-tile g-tile-lm" dir="ltr">A A</span></span><h3 data-i18n="abc.game.lm.name">Buchstaben</h3><p data-i18n="abc.game.lm.desc">Dreh die Karten um und finde zweimal denselben Buchstaben. Bei jedem Treffer wird sein Name gesprochen.</p></li>
-      <li class="game g-cm"><span class="g-glyph" aria-hidden="true"><span class="g-tile" dir="ltr">B b</span></span><h3 data-i18n="abc.game.cm.name">Groß &amp; klein</h3><p data-i18n="abc.game.cm.desc">Finde zu jedem Großbuchstaben seinen kleinen Partner.</p></li>
+      <li class="game g-lm"><span class="g-glyph" aria-hidden="true"><span class="g-pair" dir="ltr"><span class="g-tile g-tile-lm g-tile-card">A</span><span class="g-tile g-tile-lm g-tile-card">A</span></span></span><h3 data-i18n="abc.game.lm.name">Buchstaben</h3><p data-i18n="abc.game.lm.desc">Dreh die Karten um und finde zweimal denselben Buchstaben. Bei jedem Treffer wird sein Name gesprochen.</p></li>
+      <li class="game g-cm"><span class="g-glyph" aria-hidden="true"><span class="g-pair" dir="ltr"><span class="g-tile g-tile-card">B</span><span class="g-tile g-tile-card">b</span></span></span><h3 data-i18n="abc.game.cm.name">Groß &amp; klein</h3><p data-i18n="abc.game.cm.desc">Finde zu jedem Großbuchstaben seinen kleinen Partner.</p></li>
       <li class="game g-wm"><span class="g-glyph" aria-hidden="true"><span class="g-tile g-tile-wm" dir="ltr">D<span class="g-pic"><img src="/abc/game-dolphin.webp" alt="" width="26" height="26" decoding="async"><small data-i18n="abc.game.wm.word">Delfin</small></span></span></span><h3 data-i18n="abc.game.wm.name">Wörter</h3><p data-i18n="abc.game.wm.desc">Ordne einem Buchstaben ein Bildwort zu, das mit ihm beginnt — Tiere, Obst und mehr.</p></li>
       <li class="game g-lt"><span class="g-glyph" aria-hidden="true"><span class="g-tile"><svg viewBox="0 0 48 48" fill="none"><path d="M24 7L9 43M24 7l15 36M15 30h18" stroke="#6B4EFF" stroke-width="3.6" stroke-linecap="round" stroke-dasharray="0.1 6.2"/><circle cx="24" cy="6" r="4.5" fill="#40C76B"/></svg></span></span><h3 data-i18n="abc.game.lt.name">Buchstaben nachspuren</h3><p data-i18n="abc.game.lt.desc">Spure jeden Buchstaben mit dem Finger nach, Strich für Strich. Ein wandernder Punkt zeigt vorher den Weg.</p></li>
       <li class="game g-bp"><span class="g-glyph"><img src="/abc/game-balloon.webp" alt="" width="56" height="56" decoding="async"></span><h3 data-i18n="abc.game.bp.name">Ballons platzen</h3><p data-i18n="abc.game.bp.desc">Lass die Ballons platzen, die die Buchstaben des Bildworts tragen. In jedem Spiel ein neues Wort.</p></li>

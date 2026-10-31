@@ -227,6 +227,9 @@ h1{font-size:clamp(36px,5vw,62px);line-height:1.05;font-weight:900;letter-spacin
 .g-tile{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-inline-size:56px;block-size:56px;padding-inline:14px;border-radius:14px;background:var(--white);color:var(--navy);font-weight:900;font-size:30px;line-height:1}
 .g-tile svg{inline-size:44px;block-size:44px}
 .g-tile-lm{color:var(--lm)}
+.g-pair{display:inline-flex;align-items:center;gap:10px}
+.g-tile-card{min-inline-size:0;inline-size:40px;block-size:50px;padding-inline:0;border-radius:10px;transform:rotate(-6deg)}
+.g-tile-card+.g-tile-card{transform:rotate(6deg)}
 .g-tile-wm{color:var(--wm)}
 .g-pic{display:flex;flex-direction:column;align-items:center;gap:1px}
 .g-pic img{display:block;inline-size:26px;height:auto}
@@ -497,8 +500,8 @@ body.rtl .cc-inner{direction:rtl}
       <h2 data-i18n="abc.games.h2">Всеки ден нова среща с буквите.</h2>
     </div>
     <ul class="game-grid">
-      <li class="game g-lm"><span class="g-glyph" aria-hidden="true"><span class="g-tile g-tile-lm" dir="ltr">A A</span></span><h3 data-i18n="abc.game.lm.name">Букви</h3><p data-i18n="abc.game.lm.desc">Обръщайте картите и търсете две с еднаква буква. При всяка двойка се чува името на буквата.</p></li>
-      <li class="game g-cm"><span class="g-glyph" aria-hidden="true"><span class="g-tile" dir="ltr">B b</span></span><h3 data-i18n="abc.game.cm.name">Главни и малки</h3><p data-i18n="abc.game.cm.desc">Намерете към всяка главна буква нейната малка.</p></li>
+      <li class="game g-lm"><span class="g-glyph" aria-hidden="true"><span class="g-pair" dir="ltr"><span class="g-tile g-tile-lm g-tile-card">A</span><span class="g-tile g-tile-lm g-tile-card">A</span></span></span><h3 data-i18n="abc.game.lm.name">Букви</h3><p data-i18n="abc.game.lm.desc">Обръщайте картите и търсете две с еднаква буква. При всяка двойка се чува името на буквата.</p></li>
+      <li class="game g-cm"><span class="g-glyph" aria-hidden="true"><span class="g-pair" dir="ltr"><span class="g-tile g-tile-card">B</span><span class="g-tile g-tile-card">b</span></span></span><h3 data-i18n="abc.game.cm.name">Главни и малки</h3><p data-i18n="abc.game.cm.desc">Намерете към всяка главна буква нейната малка.</p></li>
       <li class="game g-wm"><span class="g-glyph" aria-hidden="true"><span class="g-tile g-tile-wm" dir="ltr">D<span class="g-pic"><img src="/abc/game-dolphin.webp" alt="" width="26" height="26" decoding="async"><small data-i18n="abc.game.wm.word">dolphin</small></span></span></span><h3 data-i18n="abc.game.wm.name">Думи</h3><p data-i18n="abc.game.wm.desc">Свържете буква с картинка, чиято дума започва с нея — животни, плодове и още много.</p></li>
       <li class="game g-lt"><span class="g-glyph" aria-hidden="true"><span class="g-tile"><svg viewBox="0 0 48 48" fill="none"><path d="M24 7L9 43M24 7l15 36M15 30h18" stroke="#6B4EFF" stroke-width="3.6" stroke-linecap="round" stroke-dasharray="0.1 6.2"/><circle cx="24" cy="6" r="4.5" fill="#40C76B"/></svg></span></span><h3 data-i18n="abc.game.lt.name">Рисуваме букви</h3><p data-i18n="abc.game.lt.desc">Изписвайте всяка буква с пръст, черта по черта. Първо движеща се точка показва пътя.</p></li>
       <li class="game g-bp"><span class="g-glyph"><img src="/abc/game-balloon.webp" alt="" width="56" height="56" decoding="async"></span><h3 data-i18n="abc.game.bp.name">Пукни балоните</h3><p data-i18n="abc.game.bp.desc">Пукайте балоните с буквите на думата от картинката. Във всяка игра — нова дума.</p></li>

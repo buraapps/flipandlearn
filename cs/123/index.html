@@ -224,6 +224,9 @@ h1{font-size:clamp(36px,5vw,62px);line-height:1.05;font-weight:900;letter-spacin
 .g-glyph>img{display:block;inline-size:56px;height:auto;border-radius:14px}
 .g-tile{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-inline-size:56px;block-size:56px;padding-inline:14px;border-radius:14px;background:var(--white);color:var(--brown);font-weight:900;font-size:30px;line-height:1}
 .g-tile-pm{color:var(--pm-web)}
+.g-pair{display:inline-flex;align-items:center;gap:10px}
+.g-tile-card{min-inline-size:0;inline-size:40px;block-size:50px;padding-inline:0;border-radius:10px;transform:rotate(-6deg)}
+.g-tile-card+.g-tile-card{transform:rotate(6deg)}
 .g-dots{font-size:22px;letter-spacing:.04em}
 .g-tile small{color:var(--brown);font-weight:800;font-size:14px;line-height:1.1}
 .game h4{margin:0;font-size:24px;font-weight:900;line-height:1.2}
@@ -492,7 +495,7 @@ body.rtl .cc-inner{direction:rtl}
     </div>
     <h3 class="game-group" data-i18n="num.games.cards">Hry s kartičkami</h3>
     <ul class="game-grid game-grid-cards">
-      <li class="game g-pm"><span class="g-glyph" aria-hidden="true"><span class="g-tile g-tile-pm" dir="ltr">3 3</span></span><h4 data-i18n="num.game.pm.name">Najdi dvojici</h4><p data-i18n="num.game.pm.desc">Otáčejí se kartičky a hledají se dvě se stejným číslem. Při každém páru číslo zazní.</p></li>
+      <li class="game g-pm"><span class="g-glyph" aria-hidden="true"><span class="g-pair" dir="ltr"><span class="g-tile g-tile-pm g-tile-card">3</span><span class="g-tile g-tile-pm g-tile-card">3</span></span></span><h4 data-i18n="num.game.pm.name">Najdi dvojici</h4><p data-i18n="num.game.pm.desc">Otáčejí se kartičky a hledají se dvě se stejným číslem. Při každém páru číslo zazní.</p></li>
       <li class="game g-cm"><span class="g-glyph" aria-hidden="true"><span class="g-tile" dir="ltr">3<span class="g-dots">●●●</span></span></span><h4 data-i18n="num.game.cm.name">Spočítej a najdi</h4><p data-i18n="num.game.cm.desc">Číslo se přiřazuje ke správnému počtu teček nebo věcí.</p></li>
       <li class="game g-wm"><span class="g-glyph" aria-hidden="true"><span class="g-tile" dir="ltr">5<small data-i18n="num.game.wm.word">five</small></span></span><h4 data-i18n="num.game.wm.name">Čísla a slova</h4><p data-i18n="num.game.wm.desc">Dítě ťukne na poslechovou kartičku a hledá číslo, které slyší.</p></li>
       <li class="game g-om"><span class="g-glyph" aria-hidden="true"><span class="g-tile" dir="ltr">5 → 6</span></span><h4 data-i18n="num.game.om.name">Popořadě</h4><p data-i18n="num.game.om.desc">Které číslo přijde dál? Hledá se správná kartička.</p></li>

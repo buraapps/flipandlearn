@@ -224,6 +224,9 @@ h1{font-size:clamp(36px,5vw,62px);line-height:1.05;font-weight:900;letter-spacin
 .g-glyph>img{display:block;inline-size:56px;height:auto;border-radius:14px}
 .g-tile{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-inline-size:56px;block-size:56px;padding-inline:14px;border-radius:14px;background:var(--white);color:var(--brown);font-weight:900;font-size:30px;line-height:1}
 .g-tile-pm{color:var(--pm-web)}
+.g-pair{display:inline-flex;align-items:center;gap:10px}
+.g-tile-card{min-inline-size:0;inline-size:40px;block-size:50px;padding-inline:0;border-radius:10px;transform:rotate(-6deg)}
+.g-tile-card+.g-tile-card{transform:rotate(6deg)}
 .g-dots{font-size:22px;letter-spacing:.04em}
 .g-tile small{color:var(--brown);font-weight:800;font-size:14px;line-height:1.1}
 .game h4{margin:0;font-size:24px;font-weight:900;line-height:1.2}
@@ -492,7 +495,7 @@ body.rtl .cc-inner{direction:rtl}
     </div>
     <h3 class="game-group" data-i18n="num.games.cards">Игри с карти</h3>
     <ul class="game-grid game-grid-cards">
-      <li class="game g-pm"><span class="g-glyph" aria-hidden="true"><span class="g-tile g-tile-pm" dir="ltr">3 3</span></span><h4 data-i18n="num.game.pm.name">Намери двойката</h4><p data-i18n="num.game.pm.desc">Обръщайте картите и търсете две с едно и също число. При всяко съвпадение то се изговаря.</p></li>
+      <li class="game g-pm"><span class="g-glyph" aria-hidden="true"><span class="g-pair" dir="ltr"><span class="g-tile g-tile-pm g-tile-card">3</span><span class="g-tile g-tile-pm g-tile-card">3</span></span></span><h4 data-i18n="num.game.pm.name">Намери двойката</h4><p data-i18n="num.game.pm.desc">Обръщайте картите и търсете две с едно и също число. При всяко съвпадение то се изговаря.</p></li>
       <li class="game g-cm"><span class="g-glyph" aria-hidden="true"><span class="g-tile" dir="ltr">3<span class="g-dots">●●●</span></span></span><h4 data-i18n="num.game.cm.name">Преброй и намери</h4><p data-i18n="num.game.cm.desc">Свържете число с правилното количество точки или предмети.</p></li>
       <li class="game g-wm"><span class="g-glyph" aria-hidden="true"><span class="g-tile" dir="ltr">5<small data-i18n="num.game.wm.word">five</small></span></span><h4 data-i18n="num.game.wm.name">Числа и думи</h4><p data-i18n="num.game.wm.desc">Докоснете карта за слушане и търсете числото, което чувате.</p></li>
       <li class="game g-om"><span class="g-glyph" aria-hidden="true"><span class="g-tile" dir="ltr">5 → 6</span></span><h4 data-i18n="num.game.om.name">Подред</h4><p data-i18n="num.game.om.desc">Кое число идва след това? Търсете правилната карта.</p></li>
