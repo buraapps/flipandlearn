@@ -78,3 +78,8 @@ jobs:
           echo "--------------------------------------------------------------"
           git diff
           exit 1
+
+      # Printable sheet pages: registry, copy guards, hub links and sitemap entries. Node
+      # built-ins only, no install step.
+      - name: Run the printables tests
+        run: node --test tests/printables.test.js

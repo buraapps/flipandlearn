@@ -25,7 +25,7 @@ const { P, PW } = require('./privacy-strings.js');
 const { A } = require('./abc-strings.js');
 const { N } = require('./123-strings.js');
 const { F } = require('./family-strings.js');
-const { buildPublished: buildPublishedPrintables } = require('./build-printables.js');
+const { buildPublished: buildPublishedPrintables, printableSheetSitemapEntries } = require('./build-printables.js');
 
 // ============================================================
 // Per-locale configuration
@@ -1283,6 +1283,16 @@ ${altLinks}
 ${printablesAltLinks}
   </url>`).join('\n');
 
+  // Published per-sheet printable pages (build-printables.js), with alternates for the
+  // locales where each sheet is published. Below the hubs (0.8) that link to them.
+  const printableSheetUrls = printableSheetSitemapEntries().map(entry => `  <url>
+    <loc>${entry.loc}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+${entry.alternates.map(a => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${a.href}"/>`).join('\n')}
+  </url>`).join('\n');
+
   // Single-locale utility pages (FLI-366). credits.html is one English page linked from
   // every locale's footer (the "nav.credits" label is localized, the page is not), so it
   // takes no hreflang alternates. Lowest priority: it exists to satisfy licence
@@ -1310,7 +1320,7 @@ ${blogUrls}
 ${blogIndexUrls}
 ${landingUrls}
 ${appUrls}${printablesUrls}
-${legalUrls}
+${printableSheetUrls ? `${printableSheetUrls}\n` : ''}${legalUrls}
 </urlset>
 `;
 
@@ -1512,8 +1522,7 @@ function main() {
   }
 
   // Per-sheet printable pages: only rows with published:true in printables/sheets.json, so
-  // published pages fall under the drift check. Their URLs are not in the sitemap yet: see
-  // printableSheetSitemapEntries() in build-printables.js.
+  // published pages fall under the drift check. buildSitemap() lists the same pages.
   console.log(`  printables: ${buildPublishedPrintables().length} published sheet page(s)`);
 
   const { xml: sitemap, added, touched, removed } = buildSitemap(existingLastmod, touch);

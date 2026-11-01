@@ -461,15 +461,19 @@ function buildPreview({ root = ROOT, outRoot = root, registry = loadRegistry(roo
   return files.map(([rel]) => rel);
 }
 
-// Sitemap hook, deliberately unused until Session 5. buildSitemap() in build-locales.js is
-// meant to call this and emit one <url> per entry, each with its own alternates. Until then
-// no sheet URL may enter the sitemap.
+// One entry per published page, for buildSitemap() in build-locales.js. Alternates list the
+// locales where that sheet is published; x-default is the EN page when EN is published.
 function printableSheetSitemapEntries(registry = loadRegistry()) {
   const pages = planPages(registry, { mode: 'published' });
-  return pages.map((p) => ({
-    loc: `${SITE}${p.path}`,
-    alternates: pages.filter((a) => a.row.id === p.row.id).map((a) => ({ hreflang: a.locale, href: `${SITE}${a.path}` })),
-  }));
+  return pages.map((p) => {
+    const cluster = pages.filter((a) => a.row.id === p.row.id);
+    const en = cluster.find((a) => a.locale === 'en');
+    return {
+      loc: `${SITE}${p.path}`,
+      alternates: cluster.map((a) => ({ hreflang: a.locale, href: `${SITE}${a.path}` }))
+        .concat(en ? [{ hreflang: 'x-default', href: `${SITE}${en.path}` }] : []),
+    };
+  });
 }
 
 function parseListArg(argv, name) {

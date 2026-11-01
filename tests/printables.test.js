@@ -119,7 +119,7 @@ test('registry: words match the text each hub shows for that PDF', () => {
     const html = fs.readFileSync(path.join(ROOT, P.HUB_PATHS[locale].slice(1), 'index.html'), 'utf8');
     for (const row of registry()) {
       const e = row.locales[locale];
-      const re = new RegExp(`href="${e.pdf}"[^>]*>\\s*<img[^>]*>\\s*<span class="sheet-word">([^<]*)</span>`);
+      const re = new RegExp(`<img src="${e.thumb}"[^>]*>\\s*<span class="sheet-word">([^<]*)</span>`);
       const m = re.exec(html);
       assert.ok(m, `${e.pdf} not on the ${locale} hub`);
       assert.equal(m[1], e.words.join(' / '), `${row.id} ${locale}`);
@@ -127,10 +127,10 @@ test('registry: words match the text each hub shows for that PDF', () => {
   }
 });
 
-test('registry: nothing is published, and copy exists only for the EN + DE pilot', () => {
+test('registry: published set is exactly the 30 pilot pages, and copy exists only for them', () => {
   for (const row of registry()) {
     for (const locale of P.LOCALE_ORDER) {
-      assert.equal(row.locales[locale].published, false, `${row.id} ${locale}`);
+      assert.equal(row.locales[locale].published, isPilot(row, locale), `${row.id} ${locale}`);
       if (isPilot(row, locale)) assert.ok(P.hasCopy(row.locales[locale]), `${row.id} ${locale}`);
       else assert.equal(row.locales[locale].copy, '', `${row.id} ${locale}`);
     }
@@ -167,8 +167,14 @@ test('slugs: transliteration rules', () => {
 
 // ---------------------------------------------------------------- publishing gate
 
-function withPublished(id, locale, copy) {
+function allUnpublished() {
   const rows = registry();
+  for (const row of rows) for (const locale of P.LOCALE_ORDER) row.locales[locale].published = false;
+  return rows;
+}
+
+function withPublished(id, locale, copy) {
+  const rows = allUnpublished();
   const e = rows.find((r) => r.id === id).locales[locale];
   e.published = true;
   e.copy = copy;
@@ -203,14 +209,9 @@ test('published build writes an indexable page once copy exists', () => {
 
 test('zero published rows: normal build writes nothing, sitemap hook is empty', () => {
   const out = tmp();
-  assert.deepEqual(P.buildPublished({ root: ROOT, outRoot: out }), []);
+  assert.deepEqual(P.buildPublished({ root: ROOT, outRoot: out, registry: allUnpublished() }), []);
   assert.deepEqual(fs.readdirSync(out), []);
-  assert.deepEqual(P.printableSheetSitemapEntries(registry()), []);
-});
-
-test('sitemap: no sheet URL is registered yet', () => {
-  const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
-  assert.ok(!/-(coloring-page|ausmalbild|fisa-de-colorat|ficha-para-colorear)\//.test(sitemap));
+  assert.deepEqual(P.printableSheetSitemapEntries(allUnpublished()), []);
 });
 
 // ---------------------------------------------------------------- preview
@@ -544,6 +545,135 @@ test('pilot copy: no quoted respellings of German words on EN pages', () => {
 test('pilot copy: no unsourced generalisations about children', () => {
   const re = /viele kinder|vielen kindern|kinder lieben|die meisten kinder|most kids|most children|many kids|many children|children love|kids love/i;
   for (const { row, locale, text } of pilotCopies()) assert.ok(!re.test(text), row.id + ' ' + locale + ': ' + re.exec(text));
+});
+
+// ---------------------------------------------------------------- live pilot
+
+const SITE = 'https://flipandlearn.app';
+const SHEET_URL = /-(coloring-page|ausmalbild|fisa-de-colorat|ficha-para-colorear)\/$/;
+const pagePath = (locale, entry) => P.HUB_PATHS[locale] + entry.slug + '/';
+const readRoot = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
+const readHub = (locale) => readRoot(P.HUB_PATHS[locale].slice(1) + 'index.html');
+function publishedPages() {
+  const out = [];
+  for (const row of registry()) {
+    for (const locale of P.LOCALE_ORDER) {
+      if (row.locales[locale].published) out.push({ row, locale, entry: row.locales[locale], path: pagePath(locale, row.locales[locale]) });
+    }
+  }
+  return out;
+}
+
+test('live pages: one at the real path for every published page, and no orphans', () => {
+  const published = publishedPages().map((p) => p.path).sort();
+  assert.equal(published.length, 30);
+  const found = [];
+  for (const locale of P.LOCALE_ORDER) {
+    const hubDir = path.join(ROOT, P.HUB_PATHS[locale]);
+    for (const name of fs.readdirSync(hubDir, { withFileTypes: true })) {
+      if (name.isDirectory()) found.push(P.HUB_PATHS[locale] + name.name + '/');
+    }
+  }
+  assert.deepEqual(found.sort(), published);
+  for (const p of published) assert.ok(fs.existsSync(path.join(ROOT, p, 'index.html')), p);
+});
+
+test('live pages: indexable, with beacon, consent, hreflang, self canonical and real links', () => {
+  for (const { row, locale, entry, path: p } of publishedPages()) {
+    const html = readRoot(p.slice(1) + 'index.html');
+    assert.match(html, /<meta name="robots" content="index,follow">/, p);
+    assert.ok(html.includes('cloudflareinsights'), p + ' beacon');
+    assert.ok(html.includes('__flLoadGtag') && html.includes("'store_click'"), p + ' consent');
+    assert.ok(!html.includes('COPY PENDING') && !html.includes('PREVIEW'), p);
+    assert.ok(!html.includes(P.PREVIEW_DIR), p + ' preview path');
+    assert.equal(canonical(html), SITE + p);
+    assert.deepEqual(hreflangs(html), [
+      { lang: 'en', href: SITE + pagePath('en', row.locales.en) },
+      { lang: 'de', href: SITE + pagePath('de', row.locales.de) },
+      { lang: 'x-default', href: SITE + pagePath('en', row.locales.en) },
+    ], p);
+    assert.ok(html.includes('href="' + entry.pdf + '"'), p + ' pdf');
+    for (const m of html.matchAll(/<a class="sheet" href="([^"]+)"/g)) {
+      assert.ok(fs.existsSync(path.join(ROOT, m[1], 'index.html')), p + ' sibling ' + m[1]);
+    }
+    assert.equal((html.match(/<a class="sheet" href=/g) || []).length, COUNTS[row.category] - 1, p);
+  }
+});
+
+test('sitemap: exactly the 30 sheet URLs, with reciprocal alternates and x-default', () => {
+  const blocks = readRoot('sitemap.xml').match(/<url>[\s\S]*?<\/url>/g);
+  const sheets = new Map();
+  for (const b of blocks) {
+    const loc = /<loc>([^<]+)<\/loc>/.exec(b)[1];
+    if (SHEET_URL.test(loc)) sheets.set(loc, b);
+  }
+  const pages = publishedPages();
+  assert.deepEqual([...sheets.keys()].sort(), pages.map((p) => SITE + p.path).sort());
+  const alternates = (b) => [...b.matchAll(/hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => [m[1], m[2]]);
+  for (const { row, path: p } of pages) {
+    const b = sheets.get(SITE + p);
+    assert.match(b, /<changefreq>monthly<\/changefreq>\s*<priority>0\.6<\/priority>/, p);
+    const en = SITE + pagePath('en', row.locales.en);
+    const de = SITE + pagePath('de', row.locales.de);
+    assert.deepEqual(alternates(b), [['en', en], ['de', de], ['x-default', en]], p);
+  }
+  for (const row of registry()) {
+    for (const locale of P.LOCALE_ORDER) {
+      if (!row.locales[locale].published) assert.ok(!sheets.has(SITE + pagePath(locale, row.locales[locale])), row.id + ' ' + locale);
+    }
+  }
+});
+
+test('hubs: pilot cards link to existing sheet pages and keep the PDF download', () => {
+  for (const locale of ['en', 'de']) {
+    const html = readHub(locale);
+    for (const row of registry()) {
+      const e = row.locales[locale];
+      if (e.published) {
+        const card = new RegExp('<div class="sheet">\\s*<a class="sheet-link" href="' + pagePath(locale, e) + '">\\s*<img src="' + e.thumb + '"[^>]*>\\s*<span class="sheet-word">[^<]*</span>\\s*</a>\\s*<span class="sheet-meta">[^<]*</span>\\s*<a class="sheet-dl" href="' + e.pdf + '" download type="application/pdf"');
+        assert.match(html, card, row.id + ' ' + locale);
+        assert.ok(fs.existsSync(path.join(ROOT, pagePath(locale, e), 'index.html')), row.id);
+      } else {
+        assert.match(html, new RegExp('<a class="sheet" href="' + e.pdf + '" download type="application/pdf">'), row.id + ' ' + locale);
+      }
+    }
+    assert.ok(!/<a\b[^>]*>(?:(?!<\/a>)[\s\S])*<a\b/.test(html.slice(html.indexOf('<main>'), html.indexOf('</main>'))), locale + ': nested links');
+  }
+});
+
+test('hubs: ItemList uses sheet URLs for the pilot, PDFs for the other 20, and the count matches', () => {
+  for (const locale of ['en', 'de']) {
+    const list = jsonLd(readHub(locale))[0].mainEntity;
+    assert.equal(list.numberOfItems, 35);
+    assert.equal(list.itemListElement.length, 35);
+    const urls = list.itemListElement.map((i) => i.url);
+    for (const row of registry()) {
+      const e = row.locales[locale];
+      assert.ok(urls.includes(SITE + (isPilot(row, locale) ? pagePath(locale, e) : e.pdf)), row.id + ' ' + locale);
+    }
+    assert.equal(urls.filter((u) => u.endsWith('.pdf')).length, 20, locale);
+    assert.equal(urls.filter((u) => SHEET_URL.test(u)).length, 15, locale);
+    for (const u of urls.filter((v) => SHEET_URL.test(v))) {
+      assert.ok(fs.existsSync(path.join(ROOT, new URL(u).pathname, 'index.html')), u);
+    }
+  }
+});
+
+test('RO and ES hubs have no sheet links and keep all 35 PDF URLs', () => {
+  for (const locale of ['ro', 'es']) {
+    const html = readHub(locale);
+    assert.ok(!html.includes('class="sheet-link"'), locale);
+    const list = jsonLd(html)[0].mainEntity;
+    assert.equal(list.numberOfItems, list.itemListElement.length, locale);
+    assert.ok(list.itemListElement.every((i) => i.url.endsWith('.pdf')), locale);
+  }
+});
+
+test('CI workflow runs the build, the drift comparison and these tests', () => {
+  const yml = readRoot('.github/workflows/build-drift.yml');
+  const order = ['node build-locales.js', 'git diff --quiet', 'node --test tests/printables.test.js'].map((c) => yml.indexOf(c));
+  assert.ok(order.every((n) => n >= 0), order.join());
+  assert.ok(order[0] < order[1] && order[1] < order[2], order.join());
 });
 
 // ---------------------------------------------------------------- drift
