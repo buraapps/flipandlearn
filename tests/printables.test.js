@@ -18,6 +18,10 @@ const APP_TITLES = {
   ro: 'Flip & Learn: Joc de cuvinte',
   es: 'Flip & Learn: Juego de cartas',
 };
+const PILOT_CATEGORIES = ['animals', 'numbers'];
+const PILOT_LOCALES = ['en', 'de'];
+const isPilot = (row, locale) => PILOT_CATEGORIES.includes(row.category) && PILOT_LOCALES.includes(locale);
+const SAMPLE_COPY = { intro: 'First paragraph.', tracingTips: 'Second paragraph.', activityIdeas: ['One idea.', 'Another idea.'] };
 const COUNTS = { animals: 5, fruits: 5, vegetables: 5, nature: 5, numbers: 10, halloween: 5 };
 
 function decode(s) {
@@ -123,11 +127,12 @@ test('registry: words match the text each hub shows for that PDF', () => {
   }
 });
 
-test('registry: nothing is published and every copy slot is empty this session', () => {
+test('registry: nothing is published, and copy exists only for the EN + DE pilot', () => {
   for (const row of registry()) {
     for (const locale of P.LOCALE_ORDER) {
       assert.equal(row.locales[locale].published, false, `${row.id} ${locale}`);
-      assert.equal(row.locales[locale].copy, '', `${row.id} ${locale}`);
+      if (isPilot(row, locale)) assert.ok(P.hasCopy(row.locales[locale]), `${row.id} ${locale}`);
+      else assert.equal(row.locales[locale].copy, '', `${row.id} ${locale}`);
     }
   }
 });
@@ -171,7 +176,7 @@ function withPublished(id, locale, copy) {
 }
 
 test('published build refuses a page with empty copy and writes nothing', () => {
-  for (const copy of ['', '   \n ']) {
+  for (const copy of ['', '   \n ', {}, { intro: 'x', tracingTips: ' ', activityIdeas: ['y'] }, { intro: 'x', tracingTips: 'y', activityIdeas: [] }, { intro: 'x', tracingTips: 'y', activityIdeas: [''] }]) {
     const out = tmp();
     assert.throws(
       () => P.buildPublished({ root: ROOT, outRoot: out, registry: withPublished('animals-01', 'en', copy) }),
@@ -183,11 +188,12 @@ test('published build refuses a page with empty copy and writes nothing', () => 
 
 test('published build writes an indexable page once copy exists', () => {
   const out = tmp();
-  const written = P.buildPublished({ root: ROOT, outRoot: out, registry: withPublished('animals-01', 'en', 'First paragraph.\n\nSecond paragraph.') });
+  const written = P.buildPublished({ root: ROOT, outRoot: out, registry: withPublished('animals-01', 'en', SAMPLE_COPY) });
   assert.deepEqual(written, ['en/printables/cat-coloring-page/index.html']);
   const html = fs.readFileSync(path.join(out, written[0]), 'utf8');
   assert.match(html, /<meta name="robots" content="index,follow">/);
   assert.ok(html.includes('<p>First paragraph.</p>') && html.includes('<p>Second paragraph.</p>'));
+  assert.ok(html.includes('<li>One idea.</li>') && html.includes('<li>Another idea.</li>'));
   assert.ok(!html.includes('COPY PENDING') && !html.includes('PREVIEW'));
   assert.ok(html.includes('cloudflareinsights'), 'published pages keep the hub analytics tag');
   // Nothing else is published: no hreflang or link to an unbuilt page.
@@ -221,11 +227,19 @@ test('preview: pilot writes 30 pages plus a contact sheet that links them all', 
   assert.match(contact, /noindex,nofollow/);
 });
 
-test('preview: noindex, visible COPY PENDING, no analytics beacon, links stay real', () => {
+test('preview: rows without copy show a visible COPY PENDING, pilot rows do not', () => {
+  const pending = sheetPages(readPreview({ locales: ['en', 'de'], categories: ['fruits'] }).pages);
+  assert.equal(pending.length, 10);
+  for (const [rel, html] of pending) assert.ok(visibleText(html).includes('COPY PENDING'), rel);
+  const written = sheetPages(readPreview({ locales: ['en', 'de'], categories: PILOT_CATEGORIES }).pages);
+  assert.equal(written.length, 30);
+  for (const [rel, html] of written) assert.ok(!html.includes('COPY PENDING'), rel);
+});
+
+test('preview: noindex, no analytics beacon, links stay real', () => {
   const { pages, out } = readPreview({ locales: ['en', 'de'], categories: ['animals', 'numbers'] });
   for (const [rel, html] of sheetPages(pages)) {
     assert.match(html, /<meta name="robots" content="noindex,nofollow">/, rel);
-    assert.ok(visibleText(html).includes('COPY PENDING'), rel);
     assert.ok(!html.includes('cloudflareinsights'), rel);
     // Sibling links resolve inside the preview tree; local assets exist in the site root.
     for (const m of html.matchAll(/<a class="sheet" href="([^"]+)"/g)) {
@@ -427,6 +441,109 @@ test('all S locales have the same keys, and appName is the Play title', () => {
     assert.equal(S[locale].appName, APP_TITLES[locale], locale);
     for (const k of keys) assert.ok(S[locale][k], `${locale}.${k}`);
   }
+});
+
+// ---------------------------------------------------------------- pilot copy
+
+function pilotCopies() {
+  const out = [];
+  for (const row of registry()) {
+    if (!PILOT_CATEGORIES.includes(row.category)) continue;
+    for (const locale of PILOT_LOCALES) {
+      const c = row.locales[locale].copy;
+      out.push({ row, locale, copy: c, text: [c.intro, c.tracingTips, ...c.activityIdeas].join(' ') });
+    }
+  }
+  return out;
+}
+
+test('pilot copy: 30 pages within 100 to 220 words, with 2 or 3 ideas each', () => {
+  const copies = pilotCopies();
+  assert.equal(copies.length, 30);
+  for (const { row, locale, copy, text } of copies) {
+    const n = P.copyWordCount(copy);
+    assert.equal(n, text.trim().split(/\s+/).length);
+    assert.ok(n >= 100 && n <= 220, `${row.id} ${locale}: ${n} words`);
+    assert.ok(copy.activityIdeas.length >= 2 && copy.activityIdeas.length <= 3, `${row.id} ${locale}`);
+  }
+});
+
+test('pilot copy: names both of the sheet\'s own words as whole words', () => {
+  for (const { row, locale, text } of pilotCopies()) {
+    for (const word of row.locales[locale].words) {
+      const re = new RegExp(`(?<!\\p{L})${word}(?!\\p{L})`, 'iu');
+      assert.match(text, re, `${row.id} ${locale}: ${word}`);
+    }
+  }
+});
+
+test('pilot copy: near-duplicate guard, word 3-gram Jaccard below 0.35 in each locale', () => {
+  const grams = (text) => {
+    const w = text.toLocaleLowerCase().match(/[\p{L}\p{N}]+/gu);
+    const s = new Set();
+    for (let i = 0; i + 2 < w.length; i++) s.add(w.slice(i, i + 3).join(' '));
+    return s;
+  };
+  for (const locale of PILOT_LOCALES) {
+    const items = pilotCopies().filter((c) => c.locale === locale).map((c) => ({ id: c.row.id, g: grams(c.text) }));
+    assert.equal(items.length, 15);
+    let top = { v: 0 };
+    for (let i = 0; i < items.length; i++) {
+      for (let j = i + 1; j < items.length; j++) {
+        const shared = [...items[i].g].filter((x) => items[j].g.has(x)).length;
+        const v = shared / (items[i].g.size + items[j].g.size - shared);
+        if (v > top.v) top = { v, a: items[i].id, b: items[j].id };
+        assert.ok(v < 0.35, `${locale} ${items[i].id} vs ${items[j].id}: ${v}`);
+      }
+    }
+    console.log(`highest 3-gram Jaccard ${locale}: ${top.v.toFixed(4)} (${top.a} vs ${top.b})`);
+  }
+});
+
+test('pilot copy: no banned terms, efficacy claims or emoji; app named at most once', () => {
+  const banned = [/memory/i, /gedächtnis/i, /completely free/i, /komplett kostenlos/i, /völlig kostenlos/i, /will learn/i, /wird lernen/i, /lernt schnell/i, /master/i, /guarantee/i, /garantiert/i, /improve/i, /verbesser/i, /beherrsch/i, /\p{Extended_Pictographic}/u];
+  for (const { row, locale, text } of pilotCopies()) {
+    for (const re of banned) assert.ok(!re.test(text), `${row.id} ${locale}: ${re}`);
+    assert.ok(text.split('Flip & Learn').length - 1 <= 1, `${row.id} ${locale}: app named more than once`);
+    if (text.includes('Flip & Learn')) assert.ok(text.includes(APP_TITLES[locale]), `${row.id} ${locale}`);
+  }
+});
+
+test('pilot copy: German register is Sie, with no du forms', () => {
+  const du = /(?<!\p{L})(du|dein|deine|deinem|deinen|deiner|dir|dich)(?!\p{L})/iu;
+  for (const { row, locale, text } of pilotCopies()) {
+    if (locale === 'de') assert.ok(!du.test(text), `${row.id}: ${du.exec(text)}`);
+  }
+});
+
+test('copy review lists all 30 pilot copies grouped by sheet, EN and DE side by side', () => {
+  const md = P.renderCopyReview(registry(), { locales: PILOT_LOCALES, categories: PILOT_CATEGORIES });
+  assert.equal((md.match(/^## /gm) || []).length, 15);
+  assert.equal((md.match(/^\| \| EN \(\d+ words\) \| DE \(\d+ words\) \|$/gm) || []).length, 15);
+  for (const { copy } of pilotCopies()) assert.ok(md.includes(copy.intro));
+});
+
+test('pilot copy: no German-style respellings of English words on DE pages', () => {
+  const words = 'faiw|äit|nain|wann|tu|tri|for|siks|sewen|tän|dack';
+  const re = new RegExp('(?:„|klingt[^.]{0,40}?\\s|ausgesprochen[^.]{0,40}?\\s|wie\\s+)(?:' + words + ')(?!\\p{L})', 'iu');
+  for (const { row, locale, text } of pilotCopies()) {
+    if (locale === 'de') assert.ok(!re.test(text), row.id + ': ' + re.exec(text));
+  }
+});
+
+test('pilot copy: no quoted respellings of German words on EN pages', () => {
+  const hyphenated = /\p{L}+-\p{L}+/u; // Checked inside each quoted pair, so "High-five" outside quotes is fine.
+  const known = /"(hoont|shvine|ines|tsvy|tsayn|dry|feer|zeks|noyn)"/i;
+  for (const { row, locale, text } of pilotCopies()) {
+    if (locale !== 'en') continue;
+    for (const [quoted] of text.matchAll(/"[^"]*"/g)) assert.ok(!hyphenated.test(quoted), row.id + ': ' + quoted);
+    assert.ok(!known.test(text), row.id + ': ' + known.exec(text));
+  }
+});
+
+test('pilot copy: no unsourced generalisations about children', () => {
+  const re = /viele kinder|vielen kindern|kinder lieben|die meisten kinder|most kids|most children|many kids|many children|children love|kids love/i;
+  for (const { row, locale, text } of pilotCopies()) assert.ok(!re.test(text), row.id + ' ' + locale + ': ' + re.exec(text));
 });
 
 // ---------------------------------------------------------------- drift

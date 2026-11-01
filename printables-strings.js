@@ -20,7 +20,7 @@
  *     speaker's review before any RO or ES page is published.
  *
  * Per-sheet copy does not live here. It goes in the sheet's "copy" slot in
- * printables/sheets.json.
+ * printables/sheets.json as { intro, tracingTips, activityIdeas: [...] }.
  */
 const S = {
   en: {
@@ -38,7 +38,9 @@ const S = {
     downloadMeta: 'A4, one page, PDF',
     backToHub: 'All worksheets',
     breadcrumbHub: 'Printable worksheets',
-    copyHeading: 'How to use this sheet',
+    copyHeading: 'About this sheet',
+    tipsHeading: 'Tracing tips for these letters',
+    ideasHeading: 'Ways to use it with your child',
     moreHeading: 'More from {category}',
     printHeading: 'How to print it',
     printText: 'Print at 100 percent with no scaling, so the tracing letters come out at the size they were drawn for. Black and white is fine.',
@@ -61,7 +63,9 @@ const S = {
     downloadMeta: 'A4, eine Seite, PDF',
     backToHub: 'Alle Ausmalbilder',
     breadcrumbHub: 'Ausmalbilder',
-    copyHeading: 'So nutzen Sie dieses Blatt',
+    copyHeading: 'Über dieses Blatt',
+    tipsHeading: 'Tipps zum Nachspuren',
+    ideasHeading: 'Ideen für Sie und Ihr Kind',
     moreHeading: 'Mehr aus der Kategorie {category}',
     printHeading: 'So drucken Sie das Blatt',
     printText: 'Drucken Sie mit 100 Prozent und ohne Skalierung, dann stimmen die Buchstabengrößen. Schwarz-Weiß reicht aus.',
@@ -84,7 +88,9 @@ const S = {
     downloadMeta: 'A4, o pagină, PDF',
     backToHub: 'Toate fișele',
     breadcrumbHub: 'Fișe de colorat',
-    copyHeading: 'Cum folosești această fișă',
+    copyHeading: 'Despre această fișă',
+    tipsHeading: 'Sfaturi pentru scris',
+    ideasHeading: 'Idei de folosit cu copilul',
     moreHeading: 'Mai multe din categoria {category}',
     printHeading: 'Cum printezi fișa',
     printText: 'Printează la 100%, fără scalare, ca literele să iasă exact la mărimea la care au fost desenate. Alb-negru este suficient.',
@@ -107,7 +113,9 @@ const S = {
     downloadMeta: 'A4, una página, PDF',
     backToHub: 'Todas las fichas',
     breadcrumbHub: 'Fichas para colorear',
-    copyHeading: 'Cómo usar esta ficha',
+    copyHeading: 'Sobre esta ficha',
+    tipsHeading: 'Consejos para repasar las letras',
+    ideasHeading: 'Ideas para usarla con tu hijo',
     moreHeading: 'Más de {category}',
     printHeading: 'Cómo imprimir la ficha',
     printText: 'Imprime al 100 %, sin escalar, para que las letras salgan al tamaño con el que se dibujaron. Basta con blanco y negro.',

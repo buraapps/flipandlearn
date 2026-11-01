@@ -13,7 +13,15 @@
         ],
         "slug": "cat-coloring-page",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Two identical cats sit side by side at the top of this sheet with an equals sign between them, ready to color. Under them are two words in large outline capitals: the German KATZE and the English CAT. For an English-speaking family, CAT is the familiar one and Katze is the new word, two letters longer.",
+          "tracingTips": "K is the letter to watch here. The stem comes first, then stroke 2 starts at the top right, runs in to the stem and back out to the bottom. Z is one continuous zigzag, so it can help to say \"across, slant, across\" while the pencil moves. The C in CAT is also a single stroke, curving around from its numbered dot.",
+          "activityIdeas": [
+            "Color both cats in exactly the same colors, so the sheet shows a true matching pair.",
+            "Hunt for the letters A and T, which appear in both words.",
+            "Meow together, then say \"cat\" and \"Katze\" in turn."
+          ]
+        }
       },
       "de": {
         "pdf": "/printables/flipandlearn_animals_01_katze_cat.pdf",
@@ -24,7 +32,15 @@
         ],
         "slug": "katze-ausmalbild",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Oben auf dem Blatt sitzen zwei gleiche Katzen, dazwischen steht ein Gleichheitszeichen. Darunter folgen die Wörter KATZE und CAT in großen Umrissbuchstaben. Das deutsche Wort kennt Ihr Kind vermutlich längst, das englische kommt neu dazu und ist mit drei Buchstaben angenehm kurz.",
+          "tracingTips": "Beim K lohnt ein genauer Blick: Erst entsteht der senkrechte Strich, danach führt der zweite Zug von rechts oben zum Strich hin und wieder hinaus nach rechts unten. Das Z wird ohne Absetzen geschrieben, also hin, schräg zurück und noch einmal hin. Beim T zeigt das Blatt zuerst den senkrechten Strich, der Querstrich kommt als Nummer 2. Das C von CAT ist ein einziger runder Bogen.",
+          "activityIdeas": [
+            "Eine Katze im Bilderbuch oder auf einem Foto suchen und dabei beide Wörter aussprechen.",
+            "Gemeinsam schauen, welche Buchstaben in beiden Wörtern vorkommen: A und T.",
+            "Beide Katzen genau gleich ausmalen, damit sie wirklich ein Paar bleiben."
+          ]
+        }
       },
       "ro": {
         "pdf": "/printables/ro-de/flipandlearn_animale_01_pisica_katze.pdf",
@@ -64,7 +80,15 @@
         ],
         "slug": "dog-coloring-page",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "This sheet has a matching pair of puppies, each with floppy ears, a collar and a patch around one eye. Below the pictures, your child traces the German word HUND and the English word DOG, both in big capital outlines. The D at the end of Hund sounds like a T.",
+          "tracingTips": "D appears in both words and is built the same way each time: straight stem first, then the bowl as stroke 2. O and G both start near the top and travel around as one stroke, so a slow, steady pencil suits them. In HUND, the U is a single smooth dip, while the N takes three separate strokes, each with its own number.",
+          "activityIdeas": [
+            "Bark, then say \"dog\" and \"Hund\" one after the other.",
+            "Decide on a coat color together and use it for both puppies.",
+            "Spot a dog on a walk or in a picture book and name it in both languages."
+          ]
+        }
       },
       "de": {
         "pdf": "/printables/flipandlearn_animals_02_hund_dog.pdf",
@@ -75,7 +99,15 @@
         ],
         "slug": "hund-ausmalbild",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Zwei gleiche Hunde mit Schlappohren, Halsband und einem Fleck ums Auge warten darauf, bunt zu werden. Darunter steht HUND für die deutsche Zeile und DOG für die englische. Beide Wörter sind kurz, und das D verbindet sie: HUND endet damit, DOG beginnt damit.",
+          "tracingTips": "Das H besteht aus drei Zügen: zwei senkrechte Striche und erst zum Schluss die Verbindung in der Mitte. Beim N zeigen die Ziffern 1, 2 und 3, dass der Stift zweimal abgesetzt wird. Das G von DOG entsteht dagegen in einem Schwung, und auch das O wird nicht unterbrochen. Lassen Sie Ihr Kind vor dem Stift ruhig einmal mit dem Finger die Pfeile entlangfahren.",
+          "activityIdeas": [
+            "Wie macht der Hund? Erst bellen, dann „Hund“ und „dog“ sagen.",
+            "Im Bilderbuch nach Hunden suchen und zählen, wie viele zu finden sind.",
+            "Dem ausgemalten Hund einen Namen geben und ihn neben das Bild schreiben lassen, wenn Ihr Kind schon möchte."
+          ]
+        }
       },
       "ro": {
         "pdf": "/printables/ro-de/flipandlearn_animale_02_caine_hund.pdf",
@@ -115,7 +147,15 @@
         ],
         "slug": "rabbit-coloring-page",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Long ears, big front teeth and round feet make the two rabbits on this sheet fun to color. They are identical, with an equals sign between them. The tracing section shows HASE in German and RABBIT in English. Hase has two letters fewer than the English word beneath it.",
+          "tracingTips": "RABBIT has a double B, and each B takes three strokes: the stem, the top bump, then the bottom bump. R adds one more step: stem, bowl, then a third stroke for the leg. In HASE, the S is drawn in one go from its numbered dot, curving one way and then the other. The E needs four strokes, so it may be worth a pause between each.",
+          "activityIdeas": [
+            "Hop across the room, saying \"rabbit\" on one hop and \"Hase\" on the next.",
+            "Count the ears, feet and front teeth on one rabbit before coloring.",
+            "Pick out the two B letters in RABBIT and color around them with a favorite crayon."
+          ]
+        }
       },
       "de": {
         "pdf": "/printables/flipandlearn_animals_03_hase_rabbit.pdf",
@@ -126,7 +166,15 @@
         ],
         "slug": "hase-ausmalbild",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Die beiden Hasen auf diesem Blatt haben lange Ohren, große Vorderzähne und sehen genau gleich aus. Unter den Bildern stehen HASE und RABBIT. Die beiden Wörter haben nur einen Buchstaben gemeinsam, das A. Beim Sprechen liegt die Betonung von „rabbit“ auf der ersten Silbe.",
+          "tracingTips": "Im Wort RABBIT steht das B gleich zweimal: erst der Strich, dann der obere Bogen, zuletzt der untere. Das R braucht drei Züge, wobei das schräge Bein als letztes an die Reihe kommt. Das S von HASE ist der kniffligere Teil der oberen Zeile, denn es wechselt mitten im Schwung die Richtung. Wer mag, malt es zuerst groß in die Luft.",
+          "activityIdeas": [
+            "Wie ein Hase durchs Zimmer hoppeln und bei jedem Sprung ein Wort rufen.",
+            "Am Bild abzählen: zwei Ohren, zwei Vorderzähne, wie viele Pfoten?",
+            "Eine Möhre danebenmalen und überlegen, wie der Hase wohl heißen könnte."
+          ]
+        }
       },
       "ro": {
         "pdf": "/printables/ro-de/flipandlearn_animale_03_iepure_hase.pdf",
@@ -166,7 +214,15 @@
         ],
         "slug": "duck-coloring-page",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "A pair of matching ducks with flat bills and pointed tails fills the top half of this page. Beneath them, the sheet asks for two words: ENTE, the German word for duck, and DUCK itself. The two share no letters at all, which makes this a nice sheet for comparing how different the same animal can look on paper.",
+          "tracingTips": "ENTE opens and closes with the same four-stroke E, so the second one is a chance to repeat the order just used. The T goes stem first, with the top bar following as stroke 2. In DUCK, the U dips and rises without a break, and the K has a second stroke that touches the stem at its middle before heading away again.",
+          "activityIdeas": [
+            "Waddle around the table and quack before saying each word.",
+            "Talk about which colors a duck might be, then color both ducks the same way.",
+            "Compare the words side by side and check that no letter appears in both."
+          ]
+        }
       },
       "de": {
         "pdf": "/printables/flipandlearn_animals_04_ente_duck.pdf",
@@ -177,7 +233,15 @@
         ],
         "slug": "ente-ausmalbild",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Zwei gleiche Enten mit breitem Schnabel und spitzem Schwanz warten auf Farbe. In den Zeilen darunter stehen ENTE und DUCK. Das E taucht im deutschen Wort gleich zweimal auf. Im englischen Wort DUCK kommt kein einziger Buchstabe aus ENTE vor.",
+          "tracingTips": "Das E braucht vier Züge: den senkrechten Strich und dann drei Querstriche von oben nach unten. Weil es am Anfang und am Ende von ENTE steht, kann Ihr Kind beim zweiten Mal den gleichen Ablauf wiederholen. Beim C und beim U bleibt der Stift auf dem Papier, das K von DUCK besteht aus zwei Zügen. Zeigen Sie Ihrem Kind dort den Start rechts oben.",
+          "activityIdeas": [
+            "Wie eine Ente watscheln und dabei „quak“ sagen, danach beide Wörter.",
+            "Bei einem Spaziergang am Teich nach Enten Ausschau halten und das Blatt später aus dem Kopf ausmalen.",
+            "Ein Bild mit Wasser ergänzen, auf dem beide Enten schwimmen."
+          ]
+        }
       },
       "ro": {
         "pdf": "/printables/ro-de/flipandlearn_animale_04_rata_ente.pdf",
@@ -217,7 +281,15 @@
         ],
         "slug": "pig-coloring-page",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Round bodies, big ears and little tails: the two pigs on this sheet are simple shapes that leave plenty of room for coloring. Under them, SCHWEIN is the German word and PIG the English one. With seven letters, Schwein fills the whole line, while PIG looks very short by comparison.",
+          "tracingTips": "SCHWEIN starts with S and C, two curved letters in a row, each drawn as one stroke. The W is one long zigzag from its first numbered dot, so it may help to trace it slowly with a finger first. The letters on this line are a little smaller to fit. In PIG, the P is a stem and a bowl, and the G curves around in a single movement.",
+          "activityIdeas": [
+            "Oink together, then clap once for \"pig\" and once for \"Schwein\".",
+            "Color the two pigs pink, or choose any other color and see how funny they look.",
+            "Find the letter I, which is in both words, and circle it each time."
+          ]
+        }
       },
       "de": {
         "pdf": "/printables/flipandlearn_animals_05_schwein_pig.pdf",
@@ -228,7 +300,15 @@
         ],
         "slug": "schwein-ausmalbild",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Dieses Blatt zeigt zwei gleiche Schweine mit großen Ohren, runden Bäuchen und einem kleinen Schwanz. Die Formen sind groß und rund, also gut auch für dickere Stifte geeignet. Unten stehen SCHWEIN und PIG. Das deutsche Wort ist sieben Buchstaben lang, das englische nur drei, und dieser Unterschied fällt gleich auf.",
+          "tracingTips": "SCHWEIN ist eine längere Strecke für kleine Hände, eine Pause nach SCH oder nach dem W ist also kein Problem. Das W entsteht in einem einzigen Zickzack, ohne Absetzen. Das N am Wortende hat drei nummerierte Züge. Bei PIG kommt beim P zuerst der Strich und dann der Bogen, das G läuft in einem Zug bis zum Querstrich.",
+          "activityIdeas": [
+            "Grunzen wie ein Schwein und danach beide Wörter sagen.",
+            "Die Buchstaben von SCHWEIN abklatschen und zählen, wie viele es sind, dann dasselbe mit PIG.",
+            "Überlegen, welche Tiere noch auf einem Bauernhof leben, und sie auf die Rückseite malen."
+          ]
+        }
       },
       "ro": {
         "pdf": "/printables/ro-de/flipandlearn_animale_05_porc_schwein.pdf",
@@ -1033,7 +1113,15 @@
         ],
         "slug": "one-coloring-page",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "A huge outlined 1 stands on the left, an equals sign in the middle and a single large apple on the right. It is the simplest sheet in the numbers set: one digit, one apple. Below that, your child traces EINS, German for one, and the English ONE.",
+          "tracingTips": "The big digit is an outline to color and has no arrows, so the tracing happens in the words below it. In ONE, the O goes around in one stroke from its numbered dot. The N takes three strokes. EINS finishes with an S, which changes direction halfway, so going slowly there is sensible.",
+          "activityIdeas": [
+            "Put one real apple on the table next to the sheet and say both words.",
+            "Hold up one finger, then ask your child to find just one spoon, one sock, one book.",
+            "Color the apple in a real apple color, such as red, green or yellow."
+          ]
+        }
       },
       "de": {
         "pdf": "/printables/flipandlearn_numbers_01_eins_one.pdf",
@@ -1044,7 +1132,15 @@
         ],
         "slug": "eins-ausmalbild",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Links die große 1 zum Ausmalen, rechts genau ein Apfel, dazwischen ein Gleichheitszeichen: So einfach beginnt die Zahlenreihe. Darunter stehen EINS und ONE. Das englische Wort wird ganz anders gesprochen, als man es nach dem Schriftbild erwarten würde. Sprechen Sie es Ihrem Kind einfach einmal vor.",
+          "tracingTips": "Die 1 selbst ist eine Ausmalfläche ohne Pfeile. Das I von EINS ist ein einziger Zug, das S wechselt unterwegs die Richtung und darf ruhig langsam entstehen. In ONE läuft das O rundherum in einem Zug, bis es wieder am Startpunkt ankommt.",
+          "activityIdeas": [
+            "Einen echten Apfel neben das Blatt legen und gemeinsam „eins, one“ sagen.",
+            "Durch die Wohnung gehen und Dinge suchen, die es nur einmal gibt, etwa die Haustür.",
+            "Einen Finger hochhalten und das Wort dazu sagen, zuerst auf Deutsch, danach auf Englisch."
+          ]
+        }
       },
       "ro": {
         "pdf": "/printables/ro-de/flipandlearn_numere_01_unu_eins.pdf",
@@ -1084,7 +1180,15 @@
         ],
         "slug": "two-coloring-page",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "The digit 2 sits beside two apples, one above the other, so the picture itself shows what the number means. Your child colors both panels, then moves down the page to ZWEI in German and TWO in English. The German Z is a sharper sound than the English one. TWO is the short one here, and its W stays silent when you say it.",
+          "tracingTips": "Z and W sit next to each other at the start of ZWEI, and both are one-stroke zigzags, so the word opens with plenty of sharp turns. In TWO, the T starts with its stem and adds the top bar second. The big 2 is an outline with no arrows. If your child wants to write one on spare paper, one option is a curve over the top, a slant down to the left, then a flat line along the bottom.",
+          "activityIdeas": [
+            "Find pairs around the house: two shoes, two gloves, two socks.",
+            "Clap twice, then say \"two\" and \"zwei\".",
+            "Point to your own eyes, ears and hands and count each pair together."
+          ]
+        }
       },
       "de": {
         "pdf": "/printables/flipandlearn_numbers_02_zwei_two.pdf",
@@ -1095,7 +1199,15 @@
         ],
         "slug": "zwei-ausmalbild",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Neben der großen 2 liegen zwei Äpfel übereinander. Ihr Kind malt Zahl und Äpfel aus und spurt danach die Wörter ZWEI und TWO nach. Das W in TWO ist ein schöner Gesprächsanlass, denn man schreibt es, spricht es aber nicht.",
+          "tracingTips": "ZWEI beginnt mit zwei Zickzack-Buchstaben hintereinander, die jeweils ohne Absetzen entstehen. Nach dem W wirkt das E mit seinen vier Zügen geradezu ruhig. Für die Ziffer selbst gibt es auf dem Blatt keine Pfeile, weil sie zum Ausmalen gedacht ist. Wenn Ihr Kind sie frei schreiben möchte, ist das eine Möglichkeit: Bogen oben, schräg nach unten, unten flach zur Seite. Das T von TWO zeigt wieder zuerst den senkrechten Strich.",
+          "activityIdeas": [
+            "Paare suchen: zwei Schuhe, zwei Handschuhe, zwei Ohren.",
+            "Zweimal in die Hände klatschen und anschließend „zwei“ und „two“ rufen.",
+            "Zwei Löffel auf den Tisch legen und fragen, was passiert, wenn einer fehlt."
+          ]
+        }
       },
       "ro": {
         "pdf": "/printables/ro-de/flipandlearn_numere_02_doi_zwei.pdf",
@@ -1135,7 +1247,15 @@
         ],
         "slug": "three-coloring-page",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Three apples are arranged in a little triangle next to a large outlined 3. After coloring them, your child moves on to DREI and THREE. THREE is noticeably longer than DREI, and the two words share the letters R and E.",
+          "tracingTips": "THREE ends with a double E, which means eight strokes in a row, so a short break before the last letter is fine. The H has its crossbar as stroke 3, after both uprights. D in DREI starts with the stem, then the bowl. The big 3 is for coloring only and has no arrows. To write one on another sheet, show your child two bumps facing right, one on top of the other.",
+          "activityIdeas": [
+            "Count three things in the room, such as three chairs or three cushions.",
+            "Set three pieces of fruit in a triangle like the apples on the page.",
+            "Jump three times, saying \"drei\" on the last jump and \"three\" on the next round."
+          ]
+        }
       },
       "de": {
         "pdf": "/printables/flipandlearn_numbers_03_drei_three.pdf",
@@ -1146,7 +1266,15 @@
         ],
         "slug": "drei-ausmalbild",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Zur großen 3 gehören hier drei Äpfel, die wie ein kleines Dreieck angeordnet sind. Darunter stehen DREI und THREE. Das englische TH ist für deutsche Ohren ungewohnt: Die Zunge liegt dabei kurz zwischen den Zähnen. Probieren Sie es gemeinsam vor dem Spiegel aus.",
+          "tracingTips": "Bei THREE stehen am Ende zwei E hintereinander, jedes mit vier Zügen. Eine kurze Pause davor schadet nicht. Das R hat drei Züge, das schräge Bein kommt zuletzt und beginnt in der Mitte. Beim H wird erst die Verbindung gezogen, wenn beide Striche stehen. Die Ziffer 3 auf dem Blatt ist ausschließlich zum Ausmalen da; zum freien Schreiben zeigen Sie Ihrem Kind zwei Bäuche übereinander.",
+          "activityIdeas": [
+            "Drei Dinge im Zimmer zählen, zum Beispiel Stühle, Kissen oder Bücher.",
+            "Drei Äpfel oder Bauklötze so legen wie auf dem Blatt.",
+            "Gemeinsam vor dem Spiegel „three“ sagen und die Zungenspitze suchen."
+          ]
+        }
       },
       "ro": {
         "pdf": "/printables/ro-de/flipandlearn_numere_03_trei_drei.pdf",
@@ -1186,7 +1314,15 @@
         ],
         "slug": "four-coloring-page",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Four apples in two neat rows match the big 4 on this page, which is drawn with a closed top. Under the pictures are VIER and FOUR. The V in Vier sounds like an English F, which makes it an interesting comparison with the F at the start of FOUR. Both words also end in the letter R.",
+          "tracingTips": "V in VIER is one stroke, down to the point and straight back up, with no lifting of the pencil. R closes both words and takes three strokes: stem, bowl, then the leg from the middle. F has a stem and two bars. The digit outline carries no arrows, so it is purely for coloring.",
+          "activityIdeas": [
+            "Count the legs on a chair, a table or a toy animal.",
+            "Line up four crayons, then use those four colors for the four apples.",
+            "Tap four corners of the sheet, saying \"vier\" or \"four\" at the end."
+          ]
+        }
       },
       "de": {
         "pdf": "/printables/flipandlearn_numbers_04_vier_four.pdf",
@@ -1197,7 +1333,15 @@
         ],
         "slug": "vier-ausmalbild",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Vier Äpfel, ordentlich in zwei Reihen, stehen der großen 4 gegenüber. Beim Nachspuren geht es um VIER und FOUR. Beide Wörter enden mit R. Dass das deutsche V hier wie ein F klingt, während FOUR tatsächlich mit F geschrieben wird, passt gut zu einem kleinen Gespräch über Laute.",
+          "tracingTips": "Das V entsteht in einem Zug: schräg hinunter zur Spitze und schräg wieder hinauf. Beim F gibt es drei Züge, den Strich und zwei Querstriche. Das U läuft als durchgehender Bogen. Die 4 hat auf diesem Blatt eine geschlossene Spitze und keine Pfeile.",
+          "activityIdeas": [
+            "An Tisch oder Stuhl die Beine zählen.",
+            "Vier Stifte aussuchen und jedem Apfel eine eigene Farbe geben.",
+            "Auf allen vieren durchs Zimmer krabbeln und dabei „vier, four“ sagen."
+          ]
+        }
       },
       "ro": {
         "pdf": "/printables/ro-de/flipandlearn_numere_04_patru_vier.pdf",
@@ -1237,7 +1381,15 @@
         ],
         "slug": "five-coloring-page",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Five apples, in two pairs with one more underneath, sit next to a tall outlined 5. This is the only numbers sheet with an umlaut: FÜNF has two dots above the U, each with its own number. Under it comes FIVE. The Ü has no direct English match, so an easy approach is to say \"ee\" with rounded lips.",
+          "tracingTips": "FÜNF has two F letters with three strokes each. The U is drawn first as one curve, and the dots follow as strokes 2 and 3, so they are the last part of that letter. In FIVE, the V is a single down-and-up, and the E finishes with four strokes. The digit is an outline only, with no arrows.",
+          "activityIdeas": [
+            "Spread out one hand and count the fingers in both languages.",
+            "Press a fingertip in paint or ink to make the two dots above the U.",
+            "High-five once, then say \"five\" and \"fünf\"."
+          ]
+        }
       },
       "de": {
         "pdf": "/printables/flipandlearn_numbers_05_fuenf_five.pdf",
@@ -1248,7 +1400,15 @@
         ],
         "slug": "fuenf-ausmalbild",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Fünf Äpfel und eine große 5 bilden das Paar auf diesem Blatt. Bei den Wörtern FÜNF und FIVE fällt sofort auf, dass beide mit F beginnen. Das deutsche Wort trägt zusätzlich die beiden Punkte über dem U. Ausgesprochen klingt FIVE deutlich anders, als es geschrieben aussieht.",
+          "tracingTips": "Hier lohnt der Blick auf die Ziffern über dem Ü: Erst wird das U gezogen, danach kommen die zwei Punkte als Nummer 2 und 3. Das F erscheint in FÜNF gleich zweimal, also bietet das zweite F direkt Gelegenheit zur Wiederholung. Das I von FIVE ist ein einziger Strich. Die große 5 hat keine Pfeile und ist nur zum Ausmalen gedacht.",
+          "activityIdeas": [
+            "Die Finger einer Hand abzählen, einmal auf Deutsch und einmal auf Englisch.",
+            "Mit fünf Fingern abklatschen und dabei „five“ rufen.",
+            "Die Hand auf ein leeres Blatt legen, umfahren und jeden Finger nummerieren."
+          ]
+        }
       },
       "ro": {
         "pdf": "/printables/ro-de/flipandlearn_numere_05_cinci_fuenf.pdf",
@@ -1288,7 +1448,15 @@
         ],
         "slug": "six-coloring-page",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Six apples stand in three rows of two next to a large 6. Beneath them are SECHS and SIX. The German word Sechs begins with a buzzing sound, like an English Z, even though it is spelled with S. S also opens the English word.",
+          "tracingTips": "SECHS has an S at each end and each one is a single, direction-changing stroke, so this word offers two tries. X in SIX is two separate diagonal lines: the first from the top left, the second from the top right. C flows in one stroke. There are no arrows on the big digit. If your child wants to write a 6 on spare paper, one option is a long curve from the top down into a small loop.",
+          "activityIdeas": [
+            "Count six eggs in a carton, or six of anything that comes in rows.",
+            "Roll a die until a six appears, then say both words.",
+            "Color each row of apples differently so the two-two-two pattern stands out."
+          ]
+        }
       },
       "de": {
         "pdf": "/printables/flipandlearn_numbers_06_sechs_six.pdf",
@@ -1299,7 +1467,15 @@
         ],
         "slug": "sechs-ausmalbild",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Die Äpfel liegen hier in drei Zweierreihen neben der großen 6. Das bietet schon beim Ausmalen etwas zum Zählen. In den Schreibzeilen stehen SECHS und SIX, zwei Wörter, die nicht nur gleich anfangen, sondern auch ähnlich klingen. Das macht dieses Blatt zu einem freundlichen Einstieg in die englische Zahl.",
+          "tracingTips": "Das S steht in SECHS am Anfang und am Ende. Es entsteht in einem Schwung und wechselt dabei einmal die Richtung, was sich vorab groß in der Luft ausprobieren lässt. Das H bekommt seinen Querstrich als Letztes. In SIX besteht das X aus zwei Zügen, die sich in der Mitte treffen. Die 6 ist eine Ausmalfläche; frei geschrieben kann sie oben mit einem großen Bogen beginnen und unten als Schlaufe schließen.",
+          "activityIdeas": [
+            "Einen Würfel rollen, bis die Sechs kommt, und dann beide Wörter rufen.",
+            "Im Eierkarton sechs Mulden abzählen oder sechs Bauklötze in Zweierreihen legen.",
+            "Die Apfelreihen unterschiedlich ausmalen und nachzählen: zwei, vier, sechs."
+          ]
+        }
       },
       "ro": {
         "pdf": "/printables/ro-de/flipandlearn_numere_06_sase_sechs.pdf",
@@ -1339,7 +1515,15 @@
         ],
         "slug": "seven-coloring-page",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "A plain, angular 7 faces seven apples set out in rows of three, two and two. The German SIEBEN and English SEVEN on this sheet look like close relatives: both open with S and contain E and N. The two words make a good pair for comparing letter by letter.",
+          "tracingTips": "SIEBEN has a B in the middle, drawn in three numbered strokes: the stem, the top bump, then the bottom bump. V in SEVEN goes down and up in one stroke, and this line has two E letters of four strokes each. The S at the start of each word is a single curve. The outlined 7 is for coloring and has no arrows.",
+          "activityIdeas": [
+            "Name the seven days of the week while pointing to each apple in turn.",
+            "Trace S, E and N in one color wherever they appear in both words.",
+            "Lay out seven buttons or coins in the same three-two-two pattern."
+          ]
+        }
       },
       "de": {
         "pdf": "/printables/flipandlearn_numbers_07_sieben_seven.pdf",
@@ -1350,7 +1534,15 @@
         ],
         "slug": "sieben-ausmalbild",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Die große 7 besteht nur aus einem Dach und einer langen Schräge, daneben liegen sieben Äpfel in drei Reihen. Unten folgen SIEBEN und SEVEN. Die Ähnlichkeit ist hier kaum zu übersehen, und das englische V in SEVEN spricht man wie das deutsche W. Sprechen Sie beide Wörter gemeinsam laut nacheinander.",
+          "tracingTips": "SIEBEN ist eines der längeren Wörter der Zahlenreihe, zwischendurch innehalten ist also ausdrücklich erlaubt. Das B hat drei Züge: den Strich, den oberen Bogen und den unteren Bogen. Das N am Ende hat wieder drei Züge. Bei SEVEN kommt das V ohne Absetzen aus, und zwei E wollen je vier Züge. Die 7 auf dem Blatt ist nur zum Ausmalen und hat keine Pfeile.",
+          "activityIdeas": [
+            "Die sieben Wochentage aufsagen und bei jedem einen Apfel antippen.",
+            "Die sieben Zwerge aus dem Märchen aufzählen, so weit es klappt.",
+            "Sieben Knöpfe in drei Reihen legen, genau wie die Äpfel."
+          ]
+        }
       },
       "ro": {
         "pdf": "/printables/ro-de/flipandlearn_numere_07_sapte_sieben.pdf",
@@ -1390,7 +1582,15 @@
         ],
         "slug": "eight-coloring-page",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "A rounded 8 with two holes sits beside eight apples in rows of three, two and three. Below them, ACHT and EIGHT appear as outlines to trace. Acht has the throaty German \"ch\" sound, a bit like clearing your throat softly. Try it aloud together. Both words end with the letters H and T.",
+          "tracingTips": "In EIGHT, the G is the letter to watch. It runs around in one stroke, then H and T follow, each with its numbers. In ACHT, A has two sloping strokes from the top and a crossbar as stroke 3. The big digit has no arrows. On another piece of paper, one way your child can write an 8 is to draw an S and curve back up to the start.",
+          "activityIdeas": [
+            "Look for eight in real life, such as the legs on a toy spider.",
+            "Walk or drive a toy car around a big 8 taped to the floor.",
+            "Underline H and T in both words and count how many letters are left."
+          ]
+        }
       },
       "de": {
         "pdf": "/printables/flipandlearn_numbers_08_acht_eight.pdf",
@@ -1401,7 +1601,15 @@
         ],
         "slug": "acht-ausmalbild",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Die Acht mit ihren beiden Löchern steht acht Äpfeln in drei Reihen gegenüber. Die Wörter ACHT und EIGHT sehen auf den ersten Blick sehr verschieden aus, enden aber beide auf H und T. In der englischen Variante hört man das G und das H gar nicht.",
+          "tracingTips": "Das A hat drei Züge: zwei schräge Linien von der Spitze und der Querstrich zuletzt. Das G in EIGHT läuft in einem Zug und braucht einen ruhigen Stift. Das T zeigt auch hier zuerst den senkrechten Strich. Die Ziffer hat keine Pfeile; frei geschrieben kann die 8 wie ein S entstehen, das am Ende nach oben zurück zum Anfang findet.",
+          "activityIdeas": [
+            "Mit dem Finger oder einem Spielzeugauto eine große Acht auf den Boden fahren.",
+            "Die Beine einer Spielzeugspinne zählen, falls eine im Kinderzimmer wohnt.",
+            "Die Buchstaben H und T in beiden Wörtern einkreisen und vergleichen."
+          ]
+        }
       },
       "ro": {
         "pdf": "/printables/ro-de/flipandlearn_numere_08_opt_acht.pdf",
@@ -1441,7 +1649,15 @@
         ],
         "slug": "nine-coloring-page",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Nine apples make a tidy three-by-three square next to a 9 with a curved tail. The words below are NEUN and NINE, two words with a lot in common: each has two N letters and an E.",
+          "tracingTips": "With four N letters across the two words, this sheet gives plenty of practice at its three strokes: first upright, then the diagonal, then the second upright. Point out the numbered dots to your child, because the diagonal starts back at the top. U in NEUN is a single curve. The big 9 is a coloring shape without arrows. On spare paper, your child could start with a small circle and then add the tail.",
+          "activityIdeas": [
+            "Count the apples by rows: three, six, nine.",
+            "Make a square of nine stickers or blocks on the table.",
+            "Find every N in both words and trace it again with a finger."
+          ]
+        }
       },
       "de": {
         "pdf": "/printables/flipandlearn_numbers_09_neun_nine.pdf",
@@ -1452,7 +1668,15 @@
         ],
         "slug": "neun-ausmalbild",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Drei mal drei Äpfel ergeben ein Quadrat neben der großen 9. Das Wortpaar NEUN und NINE ist ein dankbares Thema: beide beginnen mit N und haben noch ein zweites N. Beim Aussprechen unterscheiden sie sich in der Mitte, und genau das lässt sich gut gemeinsam vergleichen.",
+          "tracingTips": "Das N kommt hier viermal vor und hat immer die gleiche Reihenfolge: links hinunter, von oben schräg nach unten rechts, zuletzt rechts hinunter. Wer die Ziffern 1, 2 und 3 beim ersten N mitspricht, kann sie beim nächsten wiederfinden. Das I von NINE ist ein einzelner Strich. Die 9 hat einen geschwungenen Schwanz und keine Pfeile; frei geschrieben kann sie mit dem kleinen Kreis beginnen.",
+          "activityIdeas": [
+            "Die Äpfel in Dreierschritten zählen: drei, sechs, neun.",
+            "Aus neun Bauklötzen ein Quadrat bauen.",
+            "Alle N mit dem Finger nachfahren und dabei laut mitzählen."
+          ]
+        }
       },
       "ro": {
         "pdf": "/printables/ro-de/flipandlearn_numere_09_noua_neun.pdf",
@@ -1492,7 +1716,15 @@
         ],
         "slug": "ten-coloring-page",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "The last sheet of the numbers set has two digits instead of one: a 1 and a 0, side by side, with ten apples opposite in rows of three, two, three and two. ZEHN and TEN sit below. Zehn begins with the same sharp Z sound as Zwei. TEN is the shortest word on the numbers sheets, tied with ONE, TWO and SIX.",
+          "tracingTips": "Z in ZEHN is a single zigzag, and H gets its crossbar last. In TEN, T starts with its stem and adds the top bar next. N takes three strokes in both words. The digits on the sheet are for coloring and have no arrows. To write 10 on spare paper, your child can do the 1 first, then a 0 that begins at the top and comes back around to where it started.",
+          "activityIdeas": [
+            "Hold up all ten fingers and count them in English and German.",
+            "Count ten steps across the room, then back again in German.",
+            "Put ten small snacks in rows like the apples and count them as they go."
+          ]
+        }
       },
       "de": {
         "pdf": "/printables/flipandlearn_numbers_10_zehn_ten.pdf",
@@ -1503,7 +1735,15 @@
         ],
         "slug": "zehn-ausmalbild",
         "published": false,
-        "copy": ""
+        "copy": {
+          "intro": "Zum Abschluss der Zahlenreihe stehen zwei Ziffern im linken Feld: die 1 und die 0, rechts daneben zehn Äpfel. Darunter folgen ZEHN und TEN. Das englische Wort ist kurz und klingt fast wie geschrieben, das deutsche beginnt mit dem scharfen Z. Beide Wörter teilen sich E und N.",
+          "tracingTips": "Das Z kommt ohne Absetzen aus, auch wenn es zweimal scharf die Richtung ändert. Beim H der oberen Zeile wird die Verbindung als Letztes eingesetzt. Das T beginnt laut Ziffern mit dem senkrechten Strich, der Querstrich folgt danach. Für die 10 gibt es keine Pfeile, weil sie ausgemalt wird. Beim freien Schreiben entsteht zuerst die 1, dann die 0, die oben startet und dorthin zurückkehrt.",
+          "activityIdeas": [
+            "Alle zehn Finger hochhalten und gemeinsam zählen, auf Deutsch und auf Englisch.",
+            "Zehn Schritte durch den Flur gehen und bei jedem Schritt eine Zahl sagen.",
+            "Zehn Kekse oder Bauklötze in Reihen legen wie die Äpfel auf dem Blatt."
+          ]
+        }
       },
       "ro": {
         "pdf": "/printables/ro-de/flipandlearn_numere_10_zece_zehn.pdf",
