@@ -1,0 +1,1787 @@
+[
+  {
+    "id": "animals-01",
+    "category": "animals",
+    "index": 1,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_animals_01_katze_cat.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_animals_01_katze_cat.webp",
+        "words": [
+          "Cat",
+          "Katze"
+        ],
+        "slug": "cat-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_animals_01_katze_cat.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_animals_01_katze_cat.webp",
+        "words": [
+          "Katze",
+          "Cat"
+        ],
+        "slug": "katze-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_animale_01_pisica_katze.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_animale_01_pisica_katze.webp",
+        "words": [
+          "Pisică",
+          "Katze"
+        ],
+        "slug": "pisica-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_animales_01_gato_cat.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_animales_01_gato_cat.webp",
+        "words": [
+          "Gato",
+          "Cat"
+        ],
+        "slug": "gato-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "animals-02",
+    "category": "animals",
+    "index": 2,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_animals_02_hund_dog.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_animals_02_hund_dog.webp",
+        "words": [
+          "Dog",
+          "Hund"
+        ],
+        "slug": "dog-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_animals_02_hund_dog.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_animals_02_hund_dog.webp",
+        "words": [
+          "Hund",
+          "Dog"
+        ],
+        "slug": "hund-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_animale_02_caine_hund.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_animale_02_caine_hund.webp",
+        "words": [
+          "Câine",
+          "Hund"
+        ],
+        "slug": "caine-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_animales_02_perro_dog.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_animales_02_perro_dog.webp",
+        "words": [
+          "Perro",
+          "Dog"
+        ],
+        "slug": "perro-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "animals-03",
+    "category": "animals",
+    "index": 3,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_animals_03_hase_rabbit.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_animals_03_hase_rabbit.webp",
+        "words": [
+          "Rabbit",
+          "Hase"
+        ],
+        "slug": "rabbit-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_animals_03_hase_rabbit.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_animals_03_hase_rabbit.webp",
+        "words": [
+          "Hase",
+          "Rabbit"
+        ],
+        "slug": "hase-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_animale_03_iepure_hase.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_animale_03_iepure_hase.webp",
+        "words": [
+          "Iepure",
+          "Hase"
+        ],
+        "slug": "iepure-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_animales_03_conejo_rabbit.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_animales_03_conejo_rabbit.webp",
+        "words": [
+          "Conejo",
+          "Rabbit"
+        ],
+        "slug": "conejo-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "animals-04",
+    "category": "animals",
+    "index": 4,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_animals_04_ente_duck.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_animals_04_ente_duck.webp",
+        "words": [
+          "Duck",
+          "Ente"
+        ],
+        "slug": "duck-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_animals_04_ente_duck.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_animals_04_ente_duck.webp",
+        "words": [
+          "Ente",
+          "Duck"
+        ],
+        "slug": "ente-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_animale_04_rata_ente.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_animale_04_rata_ente.webp",
+        "words": [
+          "Rață",
+          "Ente"
+        ],
+        "slug": "rata-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_animales_04_pato_duck.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_animales_04_pato_duck.webp",
+        "words": [
+          "Pato",
+          "Duck"
+        ],
+        "slug": "pato-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "animals-05",
+    "category": "animals",
+    "index": 5,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_animals_05_schwein_pig.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_animals_05_schwein_pig.webp",
+        "words": [
+          "Pig",
+          "Schwein"
+        ],
+        "slug": "pig-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_animals_05_schwein_pig.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_animals_05_schwein_pig.webp",
+        "words": [
+          "Schwein",
+          "Pig"
+        ],
+        "slug": "schwein-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_animale_05_porc_schwein.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_animale_05_porc_schwein.webp",
+        "words": [
+          "Porc",
+          "Schwein"
+        ],
+        "slug": "porc-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_animales_05_cerdo_pig.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_animales_05_cerdo_pig.webp",
+        "words": [
+          "Cerdo",
+          "Pig"
+        ],
+        "slug": "cerdo-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "fruits-01",
+    "category": "fruits",
+    "index": 1,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_fruits_01_apfel_apple.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_fruits_01_apfel_apple.webp",
+        "words": [
+          "Apple",
+          "Apfel"
+        ],
+        "slug": "apple-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_fruits_01_apfel_apple.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_fruits_01_apfel_apple.webp",
+        "words": [
+          "Apfel",
+          "Apple"
+        ],
+        "slug": "apfel-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_fructe_01_mar_apfel.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_fructe_01_mar_apfel.webp",
+        "words": [
+          "Măr",
+          "Apfel"
+        ],
+        "slug": "mar-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_frutas_01_manzana_apple.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_frutas_01_manzana_apple.webp",
+        "words": [
+          "Manzana",
+          "Apple"
+        ],
+        "slug": "manzana-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "fruits-02",
+    "category": "fruits",
+    "index": 2,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_fruits_02_birne_pear.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_fruits_02_birne_pear.webp",
+        "words": [
+          "Pear",
+          "Birne"
+        ],
+        "slug": "pear-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_fruits_02_birne_pear.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_fruits_02_birne_pear.webp",
+        "words": [
+          "Birne",
+          "Pear"
+        ],
+        "slug": "birne-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_fructe_02_para_birne.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_fructe_02_para_birne.webp",
+        "words": [
+          "Pară",
+          "Birne"
+        ],
+        "slug": "para-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_frutas_02_pera_pear.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_frutas_02_pera_pear.webp",
+        "words": [
+          "Pera",
+          "Pear"
+        ],
+        "slug": "pera-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "fruits-03",
+    "category": "fruits",
+    "index": 3,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_fruits_03_kirsche_cherry.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_fruits_03_kirsche_cherry.webp",
+        "words": [
+          "Cherry",
+          "Kirsche"
+        ],
+        "slug": "cherry-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_fruits_03_kirsche_cherry.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_fruits_03_kirsche_cherry.webp",
+        "words": [
+          "Kirsche",
+          "Cherry"
+        ],
+        "slug": "kirsche-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_fructe_03_cireasa_kirsche.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_fructe_03_cireasa_kirsche.webp",
+        "words": [
+          "Cireașă",
+          "Kirsche"
+        ],
+        "slug": "cireasa-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_frutas_03_cereza_cherry.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_frutas_03_cereza_cherry.webp",
+        "words": [
+          "Cereza",
+          "Cherry"
+        ],
+        "slug": "cereza-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "fruits-04",
+    "category": "fruits",
+    "index": 4,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_fruits_04_zitrone_lemon.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_fruits_04_zitrone_lemon.webp",
+        "words": [
+          "Lemon",
+          "Zitrone"
+        ],
+        "slug": "lemon-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_fruits_04_zitrone_lemon.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_fruits_04_zitrone_lemon.webp",
+        "words": [
+          "Zitrone",
+          "Lemon"
+        ],
+        "slug": "zitrone-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_fructe_04_lamaie_zitrone.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_fructe_04_lamaie_zitrone.webp",
+        "words": [
+          "Lămâie",
+          "Zitrone"
+        ],
+        "slug": "lamaie-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_frutas_04_limon_lemon.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_frutas_04_limon_lemon.webp",
+        "words": [
+          "Limón",
+          "Lemon"
+        ],
+        "slug": "limon-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "fruits-05",
+    "category": "fruits",
+    "index": 5,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_fruits_05_traube_grape.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_fruits_05_traube_grape.webp",
+        "words": [
+          "Grape",
+          "Traube"
+        ],
+        "slug": "grape-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_fruits_05_traube_grape.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_fruits_05_traube_grape.webp",
+        "words": [
+          "Traube",
+          "Grape"
+        ],
+        "slug": "traube-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_fructe_05_strugure_traube.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_fructe_05_strugure_traube.webp",
+        "words": [
+          "Strugure",
+          "Traube"
+        ],
+        "slug": "strugure-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_frutas_05_uva_grape.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_frutas_05_uva_grape.webp",
+        "words": [
+          "Uva",
+          "Grape"
+        ],
+        "slug": "uva-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "vegetables-01",
+    "category": "vegetables",
+    "index": 1,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_vegetables_01_karotte_carrot.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_vegetables_01_karotte_carrot.webp",
+        "words": [
+          "Carrot",
+          "Karotte"
+        ],
+        "slug": "carrot-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_vegetables_01_karotte_carrot.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_vegetables_01_karotte_carrot.webp",
+        "words": [
+          "Karotte",
+          "Carrot"
+        ],
+        "slug": "karotte-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_legume_01_morcov_karotte.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_legume_01_morcov_karotte.webp",
+        "words": [
+          "Morcov",
+          "Karotte"
+        ],
+        "slug": "morcov-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_verduras_01_zanahoria_carrot.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_verduras_01_zanahoria_carrot.webp",
+        "words": [
+          "Zanahoria",
+          "Carrot"
+        ],
+        "slug": "zanahoria-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "vegetables-02",
+    "category": "vegetables",
+    "index": 2,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_vegetables_02_paprika_pepper.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_vegetables_02_paprika_pepper.webp",
+        "words": [
+          "Pepper",
+          "Paprika"
+        ],
+        "slug": "pepper-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_vegetables_02_paprika_pepper.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_vegetables_02_paprika_pepper.webp",
+        "words": [
+          "Paprika",
+          "Pepper"
+        ],
+        "slug": "paprika-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_legume_02_ardei_paprika.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_legume_02_ardei_paprika.webp",
+        "words": [
+          "Ardei",
+          "Paprika"
+        ],
+        "slug": "ardei-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_verduras_02_pimiento_pepper.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_verduras_02_pimiento_pepper.webp",
+        "words": [
+          "Pimiento",
+          "Pepper"
+        ],
+        "slug": "pimiento-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "vegetables-03",
+    "category": "vegetables",
+    "index": 3,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_vegetables_03_zwiebel_onion.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_vegetables_03_zwiebel_onion.webp",
+        "words": [
+          "Onion",
+          "Zwiebel"
+        ],
+        "slug": "onion-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_vegetables_03_zwiebel_onion.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_vegetables_03_zwiebel_onion.webp",
+        "words": [
+          "Zwiebel",
+          "Onion"
+        ],
+        "slug": "zwiebel-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_legume_03_ceapa_zwiebel.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_legume_03_ceapa_zwiebel.webp",
+        "words": [
+          "Ceapă",
+          "Zwiebel"
+        ],
+        "slug": "ceapa-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_verduras_03_cebolla_onion.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_verduras_03_cebolla_onion.webp",
+        "words": [
+          "Cebolla",
+          "Onion"
+        ],
+        "slug": "cebolla-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "vegetables-04",
+    "category": "vegetables",
+    "index": 4,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_vegetables_04_mais_corn.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_vegetables_04_mais_corn.webp",
+        "words": [
+          "Corn",
+          "Mais"
+        ],
+        "slug": "corn-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_vegetables_04_mais_corn.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_vegetables_04_mais_corn.webp",
+        "words": [
+          "Mais",
+          "Corn"
+        ],
+        "slug": "mais-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_legume_04_porumb_mais.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_legume_04_porumb_mais.webp",
+        "words": [
+          "Porumb",
+          "Mais"
+        ],
+        "slug": "porumb-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_verduras_04_maiz_corn.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_verduras_04_maiz_corn.webp",
+        "words": [
+          "Maíz",
+          "Corn"
+        ],
+        "slug": "maiz-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "vegetables-05",
+    "category": "vegetables",
+    "index": 5,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_vegetables_05_erbse_pea.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_vegetables_05_erbse_pea.webp",
+        "words": [
+          "Pea",
+          "Erbse"
+        ],
+        "slug": "pea-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_vegetables_05_erbse_pea.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_vegetables_05_erbse_pea.webp",
+        "words": [
+          "Erbse",
+          "Pea"
+        ],
+        "slug": "erbse-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_legume_05_mazare_erbse.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_legume_05_mazare_erbse.webp",
+        "words": [
+          "Mazăre",
+          "Erbse"
+        ],
+        "slug": "mazare-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_verduras_05_guisante_pea.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_verduras_05_guisante_pea.webp",
+        "words": [
+          "Guisante",
+          "Pea"
+        ],
+        "slug": "guisante-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "nature-01",
+    "category": "nature",
+    "index": 1,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_nature_01_sonne_sun.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_nature_01_sonne_sun.webp",
+        "words": [
+          "Sun",
+          "Sonne"
+        ],
+        "slug": "sun-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_nature_01_sonne_sun.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_nature_01_sonne_sun.webp",
+        "words": [
+          "Sonne",
+          "Sun"
+        ],
+        "slug": "sonne-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_natura_01_soare_sonne.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_natura_01_soare_sonne.webp",
+        "words": [
+          "Soare",
+          "Sonne"
+        ],
+        "slug": "soare-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_naturaleza_01_sol_sun.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_naturaleza_01_sol_sun.webp",
+        "words": [
+          "Sol",
+          "Sun"
+        ],
+        "slug": "sol-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "nature-02",
+    "category": "nature",
+    "index": 2,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_nature_02_baum_tree.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_nature_02_baum_tree.webp",
+        "words": [
+          "Tree",
+          "Baum"
+        ],
+        "slug": "tree-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_nature_02_baum_tree.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_nature_02_baum_tree.webp",
+        "words": [
+          "Baum",
+          "Tree"
+        ],
+        "slug": "baum-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_natura_02_copac_baum.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_natura_02_copac_baum.webp",
+        "words": [
+          "Copac",
+          "Baum"
+        ],
+        "slug": "copac-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_naturaleza_02_arbol_tree.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_naturaleza_02_arbol_tree.webp",
+        "words": [
+          "Árbol",
+          "Tree"
+        ],
+        "slug": "arbol-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "nature-03",
+    "category": "nature",
+    "index": 3,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_nature_03_blume_flower.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_nature_03_blume_flower.webp",
+        "words": [
+          "Flower",
+          "Blume"
+        ],
+        "slug": "flower-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_nature_03_blume_flower.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_nature_03_blume_flower.webp",
+        "words": [
+          "Blume",
+          "Flower"
+        ],
+        "slug": "blume-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_natura_03_floare_blume.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_natura_03_floare_blume.webp",
+        "words": [
+          "Floare",
+          "Blume"
+        ],
+        "slug": "floare-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_naturaleza_03_flor_flower.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_naturaleza_03_flor_flower.webp",
+        "words": [
+          "Flor",
+          "Flower"
+        ],
+        "slug": "flor-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "nature-04",
+    "category": "nature",
+    "index": 4,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_nature_04_wolke_cloud.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_nature_04_wolke_cloud.webp",
+        "words": [
+          "Cloud",
+          "Wolke"
+        ],
+        "slug": "cloud-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_nature_04_wolke_cloud.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_nature_04_wolke_cloud.webp",
+        "words": [
+          "Wolke",
+          "Cloud"
+        ],
+        "slug": "wolke-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_natura_04_nor_wolke.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_natura_04_nor_wolke.webp",
+        "words": [
+          "Nor",
+          "Wolke"
+        ],
+        "slug": "nor-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_naturaleza_04_nube_cloud.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_naturaleza_04_nube_cloud.webp",
+        "words": [
+          "Nube",
+          "Cloud"
+        ],
+        "slug": "nube-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "nature-05",
+    "category": "nature",
+    "index": 5,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_nature_05_stern_star.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_nature_05_stern_star.webp",
+        "words": [
+          "Star",
+          "Stern"
+        ],
+        "slug": "star-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_nature_05_stern_star.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_nature_05_stern_star.webp",
+        "words": [
+          "Stern",
+          "Star"
+        ],
+        "slug": "stern-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_natura_05_stea_stern.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_natura_05_stea_stern.webp",
+        "words": [
+          "Stea",
+          "Stern"
+        ],
+        "slug": "stea-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_naturaleza_05_estrella_star.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_naturaleza_05_estrella_star.webp",
+        "words": [
+          "Estrella",
+          "Star"
+        ],
+        "slug": "estrella-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "numbers-01",
+    "category": "numbers",
+    "index": 1,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_numbers_01_eins_one.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_01_eins_one.webp",
+        "words": [
+          "One",
+          "Eins"
+        ],
+        "slug": "one-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_numbers_01_eins_one.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_01_eins_one.webp",
+        "words": [
+          "Eins",
+          "One"
+        ],
+        "slug": "eins-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_numere_01_unu_eins.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_numere_01_unu_eins.webp",
+        "words": [
+          "Unu",
+          "Eins"
+        ],
+        "slug": "unu-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_numeros_01_uno_one.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_numeros_01_uno_one.webp",
+        "words": [
+          "Uno",
+          "One"
+        ],
+        "slug": "uno-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "numbers-02",
+    "category": "numbers",
+    "index": 2,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_numbers_02_zwei_two.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_02_zwei_two.webp",
+        "words": [
+          "Two",
+          "Zwei"
+        ],
+        "slug": "two-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_numbers_02_zwei_two.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_02_zwei_two.webp",
+        "words": [
+          "Zwei",
+          "Two"
+        ],
+        "slug": "zwei-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_numere_02_doi_zwei.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_numere_02_doi_zwei.webp",
+        "words": [
+          "Doi",
+          "Zwei"
+        ],
+        "slug": "doi-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_numeros_02_dos_two.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_numeros_02_dos_two.webp",
+        "words": [
+          "Dos",
+          "Two"
+        ],
+        "slug": "dos-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "numbers-03",
+    "category": "numbers",
+    "index": 3,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_numbers_03_drei_three.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_03_drei_three.webp",
+        "words": [
+          "Three",
+          "Drei"
+        ],
+        "slug": "three-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_numbers_03_drei_three.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_03_drei_three.webp",
+        "words": [
+          "Drei",
+          "Three"
+        ],
+        "slug": "drei-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_numere_03_trei_drei.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_numere_03_trei_drei.webp",
+        "words": [
+          "Trei",
+          "Drei"
+        ],
+        "slug": "trei-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_numeros_03_tres_three.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_numeros_03_tres_three.webp",
+        "words": [
+          "Tres",
+          "Three"
+        ],
+        "slug": "tres-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "numbers-04",
+    "category": "numbers",
+    "index": 4,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_numbers_04_vier_four.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_04_vier_four.webp",
+        "words": [
+          "Four",
+          "Vier"
+        ],
+        "slug": "four-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_numbers_04_vier_four.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_04_vier_four.webp",
+        "words": [
+          "Vier",
+          "Four"
+        ],
+        "slug": "vier-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_numere_04_patru_vier.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_numere_04_patru_vier.webp",
+        "words": [
+          "Patru",
+          "Vier"
+        ],
+        "slug": "patru-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_numeros_04_cuatro_four.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_numeros_04_cuatro_four.webp",
+        "words": [
+          "Cuatro",
+          "Four"
+        ],
+        "slug": "cuatro-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "numbers-05",
+    "category": "numbers",
+    "index": 5,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_numbers_05_fuenf_five.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_05_fuenf_five.webp",
+        "words": [
+          "Five",
+          "Fünf"
+        ],
+        "slug": "five-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_numbers_05_fuenf_five.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_05_fuenf_five.webp",
+        "words": [
+          "Fünf",
+          "Five"
+        ],
+        "slug": "fuenf-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_numere_05_cinci_fuenf.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_numere_05_cinci_fuenf.webp",
+        "words": [
+          "Cinci",
+          "Fünf"
+        ],
+        "slug": "cinci-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_numeros_05_cinco_five.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_numeros_05_cinco_five.webp",
+        "words": [
+          "Cinco",
+          "Five"
+        ],
+        "slug": "cinco-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "numbers-06",
+    "category": "numbers",
+    "index": 6,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_numbers_06_sechs_six.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_06_sechs_six.webp",
+        "words": [
+          "Six",
+          "Sechs"
+        ],
+        "slug": "six-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_numbers_06_sechs_six.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_06_sechs_six.webp",
+        "words": [
+          "Sechs",
+          "Six"
+        ],
+        "slug": "sechs-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_numere_06_sase_sechs.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_numere_06_sase_sechs.webp",
+        "words": [
+          "Șase",
+          "Sechs"
+        ],
+        "slug": "sase-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_numeros_06_seis_six.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_numeros_06_seis_six.webp",
+        "words": [
+          "Seis",
+          "Six"
+        ],
+        "slug": "seis-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "numbers-07",
+    "category": "numbers",
+    "index": 7,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_numbers_07_sieben_seven.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_07_sieben_seven.webp",
+        "words": [
+          "Seven",
+          "Sieben"
+        ],
+        "slug": "seven-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_numbers_07_sieben_seven.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_07_sieben_seven.webp",
+        "words": [
+          "Sieben",
+          "Seven"
+        ],
+        "slug": "sieben-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_numere_07_sapte_sieben.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_numere_07_sapte_sieben.webp",
+        "words": [
+          "Șapte",
+          "Sieben"
+        ],
+        "slug": "sapte-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_numeros_07_siete_seven.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_numeros_07_siete_seven.webp",
+        "words": [
+          "Siete",
+          "Seven"
+        ],
+        "slug": "siete-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "numbers-08",
+    "category": "numbers",
+    "index": 8,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_numbers_08_acht_eight.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_08_acht_eight.webp",
+        "words": [
+          "Eight",
+          "Acht"
+        ],
+        "slug": "eight-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_numbers_08_acht_eight.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_08_acht_eight.webp",
+        "words": [
+          "Acht",
+          "Eight"
+        ],
+        "slug": "acht-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_numere_08_opt_acht.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_numere_08_opt_acht.webp",
+        "words": [
+          "Opt",
+          "Acht"
+        ],
+        "slug": "opt-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_numeros_08_ocho_eight.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_numeros_08_ocho_eight.webp",
+        "words": [
+          "Ocho",
+          "Eight"
+        ],
+        "slug": "ocho-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "numbers-09",
+    "category": "numbers",
+    "index": 9,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_numbers_09_neun_nine.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_09_neun_nine.webp",
+        "words": [
+          "Nine",
+          "Neun"
+        ],
+        "slug": "nine-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_numbers_09_neun_nine.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_09_neun_nine.webp",
+        "words": [
+          "Neun",
+          "Nine"
+        ],
+        "slug": "neun-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_numere_09_noua_neun.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_numere_09_noua_neun.webp",
+        "words": [
+          "Nouă",
+          "Neun"
+        ],
+        "slug": "noua-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_numeros_09_nueve_nine.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_numeros_09_nueve_nine.webp",
+        "words": [
+          "Nueve",
+          "Nine"
+        ],
+        "slug": "nueve-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "numbers-10",
+    "category": "numbers",
+    "index": 10,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_numbers_10_zehn_ten.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_10_zehn_ten.webp",
+        "words": [
+          "Ten",
+          "Zehn"
+        ],
+        "slug": "ten-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_numbers_10_zehn_ten.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_numbers_10_zehn_ten.webp",
+        "words": [
+          "Zehn",
+          "Ten"
+        ],
+        "slug": "zehn-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_numere_10_zece_zehn.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_numere_10_zece_zehn.webp",
+        "words": [
+          "Zece",
+          "Zehn"
+        ],
+        "slug": "zece-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_numeros_10_diez_ten.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_numeros_10_diez_ten.webp",
+        "words": [
+          "Diez",
+          "Ten"
+        ],
+        "slug": "diez-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "halloween-01",
+    "category": "halloween",
+    "index": 1,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_halloween_01_kuerbis_pumpkin.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_halloween_01_kuerbis_pumpkin.webp",
+        "words": [
+          "Pumpkin",
+          "Kürbis"
+        ],
+        "slug": "pumpkin-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_halloween_01_kuerbis_pumpkin.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_halloween_01_kuerbis_pumpkin.webp",
+        "words": [
+          "Kürbis",
+          "Pumpkin"
+        ],
+        "slug": "kuerbis-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_halloween_01_dovleac_kuerbis.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_halloween_01_dovleac_kuerbis.webp",
+        "words": [
+          "Dovleac",
+          "Kürbis"
+        ],
+        "slug": "dovleac-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_halloween_01_calabaza_pumpkin.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_halloween_01_calabaza_pumpkin.webp",
+        "words": [
+          "Calabaza",
+          "Pumpkin"
+        ],
+        "slug": "calabaza-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "halloween-02",
+    "category": "halloween",
+    "index": 2,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_halloween_02_hexe_witch.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_halloween_02_hexe_witch.webp",
+        "words": [
+          "Witch",
+          "Hexe"
+        ],
+        "slug": "witch-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_halloween_02_hexe_witch.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_halloween_02_hexe_witch.webp",
+        "words": [
+          "Hexe",
+          "Witch"
+        ],
+        "slug": "hexe-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_halloween_02_vrajitoare_hexe.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_halloween_02_vrajitoare_hexe.webp",
+        "words": [
+          "Vrăjitoare",
+          "Hexe"
+        ],
+        "slug": "vrajitoare-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_halloween_02_bruja_witch.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_halloween_02_bruja_witch.webp",
+        "words": [
+          "Bruja",
+          "Witch"
+        ],
+        "slug": "bruja-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "halloween-03",
+    "category": "halloween",
+    "index": 3,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_halloween_03_geist_ghost.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_halloween_03_geist_ghost.webp",
+        "words": [
+          "Ghost",
+          "Geist"
+        ],
+        "slug": "ghost-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_halloween_03_geist_ghost.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_halloween_03_geist_ghost.webp",
+        "words": [
+          "Geist",
+          "Ghost"
+        ],
+        "slug": "geist-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_halloween_03_stafie_geist.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_halloween_03_stafie_geist.webp",
+        "words": [
+          "Stafie",
+          "Geist"
+        ],
+        "slug": "stafie-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_halloween_03_fantasma_ghost.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_halloween_03_fantasma_ghost.webp",
+        "words": [
+          "Fantasma",
+          "Ghost"
+        ],
+        "slug": "fantasma-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "halloween-04",
+    "category": "halloween",
+    "index": 4,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_halloween_04_spinne_spider.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_halloween_04_spinne_spider.webp",
+        "words": [
+          "Spider",
+          "Spinne"
+        ],
+        "slug": "spider-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_halloween_04_spinne_spider.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_halloween_04_spinne_spider.webp",
+        "words": [
+          "Spinne",
+          "Spider"
+        ],
+        "slug": "spinne-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_halloween_04_paianjen_spinne.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_halloween_04_paianjen_spinne.webp",
+        "words": [
+          "Păianjen",
+          "Spinne"
+        ],
+        "slug": "paianjen-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_halloween_04_arana_spider.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_halloween_04_arana_spider.webp",
+        "words": [
+          "Araña",
+          "Spider"
+        ],
+        "slug": "arana-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  },
+  {
+    "id": "halloween-05",
+    "category": "halloween",
+    "index": 5,
+    "locales": {
+      "en": {
+        "pdf": "/printables/flipandlearn_halloween_05_besen_broom.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_halloween_05_besen_broom.webp",
+        "words": [
+          "Broom",
+          "Besen"
+        ],
+        "slug": "broom-coloring-page",
+        "published": false,
+        "copy": ""
+      },
+      "de": {
+        "pdf": "/printables/flipandlearn_halloween_05_besen_broom.pdf",
+        "thumb": "/printables/thumbs/flipandlearn_halloween_05_besen_broom.webp",
+        "words": [
+          "Besen",
+          "Broom"
+        ],
+        "slug": "besen-ausmalbild",
+        "published": false,
+        "copy": ""
+      },
+      "ro": {
+        "pdf": "/printables/ro-de/flipandlearn_halloween_05_matura_besen.pdf",
+        "thumb": "/printables/ro-de/thumbs/flipandlearn_halloween_05_matura_besen.webp",
+        "words": [
+          "Mătură",
+          "Besen"
+        ],
+        "slug": "matura-fisa-de-colorat",
+        "published": false,
+        "copy": ""
+      },
+      "es": {
+        "pdf": "/printables/es-en/flipandlearn_halloween_05_escoba_broom.pdf",
+        "thumb": "/printables/es-en/thumbs/flipandlearn_halloween_05_escoba_broom.webp",
+        "words": [
+          "Escoba",
+          "Broom"
+        ],
+        "slug": "escoba-ficha-para-colorear",
+        "published": false,
+        "copy": ""
+      }
+    }
+  }
+]

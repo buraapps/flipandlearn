@@ -25,6 +25,7 @@ const { P, PW } = require('./privacy-strings.js');
 const { A } = require('./abc-strings.js');
 const { N } = require('./123-strings.js');
 const { F } = require('./family-strings.js');
+const { buildPublished: buildPublishedPrintables } = require('./build-printables.js');
 
 // ============================================================
 // Per-locale configuration
@@ -1509,6 +1510,11 @@ function main() {
     if (privacyOut !== privacy) fs.writeFileSync(app.privacy, privacyOut, 'utf8');
     console.log(`  ${privacyOut !== privacy ? 'wrote' : 'kept '} ${path.relative(ROOT, app.privacy)}  (robots: ${isLaunched(app) ? 'index,follow' : 'noindex'})`);
   }
+
+  // Per-sheet printable pages: only rows with published:true in printables/sheets.json, so
+  // published pages fall under the drift check. Their URLs are not in the sitemap yet: see
+  // printableSheetSitemapEntries() in build-printables.js.
+  console.log(`  printables: ${buildPublishedPrintables().length} published sheet page(s)`);
 
   const { xml: sitemap, added, touched, removed } = buildSitemap(existingLastmod, touch);
   fs.writeFileSync(sitemapPath, sitemap, 'utf8');
