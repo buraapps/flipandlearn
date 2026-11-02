@@ -1208,6 +1208,7 @@ ${privacyWebsiteXDefault}
     'ro/blog/aplicatii-gratuite-copii/',
     'de/blog/kostenlose-kinderspiele/',
     'de/blog/englisch-lernen-kinder/',
+    'de/blog/kinder-apps-ohne-werbung/',
     'hu/blog/ingyenes-gyerekjatekok/',
   ].map(slug => `  <url>
     <loc>${SITE}/${slug}</loc>
