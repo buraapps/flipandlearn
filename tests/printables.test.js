@@ -684,3 +684,34 @@ test('drift: node build-locales.js leaves git diff and status byte-identical', (
   execFileSync(process.execPath, ['build-locales.js'], { cwd: ROOT, stdio: 'ignore' });
   assert.equal(git('diff') + git('status', '--porcelain'), before);
 });
+
+test('every printables PDF carries a non-empty /Title and /Lang, reachable from the last trailer', () => {
+  // The artwork has no text layer, so the Info dictionary is the only on-document signal
+  // (Search Console shows "Untitled" without /Title). Trailer keys are not inherited through
+  // /Prev, so the LAST trailer (classic or xref stream) must itself point at /Info and /Root.
+  // Fix a failure with: python3 scripts/printables_metadata.py apply <pdf>
+  const pdfs = [];
+  const walk = (dir) => {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      const p = path.join(dir, e.name);
+      if (e.isDirectory()) walk(p);
+      else if (e.name.endsWith('.pdf')) pdfs.push(p);
+    }
+  };
+  walk(path.join(ROOT, 'printables'));
+  assert.ok(pdfs.length >= 105, `found only ${pdfs.length} PDFs`);
+  const nonEmpty = (key) => new RegExp(`/${key}\\s*(\\((?!\\))|<(?!>))`);
+  const problems = [];
+  for (const p of pdfs) {
+    const s = fs.readFileSync(p).toString('latin1');
+    const rel = path.relative(ROOT, p);
+    if (!nonEmpty('Title').test(s)) problems.push(`${rel}: no /Title`);
+    if (!nonEmpty('Lang').test(s)) problems.push(`${rel}: no /Lang`);
+    const last = Math.max(s.lastIndexOf('trailer'), s.lastIndexOf('/Type /XRef'));
+    const tail = s.slice(last, s.indexOf('startxref', last));
+    if (!/\/Info\s+\d+\s+\d+\s+R/.test(tail) || !/\/Root\s+\d+\s+\d+\s+R/.test(tail)) {
+      problems.push(`${rel}: last trailer lacks /Info or /Root`);
+    }
+  }
+  assert.deepEqual(problems, []);
+});
