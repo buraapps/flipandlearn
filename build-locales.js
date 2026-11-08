@@ -120,7 +120,7 @@ const APPLE_PROVIDER_TOKEN = '128736959';
 // isVisible(). Any homepage, nav or footer link to an app page must go through isVisible().
 const APPS = {
   abc: {
-    state: 'preview',
+    state: 'launched',
     name: 'Flip &amp; Learn ABC',          // as written in HTML (fallback alt text of the badges)
     segment: 'abc',                        // URL path segment: /abc/, /<loc>/abc/
     marker: 'ABC',                         // template markers: <!-- ABC:NAME --> … <!-- /ABC:NAME -->
@@ -155,6 +155,13 @@ const APPS = {
     // on a device set to that language; its alt text says the menus are in English.
     menuLocales: new Set(['en', 'de', 'es', 'fr', 'it', 'pt', 'ro', 'hu', 'tr', 'sl', 'nl', 'bg', 'uk', 'ru',
       'pl', 'cs', 'sk', 'hr']),
+    // schema.org MobileApplication block (<!-- ABC:JSONLD -->), filled only once launched.
+    // inLanguage: the seven languages the app speaks letters and words in (abc.hero.sub).
+    // An app without `jsonLd` has no marker and gets no block.
+    jsonLd: {
+      image: '/abc/og-image.png',          // 1200×630
+      inLanguage: ['en', 'de', 'es', 'fr', 'ro', 'hu', 'it'],
+    },
   },
   num: {
     state: 'preview',
@@ -967,17 +974,61 @@ ${items}
 // Hero call to action. Before launch: a plain status line (clock icon + "Coming
 // soon…"), not a link or button and not styled like one; no store links.
 // After launch: the store badges with the app's campaign tags, which the shared
-// store_click handler reads (ct= on Apple, utm_campaign= on Play).
+// store_click handler reads (ct= on Apple, utm_campaign= on Play). The tag is per
+// locale, `<app.campaign>-<locale.code>` (web-abc-de, web-abc-en for /abc/), so the
+// App Store Connect and Play Console campaign reports show the page's language.
 function appCta(app, locale) {
   if (!isLaunched(app)) {
     return `      <p class="soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="${app.keyPrefix}.hero.soon">Coming soon to the App Store and Google Play</span></p>`;
   }
-  const apple = `https://apps.apple.com/app/id${app.appStoreId}?pt=${APPLE_PROVIDER_TOKEN}&amp;ct=${app.campaign}&amp;mt=8`;
-  const play = `https://play.google.com/store/apps/details?id=${app.playPackage}&amp;referrer=utm_source%3Dflipandlearn.app%26utm_medium%3Dweb%26utm_campaign%3D${app.campaign}`;
+  const campaign = `${app.campaign}-${locale.code}`;
+  const apple = `https://apps.apple.com/app/id${app.appStoreId}?pt=${APPLE_PROVIDER_TOKEN}&amp;ct=${campaign}&amp;mt=8`;
+  const play = `https://play.google.com/store/apps/details?id=${app.playPackage}&amp;referrer=utm_source%3Dflipandlearn.app%26utm_medium%3Dweb%26utm_campaign%3D${campaign}`;
   return `      <div class="dl-badges">
         <a href="${apple}" target="_blank" rel="noopener"><img src="/badges/app-store-badge-${locale.code}.svg" alt="Download ${app.name} on the App Store" data-i18n-alt="${app.keyPrefix}.badge.apple" width="180" height="60"></a>
         <a href="${play}" target="_blank" rel="noopener"><img src="/badges/google-play-badge-${locale.code}.png" alt="Get ${app.name} on Google Play" data-i18n-alt="${app.keyPrefix}.badge.play" width="180" height="60" decoding="async"></a>
       </div>`;
+}
+
+// schema.org MobileApplication for an app page, per locale. Empty until the app is
+// launched, so no store URL is ever published before the store pages are live. Built
+// with JSON.stringify from an object, and "<" escaped as <, so no locale's text can
+// break the JSON or close the <script>. author is the same as in the Words homepage's
+// MobileApplication block (index.html). No rating, no audience, no age fields.
+function appJsonLd(app, url, descText) {
+  if (!isLaunched(app)) return '';
+  if (!fs.existsSync(path.join(ROOT, app.jsonLd.image))) {
+    throw new Error(`${app.segment}: JSON-LD image ${app.jsonLd.image} not found`);
+  }
+  const appStore = `https://apps.apple.com/app/id${app.appStoreId}`;
+  const play = `https://play.google.com/store/apps/details?id=${app.playPackage}`;
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'MobileApplication',
+    name: app.name.replace(/&amp;/g, '&'),
+    description: descText,
+    url,
+    image: `${SITE}${app.jsonLd.image}`,
+    operatingSystem: 'iOS, Android',
+    applicationCategory: 'EducationalApplication',
+    inLanguage: app.jsonLd.inLanguage,
+    installUrl: [appStore, play],
+    sameAs: [appStore, play],
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+    },
+    isAccessibleForFree: true,
+    author: {
+      '@type': 'Organization',
+      name: 'BuraApps',
+      url: 'https://flipandlearn.app',
+    },
+  };
+  const json = JSON.stringify(data, null, 2).replace(/</g, '\\u003c');
+  return `<script type="application/ld+json">\n${json}\n</script>`;
 }
 
 function rewriteAppHead(app, html, locale, dict) {
@@ -1000,6 +1051,7 @@ function rewriteAppHead(app, html, locale, dict) {
     .join('\n');
   html = fillAppMarker(app, html, 'HREFLANG',
     `<link rel="canonical" href="${url}">\n${alternates}\n<link rel="alternate" hreflang="x-default" href="${SITE}${appPath(app, en)}">`);
+  if (app.jsonLd) html = fillAppMarker(app, html, 'JSONLD', appJsonLd(app, url, descText));
 
   html = html.replace(/<meta property="og:title" content="[^"]*">/,
     () => `<meta property="og:title" content="${attrEscape(titleText)}">`);

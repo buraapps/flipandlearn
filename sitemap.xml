@@ -4792,6 +4792,1184 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://flipandlearn.app/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/de/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/fr/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/es/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/it/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/pt/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/ro/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/hu/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/pl/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/nl/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/ru/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/uk/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/bg/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/tr/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/cs/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/sk/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/hr/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/sl/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/el/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/sv/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/da/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/no/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/fi/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/lt/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/lv/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/et/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/sq/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/sr/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/ja/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/ko/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/ar/abc/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flipandlearn.app/abc/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flipandlearn.app/de/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flipandlearn.app/fr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flipandlearn.app/es/abc/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flipandlearn.app/it/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://flipandlearn.app/pt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://flipandlearn.app/ro/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://flipandlearn.app/hu/abc/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://flipandlearn.app/pl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flipandlearn.app/nl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://flipandlearn.app/ru/abc/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://flipandlearn.app/uk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://flipandlearn.app/bg/abc/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://flipandlearn.app/tr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://flipandlearn.app/cs/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://flipandlearn.app/sk/abc/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://flipandlearn.app/hr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sl" href="https://flipandlearn.app/sl/abc/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://flipandlearn.app/el/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://flipandlearn.app/sv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://flipandlearn.app/da/abc/"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://flipandlearn.app/no/abc/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://flipandlearn.app/fi/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://flipandlearn.app/lt/abc/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://flipandlearn.app/lv/abc/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://flipandlearn.app/et/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://flipandlearn.app/sq/abc/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://flipandlearn.app/sr/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://flipandlearn.app/ja/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://flipandlearn.app/ko/abc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/"/>
+  </url>
+  <url>
     <loc>https://flipandlearn.app/en/printables/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -5108,6 +6286,12 @@
   <url>
     <loc>https://flipandlearn.app/credits.html</loc>
     <lastmod>2026-09-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/abc/privacy.html</loc>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

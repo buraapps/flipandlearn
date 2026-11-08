@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Flip &amp; Learn ABC — Mëso alfabetin duke luajtur, në shtatë gjuhë</title>
 <meta name="description" content="Nëntë lojëra me shkronja për duar të vogla: mëso alfabetin në anglisht, gjermanisht, spanjisht, frëngjisht, rumanisht, hungarisht ose italisht. Falas — pa reklama, pa blerje brenda aplikacionit.">
-<meta name="robots" content="noindex">
+<meta name="robots" content="index,follow">
 <meta name="theme-color" content="#2A78C8">
 <!-- ABC:STORE_META -->
+<meta name="apple-itunes-app" content="app-id=6822385987">
 <!-- /ABC:STORE_META -->
 <link rel="icon" type="image/png" sizes="32x32" href="/abc/icon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/abc/icon-180.png">
@@ -48,6 +49,50 @@
 <link rel="alternate" hreflang="ar" href="https://flipandlearn.app/ar/abc/">
 <link rel="alternate" hreflang="x-default" href="https://flipandlearn.app/abc/">
 <!-- /ABC:HREFLANG -->
+<!-- schema.org MobileApplication: filled per locale by build-locales.js once the app is launched, empty before. -->
+<!-- ABC:JSONLD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Flip & Learn ABC",
+  "description": "Nëntë lojëra me shkronja për duar të vogla: mëso alfabetin në anglisht, gjermanisht, spanjisht, frëngjisht, rumanisht, hungarisht ose italisht. Falas — pa reklama, pa blerje brenda aplikacionit.",
+  "url": "https://flipandlearn.app/sq/abc/",
+  "image": "https://flipandlearn.app/abc/og-image.png",
+  "operatingSystem": "iOS, Android",
+  "applicationCategory": "EducationalApplication",
+  "inLanguage": [
+    "en",
+    "de",
+    "es",
+    "fr",
+    "ro",
+    "hu",
+    "it"
+  ],
+  "installUrl": [
+    "https://apps.apple.com/app/id6822385987",
+    "https://play.google.com/store/apps/details?id=com.buraapps.flipandlearnabc"
+  ],
+  "sameAs": [
+    "https://apps.apple.com/app/id6822385987",
+    "https://play.google.com/store/apps/details?id=com.buraapps.flipandlearnabc"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock"
+  },
+  "isAccessibleForFree": true,
+  "author": {
+    "@type": "Organization",
+    "name": "BuraApps",
+    "url": "https://flipandlearn.app"
+  }
+}
+</script>
+<!-- /ABC:JSONLD -->
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Flip &amp; Learn">
@@ -158,7 +203,7 @@ h1{font-size:clamp(36px,5vw,62px);line-height:1.05;font-weight:900;letter-spacin
 .soon svg{flex:none;inline-size:22px;block-size:22px}
 .dl-badges{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 .dl-badges a{display:inline-flex;border-radius:10px}
-.dl-badges img{display:block;inline-size:180px;height:auto}
+.dl-badges img{display:block;height:60px;inline-size:auto}
 .chips{display:flex;flex-wrap:wrap;gap:10px;font-size:15px;font-weight:800}
 .chips li{background:var(--white);color:var(--navy);border-radius:999px;padding-block:8px;padding-inline:14px}
 /* The four letter tiles sit on the OUTER corners of the phone, in space reserved for
@@ -466,7 +511,10 @@ body.rtl .cc-inner{direction:rtl}
       <h1 data-i18n="abc.hero.h1">Mëso alfabetin duke luajtur, në shtatë gjuhë.</h1>
       <p class="hero-sub" data-i18n="abc.hero.sub">Nëntë lojëra të vogla me shkronja për duar të vogla — gjej çiftet, shkruaj shkronjat me gisht, shpërthe balonat dhe ushqe Mo. Shkronjat dhe fjalët shqiptohen me zë në anglisht, gjermanisht, spanjisht, frëngjisht, rumanisht, hungarisht ose italisht.</p>
 <!-- ABC:CTA -->
-      <p class="soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="abc.hero.soon">Së shpejti në App Store dhe Google Play</span></p>
+      <div class="dl-badges">
+        <a href="https://apps.apple.com/app/id6822385987?pt=128736959&amp;ct=web-abc-sq&amp;mt=8" target="_blank" rel="noopener"><img src="/badges/app-store-badge-sq.svg" alt="Shkarko Flip &amp; Learn ABC nga App Store" data-i18n-alt="abc.badge.apple" width="180" height="60"></a>
+        <a href="https://play.google.com/store/apps/details?id=com.buraapps.flipandlearnabc&amp;referrer=utm_source%3Dflipandlearn.app%26utm_medium%3Dweb%26utm_campaign%3Dweb-abc-sq" target="_blank" rel="noopener"><img src="/badges/google-play-badge-sq.png" alt="Shkarko Flip &amp; Learn ABC nga Google Play" data-i18n-alt="abc.badge.play" width="180" height="60" decoding="async"></a>
+      </div>
 <!-- /ABC:CTA -->
       <ul class="chips">
         <li data-i18n="abc.chip.free">Falas</li>

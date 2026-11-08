@@ -102,7 +102,7 @@ its string table and its 31 locale pages, and each launches on its own.
 | Link ids, string keys | `abc…`, `abc.*` | `num…`, `num.*` |
 | Privacy page (hand-written, 7 languages) | `abc/privacy.html` | `123/privacy.html` |
 | Screenshots | `abc/shots/` | `123/shots/` |
-| Campaign tag | `web-abc` | `web-123` |
+| Campaign tag (per locale: `ct=` on Apple, `utm_campaign=` on Play) | `web-abc-<locale>` (`/abc/` → `web-abc-en`) | `web-123-<locale>` (`/123/` → `web-123-en`) |
 | App Store ID | `6822385987` | `6826912900` |
 | Google Play package | `com.buraapps.flipandlearnabc` | `com.buraapps.flipandlearn_numbers` |
 | Locales | all 31 | all 31 |
@@ -116,19 +116,19 @@ consent-gated Google Ads loader, the cookie banner (CSS, markup, controller), th
 picker. If any of those cannot be found in `index.html`, the build stops.
 
 The templates keep permanent marker pairs (`STORE_META`, `HREFLANG`, `CONSENT_HEAD`, `LANG`,
-`CTA`, `CONSENT_BODY`; `PRINTABLES_BEGIN` and `PRINTABLES_END` mark the block a locale without
-a printables hub loses). The build replaces what is between them. Never delete a marker:
+`CTA`, `CONSENT_BODY`, and on the ABC template `JSONLD`; `PRINTABLES_BEGIN` and `PRINTABLES_END`
+mark the block a locale without a printables hub loses). The build replaces what is between them. Never delete a marker:
 because a template is also the English output, a block that is empty in one state would
 otherwise be lost.
 
 `state` is each app's launch gate, one of three values (any other value stops the build).
-Both apps are at `preview` now:
+ABC is `launched` (since 2026-11-08, FLI-672); 123 is at `preview`:
 
 | `state` | Landing pages and privacy page | Store badges, `apple-itunes-app` meta | `sitemap.xml` | Family links to the app |
 |---|---|---|---|---|
 | `hidden` | `noindex`, "Coming soon" | none | not listed | none: no page on the site links to it |
 | `preview` | as `hidden` | none | not listed | shown |
-| `launched` | `index,follow` | badges with the app's `ct=` / `utm_campaign=` tag, and the meta | 31 landing pages plus the privacy page | shown |
+| `launched` | `index,follow` | badges with the app's per-locale `ct=` / `utm_campaign=` tag (`web-abc-de`), the meta, and the JSON-LD block on an app that has one (ABC) | 31 landing pages plus the privacy page | shown |
 
 `preview` deliberately links to the page of a not-yet-released app from live pages. This
 reverses the old rule "nothing may link to `/abc/` before launch"; the page itself stays
@@ -242,7 +242,27 @@ committed icon is ever used). If the app icon changes, re-export every one:
 |---|---|---|
 | `abc/app-icon-96.webp`, `abc/app-icon-144.webp` | header logo on every ABC page (2× and 3× of 48 px) | 96×96, 144×144 |
 | `abc/icon-32.png`, `abc/icon-180.png` | favicon and Apple touch icon of the ABC pages | 32×32, 180×180 |
-| `abc/og-image.png` | share image of the ABC pages (icon on the sky, name in Nunito) | 1200×630 |
+| `abc/og-image.png` | share image of the ABC pages (icon on the sky, name in Nunito), also the JSON-LD `image` | 1200×630 |
+
+### ABC: structured data (JSON-LD)
+
+Each ABC page carries one schema.org `MobileApplication` block between `<!-- ABC:JSONLD -->` and
+`<!-- /ABC:JSONLD -->` in the `<head>`, written by `appJsonLd()` from `rewriteAppHead()`.
+
+- Filled only while `APPS.abc.state` is `launched`. In `hidden` and `preview` the marker pair is
+  empty, so no store URL is published before the store pages are live.
+- Per locale: `description` is that locale's `abc.meta.desc`, `url` that page's canonical URL.
+  Shared: `name`, `image` (`/abc/og-image.png`, the build stops if it is missing),
+  `operatingSystem` "iOS, Android", `applicationCategory` EducationalApplication, `inLanguage`
+  (the seven spoken languages, `APPS.abc.jsonLd.inLanguage`), `installUrl` and `sameAs` (the two
+  plain store URLs, no campaign tag), one free `offers` entry (price 0, EUR), `isAccessibleForFree`,
+  and `author` exactly as in the Words homepage's `MobileApplication` (Organization BuraApps,
+  https://flipandlearn.app). No rating, no audience, no age fields (the ABC rule: no age claim).
+- Built with `JSON.stringify` from an object, `<` escaped as `<`, so no locale's text can break
+  the JSON or close the `<script>`.
+- Only an app with a `jsonLd` entry in `APPS` gets the block (123 has none, so its template needs
+  no marker). Check: the JSON-LD lines in step 4 of Runbook 1, then paste one page into the
+  Rich Results Test (https://search.google.com/test/rich-results).
 
 ### ABC: intro clip (carousel page 3)
 
@@ -336,7 +356,11 @@ Run in `/Volumes/Data/BuraApps/web`, from a tree with no change to any generated
    grep -l 'class="soon"' abc/index.html */abc/index.html | wc -l         # 0
    grep -l 'ct=web-abc' abc/index.html */abc/index.html | wc -l            # 31
    grep -l 'utm_campaign%3Dweb-abc' abc/index.html */abc/index.html | wc -l   # 31
+   # each page carries its own locale's tag (web-abc-de on /de/abc/, web-abc-en on /abc/):
+   for f in abc/index.html */abc/index.html; do l=${f%/index.html}; l=${l%/abc}; [ "$l" = abc ] && l=en; grep -q "ct=web-abc-$l&amp;" "$f" && grep -q "utm_campaign%3Dweb-abc-$l\"" "$f" || echo "BAD $f"; done   # no output
    grep -l 'apple-itunes-app" content="app-id=6822385987"' abc/index.html */abc/index.html | wc -l  # 31
+   grep -l 'application/ld+json' abc/index.html */abc/index.html | wc -l  # 31: JSON-LD on every page
+   node -e 'const fs=require("fs");let n=0;for(const f of process.argv.slice(1)){const m=/<!-- ABC:JSONLD -->\n<script type="application\/ld\+json">\n([\s\S]*?)\n<\/script>/.exec(fs.readFileSync(f,"utf8"));JSON.parse(m[1]);n++}console.log(n)' abc/index.html */abc/index.html   # 31: every block parses
    grep -o 'name="robots" content="[^"]*"' abc/privacy.html                # index,follow
    git diff sitemap.xml | grep -c '^+    <loc>'                             # 32
    git diff sitemap.xml | grep -c '^+    <loc>.*/abc/'                        # 32
@@ -350,7 +374,8 @@ Run in `/Volumes/Data/BuraApps/web`, from a tree with no change to any generated
    still show):
    ```bash
    curl -s https://flipandlearn.app/abc/ | grep -c 'content="noindex'        # 0
-   curl -s https://flipandlearn.app/de/abc/ | grep -c 'ct=web-abc'            # 1 or more
+   curl -s https://flipandlearn.app/de/abc/ | grep -c 'ct=web-abc-de&amp;'    # 1
+   curl -s https://flipandlearn.app/de/abc/ | grep -c 'application/ld+json'   # 1
    curl -s https://flipandlearn.app/abc/privacy.html | grep -o 'name="robots" content="[^"]*"'  # index,follow
    curl -s https://flipandlearn.app/sitemap.xml | grep -c '<loc>[^<]*/abc/'   # 32
    curl -sI "https://apps.apple.com/app/id6822385987" | head -1                # 200
