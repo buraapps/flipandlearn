@@ -69,7 +69,7 @@ const LOCALES = [
 // Locales that have a blog index at /{code}/blog/. Every other locale must NOT
 // render the footer blog link — it would point at a 404. Keep this in sync with
 // the blogIndexUrls array in buildSitemap().
-const BLOG_INDEX_LOCALES = new Set(['en', 'de', 'ro', 'hu']);
+const BLOG_INDEX_LOCALES = new Set(['en', 'de', 'ro', 'hu', 'es']);
 
 // Locales that have a printables hub. Unlike the blog, the hubs do NOT share a
 // uniform slug (/en/printables/, /de/ausmalbilder/, /ro/fise-de-colorat/, /es/fichas-para-colorear/), so the path cannot be derived
@@ -1262,6 +1262,7 @@ ${privacyWebsiteXDefault}
     'de/blog/englisch-lernen-kinder/',
     'de/blog/kinder-apps-ohne-werbung/',
     'hu/blog/ingyenes-gyerekjatekok/',
+    'es/blog/apps-gratis-para-ninos/',
   ].map(slug => `  <url>
     <loc>${SITE}/${slug}</loc>
     <lastmod>${today}</lastmod>
@@ -1277,6 +1278,7 @@ ${privacyWebsiteXDefault}
     'de/blog/',
     'ro/blog/',
     'hu/blog/',
+    'es/blog/',
   ].map(slug => `  <url>
     <loc>${SITE}/${slug}</loc>
     <lastmod>${today}</lastmod>

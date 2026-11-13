@@ -4756,6 +4756,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://flipandlearn.app/es/blog/apps-gratis-para-ninos/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://flipandlearn.app/en/blog/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -4776,6 +4782,12 @@
   <url>
     <loc>https://flipandlearn.app/hu/blog/</loc>
     <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flipandlearn.app/es/blog/</loc>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
