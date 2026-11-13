@@ -13,10 +13,10 @@ const { S } = require('../printables-strings.js');
 const registry = () => P.loadRegistry(ROOT);
 const tmp = () => fs.mkdtempSync(path.join(os.tmpdir(), 'printables-'));
 const APP_TITLES = {
-  en: 'Flip & Learn: Word Card Game',
-  de: 'Flip & Learn: Wortkartenspiel',
-  ro: 'Flip & Learn: Joc de cuvinte',
-  es: 'Flip & Learn: Juego de cartas',
+  en: 'Flip & Learn: Kids Vocabulary',
+  de: 'Flip & Learn: Kinder-Vokabeln',
+  ro: 'Flip & Learn: Vocabular copii',
+  es: 'Flip & Learn: Vocabulario',
 };
 const PILOT_CATEGORIES = ['animals', 'numbers'];
 const PILOT_LOCALES = ['en', 'de'];

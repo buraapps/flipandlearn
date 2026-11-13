@@ -574,7 +574,7 @@ function stripFamily(html) {
 function familyAnchors(host) {
   if (!host) return FAMILY_ANCHORS;
   return {
-    nav: `\n        <a href="#words" data-i18n="${host.keyPrefix}.nav.words">Flip &amp; Learn: Word Card Game</a>`,
+    nav: `\n        <a href="#words" data-i18n="${host.keyPrefix}.nav.words">Flip &amp; Learn: Kids Vocabulary</a>`,
     card: `\n<!-- ${host.marker}:PRINTABLES_BEGIN -->`,
     foot: `\n      <a href="/${host.segment}/privacy.html" data-i18n="${host.keyPrefix}.foot.privacy"`,
     css: '\n</head>',

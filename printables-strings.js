@@ -25,7 +25,7 @@
 const S = {
   en: {
     ogLocale: 'en_US',
-    appName: 'Flip & Learn: Word Card Game',
+    appName: 'Flip & Learn: Kids Vocabulary',
     numberPrefix: 'Number',
     title: '{subject} Coloring Page and Letter Tracing Worksheet (PDF) | Flip & Learn',
     h1: '{subject} coloring page with letter tracing',
@@ -50,7 +50,7 @@ const S = {
   },
   de: {
     ogLocale: 'de_DE',
-    appName: 'Flip & Learn: Wortkartenspiel',
+    appName: 'Flip & Learn: Kinder-Vokabeln',
     numberPrefix: 'Zahl',
     title: '{subject} Ausmalbild mit Schreibübung (PDF) | Flip & Learn',
     h1: '{subject}: Ausmalbild mit Schreibübung',
@@ -75,7 +75,7 @@ const S = {
   },
   ro: {
     ogLocale: 'ro_RO',
-    appName: 'Flip & Learn: Joc de cuvinte',
+    appName: 'Flip & Learn: Vocabular copii',
     numberPrefix: 'Numărul',
     title: '{subject}: fișă de colorat cu exercițiu de scriere (PDF) | Flip & Learn',
     h1: '{subject}: fișă de colorat cu exercițiu de scriere',
@@ -100,7 +100,7 @@ const S = {
   },
   es: {
     ogLocale: 'es_ES',
-    appName: 'Flip & Learn: Juego de cartas',
+    appName: 'Flip & Learn: Vocabulario',
     numberPrefix: 'Número',
     title: '{subject}: ficha para colorear y escribir (PDF) | Flip & Learn',
     h1: '{subject}: ficha para colorear y escribir',

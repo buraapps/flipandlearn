@@ -150,10 +150,12 @@ extra key stops the build and is named in the error.
 Naming rule for the Words app on the app pages: always its Google Play title in the page's
 language, verbatim, from the Flutter repo
 (`flipandlearn_flutter/android/fastlane/metadata/android/<locale>/title.txt`), for
-example en "Flip & Learn: Word Card Game", hu "Flip & Learn: Szókártyajáték", ro
-"Flip & Learn: Joc de cuvinte". Where Play has no localized title, use the English
+example en "Flip & Learn: Kids Vocabulary", hu "Flip & Learn: Gyerek szókincs", ro
+"Flip & Learn: Vocabular copii". Where Play has no localized title, use the English
 title. The name is never inflected, shortened or translated; the sentence is built
-around it. "Flip & Learn", "Flip & Learn ABC", "Flip & Learn 123", "ABC", "123" and "Mo" stay
+around it. Where a sentence needs a case the title cannot take, a classifier noun carries
+it and the title stays nominative ("Aplikace Flip & Learn: Dětská slovíčka je …",
+"Flip & Learn: Çocuk Kelimeleri uygulamasını keşfet"). "Flip & Learn", "Flip & Learn ABC", "Flip & Learn 123", "ABC", "123" and "Mo" stay
 untranslated.
 
 Hero screenshots: a locale in the app's `menuLocales` needs its own
