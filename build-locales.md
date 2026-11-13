@@ -207,6 +207,15 @@ The header nav gets one link:
 The nav link shows from 1200px on the homepages and from 1024px on the app pages. Below
 those widths the longest locales no longer fit the nav on one row.
 
+Language switcher: on the homepages (the only pages with the client-side `setLang()`) every
+family string carries its `family.*` key as `data-i18n`, and the page script ships all of F
+as `const FAM={…}`, merged into `T` before `setLang()` first runs (block
+`/* FAMILY:I18N */ … /* /FAMILY:I18N */`, stripped like the other family blocks). All of F,
+not the keys a page emits today: which keys appear depends on how many siblings are visible,
+and `setLang()` silently skips a missing key. The build stops if a homepage emits a family
+`data-i18n` key that the shipped table lacks for any locale. Hrefs are not switched: links keep
+the page's own locale. The app pages navigate instead of switching and get no keys.
+
 | Words homepage | ABC page | 123 page |
 |---|---|---|
 | both visible: "More apps", 2 cards, 2 footer links | 123 visible: link, card, footer link to 123 | ABC visible: link, card, footer link to ABC |

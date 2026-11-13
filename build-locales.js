@@ -564,10 +564,42 @@ const FAMILY_ANCHORS = {
   card: '\n<section id="support">',
   foot: '\n    <a href="#" id="cookiePrefs"',
   css: '\n</head>',
+  // Homepage only: the client-side copy of F goes into the page script, before setLang()
+  // and the first-load call to it, so setLang() can rewrite the family strings.
+  i18n: '\nfunction setLang(l){',
 };
 
 function stripFamily(html) {
-  return html.replace(/\n[ \t]*<!-- FAMILY:([A-Z]+) -->[\s\S]*?<!-- \/FAMILY:\1 -->/g, '');
+  return html
+    .replace(/\n[ \t]*<!-- FAMILY:([A-Z0-9]+) -->[\s\S]*?<!-- \/FAMILY:\1 -->/g, '')
+    // The client table sits inside a <script>, so its markers are JS comments.
+    .replace(/\n\/\* FAMILY:([A-Z0-9]+) \*\/[\s\S]*?\/\* \/FAMILY:\1 \*\//g, '');
+}
+
+// The family strings for the homepage's client-side switcher: ALL of F (every key, every
+// locale), not just the keys this page emits today. Which keys a page emits depends on how
+// many siblings are visible (family.more vs family.nav), and setLang() silently skips a key
+// that is missing from T, so a subset would break without an error the day that changes.
+// '<' is escaped so no string can close the <script>.
+function familyClientTable() {
+  const json = s => JSON.stringify(s).replace(/</g, '\\u003c');
+  const rows = Object.keys(F).map(code =>
+    `${code}:{${Object.entries(F[code]).map(([k, v]) => `${json(k)}:${json(v)}`).join(',')}}`);
+  return `const FAM={${rows.join(',\n')}};\nfor(const l in FAM)if(T[l])Object.assign(T[l],FAM[l]);`;
+}
+
+// Build-time guard for the switcher: every family data-i18n key in an emitted homepage must
+// exist, as a string, in the shipped table for every locale, or setLang() would leave that
+// string in the page's language without any error.
+function checkFamilyKeys(html, file) {
+  const keys = [...new Set([...html.matchAll(/data-i18n="(family\.[^"]+)"/g)].map(m => m[1]))];
+  const table = Function(`'use strict';const T={};${familyClientTable()};return FAM;`)();
+  for (const k of keys) for (const l of LOCALES) {
+    if (typeof (table[l.code] || {})[k] !== 'string') {
+      throw new Error(`${file}: family key "${k}" is emitted with data-i18n but missing from the shipped client table for locale "${l.code}"`);
+    }
+  }
+  return keys.length;
 }
 
 // The same four anchors on an app's page, from the template shared by every app page.
@@ -641,6 +673,9 @@ function applyFamily(html, locale, host = null) {
   const en = LOCALES.find(l => l.isDefault);
   const hrefOf = app => appPath(app, app.locales.has(locale.code) ? locale : en);
   const str = (app, key) => f[`${app.family.keys}.${key}`];
+  // data-i18n only on the Words homepage, the one page with a client-side switcher.
+  const k = key => (host ? '' : ` data-i18n="${key}"`);
+  const kk = (app, key) => k(`${app.family.keys}.${key}`);
   const cards = siblings.map((app, i) => {
     const titleId = i === 0 ? 'famTitle' : `famTitle-${app.segment}`;
     const tiles = app.family.tiles.map(([t]) => `<span>${t}</span>`).join('');
@@ -648,12 +683,12 @@ function applyFamily(html, locale, host = null) {
   <div class="fam-card fam-card-${app.segment}">
     <img class="fam-icon" src="/${app.segment}/app-icon-144.webp" srcset="/${app.segment}/app-icon-96.webp 1.3x, /${app.segment}/app-icon-144.webp 2x" alt="" width="72" height="72" loading="lazy" decoding="async">
     <div class="fam-body">
-      <p class="fam-eyebrow"><span>${e(f['family.eyebrow'])}</span><span class="fam-new">${e(f['family.new'])}</span></p>
+      <p class="fam-eyebrow"><span${k('family.eyebrow')}>${e(f['family.eyebrow'])}</span><span class="fam-new"${k('family.new')}>${e(f['family.new'])}</span></p>
       <h2 class="fam-title" id="${titleId}">${app.name}<span class="fam-tiles" aria-hidden="true" dir="ltr">${tiles}</span></h2>
-      <p class="fam-text">${e(str(app, 'text'))}</p>
-      <p class="fam-facts">${e(str(app, 'facts'))}</p>
+      <p class="fam-text"${kk(app, 'text')}>${e(str(app, 'text'))}</p>
+      <p class="fam-facts"${kk(app, 'facts')}>${e(str(app, 'facts'))}</p>
     </div>
-    <a class="fam-btn" href="${hrefOf(app)}">${e(str(app, 'cta'))}</a>
+    <a class="fam-btn" href="${hrefOf(app)}"${kk(app, 'cta')}>${e(str(app, 'cta'))}</a>
   </div>
 </section>`;
   }).join('\n');
@@ -663,13 +698,14 @@ ${cards}
 </div>
 `;
   const nav = siblings.length > 1
-    ? `<a class="fam-navlink" href="#${FAMILY_REGION_ID}">${e(f['family.more'])}</a>`
-    : `<a class="fam-navlink" href="${hrefOf(siblings[0])}">${e(str(siblings[0], 'nav'))}</a>`;
-  const foot = siblings.map(app => `<a href="${hrefOf(app)}">${e(str(app, 'foot'))}</a>`).join(' ');
+    ? `<a class="fam-navlink" href="#${FAMILY_REGION_ID}"${k('family.more')}>${e(f['family.more'])}</a>`
+    : `<a class="fam-navlink" href="${hrefOf(siblings[0])}"${kk(siblings[0], 'nav')}>${e(str(siblings[0], 'nav'))}</a>`;
+  const foot = siblings.map(app => `<a href="${hrefOf(app)}"${kk(app, 'foot')}>${e(str(app, 'foot'))}</a>`).join(' ');
   html = html.replace(anchors.css, () => familyBlock('CSS', familyCss(siblings, host)) + anchors.css);
   html = html.replace(anchors.nav, () => anchors.nav + familyBlock('NAV', nav, '    '));
   html = html.replace(anchors.card, () => familyBlock('CARD', card) + anchors.card);
   html = html.replace(anchors.foot, () => familyBlock('FOOT', foot, '    ') + anchors.foot);
+  if (!host) html = html.replace(anchors.i18n, () => `\n/* FAMILY:I18N */\n${familyClientTable()}\n/* /FAMILY:I18N */` + anchors.i18n);
   return html;
 }
 
@@ -677,6 +713,7 @@ function buildLocale(sourceHtml, locale, T, M) {
   // First, while the anchors are still the English template text; the family
   // markup has no data-i18n, so the steps below leave it alone.
   let html = applyFamily(sourceHtml, locale);
+  checkFamilyKeys(html, locale.path);
   html = rewriteHtmlTag(html, locale);
   html = rewriteBodyTag(html, locale);
   html = rewriteHead(html, locale, T, M);
